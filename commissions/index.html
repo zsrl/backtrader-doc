@@ -1,0 +1,1205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.commissions API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.commissions</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+from ..comminfo import CommInfoBase
+
+
+class CommInfo(CommInfoBase):
+    pass  # clone of CommissionInfo but with xx% instead of 0.xx
+
+
+class CommInfo_Futures(CommInfoBase):
+    params = (
+        (&#39;stocklike&#39;, False),
+    )
+
+
+class CommInfo_Futures_Perc(CommInfo_Futures):
+    params = (
+        (&#39;commtype&#39;, CommInfoBase.COMM_PERC),
+    )
+
+
+class CommInfo_Futures_Fixed(CommInfo_Futures):
+    params = (
+        (&#39;commtype&#39;, CommInfoBase.COMM_FIXED),
+    )
+
+
+class CommInfo_Stocks(CommInfoBase):
+    params = (
+        (&#39;stocklike&#39;, True),
+    )
+
+
+class CommInfo_Stocks_Perc(CommInfo_Stocks):
+    params = (
+        (&#39;commtype&#39;, CommInfoBase.COMM_PERC),
+    )
+
+
+class CommInfo_Stocks_Fixed(CommInfo_Stocks):
+    params = (
+        (&#39;commtype&#39;, CommInfoBase.COMM_FIXED),
+    )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.commissions.CommInfo"><code class="flex name class">
+<span>class <span class="ident">CommInfo</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base Class for the Commission Schemes.</p>
+<h2 id="params">Params</h2>
+<ul>
+<li>
+<p><code>commission</code> (def: <code>0.0</code>): base commission value in percentage or
+monetary units</p>
+</li>
+<li>
+<p><code>mult</code> (def <code>1.0</code>): multiplier applied to the asset for
+value/profit</p>
+</li>
+<li>
+<p><code>margin</code> (def: <code>None</code>): amount of monetary units needed to
+open/hold an operation. It only applies if the final <code>_stocklike</code>
+attribute in the class is set to <code>False</code></p>
+</li>
+<li>
+<p><code>automargin</code> (def: <code>False</code>): Used by the method <code>get_margin</code>
+to automatically calculate the margin/guarantees needed with the
+following policy</p>
+<ul>
+<li>
+<p>Use param <code>margin</code> if param <code>automargin</code> evaluates to <code>False</code></p>
+</li>
+<li>
+<p>Use param <code>mult</code> * <code>price</code> if <code>automargin &lt; 0</code></p>
+</li>
+<li>
+<p>Use param <code>automargin</code> * <code>price</code> if <code>automargin &gt; 0</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>commtype</code> (def: <code>None</code>): Supported values are
+<code>CommInfoBase.COMM_PERC</code> (commission to be understood as %) and
+<code>CommInfoBase.COMM_FIXED</code> (commission to be understood as monetary
+units)</p>
+</li>
+</ul>
+<p>The default value of <code>None</code> is a supported value to retain
+compatibility with the legacy <code>CommissionInfo</code> object. If
+<code>commtype</code> is set to None, then the following applies:</p>
+<pre><code>- &lt;code&gt;margin&lt;/code&gt; is &lt;code&gt;None&lt;/code&gt;: Internal &lt;code&gt;\_commtype&lt;/code&gt; is set to
+  &lt;code&gt;COMM\_PERC&lt;/code&gt; and &lt;code&gt;\_stocklike&lt;/code&gt; is set to &lt;code&gt;True&lt;/code&gt; (Operating
+  %-wise with Stocks)
+
+- &lt;code&gt;margin&lt;/code&gt; is not &lt;code&gt;None&lt;/code&gt;: &lt;code&gt;\_commtype&lt;/code&gt; set to &lt;code&gt;COMM\_FIXED&lt;/code&gt; and
+  &lt;code&gt;\_stocklike&lt;/code&gt; set to &lt;code&gt;False&lt;/code&gt; (Operating with fixed rount-trip
+  commission with Futures)
+</code></pre>
+<p>If this param is set to something else than <code>None</code>, then it will be
+passed to the internal <code>_commtype</code> attribute and the same will be
+done with the param <code>stocklike</code> and the internal attribute
+<code>_stocklike</code></p>
+<ul>
+<li>
+<p><code>stocklike</code> (def: <code>False</code>): Indicates if the instrument is
+Stock-like or Futures-like (see the <code>commtype</code> discussion above)</p>
+</li>
+<li>
+<p><code>percabs</code> (def: <code>False</code>): when <code>commtype</code> is set to COMM_PERC,
+whether the parameter <code>commission</code> has to be understood as XX% or
+0.XX</p>
+</li>
+</ul>
+<p>If this param is <code>True</code>: 0.XX
+If this param is <code>False</code>: XX%</p>
+<ul>
+<li><code>interest</code> (def: <code>0.0</code>)</li>
+</ul>
+<p>If this is non-zero, this is the yearly interest charged for holding a
+short selling position. This is mostly meant for stock short-selling</p>
+<p>The formula: <code>days * price * abs(size) * (interest / 365)</code></p>
+<p>It must be specified in absolute terms: 0.05 -&gt; 5%</p>
+<p>!!! note "Note:&ensp;the behavior can be changed by overriding the method:"
+<code>_get_credit_interest</code></p>
+<ul>
+<li><code>interest_long</code> (def: <code>False</code>)</li>
+</ul>
+<p>Some products like ETFs get charged on interest for short and long
+positions. If ths is <code>True</code> and <code>interest</code> is non-zero the interest
+will be charged on both directions</p>
+<ul>
+<li><code>leverage</code> (def: <code>1.0</code>)</li>
+</ul>
+<p>Amount of leverage for the asset with regards to the needed cash</p>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>_stocklike</code>: Final value to use for Stock-like/Futures-like behavior</li>
+<li><code>_commtype</code>: Final value to use for PERC vs FIXED commissions</li>
+</ul>
+<p>This two are used internally instead of the declared params to enable the
+compatibility check described above for the legacy <code>CommissionInfo</code>
+object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CommInfo(CommInfoBase):
+    pass  # clone of CommissionInfo but with xx% instead of 0.xx</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.commissions.CommInfo.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.comminfo.CommInfoBase.cashadjust" href="../comminfo.html#backtrader.comminfo.CommInfoBase.cashadjust">cashadjust</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_credit_interest" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_credit_interest">get_credit_interest</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_leverage" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_leverage">get_leverage</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_margin" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_margin">get_margin</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getcommission" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getcommission">getcommission</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getoperationcost" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getoperationcost">getoperationcost</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getsize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getsize">getsize</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getvalue" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getvaluesize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvaluesize">getvaluesize</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.profitandloss" href="../comminfo.html#backtrader.comminfo.CommInfoBase.profitandloss">profitandloss</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Futures"><code class="flex name class">
+<span>class <span class="ident">CommInfo_Futures</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base Class for the Commission Schemes.</p>
+<h2 id="params">Params</h2>
+<ul>
+<li>
+<p><code>commission</code> (def: <code>0.0</code>): base commission value in percentage or
+monetary units</p>
+</li>
+<li>
+<p><code>mult</code> (def <code>1.0</code>): multiplier applied to the asset for
+value/profit</p>
+</li>
+<li>
+<p><code>margin</code> (def: <code>None</code>): amount of monetary units needed to
+open/hold an operation. It only applies if the final <code>_stocklike</code>
+attribute in the class is set to <code>False</code></p>
+</li>
+<li>
+<p><code>automargin</code> (def: <code>False</code>): Used by the method <code>get_margin</code>
+to automatically calculate the margin/guarantees needed with the
+following policy</p>
+<ul>
+<li>
+<p>Use param <code>margin</code> if param <code>automargin</code> evaluates to <code>False</code></p>
+</li>
+<li>
+<p>Use param <code>mult</code> * <code>price</code> if <code>automargin &lt; 0</code></p>
+</li>
+<li>
+<p>Use param <code>automargin</code> * <code>price</code> if <code>automargin &gt; 0</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>commtype</code> (def: <code>None</code>): Supported values are
+<code>CommInfoBase.COMM_PERC</code> (commission to be understood as %) and
+<code>CommInfoBase.COMM_FIXED</code> (commission to be understood as monetary
+units)</p>
+</li>
+</ul>
+<p>The default value of <code>None</code> is a supported value to retain
+compatibility with the legacy <code>CommissionInfo</code> object. If
+<code>commtype</code> is set to None, then the following applies:</p>
+<pre><code>- &lt;code&gt;margin&lt;/code&gt; is &lt;code&gt;None&lt;/code&gt;: Internal &lt;code&gt;\_commtype&lt;/code&gt; is set to
+  &lt;code&gt;COMM\_PERC&lt;/code&gt; and &lt;code&gt;\_stocklike&lt;/code&gt; is set to &lt;code&gt;True&lt;/code&gt; (Operating
+  %-wise with Stocks)
+
+- &lt;code&gt;margin&lt;/code&gt; is not &lt;code&gt;None&lt;/code&gt;: &lt;code&gt;\_commtype&lt;/code&gt; set to &lt;code&gt;COMM\_FIXED&lt;/code&gt; and
+  &lt;code&gt;\_stocklike&lt;/code&gt; set to &lt;code&gt;False&lt;/code&gt; (Operating with fixed rount-trip
+  commission with Futures)
+</code></pre>
+<p>If this param is set to something else than <code>None</code>, then it will be
+passed to the internal <code>_commtype</code> attribute and the same will be
+done with the param <code>stocklike</code> and the internal attribute
+<code>_stocklike</code></p>
+<ul>
+<li>
+<p><code>stocklike</code> (def: <code>False</code>): Indicates if the instrument is
+Stock-like or Futures-like (see the <code>commtype</code> discussion above)</p>
+</li>
+<li>
+<p><code>percabs</code> (def: <code>False</code>): when <code>commtype</code> is set to COMM_PERC,
+whether the parameter <code>commission</code> has to be understood as XX% or
+0.XX</p>
+</li>
+</ul>
+<p>If this param is <code>True</code>: 0.XX
+If this param is <code>False</code>: XX%</p>
+<ul>
+<li><code>interest</code> (def: <code>0.0</code>)</li>
+</ul>
+<p>If this is non-zero, this is the yearly interest charged for holding a
+short selling position. This is mostly meant for stock short-selling</p>
+<p>The formula: <code>days * price * abs(size) * (interest / 365)</code></p>
+<p>It must be specified in absolute terms: 0.05 -&gt; 5%</p>
+<p>!!! note "Note:&ensp;the behavior can be changed by overriding the method:"
+<code>_get_credit_interest</code></p>
+<ul>
+<li><code>interest_long</code> (def: <code>False</code>)</li>
+</ul>
+<p>Some products like ETFs get charged on interest for short and long
+positions. If ths is <code>True</code> and <code>interest</code> is non-zero the interest
+will be charged on both directions</p>
+<ul>
+<li><code>leverage</code> (def: <code>1.0</code>)</li>
+</ul>
+<p>Amount of leverage for the asset with regards to the needed cash</p>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>_stocklike</code>: Final value to use for Stock-like/Futures-like behavior</li>
+<li><code>_commtype</code>: Final value to use for PERC vs FIXED commissions</li>
+</ul>
+<p>This two are used internally instead of the declared params to enable the
+compatibility check described above for the legacy <code>CommissionInfo</code>
+object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CommInfo_Futures(CommInfoBase):
+    params = (
+        (&#39;stocklike&#39;, False),
+    )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.commissions.CommInfo_Futures_Fixed" href="#backtrader.commissions.CommInfo_Futures_Fixed">CommInfo_Futures_Fixed</a></li>
+<li><a title="backtrader.commissions.CommInfo_Futures_Perc" href="#backtrader.commissions.CommInfo_Futures_Perc">CommInfo_Futures_Perc</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.commissions.CommInfo_Futures.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Futures.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Futures.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.comminfo.CommInfoBase.cashadjust" href="../comminfo.html#backtrader.comminfo.CommInfoBase.cashadjust">cashadjust</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_credit_interest" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_credit_interest">get_credit_interest</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_leverage" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_leverage">get_leverage</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_margin" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_margin">get_margin</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getcommission" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getcommission">getcommission</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getoperationcost" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getoperationcost">getoperationcost</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getsize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getsize">getsize</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getvalue" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getvaluesize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvaluesize">getvaluesize</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.profitandloss" href="../comminfo.html#backtrader.comminfo.CommInfoBase.profitandloss">profitandloss</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Futures_Fixed"><code class="flex name class">
+<span>class <span class="ident">CommInfo_Futures_Fixed</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base Class for the Commission Schemes.</p>
+<h2 id="params">Params</h2>
+<ul>
+<li>
+<p><code>commission</code> (def: <code>0.0</code>): base commission value in percentage or
+monetary units</p>
+</li>
+<li>
+<p><code>mult</code> (def <code>1.0</code>): multiplier applied to the asset for
+value/profit</p>
+</li>
+<li>
+<p><code>margin</code> (def: <code>None</code>): amount of monetary units needed to
+open/hold an operation. It only applies if the final <code>_stocklike</code>
+attribute in the class is set to <code>False</code></p>
+</li>
+<li>
+<p><code>automargin</code> (def: <code>False</code>): Used by the method <code>get_margin</code>
+to automatically calculate the margin/guarantees needed with the
+following policy</p>
+<ul>
+<li>
+<p>Use param <code>margin</code> if param <code>automargin</code> evaluates to <code>False</code></p>
+</li>
+<li>
+<p>Use param <code>mult</code> * <code>price</code> if <code>automargin &lt; 0</code></p>
+</li>
+<li>
+<p>Use param <code>automargin</code> * <code>price</code> if <code>automargin &gt; 0</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>commtype</code> (def: <code>None</code>): Supported values are
+<code>CommInfoBase.COMM_PERC</code> (commission to be understood as %) and
+<code>CommInfoBase.COMM_FIXED</code> (commission to be understood as monetary
+units)</p>
+</li>
+</ul>
+<p>The default value of <code>None</code> is a supported value to retain
+compatibility with the legacy <code>CommissionInfo</code> object. If
+<code>commtype</code> is set to None, then the following applies:</p>
+<pre><code>- &lt;code&gt;margin&lt;/code&gt; is &lt;code&gt;None&lt;/code&gt;: Internal &lt;code&gt;\_commtype&lt;/code&gt; is set to
+  &lt;code&gt;COMM\_PERC&lt;/code&gt; and &lt;code&gt;\_stocklike&lt;/code&gt; is set to &lt;code&gt;True&lt;/code&gt; (Operating
+  %-wise with Stocks)
+
+- &lt;code&gt;margin&lt;/code&gt; is not &lt;code&gt;None&lt;/code&gt;: &lt;code&gt;\_commtype&lt;/code&gt; set to &lt;code&gt;COMM\_FIXED&lt;/code&gt; and
+  &lt;code&gt;\_stocklike&lt;/code&gt; set to &lt;code&gt;False&lt;/code&gt; (Operating with fixed rount-trip
+  commission with Futures)
+</code></pre>
+<p>If this param is set to something else than <code>None</code>, then it will be
+passed to the internal <code>_commtype</code> attribute and the same will be
+done with the param <code>stocklike</code> and the internal attribute
+<code>_stocklike</code></p>
+<ul>
+<li>
+<p><code>stocklike</code> (def: <code>False</code>): Indicates if the instrument is
+Stock-like or Futures-like (see the <code>commtype</code> discussion above)</p>
+</li>
+<li>
+<p><code>percabs</code> (def: <code>False</code>): when <code>commtype</code> is set to COMM_PERC,
+whether the parameter <code>commission</code> has to be understood as XX% or
+0.XX</p>
+</li>
+</ul>
+<p>If this param is <code>True</code>: 0.XX
+If this param is <code>False</code>: XX%</p>
+<ul>
+<li><code>interest</code> (def: <code>0.0</code>)</li>
+</ul>
+<p>If this is non-zero, this is the yearly interest charged for holding a
+short selling position. This is mostly meant for stock short-selling</p>
+<p>The formula: <code>days * price * abs(size) * (interest / 365)</code></p>
+<p>It must be specified in absolute terms: 0.05 -&gt; 5%</p>
+<p>!!! note "Note:&ensp;the behavior can be changed by overriding the method:"
+<code>_get_credit_interest</code></p>
+<ul>
+<li><code>interest_long</code> (def: <code>False</code>)</li>
+</ul>
+<p>Some products like ETFs get charged on interest for short and long
+positions. If ths is <code>True</code> and <code>interest</code> is non-zero the interest
+will be charged on both directions</p>
+<ul>
+<li><code>leverage</code> (def: <code>1.0</code>)</li>
+</ul>
+<p>Amount of leverage for the asset with regards to the needed cash</p>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>_stocklike</code>: Final value to use for Stock-like/Futures-like behavior</li>
+<li><code>_commtype</code>: Final value to use for PERC vs FIXED commissions</li>
+</ul>
+<p>This two are used internally instead of the declared params to enable the
+compatibility check described above for the legacy <code>CommissionInfo</code>
+object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CommInfo_Futures_Fixed(CommInfo_Futures):
+    params = (
+        (&#39;commtype&#39;, CommInfoBase.COMM_FIXED),
+    )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.commissions.CommInfo_Futures" href="#backtrader.commissions.CommInfo_Futures">CommInfo_Futures</a></li>
+<li><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.commissions.CommInfo_Futures_Fixed.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Futures_Fixed.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Futures_Fixed.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.commissions.CommInfo_Futures" href="#backtrader.commissions.CommInfo_Futures">CommInfo_Futures</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.commissions.CommInfo_Futures.cashadjust" href="../comminfo.html#backtrader.comminfo.CommInfoBase.cashadjust">cashadjust</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.get_credit_interest" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_credit_interest">get_credit_interest</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.get_leverage" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_leverage">get_leverage</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.get_margin" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_margin">get_margin</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getcommission" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getcommission">getcommission</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getoperationcost" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getoperationcost">getoperationcost</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getsize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getsize">getsize</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getvalue" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getvaluesize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvaluesize">getvaluesize</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.profitandloss" href="../comminfo.html#backtrader.comminfo.CommInfoBase.profitandloss">profitandloss</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Futures_Perc"><code class="flex name class">
+<span>class <span class="ident">CommInfo_Futures_Perc</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base Class for the Commission Schemes.</p>
+<h2 id="params">Params</h2>
+<ul>
+<li>
+<p><code>commission</code> (def: <code>0.0</code>): base commission value in percentage or
+monetary units</p>
+</li>
+<li>
+<p><code>mult</code> (def <code>1.0</code>): multiplier applied to the asset for
+value/profit</p>
+</li>
+<li>
+<p><code>margin</code> (def: <code>None</code>): amount of monetary units needed to
+open/hold an operation. It only applies if the final <code>_stocklike</code>
+attribute in the class is set to <code>False</code></p>
+</li>
+<li>
+<p><code>automargin</code> (def: <code>False</code>): Used by the method <code>get_margin</code>
+to automatically calculate the margin/guarantees needed with the
+following policy</p>
+<ul>
+<li>
+<p>Use param <code>margin</code> if param <code>automargin</code> evaluates to <code>False</code></p>
+</li>
+<li>
+<p>Use param <code>mult</code> * <code>price</code> if <code>automargin &lt; 0</code></p>
+</li>
+<li>
+<p>Use param <code>automargin</code> * <code>price</code> if <code>automargin &gt; 0</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>commtype</code> (def: <code>None</code>): Supported values are
+<code>CommInfoBase.COMM_PERC</code> (commission to be understood as %) and
+<code>CommInfoBase.COMM_FIXED</code> (commission to be understood as monetary
+units)</p>
+</li>
+</ul>
+<p>The default value of <code>None</code> is a supported value to retain
+compatibility with the legacy <code>CommissionInfo</code> object. If
+<code>commtype</code> is set to None, then the following applies:</p>
+<pre><code>- &lt;code&gt;margin&lt;/code&gt; is &lt;code&gt;None&lt;/code&gt;: Internal &lt;code&gt;\_commtype&lt;/code&gt; is set to
+  &lt;code&gt;COMM\_PERC&lt;/code&gt; and &lt;code&gt;\_stocklike&lt;/code&gt; is set to &lt;code&gt;True&lt;/code&gt; (Operating
+  %-wise with Stocks)
+
+- &lt;code&gt;margin&lt;/code&gt; is not &lt;code&gt;None&lt;/code&gt;: &lt;code&gt;\_commtype&lt;/code&gt; set to &lt;code&gt;COMM\_FIXED&lt;/code&gt; and
+  &lt;code&gt;\_stocklike&lt;/code&gt; set to &lt;code&gt;False&lt;/code&gt; (Operating with fixed rount-trip
+  commission with Futures)
+</code></pre>
+<p>If this param is set to something else than <code>None</code>, then it will be
+passed to the internal <code>_commtype</code> attribute and the same will be
+done with the param <code>stocklike</code> and the internal attribute
+<code>_stocklike</code></p>
+<ul>
+<li>
+<p><code>stocklike</code> (def: <code>False</code>): Indicates if the instrument is
+Stock-like or Futures-like (see the <code>commtype</code> discussion above)</p>
+</li>
+<li>
+<p><code>percabs</code> (def: <code>False</code>): when <code>commtype</code> is set to COMM_PERC,
+whether the parameter <code>commission</code> has to be understood as XX% or
+0.XX</p>
+</li>
+</ul>
+<p>If this param is <code>True</code>: 0.XX
+If this param is <code>False</code>: XX%</p>
+<ul>
+<li><code>interest</code> (def: <code>0.0</code>)</li>
+</ul>
+<p>If this is non-zero, this is the yearly interest charged for holding a
+short selling position. This is mostly meant for stock short-selling</p>
+<p>The formula: <code>days * price * abs(size) * (interest / 365)</code></p>
+<p>It must be specified in absolute terms: 0.05 -&gt; 5%</p>
+<p>!!! note "Note:&ensp;the behavior can be changed by overriding the method:"
+<code>_get_credit_interest</code></p>
+<ul>
+<li><code>interest_long</code> (def: <code>False</code>)</li>
+</ul>
+<p>Some products like ETFs get charged on interest for short and long
+positions. If ths is <code>True</code> and <code>interest</code> is non-zero the interest
+will be charged on both directions</p>
+<ul>
+<li><code>leverage</code> (def: <code>1.0</code>)</li>
+</ul>
+<p>Amount of leverage for the asset with regards to the needed cash</p>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>_stocklike</code>: Final value to use for Stock-like/Futures-like behavior</li>
+<li><code>_commtype</code>: Final value to use for PERC vs FIXED commissions</li>
+</ul>
+<p>This two are used internally instead of the declared params to enable the
+compatibility check described above for the legacy <code>CommissionInfo</code>
+object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CommInfo_Futures_Perc(CommInfo_Futures):
+    params = (
+        (&#39;commtype&#39;, CommInfoBase.COMM_PERC),
+    )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.commissions.CommInfo_Futures" href="#backtrader.commissions.CommInfo_Futures">CommInfo_Futures</a></li>
+<li><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.commissions.CommInfo_Futures_Perc.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Futures_Perc.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Futures_Perc.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.commissions.CommInfo_Futures" href="#backtrader.commissions.CommInfo_Futures">CommInfo_Futures</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.commissions.CommInfo_Futures.cashadjust" href="../comminfo.html#backtrader.comminfo.CommInfoBase.cashadjust">cashadjust</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.get_credit_interest" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_credit_interest">get_credit_interest</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.get_leverage" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_leverage">get_leverage</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.get_margin" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_margin">get_margin</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getcommission" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getcommission">getcommission</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getoperationcost" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getoperationcost">getoperationcost</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getsize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getsize">getsize</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getvalue" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.getvaluesize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvaluesize">getvaluesize</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.profitandloss" href="../comminfo.html#backtrader.comminfo.CommInfoBase.profitandloss">profitandloss</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Stocks"><code class="flex name class">
+<span>class <span class="ident">CommInfo_Stocks</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base Class for the Commission Schemes.</p>
+<h2 id="params">Params</h2>
+<ul>
+<li>
+<p><code>commission</code> (def: <code>0.0</code>): base commission value in percentage or
+monetary units</p>
+</li>
+<li>
+<p><code>mult</code> (def <code>1.0</code>): multiplier applied to the asset for
+value/profit</p>
+</li>
+<li>
+<p><code>margin</code> (def: <code>None</code>): amount of monetary units needed to
+open/hold an operation. It only applies if the final <code>_stocklike</code>
+attribute in the class is set to <code>False</code></p>
+</li>
+<li>
+<p><code>automargin</code> (def: <code>False</code>): Used by the method <code>get_margin</code>
+to automatically calculate the margin/guarantees needed with the
+following policy</p>
+<ul>
+<li>
+<p>Use param <code>margin</code> if param <code>automargin</code> evaluates to <code>False</code></p>
+</li>
+<li>
+<p>Use param <code>mult</code> * <code>price</code> if <code>automargin &lt; 0</code></p>
+</li>
+<li>
+<p>Use param <code>automargin</code> * <code>price</code> if <code>automargin &gt; 0</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>commtype</code> (def: <code>None</code>): Supported values are
+<code>CommInfoBase.COMM_PERC</code> (commission to be understood as %) and
+<code>CommInfoBase.COMM_FIXED</code> (commission to be understood as monetary
+units)</p>
+</li>
+</ul>
+<p>The default value of <code>None</code> is a supported value to retain
+compatibility with the legacy <code>CommissionInfo</code> object. If
+<code>commtype</code> is set to None, then the following applies:</p>
+<pre><code>- &lt;code&gt;margin&lt;/code&gt; is &lt;code&gt;None&lt;/code&gt;: Internal &lt;code&gt;\_commtype&lt;/code&gt; is set to
+  &lt;code&gt;COMM\_PERC&lt;/code&gt; and &lt;code&gt;\_stocklike&lt;/code&gt; is set to &lt;code&gt;True&lt;/code&gt; (Operating
+  %-wise with Stocks)
+
+- &lt;code&gt;margin&lt;/code&gt; is not &lt;code&gt;None&lt;/code&gt;: &lt;code&gt;\_commtype&lt;/code&gt; set to &lt;code&gt;COMM\_FIXED&lt;/code&gt; and
+  &lt;code&gt;\_stocklike&lt;/code&gt; set to &lt;code&gt;False&lt;/code&gt; (Operating with fixed rount-trip
+  commission with Futures)
+</code></pre>
+<p>If this param is set to something else than <code>None</code>, then it will be
+passed to the internal <code>_commtype</code> attribute and the same will be
+done with the param <code>stocklike</code> and the internal attribute
+<code>_stocklike</code></p>
+<ul>
+<li>
+<p><code>stocklike</code> (def: <code>False</code>): Indicates if the instrument is
+Stock-like or Futures-like (see the <code>commtype</code> discussion above)</p>
+</li>
+<li>
+<p><code>percabs</code> (def: <code>False</code>): when <code>commtype</code> is set to COMM_PERC,
+whether the parameter <code>commission</code> has to be understood as XX% or
+0.XX</p>
+</li>
+</ul>
+<p>If this param is <code>True</code>: 0.XX
+If this param is <code>False</code>: XX%</p>
+<ul>
+<li><code>interest</code> (def: <code>0.0</code>)</li>
+</ul>
+<p>If this is non-zero, this is the yearly interest charged for holding a
+short selling position. This is mostly meant for stock short-selling</p>
+<p>The formula: <code>days * price * abs(size) * (interest / 365)</code></p>
+<p>It must be specified in absolute terms: 0.05 -&gt; 5%</p>
+<p>!!! note "Note:&ensp;the behavior can be changed by overriding the method:"
+<code>_get_credit_interest</code></p>
+<ul>
+<li><code>interest_long</code> (def: <code>False</code>)</li>
+</ul>
+<p>Some products like ETFs get charged on interest for short and long
+positions. If ths is <code>True</code> and <code>interest</code> is non-zero the interest
+will be charged on both directions</p>
+<ul>
+<li><code>leverage</code> (def: <code>1.0</code>)</li>
+</ul>
+<p>Amount of leverage for the asset with regards to the needed cash</p>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>_stocklike</code>: Final value to use for Stock-like/Futures-like behavior</li>
+<li><code>_commtype</code>: Final value to use for PERC vs FIXED commissions</li>
+</ul>
+<p>This two are used internally instead of the declared params to enable the
+compatibility check described above for the legacy <code>CommissionInfo</code>
+object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CommInfo_Stocks(CommInfoBase):
+    params = (
+        (&#39;stocklike&#39;, True),
+    )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.commissions.CommInfo_Stocks_Fixed" href="#backtrader.commissions.CommInfo_Stocks_Fixed">CommInfo_Stocks_Fixed</a></li>
+<li><a title="backtrader.commissions.CommInfo_Stocks_Perc" href="#backtrader.commissions.CommInfo_Stocks_Perc">CommInfo_Stocks_Perc</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.commissions.CommInfo_Stocks.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Stocks.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Stocks.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.comminfo.CommInfoBase.cashadjust" href="../comminfo.html#backtrader.comminfo.CommInfoBase.cashadjust">cashadjust</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_credit_interest" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_credit_interest">get_credit_interest</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_leverage" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_leverage">get_leverage</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_margin" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_margin">get_margin</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getcommission" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getcommission">getcommission</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getoperationcost" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getoperationcost">getoperationcost</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getsize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getsize">getsize</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getvalue" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getvaluesize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvaluesize">getvaluesize</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.profitandloss" href="../comminfo.html#backtrader.comminfo.CommInfoBase.profitandloss">profitandloss</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Stocks_Fixed"><code class="flex name class">
+<span>class <span class="ident">CommInfo_Stocks_Fixed</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base Class for the Commission Schemes.</p>
+<h2 id="params">Params</h2>
+<ul>
+<li>
+<p><code>commission</code> (def: <code>0.0</code>): base commission value in percentage or
+monetary units</p>
+</li>
+<li>
+<p><code>mult</code> (def <code>1.0</code>): multiplier applied to the asset for
+value/profit</p>
+</li>
+<li>
+<p><code>margin</code> (def: <code>None</code>): amount of monetary units needed to
+open/hold an operation. It only applies if the final <code>_stocklike</code>
+attribute in the class is set to <code>False</code></p>
+</li>
+<li>
+<p><code>automargin</code> (def: <code>False</code>): Used by the method <code>get_margin</code>
+to automatically calculate the margin/guarantees needed with the
+following policy</p>
+<ul>
+<li>
+<p>Use param <code>margin</code> if param <code>automargin</code> evaluates to <code>False</code></p>
+</li>
+<li>
+<p>Use param <code>mult</code> * <code>price</code> if <code>automargin &lt; 0</code></p>
+</li>
+<li>
+<p>Use param <code>automargin</code> * <code>price</code> if <code>automargin &gt; 0</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>commtype</code> (def: <code>None</code>): Supported values are
+<code>CommInfoBase.COMM_PERC</code> (commission to be understood as %) and
+<code>CommInfoBase.COMM_FIXED</code> (commission to be understood as monetary
+units)</p>
+</li>
+</ul>
+<p>The default value of <code>None</code> is a supported value to retain
+compatibility with the legacy <code>CommissionInfo</code> object. If
+<code>commtype</code> is set to None, then the following applies:</p>
+<pre><code>- &lt;code&gt;margin&lt;/code&gt; is &lt;code&gt;None&lt;/code&gt;: Internal &lt;code&gt;\_commtype&lt;/code&gt; is set to
+  &lt;code&gt;COMM\_PERC&lt;/code&gt; and &lt;code&gt;\_stocklike&lt;/code&gt; is set to &lt;code&gt;True&lt;/code&gt; (Operating
+  %-wise with Stocks)
+
+- &lt;code&gt;margin&lt;/code&gt; is not &lt;code&gt;None&lt;/code&gt;: &lt;code&gt;\_commtype&lt;/code&gt; set to &lt;code&gt;COMM\_FIXED&lt;/code&gt; and
+  &lt;code&gt;\_stocklike&lt;/code&gt; set to &lt;code&gt;False&lt;/code&gt; (Operating with fixed rount-trip
+  commission with Futures)
+</code></pre>
+<p>If this param is set to something else than <code>None</code>, then it will be
+passed to the internal <code>_commtype</code> attribute and the same will be
+done with the param <code>stocklike</code> and the internal attribute
+<code>_stocklike</code></p>
+<ul>
+<li>
+<p><code>stocklike</code> (def: <code>False</code>): Indicates if the instrument is
+Stock-like or Futures-like (see the <code>commtype</code> discussion above)</p>
+</li>
+<li>
+<p><code>percabs</code> (def: <code>False</code>): when <code>commtype</code> is set to COMM_PERC,
+whether the parameter <code>commission</code> has to be understood as XX% or
+0.XX</p>
+</li>
+</ul>
+<p>If this param is <code>True</code>: 0.XX
+If this param is <code>False</code>: XX%</p>
+<ul>
+<li><code>interest</code> (def: <code>0.0</code>)</li>
+</ul>
+<p>If this is non-zero, this is the yearly interest charged for holding a
+short selling position. This is mostly meant for stock short-selling</p>
+<p>The formula: <code>days * price * abs(size) * (interest / 365)</code></p>
+<p>It must be specified in absolute terms: 0.05 -&gt; 5%</p>
+<p>!!! note "Note:&ensp;the behavior can be changed by overriding the method:"
+<code>_get_credit_interest</code></p>
+<ul>
+<li><code>interest_long</code> (def: <code>False</code>)</li>
+</ul>
+<p>Some products like ETFs get charged on interest for short and long
+positions. If ths is <code>True</code> and <code>interest</code> is non-zero the interest
+will be charged on both directions</p>
+<ul>
+<li><code>leverage</code> (def: <code>1.0</code>)</li>
+</ul>
+<p>Amount of leverage for the asset with regards to the needed cash</p>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>_stocklike</code>: Final value to use for Stock-like/Futures-like behavior</li>
+<li><code>_commtype</code>: Final value to use for PERC vs FIXED commissions</li>
+</ul>
+<p>This two are used internally instead of the declared params to enable the
+compatibility check described above for the legacy <code>CommissionInfo</code>
+object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CommInfo_Stocks_Fixed(CommInfo_Stocks):
+    params = (
+        (&#39;commtype&#39;, CommInfoBase.COMM_FIXED),
+    )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.commissions.CommInfo_Stocks" href="#backtrader.commissions.CommInfo_Stocks">CommInfo_Stocks</a></li>
+<li><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.commissions.CommInfo_Stocks_Fixed.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Stocks_Fixed.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Stocks_Fixed.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.commissions.CommInfo_Stocks" href="#backtrader.commissions.CommInfo_Stocks">CommInfo_Stocks</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.cashadjust" href="../comminfo.html#backtrader.comminfo.CommInfoBase.cashadjust">cashadjust</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.get_credit_interest" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_credit_interest">get_credit_interest</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.get_leverage" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_leverage">get_leverage</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.get_margin" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_margin">get_margin</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getcommission" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getcommission">getcommission</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getoperationcost" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getoperationcost">getoperationcost</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getsize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getsize">getsize</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getvalue" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getvaluesize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvaluesize">getvaluesize</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.profitandloss" href="../comminfo.html#backtrader.comminfo.CommInfoBase.profitandloss">profitandloss</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Stocks_Perc"><code class="flex name class">
+<span>class <span class="ident">CommInfo_Stocks_Perc</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base Class for the Commission Schemes.</p>
+<h2 id="params">Params</h2>
+<ul>
+<li>
+<p><code>commission</code> (def: <code>0.0</code>): base commission value in percentage or
+monetary units</p>
+</li>
+<li>
+<p><code>mult</code> (def <code>1.0</code>): multiplier applied to the asset for
+value/profit</p>
+</li>
+<li>
+<p><code>margin</code> (def: <code>None</code>): amount of monetary units needed to
+open/hold an operation. It only applies if the final <code>_stocklike</code>
+attribute in the class is set to <code>False</code></p>
+</li>
+<li>
+<p><code>automargin</code> (def: <code>False</code>): Used by the method <code>get_margin</code>
+to automatically calculate the margin/guarantees needed with the
+following policy</p>
+<ul>
+<li>
+<p>Use param <code>margin</code> if param <code>automargin</code> evaluates to <code>False</code></p>
+</li>
+<li>
+<p>Use param <code>mult</code> * <code>price</code> if <code>automargin &lt; 0</code></p>
+</li>
+<li>
+<p>Use param <code>automargin</code> * <code>price</code> if <code>automargin &gt; 0</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>commtype</code> (def: <code>None</code>): Supported values are
+<code>CommInfoBase.COMM_PERC</code> (commission to be understood as %) and
+<code>CommInfoBase.COMM_FIXED</code> (commission to be understood as monetary
+units)</p>
+</li>
+</ul>
+<p>The default value of <code>None</code> is a supported value to retain
+compatibility with the legacy <code>CommissionInfo</code> object. If
+<code>commtype</code> is set to None, then the following applies:</p>
+<pre><code>- &lt;code&gt;margin&lt;/code&gt; is &lt;code&gt;None&lt;/code&gt;: Internal &lt;code&gt;\_commtype&lt;/code&gt; is set to
+  &lt;code&gt;COMM\_PERC&lt;/code&gt; and &lt;code&gt;\_stocklike&lt;/code&gt; is set to &lt;code&gt;True&lt;/code&gt; (Operating
+  %-wise with Stocks)
+
+- &lt;code&gt;margin&lt;/code&gt; is not &lt;code&gt;None&lt;/code&gt;: &lt;code&gt;\_commtype&lt;/code&gt; set to &lt;code&gt;COMM\_FIXED&lt;/code&gt; and
+  &lt;code&gt;\_stocklike&lt;/code&gt; set to &lt;code&gt;False&lt;/code&gt; (Operating with fixed rount-trip
+  commission with Futures)
+</code></pre>
+<p>If this param is set to something else than <code>None</code>, then it will be
+passed to the internal <code>_commtype</code> attribute and the same will be
+done with the param <code>stocklike</code> and the internal attribute
+<code>_stocklike</code></p>
+<ul>
+<li>
+<p><code>stocklike</code> (def: <code>False</code>): Indicates if the instrument is
+Stock-like or Futures-like (see the <code>commtype</code> discussion above)</p>
+</li>
+<li>
+<p><code>percabs</code> (def: <code>False</code>): when <code>commtype</code> is set to COMM_PERC,
+whether the parameter <code>commission</code> has to be understood as XX% or
+0.XX</p>
+</li>
+</ul>
+<p>If this param is <code>True</code>: 0.XX
+If this param is <code>False</code>: XX%</p>
+<ul>
+<li><code>interest</code> (def: <code>0.0</code>)</li>
+</ul>
+<p>If this is non-zero, this is the yearly interest charged for holding a
+short selling position. This is mostly meant for stock short-selling</p>
+<p>The formula: <code>days * price * abs(size) * (interest / 365)</code></p>
+<p>It must be specified in absolute terms: 0.05 -&gt; 5%</p>
+<p>!!! note "Note:&ensp;the behavior can be changed by overriding the method:"
+<code>_get_credit_interest</code></p>
+<ul>
+<li><code>interest_long</code> (def: <code>False</code>)</li>
+</ul>
+<p>Some products like ETFs get charged on interest for short and long
+positions. If ths is <code>True</code> and <code>interest</code> is non-zero the interest
+will be charged on both directions</p>
+<ul>
+<li><code>leverage</code> (def: <code>1.0</code>)</li>
+</ul>
+<p>Amount of leverage for the asset with regards to the needed cash</p>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>_stocklike</code>: Final value to use for Stock-like/Futures-like behavior</li>
+<li><code>_commtype</code>: Final value to use for PERC vs FIXED commissions</li>
+</ul>
+<p>This two are used internally instead of the declared params to enable the
+compatibility check described above for the legacy <code>CommissionInfo</code>
+object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CommInfo_Stocks_Perc(CommInfo_Stocks):
+    params = (
+        (&#39;commtype&#39;, CommInfoBase.COMM_PERC),
+    )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.commissions.CommInfo_Stocks" href="#backtrader.commissions.CommInfo_Stocks">CommInfo_Stocks</a></li>
+<li><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.commissions.CommInfo_Stocks_Perc.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Stocks_Perc.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.commissions.CommInfo_Stocks_Perc.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.commissions.CommInfo_Stocks" href="#backtrader.commissions.CommInfo_Stocks">CommInfo_Stocks</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.cashadjust" href="../comminfo.html#backtrader.comminfo.CommInfoBase.cashadjust">cashadjust</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.get_credit_interest" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_credit_interest">get_credit_interest</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.get_leverage" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_leverage">get_leverage</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.get_margin" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_margin">get_margin</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getcommission" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getcommission">getcommission</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getoperationcost" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getoperationcost">getoperationcost</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getsize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getsize">getsize</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getvalue" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.getvaluesize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvaluesize">getvaluesize</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.profitandloss" href="../comminfo.html#backtrader.comminfo.CommInfoBase.profitandloss">profitandloss</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader" href="../index.html">backtrader</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.commissions.CommInfo" href="#backtrader.commissions.CommInfo">CommInfo</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.commissions.CommInfo.frompackages" href="#backtrader.commissions.CommInfo.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo.packages" href="#backtrader.commissions.CommInfo.packages">packages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo.params" href="#backtrader.commissions.CommInfo.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.commissions.CommInfo_Futures" href="#backtrader.commissions.CommInfo_Futures">CommInfo_Futures</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.commissions.CommInfo_Futures.frompackages" href="#backtrader.commissions.CommInfo_Futures.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.packages" href="#backtrader.commissions.CommInfo_Futures.packages">packages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures.params" href="#backtrader.commissions.CommInfo_Futures.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.commissions.CommInfo_Futures_Fixed" href="#backtrader.commissions.CommInfo_Futures_Fixed">CommInfo_Futures_Fixed</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.commissions.CommInfo_Futures_Fixed.frompackages" href="#backtrader.commissions.CommInfo_Futures_Fixed.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures_Fixed.packages" href="#backtrader.commissions.CommInfo_Futures_Fixed.packages">packages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures_Fixed.params" href="#backtrader.commissions.CommInfo_Futures_Fixed.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.commissions.CommInfo_Futures_Perc" href="#backtrader.commissions.CommInfo_Futures_Perc">CommInfo_Futures_Perc</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.commissions.CommInfo_Futures_Perc.frompackages" href="#backtrader.commissions.CommInfo_Futures_Perc.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures_Perc.packages" href="#backtrader.commissions.CommInfo_Futures_Perc.packages">packages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Futures_Perc.params" href="#backtrader.commissions.CommInfo_Futures_Perc.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.commissions.CommInfo_Stocks" href="#backtrader.commissions.CommInfo_Stocks">CommInfo_Stocks</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.frompackages" href="#backtrader.commissions.CommInfo_Stocks.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.packages" href="#backtrader.commissions.CommInfo_Stocks.packages">packages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks.params" href="#backtrader.commissions.CommInfo_Stocks.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.commissions.CommInfo_Stocks_Fixed" href="#backtrader.commissions.CommInfo_Stocks_Fixed">CommInfo_Stocks_Fixed</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.commissions.CommInfo_Stocks_Fixed.frompackages" href="#backtrader.commissions.CommInfo_Stocks_Fixed.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks_Fixed.packages" href="#backtrader.commissions.CommInfo_Stocks_Fixed.packages">packages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks_Fixed.params" href="#backtrader.commissions.CommInfo_Stocks_Fixed.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.commissions.CommInfo_Stocks_Perc" href="#backtrader.commissions.CommInfo_Stocks_Perc">CommInfo_Stocks_Perc</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.commissions.CommInfo_Stocks_Perc.frompackages" href="#backtrader.commissions.CommInfo_Stocks_Perc.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks_Perc.packages" href="#backtrader.commissions.CommInfo_Stocks_Perc.packages">packages</a></code></li>
+<li><code><a title="backtrader.commissions.CommInfo_Stocks_Perc.params" href="#backtrader.commissions.CommInfo_Stocks_Perc.params">params</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

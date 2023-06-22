@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.indicators.aroon API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.indicators.aroon</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+from . import Indicator, FindFirstIndexHighest, FindFirstIndexLowest
+
+
+class _AroonBase(Indicator):
+    &#39;&#39;&#39;
+    Base class which does the calculation of the AroonUp/AroonDown values and
+    defines the common parameters.
+
+    It uses the class attributes _up and _down (boolean flags) to decide which
+    value has to be calculated.
+
+    Values are not assigned to lines but rather stored in the &#34;up&#34; and &#34;down&#34;
+    instance variables, which can be used by subclasses to for assignment or
+    further calculations
+    &#39;&#39;&#39;
+    _up = False
+    _down = False
+
+    params = ((&#39;period&#39;, 14), (&#39;upperband&#39;, 70), (&#39;lowerband&#39;, 30),)
+    plotinfo = dict(plotymargin=0.05, plotyhlines=[0, 100])
+
+    def _plotlabel(self):
+        plabels = [self.p.period]
+        return plabels
+
+    def _plotinit(self):
+        self.plotinfo.plotyhlines += [self.p.lowerband, self.p.upperband]
+
+    def __init__(self):
+        # Look backwards period + 1 for current data because the formula mus
+        # produce values between 0 and 100 and can only do that if the
+        # calculated hhidx/llidx go from 0 to period (hence period + 1 values)
+        idxperiod = self.p.period + 1
+
+        if self._up:
+            hhidx = FindFirstIndexHighest(self.data.high, period=idxperiod)
+            self.up = (100.0 / self.p.period) * (self.p.period - hhidx)
+
+        if self._down:
+            llidx = FindFirstIndexLowest(self.data.low, period=idxperiod)
+            self.down = (100.0 / self.p.period) * (self.p.period - llidx)
+
+        super(_AroonBase, self).__init__()
+
+
+class AroonUp(_AroonBase):
+    &#39;&#39;&#39;
+    This is the AroonUp from the indicator AroonUpDown developed by Tushar
+    Chande in 1995.
+
+    Formula:
+      - up = 100 * (period - distance to highest high) / period
+
+    Note:
+      The lines oscillate between 0 and 100. That means that the &#34;distance&#34; to
+      the last highest or lowest must go from 0 to period so that the formula
+      can yield 0 and 100.
+
+      Hence the lookback period is period + 1, because the current bar is also
+      taken into account. And therefore this indicator needs an effective
+      lookback period of period + 1.
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    _up = True
+
+    lines = (&#39;aroonup&#39;,)
+
+    def __init__(self):
+        super(AroonUp, self).__init__()
+
+        self.lines.aroonup = self.up
+
+
+class AroonDown(_AroonBase):
+    &#39;&#39;&#39;
+    This is the AroonDown from the indicator AroonUpDown developed by Tushar
+    Chande in 1995.
+
+    Formula:
+      - down = 100 * (period - distance to lowest low) / period
+
+    Note:
+      The lines oscillate between 0 and 100. That means that the &#34;distance&#34; to
+      the last highest or lowest must go from 0 to period so that the formula
+      can yield 0 and 100.
+
+      Hence the lookback period is period + 1, because the current bar is also
+      taken into account. And therefore this indicator needs an effective
+      lookback period of period + 1.
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    _down = True
+
+    lines = (&#39;aroondown&#39;,)
+
+    def __init__(self):
+        super(AroonDown, self).__init__()
+
+        self.lines.aroondown = self.down
+
+
+class AroonUpDown(AroonUp, AroonDown):
+    &#39;&#39;&#39;
+    Developed by Tushar Chande in 1995.
+
+    It tries to determine if a trend exists or not by calculating how far away
+    within a given period the last highs/lows are (AroonUp/AroonDown)
+
+    Formula:
+      - up = 100 * (period - distance to highest high) / period
+      - down = 100 * (period - distance to lowest low) / period
+
+    Note:
+      The lines oscillate between 0 and 100. That means that the &#34;distance&#34; to
+      the last highest or lowest must go from 0 to period so that the formula
+      can yield 0 and 100.
+
+      Hence the lookback period is period + 1, because the current bar is also
+      taken into account. And therefore this indicator needs an effective
+      lookback period of period + 1.
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    alias = (&#39;AroonIndicator&#39;,)
+
+
+class AroonOscillator(_AroonBase):
+    &#39;&#39;&#39;
+    It is a variation of the AroonUpDown indicator which shows the current
+    difference between the AroonUp and AroonDown value, trying to present a
+    visualization which indicates which is stronger (greater than 0 -&gt; AroonUp
+    and less than 0 -&gt; AroonDown)
+
+    Formula:
+      - aroonosc = aroonup - aroondown
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    _up = True
+    _down = True
+
+    alias = (&#39;AroonOsc&#39;,)
+
+    lines = (&#39;aroonosc&#39;,)
+
+    def _plotinit(self):
+        super(AroonOscillator, self)._plotinit()
+
+        for yhline in self.plotinfo.plotyhlines[:]:
+            self.plotinfo.plotyhlines.append(-yhline)
+
+    def __init__(self):
+        super(AroonOscillator, self).__init__()
+
+        self.lines.aroonosc = self.up - self.down
+
+
+class AroonUpDownOscillator(AroonUpDown, AroonOscillator):
+    &#39;&#39;&#39;
+    Presents together the indicators AroonUpDown and AroonOsc
+
+    Formula:
+      (None, uses the aforementioned indicators)
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    alias = (&#39;AroonUpDownOsc&#39;,)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.indicators.aroon.AroonDown"><code class="flex name class">
+<span>class <span class="ident">AroonDown</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>This is the AroonDown from the indicator AroonUpDown developed by Tushar
+Chande in 1995.</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>down = 100 * (period - distance to lowest low) / period</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>The lines oscillate between 0 and 100. That means that the "distance" to
+the last highest or lowest must go from 0 to period so that the formula
+can yield 0 and 100.</p>
+<p>Hence the lookback period is period + 1, because the current bar is also
+taken into account. And therefore this indicator needs an effective
+lookback period of period + 1.</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon">http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AroonDown(_AroonBase):
+    &#39;&#39;&#39;
+    This is the AroonDown from the indicator AroonUpDown developed by Tushar
+    Chande in 1995.
+
+    Formula:
+      - down = 100 * (period - distance to lowest low) / period
+
+    Note:
+      The lines oscillate between 0 and 100. That means that the &#34;distance&#34; to
+      the last highest or lowest must go from 0 to period so that the formula
+      can yield 0 and 100.
+
+      Hence the lookback period is period + 1, because the current bar is also
+      taken into account. And therefore this indicator needs an effective
+      lookback period of period + 1.
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    _down = True
+
+    lines = (&#39;aroondown&#39;,)
+
+    def __init__(self):
+        super(AroonDown, self).__init__()
+
+        self.lines.aroondown = self.down</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>backtrader.indicators.aroon._AroonBase</li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonUpDown" href="#backtrader.indicators.aroon.AroonUpDown">AroonUpDown</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.aroon.AroonDown.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonDown.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonDown.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonDown.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonDown.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonDown.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonDown.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonDown.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.Indicator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonIndicator"><code class="flex name class">
+<span>class <span class="ident">AroonIndicator</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Developed by Tushar Chande in 1995.</p>
+<p>It tries to determine if a trend exists or not by calculating how far away
+within a given period the last highs/lows are (AroonUp/AroonDown)</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>up = 100 * (period - distance to highest high) / period</li>
+<li>down = 100 * (period - distance to lowest low) / period</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>The lines oscillate between 0 and 100. That means that the "distance" to
+the last highest or lowest must go from 0 to period so that the formula
+can yield 0 and 100.</p>
+<p>Hence the lookback period is period + 1, because the current bar is also
+taken into account. And therefore this indicator needs an effective
+lookback period of period + 1.</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon">http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon</a></li>
+</ul></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonUpDown" href="#backtrader.indicators.aroon.AroonUpDown">AroonUpDown</a></li>
+<li><a title="backtrader.indicators.aroon.AroonUp" href="#backtrader.indicators.aroon.AroonUp">AroonUp</a></li>
+<li><a title="backtrader.indicators.aroon.AroonDown" href="#backtrader.indicators.aroon.AroonDown">AroonDown</a></li>
+<li>backtrader.indicators.aroon._AroonBase</li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.aroon.AroonIndicator.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonIndicator.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonIndicator.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonIndicator.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonIndicator.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonIndicator.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonIndicator.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonIndicator.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.aroon.AroonUpDown" href="#backtrader.indicators.aroon.AroonUpDown">AroonUpDown</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOsc"><code class="flex name class">
+<span>class <span class="ident">AroonOsc</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>It is a variation of the AroonUpDown indicator which shows the current
+difference between the AroonUp and AroonDown value, trying to present a
+visualization which indicates which is stronger (greater than 0 -&gt; AroonUp
+and less than 0 -&gt; AroonDown)</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>aroonosc = aroonup - aroondown</li>
+</ul>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon">http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon</a></li>
+</ul></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonOscillator" href="#backtrader.indicators.aroon.AroonOscillator">AroonOscillator</a></li>
+<li>backtrader.indicators.aroon._AroonBase</li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.aroon.AroonOsc.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOsc.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOsc.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOsc.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOsc.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOsc.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOsc.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOsc.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.aroon.AroonOscillator" href="#backtrader.indicators.aroon.AroonOscillator">AroonOscillator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOscillator"><code class="flex name class">
+<span>class <span class="ident">AroonOscillator</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>It is a variation of the AroonUpDown indicator which shows the current
+difference between the AroonUp and AroonDown value, trying to present a
+visualization which indicates which is stronger (greater than 0 -&gt; AroonUp
+and less than 0 -&gt; AroonDown)</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>aroonosc = aroonup - aroondown</li>
+</ul>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon">http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AroonOscillator(_AroonBase):
+    &#39;&#39;&#39;
+    It is a variation of the AroonUpDown indicator which shows the current
+    difference between the AroonUp and AroonDown value, trying to present a
+    visualization which indicates which is stronger (greater than 0 -&gt; AroonUp
+    and less than 0 -&gt; AroonDown)
+
+    Formula:
+      - aroonosc = aroonup - aroondown
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    _up = True
+    _down = True
+
+    alias = (&#39;AroonOsc&#39;,)
+
+    lines = (&#39;aroonosc&#39;,)
+
+    def _plotinit(self):
+        super(AroonOscillator, self)._plotinit()
+
+        for yhline in self.plotinfo.plotyhlines[:]:
+            self.plotinfo.plotyhlines.append(-yhline)
+
+    def __init__(self):
+        super(AroonOscillator, self).__init__()
+
+        self.lines.aroonosc = self.up - self.down</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>backtrader.indicators.aroon._AroonBase</li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonOsc" href="#backtrader.indicators.aroon.AroonOsc">AroonOsc</a></li>
+<li><a title="backtrader.indicators.aroon.AroonUpDownOscillator" href="#backtrader.indicators.aroon.AroonUpDownOscillator">AroonUpDownOscillator</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.aroon.AroonOscillator.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOscillator.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOscillator.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOscillator.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOscillator.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOscillator.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOscillator.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonOscillator.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.Indicator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUp"><code class="flex name class">
+<span>class <span class="ident">AroonUp</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>This is the AroonUp from the indicator AroonUpDown developed by Tushar
+Chande in 1995.</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>up = 100 * (period - distance to highest high) / period</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>The lines oscillate between 0 and 100. That means that the "distance" to
+the last highest or lowest must go from 0 to period so that the formula
+can yield 0 and 100.</p>
+<p>Hence the lookback period is period + 1, because the current bar is also
+taken into account. And therefore this indicator needs an effective
+lookback period of period + 1.</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon">http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AroonUp(_AroonBase):
+    &#39;&#39;&#39;
+    This is the AroonUp from the indicator AroonUpDown developed by Tushar
+    Chande in 1995.
+
+    Formula:
+      - up = 100 * (period - distance to highest high) / period
+
+    Note:
+      The lines oscillate between 0 and 100. That means that the &#34;distance&#34; to
+      the last highest or lowest must go from 0 to period so that the formula
+      can yield 0 and 100.
+
+      Hence the lookback period is period + 1, because the current bar is also
+      taken into account. And therefore this indicator needs an effective
+      lookback period of period + 1.
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    _up = True
+
+    lines = (&#39;aroonup&#39;,)
+
+    def __init__(self):
+        super(AroonUp, self).__init__()
+
+        self.lines.aroonup = self.up</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>backtrader.indicators.aroon._AroonBase</li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonUpDown" href="#backtrader.indicators.aroon.AroonUpDown">AroonUpDown</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.aroon.AroonUp.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUp.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUp.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUp.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUp.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUp.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUp.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUp.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.Indicator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDown"><code class="flex name class">
+<span>class <span class="ident">AroonUpDown</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Developed by Tushar Chande in 1995.</p>
+<p>It tries to determine if a trend exists or not by calculating how far away
+within a given period the last highs/lows are (AroonUp/AroonDown)</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>up = 100 * (period - distance to highest high) / period</li>
+<li>down = 100 * (period - distance to lowest low) / period</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>The lines oscillate between 0 and 100. That means that the "distance" to
+the last highest or lowest must go from 0 to period so that the formula
+can yield 0 and 100.</p>
+<p>Hence the lookback period is period + 1, because the current bar is also
+taken into account. And therefore this indicator needs an effective
+lookback period of period + 1.</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon">http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AroonUpDown(AroonUp, AroonDown):
+    &#39;&#39;&#39;
+    Developed by Tushar Chande in 1995.
+
+    It tries to determine if a trend exists or not by calculating how far away
+    within a given period the last highs/lows are (AroonUp/AroonDown)
+
+    Formula:
+      - up = 100 * (period - distance to highest high) / period
+      - down = 100 * (period - distance to lowest low) / period
+
+    Note:
+      The lines oscillate between 0 and 100. That means that the &#34;distance&#34; to
+      the last highest or lowest must go from 0 to period so that the formula
+      can yield 0 and 100.
+
+      Hence the lookback period is period + 1, because the current bar is also
+      taken into account. And therefore this indicator needs an effective
+      lookback period of period + 1.
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    alias = (&#39;AroonIndicator&#39;,)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonUp" href="#backtrader.indicators.aroon.AroonUp">AroonUp</a></li>
+<li><a title="backtrader.indicators.aroon.AroonDown" href="#backtrader.indicators.aroon.AroonDown">AroonDown</a></li>
+<li>backtrader.indicators.aroon._AroonBase</li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonIndicator" href="#backtrader.indicators.aroon.AroonIndicator">AroonIndicator</a></li>
+<li><a title="backtrader.indicators.aroon.AroonUpDownOscillator" href="#backtrader.indicators.aroon.AroonUpDownOscillator">AroonUpDownOscillator</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.aroon.AroonUpDown.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDown.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDown.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDown.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDown.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDown.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDown.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDown.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.aroon.AroonUp" href="#backtrader.indicators.aroon.AroonUp">AroonUp</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.aroon.AroonUp.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOsc"><code class="flex name class">
+<span>class <span class="ident">AroonUpDownOsc</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Presents together the indicators AroonUpDown and AroonOsc</p>
+<h2 id="formula">Formula</h2>
+<p>(None, uses the aforementioned indicators)</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon">http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon</a></li>
+</ul></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonUpDownOscillator" href="#backtrader.indicators.aroon.AroonUpDownOscillator">AroonUpDownOscillator</a></li>
+<li><a title="backtrader.indicators.aroon.AroonUpDown" href="#backtrader.indicators.aroon.AroonUpDown">AroonUpDown</a></li>
+<li><a title="backtrader.indicators.aroon.AroonUp" href="#backtrader.indicators.aroon.AroonUp">AroonUp</a></li>
+<li><a title="backtrader.indicators.aroon.AroonDown" href="#backtrader.indicators.aroon.AroonDown">AroonDown</a></li>
+<li><a title="backtrader.indicators.aroon.AroonOscillator" href="#backtrader.indicators.aroon.AroonOscillator">AroonOscillator</a></li>
+<li>backtrader.indicators.aroon._AroonBase</li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.aroon.AroonUpDownOsc.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOsc.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOsc.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOsc.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOsc.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOsc.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOsc.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOsc.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.aroon.AroonUpDownOscillator" href="#backtrader.indicators.aroon.AroonUpDownOscillator">AroonUpDownOscillator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOscillator"><code class="flex name class">
+<span>class <span class="ident">AroonUpDownOscillator</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Presents together the indicators AroonUpDown and AroonOsc</p>
+<h2 id="formula">Formula</h2>
+<p>(None, uses the aforementioned indicators)</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon">http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AroonUpDownOscillator(AroonUpDown, AroonOscillator):
+    &#39;&#39;&#39;
+    Presents together the indicators AroonUpDown and AroonOsc
+
+    Formula:
+      (None, uses the aforementioned indicators)
+
+    See:
+      - http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:aroon
+    &#39;&#39;&#39;
+    alias = (&#39;AroonUpDownOsc&#39;,)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonUpDown" href="#backtrader.indicators.aroon.AroonUpDown">AroonUpDown</a></li>
+<li><a title="backtrader.indicators.aroon.AroonUp" href="#backtrader.indicators.aroon.AroonUp">AroonUp</a></li>
+<li><a title="backtrader.indicators.aroon.AroonDown" href="#backtrader.indicators.aroon.AroonDown">AroonDown</a></li>
+<li><a title="backtrader.indicators.aroon.AroonOscillator" href="#backtrader.indicators.aroon.AroonOscillator">AroonOscillator</a></li>
+<li>backtrader.indicators.aroon._AroonBase</li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.aroon.AroonUpDownOsc" href="#backtrader.indicators.aroon.AroonUpDownOsc">AroonUpDownOsc</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.aroon.AroonUpDownOscillator.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOscillator.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOscillator.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOscillator.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOscillator.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOscillator.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOscillator.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.aroon.AroonUpDownOscillator.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.aroon.AroonUpDown" href="#backtrader.indicators.aroon.AroonUpDown">AroonUpDown</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader.indicators" href="index.html">backtrader.indicators</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.indicators.aroon.AroonDown" href="#backtrader.indicators.aroon.AroonDown">AroonDown</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.aroon.AroonDown.alias" href="#backtrader.indicators.aroon.AroonDown.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonDown.aliased" href="#backtrader.indicators.aroon.AroonDown.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonDown.frompackages" href="#backtrader.indicators.aroon.AroonDown.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonDown.linealias" href="#backtrader.indicators.aroon.AroonDown.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonDown.packages" href="#backtrader.indicators.aroon.AroonDown.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonDown.params" href="#backtrader.indicators.aroon.AroonDown.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonDown.plotinfo" href="#backtrader.indicators.aroon.AroonDown.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonDown.plotlines" href="#backtrader.indicators.aroon.AroonDown.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.aroon.AroonIndicator" href="#backtrader.indicators.aroon.AroonIndicator">AroonIndicator</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.aroon.AroonIndicator.alias" href="#backtrader.indicators.aroon.AroonIndicator.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonIndicator.aliased" href="#backtrader.indicators.aroon.AroonIndicator.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonIndicator.frompackages" href="#backtrader.indicators.aroon.AroonIndicator.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonIndicator.linealias" href="#backtrader.indicators.aroon.AroonIndicator.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonIndicator.packages" href="#backtrader.indicators.aroon.AroonIndicator.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonIndicator.params" href="#backtrader.indicators.aroon.AroonIndicator.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonIndicator.plotinfo" href="#backtrader.indicators.aroon.AroonIndicator.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonIndicator.plotlines" href="#backtrader.indicators.aroon.AroonIndicator.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.aroon.AroonOsc" href="#backtrader.indicators.aroon.AroonOsc">AroonOsc</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.aroon.AroonOsc.alias" href="#backtrader.indicators.aroon.AroonOsc.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOsc.aliased" href="#backtrader.indicators.aroon.AroonOsc.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOsc.frompackages" href="#backtrader.indicators.aroon.AroonOsc.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOsc.linealias" href="#backtrader.indicators.aroon.AroonOsc.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOsc.packages" href="#backtrader.indicators.aroon.AroonOsc.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOsc.params" href="#backtrader.indicators.aroon.AroonOsc.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOsc.plotinfo" href="#backtrader.indicators.aroon.AroonOsc.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOsc.plotlines" href="#backtrader.indicators.aroon.AroonOsc.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.aroon.AroonOscillator" href="#backtrader.indicators.aroon.AroonOscillator">AroonOscillator</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.alias" href="#backtrader.indicators.aroon.AroonOscillator.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.aliased" href="#backtrader.indicators.aroon.AroonOscillator.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.frompackages" href="#backtrader.indicators.aroon.AroonOscillator.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.linealias" href="#backtrader.indicators.aroon.AroonOscillator.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.packages" href="#backtrader.indicators.aroon.AroonOscillator.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.params" href="#backtrader.indicators.aroon.AroonOscillator.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.plotinfo" href="#backtrader.indicators.aroon.AroonOscillator.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonOscillator.plotlines" href="#backtrader.indicators.aroon.AroonOscillator.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.aroon.AroonUp" href="#backtrader.indicators.aroon.AroonUp">AroonUp</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.aroon.AroonUp.alias" href="#backtrader.indicators.aroon.AroonUp.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.aliased" href="#backtrader.indicators.aroon.AroonUp.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.frompackages" href="#backtrader.indicators.aroon.AroonUp.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.linealias" href="#backtrader.indicators.aroon.AroonUp.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.packages" href="#backtrader.indicators.aroon.AroonUp.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.params" href="#backtrader.indicators.aroon.AroonUp.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.plotinfo" href="#backtrader.indicators.aroon.AroonUp.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUp.plotlines" href="#backtrader.indicators.aroon.AroonUp.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.aroon.AroonUpDown" href="#backtrader.indicators.aroon.AroonUpDown">AroonUpDown</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.alias" href="#backtrader.indicators.aroon.AroonUpDown.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.aliased" href="#backtrader.indicators.aroon.AroonUpDown.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.frompackages" href="#backtrader.indicators.aroon.AroonUpDown.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.linealias" href="#backtrader.indicators.aroon.AroonUpDown.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.packages" href="#backtrader.indicators.aroon.AroonUpDown.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.params" href="#backtrader.indicators.aroon.AroonUpDown.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.plotinfo" href="#backtrader.indicators.aroon.AroonUpDown.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDown.plotlines" href="#backtrader.indicators.aroon.AroonUpDown.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.aroon.AroonUpDownOsc" href="#backtrader.indicators.aroon.AroonUpDownOsc">AroonUpDownOsc</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOsc.alias" href="#backtrader.indicators.aroon.AroonUpDownOsc.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOsc.aliased" href="#backtrader.indicators.aroon.AroonUpDownOsc.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOsc.frompackages" href="#backtrader.indicators.aroon.AroonUpDownOsc.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOsc.linealias" href="#backtrader.indicators.aroon.AroonUpDownOsc.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOsc.packages" href="#backtrader.indicators.aroon.AroonUpDownOsc.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOsc.params" href="#backtrader.indicators.aroon.AroonUpDownOsc.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOsc.plotinfo" href="#backtrader.indicators.aroon.AroonUpDownOsc.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOsc.plotlines" href="#backtrader.indicators.aroon.AroonUpDownOsc.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator" href="#backtrader.indicators.aroon.AroonUpDownOscillator">AroonUpDownOscillator</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.alias" href="#backtrader.indicators.aroon.AroonUpDownOscillator.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.aliased" href="#backtrader.indicators.aroon.AroonUpDownOscillator.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.frompackages" href="#backtrader.indicators.aroon.AroonUpDownOscillator.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.linealias" href="#backtrader.indicators.aroon.AroonUpDownOscillator.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.packages" href="#backtrader.indicators.aroon.AroonUpDownOscillator.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.params" href="#backtrader.indicators.aroon.AroonUpDownOscillator.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.plotinfo" href="#backtrader.indicators.aroon.AroonUpDownOscillator.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.aroon.AroonUpDownOscillator.plotlines" href="#backtrader.indicators.aroon.AroonUpDownOscillator.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

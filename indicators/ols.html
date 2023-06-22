@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.indicators.ols API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.indicators.ols</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+import backtrader as bt
+from . import PeriodN
+
+
+__all__ = [&#39;OLS_Slope_InterceptN&#39;, &#39;OLS_TransformationN&#39;, &#39;OLS_BetaN&#39;,
+           &#39;CointN&#39;]
+
+
+class OLS_Slope_InterceptN(PeriodN):
+    &#39;&#39;&#39;
+    Calculates a linear regression using ``statsmodel.OLS`` (Ordinary least
+    squares) of data1 on data0
+
+    Uses ``pandas`` and ``statsmodels``
+    &#39;&#39;&#39;
+    _mindatas = 2  # ensure at least 2 data feeds are passed
+
+    packages = (
+        (&#39;pandas&#39;, &#39;pd&#39;),
+        (&#39;statsmodels.api&#39;, &#39;sm&#39;),
+    )
+    lines = (&#39;slope&#39;, &#39;intercept&#39;,)
+    params = (
+        (&#39;period&#39;, 10),
+    )
+
+    def next(self):
+        p0 = pd.Series(self.data0.get(size=self.p.period))
+        p1 = pd.Series(self.data1.get(size=self.p.period))
+        p1 = sm.add_constant(p1)
+        intercept, slope = sm.OLS(p0, p1).fit().params
+
+        self.lines.slope[0] = slope
+        self.lines.intercept[0] = intercept
+
+
+class OLS_TransformationN(PeriodN):
+    &#39;&#39;&#39;
+    Calculates the ``zscore`` for data0 and data1. Although it doesn&#39;t directly
+    uses any external package it relies on ``OLS_SlopeInterceptN`` which uses
+    ``pandas`` and ``statsmodels``
+    &#39;&#39;&#39;
+    _mindatas = 2  # ensure at least 2 data feeds are passed
+    lines = (&#39;spread&#39;, &#39;spread_mean&#39;, &#39;spread_std&#39;, &#39;zscore&#39;,)
+    params = ((&#39;period&#39;, 10),)
+
+    def __init__(self):
+        slint = OLS_Slope_InterceptN(*self.datas)
+
+        spread = self.data0 - (slint.slope * self.data1 + slint.intercept)
+        self.l.spread = spread
+
+        self.l.spread_mean = bt.ind.SMA(spread, period=self.p.period)
+        self.l.spread_std = bt.ind.StdDev(spread, period=self.p.period)
+        self.l.zscore = (spread - self.l.spread_mean) / self.l.spread_std
+
+
+class OLS_BetaN(PeriodN):
+    &#39;&#39;&#39;
+    Calculates a regression of data1 on data0 using ``pandas.ols``
+
+    Uses ``pandas``
+    &#39;&#39;&#39;
+    _mindatas = 2  # ensure at least 2 data feeds are passed
+
+    packages = (
+        (&#39;pandas&#39;, &#39;pd&#39;),
+    )
+
+    lines = (&#39;beta&#39;,)
+    params = ((&#39;period&#39;, 10),)
+
+    def next(self):
+        y, x = (pd.Series(d.get(size=self.p.period)) for d in self.datas)
+        r_beta = pd.ols(y=y, x=x, window_type=&#39;full_sample&#39;)
+        self.lines.beta[0] = r_beta.beta[&#39;x&#39;]
+
+
+class CointN(PeriodN):
+    &#39;&#39;&#39;
+    Calculates the score (coint_t) and pvalue for a given ``period`` for the
+    data feeds
+
+    Uses ``pandas`` and ``statsmodels`` (for ``coint``)
+    &#39;&#39;&#39;
+    _mindatas = 2  # ensure at least 2 data feeds are passed
+
+    packages = (
+        (&#39;pandas&#39;, &#39;pd&#39;),  # import pandas as pd
+    )
+    frompackages = (
+        (&#39;statsmodels.tsa.stattools&#39;, &#39;coint&#39;),  # from st... import coint
+    )
+
+    lines = (&#39;score&#39;, &#39;pvalue&#39;,)
+    params = (
+        (&#39;period&#39;, 10),
+        (&#39;trend&#39;, &#39;c&#39;),  # see statsmodel.tsa.statttools
+    )
+
+    def next(self):
+        x, y = (pd.Series(d.get(size=self.p.period)) for d in self.datas)
+        score, pvalue, _ = coint(x, y, trend=self.p.trend)
+        self.lines.score[0] = score
+        self.lines.pvalue[0] = pvalue</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.indicators.ols.CointN"><code class="flex name class">
+<span>class <span class="ident">CointN</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the score (coint_t) and pvalue for a given <code>period</code> for the
+data feeds</p>
+<p>Uses <code>pandas</code> and <code>statsmodels</code> (for <code>coint</code>)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CointN(PeriodN):
+    &#39;&#39;&#39;
+    Calculates the score (coint_t) and pvalue for a given ``period`` for the
+    data feeds
+
+    Uses ``pandas`` and ``statsmodels`` (for ``coint``)
+    &#39;&#39;&#39;
+    _mindatas = 2  # ensure at least 2 data feeds are passed
+
+    packages = (
+        (&#39;pandas&#39;, &#39;pd&#39;),  # import pandas as pd
+    )
+    frompackages = (
+        (&#39;statsmodels.tsa.stattools&#39;, &#39;coint&#39;),  # from st... import coint
+    )
+
+    lines = (&#39;score&#39;, &#39;pvalue&#39;,)
+    params = (
+        (&#39;period&#39;, 10),
+        (&#39;trend&#39;, &#39;c&#39;),  # see statsmodel.tsa.statttools
+    )
+
+    def next(self):
+        x, y = (pd.Series(d.get(size=self.p.period)) for d in self.datas)
+        score, pvalue, _ = coint(x, y, trend=self.p.trend)
+        self.lines.score[0] = score
+        self.lines.pvalue[0] = pvalue</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.basicops.PeriodN" href="basicops.html#backtrader.indicators.basicops.PeriodN">PeriodN</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.ols.CointN.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.CointN.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.CointN.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.CointN.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.CointN.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.CointN.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.CointN.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.CointN.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.basicops.PeriodN" href="basicops.html#backtrader.indicators.basicops.PeriodN">PeriodN</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.basicops.PeriodN.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_BetaN"><code class="flex name class">
+<span>class <span class="ident">OLS_BetaN</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates a regression of data1 on data0 using <code>pandas.ols</code></p>
+<p>Uses <code>pandas</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OLS_BetaN(PeriodN):
+    &#39;&#39;&#39;
+    Calculates a regression of data1 on data0 using ``pandas.ols``
+
+    Uses ``pandas``
+    &#39;&#39;&#39;
+    _mindatas = 2  # ensure at least 2 data feeds are passed
+
+    packages = (
+        (&#39;pandas&#39;, &#39;pd&#39;),
+    )
+
+    lines = (&#39;beta&#39;,)
+    params = ((&#39;period&#39;, 10),)
+
+    def next(self):
+        y, x = (pd.Series(d.get(size=self.p.period)) for d in self.datas)
+        r_beta = pd.ols(y=y, x=x, window_type=&#39;full_sample&#39;)
+        self.lines.beta[0] = r_beta.beta[&#39;x&#39;]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.basicops.PeriodN" href="basicops.html#backtrader.indicators.basicops.PeriodN">PeriodN</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.ols.OLS_BetaN.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_BetaN.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_BetaN.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_BetaN.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_BetaN.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_BetaN.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_BetaN.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_BetaN.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.basicops.PeriodN" href="basicops.html#backtrader.indicators.basicops.PeriodN">PeriodN</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.basicops.PeriodN.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_Slope_InterceptN"><code class="flex name class">
+<span>class <span class="ident">OLS_Slope_InterceptN</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates a linear regression using <code>statsmodel.OLS</code> (Ordinary least
+squares) of data1 on data0</p>
+<p>Uses <code>pandas</code> and <code>statsmodels</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OLS_Slope_InterceptN(PeriodN):
+    &#39;&#39;&#39;
+    Calculates a linear regression using ``statsmodel.OLS`` (Ordinary least
+    squares) of data1 on data0
+
+    Uses ``pandas`` and ``statsmodels``
+    &#39;&#39;&#39;
+    _mindatas = 2  # ensure at least 2 data feeds are passed
+
+    packages = (
+        (&#39;pandas&#39;, &#39;pd&#39;),
+        (&#39;statsmodels.api&#39;, &#39;sm&#39;),
+    )
+    lines = (&#39;slope&#39;, &#39;intercept&#39;,)
+    params = (
+        (&#39;period&#39;, 10),
+    )
+
+    def next(self):
+        p0 = pd.Series(self.data0.get(size=self.p.period))
+        p1 = pd.Series(self.data1.get(size=self.p.period))
+        p1 = sm.add_constant(p1)
+        intercept, slope = sm.OLS(p0, p1).fit().params
+
+        self.lines.slope[0] = slope
+        self.lines.intercept[0] = intercept</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.basicops.PeriodN" href="basicops.html#backtrader.indicators.basicops.PeriodN">PeriodN</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.ols.OLS_Slope_InterceptN.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_Slope_InterceptN.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_Slope_InterceptN.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_Slope_InterceptN.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_Slope_InterceptN.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_Slope_InterceptN.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_Slope_InterceptN.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_Slope_InterceptN.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.basicops.PeriodN" href="basicops.html#backtrader.indicators.basicops.PeriodN">PeriodN</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.basicops.PeriodN.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_TransformationN"><code class="flex name class">
+<span>class <span class="ident">OLS_TransformationN</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the <code>zscore</code> for data0 and data1. Although it doesn't directly
+uses any external package it relies on <code>OLS_SlopeInterceptN</code> which uses
+<code>pandas</code> and <code>statsmodels</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OLS_TransformationN(PeriodN):
+    &#39;&#39;&#39;
+    Calculates the ``zscore`` for data0 and data1. Although it doesn&#39;t directly
+    uses any external package it relies on ``OLS_SlopeInterceptN`` which uses
+    ``pandas`` and ``statsmodels``
+    &#39;&#39;&#39;
+    _mindatas = 2  # ensure at least 2 data feeds are passed
+    lines = (&#39;spread&#39;, &#39;spread_mean&#39;, &#39;spread_std&#39;, &#39;zscore&#39;,)
+    params = ((&#39;period&#39;, 10),)
+
+    def __init__(self):
+        slint = OLS_Slope_InterceptN(*self.datas)
+
+        spread = self.data0 - (slint.slope * self.data1 + slint.intercept)
+        self.l.spread = spread
+
+        self.l.spread_mean = bt.ind.SMA(spread, period=self.p.period)
+        self.l.spread_std = bt.ind.StdDev(spread, period=self.p.period)
+        self.l.zscore = (spread - self.l.spread_mean) / self.l.spread_std</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.basicops.PeriodN" href="basicops.html#backtrader.indicators.basicops.PeriodN">PeriodN</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.ols.OLS_TransformationN.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_TransformationN.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_TransformationN.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_TransformationN.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_TransformationN.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_TransformationN.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_TransformationN.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.ols.OLS_TransformationN.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.basicops.PeriodN" href="basicops.html#backtrader.indicators.basicops.PeriodN">PeriodN</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.basicops.PeriodN.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.basicops.PeriodN.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader.indicators" href="index.html">backtrader.indicators</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.indicators.ols.CointN" href="#backtrader.indicators.ols.CointN">CointN</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.ols.CointN.alias" href="#backtrader.indicators.ols.CointN.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.ols.CointN.aliased" href="#backtrader.indicators.ols.CointN.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.ols.CointN.frompackages" href="#backtrader.indicators.ols.CointN.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.ols.CointN.linealias" href="#backtrader.indicators.ols.CointN.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.ols.CointN.packages" href="#backtrader.indicators.ols.CointN.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.ols.CointN.params" href="#backtrader.indicators.ols.CointN.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.ols.CointN.plotinfo" href="#backtrader.indicators.ols.CointN.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.ols.CointN.plotlines" href="#backtrader.indicators.ols.CointN.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.ols.OLS_BetaN" href="#backtrader.indicators.ols.OLS_BetaN">OLS_BetaN</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.ols.OLS_BetaN.alias" href="#backtrader.indicators.ols.OLS_BetaN.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_BetaN.aliased" href="#backtrader.indicators.ols.OLS_BetaN.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_BetaN.frompackages" href="#backtrader.indicators.ols.OLS_BetaN.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_BetaN.linealias" href="#backtrader.indicators.ols.OLS_BetaN.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_BetaN.packages" href="#backtrader.indicators.ols.OLS_BetaN.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_BetaN.params" href="#backtrader.indicators.ols.OLS_BetaN.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_BetaN.plotinfo" href="#backtrader.indicators.ols.OLS_BetaN.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_BetaN.plotlines" href="#backtrader.indicators.ols.OLS_BetaN.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.ols.OLS_Slope_InterceptN" href="#backtrader.indicators.ols.OLS_Slope_InterceptN">OLS_Slope_InterceptN</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.ols.OLS_Slope_InterceptN.alias" href="#backtrader.indicators.ols.OLS_Slope_InterceptN.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_Slope_InterceptN.aliased" href="#backtrader.indicators.ols.OLS_Slope_InterceptN.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_Slope_InterceptN.frompackages" href="#backtrader.indicators.ols.OLS_Slope_InterceptN.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_Slope_InterceptN.linealias" href="#backtrader.indicators.ols.OLS_Slope_InterceptN.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_Slope_InterceptN.packages" href="#backtrader.indicators.ols.OLS_Slope_InterceptN.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_Slope_InterceptN.params" href="#backtrader.indicators.ols.OLS_Slope_InterceptN.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_Slope_InterceptN.plotinfo" href="#backtrader.indicators.ols.OLS_Slope_InterceptN.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_Slope_InterceptN.plotlines" href="#backtrader.indicators.ols.OLS_Slope_InterceptN.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.ols.OLS_TransformationN" href="#backtrader.indicators.ols.OLS_TransformationN">OLS_TransformationN</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.ols.OLS_TransformationN.alias" href="#backtrader.indicators.ols.OLS_TransformationN.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_TransformationN.aliased" href="#backtrader.indicators.ols.OLS_TransformationN.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_TransformationN.frompackages" href="#backtrader.indicators.ols.OLS_TransformationN.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_TransformationN.linealias" href="#backtrader.indicators.ols.OLS_TransformationN.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_TransformationN.packages" href="#backtrader.indicators.ols.OLS_TransformationN.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_TransformationN.params" href="#backtrader.indicators.ols.OLS_TransformationN.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_TransformationN.plotinfo" href="#backtrader.indicators.ols.OLS_TransformationN.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.ols.OLS_TransformationN.plotlines" href="#backtrader.indicators.ols.OLS_TransformationN.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.broker API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.broker</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+from backtrader.comminfo import CommInfoBase
+from backtrader.metabase import MetaParams
+from backtrader.utils.py3 import with_metaclass
+
+from . import fillers as fillers
+from . import fillers as filler
+
+
+class MetaBroker(MetaParams):
+    def __init__(cls, name, bases, dct):
+        &#39;&#39;&#39;
+        Class has already been created ... fill missing methods if needed be
+        &#39;&#39;&#39;
+        # Initialize the class
+        super(MetaBroker, cls).__init__(name, bases, dct)
+        translations = {
+            &#39;get_cash&#39;: &#39;getcash&#39;,
+            &#39;get_value&#39;: &#39;getvalue&#39;,
+        }
+
+        for attr, trans in translations.items():
+            if not hasattr(cls, attr):
+                setattr(cls, name, getattr(cls, trans))
+
+
+class BrokerBase(with_metaclass(MetaBroker, object)):
+    params = (
+        (&#39;commission&#39;, CommInfoBase(percabs=True)),
+    )
+
+    def __init__(self):
+        self.comminfo = dict()
+        self.init()
+
+    def init(self):
+        # called from init and from start
+        if None not in self.comminfo:
+            self.comminfo = dict({None: self.p.commission})
+
+    def start(self):
+        self.init()
+
+    def stop(self):
+        pass
+
+    def add_order_history(self, orders, notify=False):
+        &#39;&#39;&#39;Add order history. See cerebro for details&#39;&#39;&#39;
+        raise NotImplementedError
+
+    def set_fund_history(self, fund):
+        &#39;&#39;&#39;Add fund history. See cerebro for details&#39;&#39;&#39;
+        raise NotImplementedError
+
+    def getcommissioninfo(self, data):
+        &#39;&#39;&#39;Retrieves the ``CommissionInfo`` scheme associated with the given
+        ``data``&#39;&#39;&#39;
+        if data._name in self.comminfo:
+            return self.comminfo[data._name]
+
+        return self.comminfo[None]
+
+    def setcommission(self,
+                      commission=0.0, margin=None, mult=1.0,
+                      commtype=None, percabs=True, stocklike=False,
+                      interest=0.0, interest_long=False, leverage=1.0,
+                      automargin=False,
+                      name=None):
+
+        &#39;&#39;&#39;This method sets a `` CommissionInfo`` object for assets managed in
+        the broker with the parameters. Consult the reference for
+        ``CommInfoBase``
+
+        If name is ``None``, this will be the default for assets for which no
+        other ``CommissionInfo`` scheme can be found
+        &#39;&#39;&#39;
+
+        comm = CommInfoBase(commission=commission, margin=margin, mult=mult,
+                            commtype=commtype, stocklike=stocklike,
+                            percabs=percabs,
+                            interest=interest, interest_long=interest_long,
+                            leverage=leverage, automargin=automargin)
+        self.comminfo[name] = comm
+
+    def addcommissioninfo(self, comminfo, name=None):
+        &#39;&#39;&#39;Adds a ``CommissionInfo`` object that will be the default for all assets if
+        ``name`` is ``None``&#39;&#39;&#39;
+        self.comminfo[name] = comminfo
+
+    def getcash(self):
+        raise NotImplementedError
+
+    def getvalue(self, datas=None):
+        raise NotImplementedError
+
+    def get_fundshares(self):
+        &#39;&#39;&#39;Returns the current number of shares in the fund-like mode&#39;&#39;&#39;
+        return 1.0  # the abstract mode has only 1 share
+
+    fundshares = property(get_fundshares)
+
+    def get_fundvalue(self):
+        return self.getvalue()
+
+    fundvalue = property(get_fundvalue)
+
+    def set_fundmode(self, fundmode, fundstartval=None):
+        &#39;&#39;&#39;Set the actual fundmode (True or False)
+
+        If the argument fundstartval is not ``None``, it will used
+        &#39;&#39;&#39;
+        pass  # do nothing, not all brokers can support this
+
+    def get_fundmode(self):
+        &#39;&#39;&#39;Returns the actual fundmode (True or False)&#39;&#39;&#39;
+        return False
+
+    fundmode = property(get_fundmode, set_fundmode)
+
+    def getposition(self, data):
+        raise NotImplementedError
+
+    def submit(self, order):
+        raise NotImplementedError
+
+    def cancel(self, order):
+        raise NotImplementedError
+
+    def buy(self, owner, data, size, price=None, plimit=None,
+            exectype=None, valid=None, tradeid=0, oco=None,
+            trailamount=None, trailpercent=None,
+            **kwargs):
+
+        raise NotImplementedError
+
+    def sell(self, owner, data, size, price=None, plimit=None,
+             exectype=None, valid=None, tradeid=0, oco=None,
+             trailamount=None, trailpercent=None,
+             **kwargs):
+
+        raise NotImplementedError
+
+    def next(self):
+        pass
+
+# __all__ = [&#39;BrokerBase&#39;, &#39;fillers&#39;, &#39;filler&#39;]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.broker.BrokerBase"><code class="flex name class">
+<span>class <span class="ident">BrokerBase</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BrokerBase(with_metaclass(MetaBroker, object)):
+    params = (
+        (&#39;commission&#39;, CommInfoBase(percabs=True)),
+    )
+
+    def __init__(self):
+        self.comminfo = dict()
+        self.init()
+
+    def init(self):
+        # called from init and from start
+        if None not in self.comminfo:
+            self.comminfo = dict({None: self.p.commission})
+
+    def start(self):
+        self.init()
+
+    def stop(self):
+        pass
+
+    def add_order_history(self, orders, notify=False):
+        &#39;&#39;&#39;Add order history. See cerebro for details&#39;&#39;&#39;
+        raise NotImplementedError
+
+    def set_fund_history(self, fund):
+        &#39;&#39;&#39;Add fund history. See cerebro for details&#39;&#39;&#39;
+        raise NotImplementedError
+
+    def getcommissioninfo(self, data):
+        &#39;&#39;&#39;Retrieves the ``CommissionInfo`` scheme associated with the given
+        ``data``&#39;&#39;&#39;
+        if data._name in self.comminfo:
+            return self.comminfo[data._name]
+
+        return self.comminfo[None]
+
+    def setcommission(self,
+                      commission=0.0, margin=None, mult=1.0,
+                      commtype=None, percabs=True, stocklike=False,
+                      interest=0.0, interest_long=False, leverage=1.0,
+                      automargin=False,
+                      name=None):
+
+        &#39;&#39;&#39;This method sets a `` CommissionInfo`` object for assets managed in
+        the broker with the parameters. Consult the reference for
+        ``CommInfoBase``
+
+        If name is ``None``, this will be the default for assets for which no
+        other ``CommissionInfo`` scheme can be found
+        &#39;&#39;&#39;
+
+        comm = CommInfoBase(commission=commission, margin=margin, mult=mult,
+                            commtype=commtype, stocklike=stocklike,
+                            percabs=percabs,
+                            interest=interest, interest_long=interest_long,
+                            leverage=leverage, automargin=automargin)
+        self.comminfo[name] = comm
+
+    def addcommissioninfo(self, comminfo, name=None):
+        &#39;&#39;&#39;Adds a ``CommissionInfo`` object that will be the default for all assets if
+        ``name`` is ``None``&#39;&#39;&#39;
+        self.comminfo[name] = comminfo
+
+    def getcash(self):
+        raise NotImplementedError
+
+    def getvalue(self, datas=None):
+        raise NotImplementedError
+
+    def get_fundshares(self):
+        &#39;&#39;&#39;Returns the current number of shares in the fund-like mode&#39;&#39;&#39;
+        return 1.0  # the abstract mode has only 1 share
+
+    fundshares = property(get_fundshares)
+
+    def get_fundvalue(self):
+        return self.getvalue()
+
+    fundvalue = property(get_fundvalue)
+
+    def set_fundmode(self, fundmode, fundstartval=None):
+        &#39;&#39;&#39;Set the actual fundmode (True or False)
+
+        If the argument fundstartval is not ``None``, it will used
+        &#39;&#39;&#39;
+        pass  # do nothing, not all brokers can support this
+
+    def get_fundmode(self):
+        &#39;&#39;&#39;Returns the actual fundmode (True or False)&#39;&#39;&#39;
+        return False
+
+    fundmode = property(get_fundmode, set_fundmode)
+
+    def getposition(self, data):
+        raise NotImplementedError
+
+    def submit(self, order):
+        raise NotImplementedError
+
+    def cancel(self, order):
+        raise NotImplementedError
+
+    def buy(self, owner, data, size, price=None, plimit=None,
+            exectype=None, valid=None, tradeid=0, oco=None,
+            trailamount=None, trailpercent=None,
+            **kwargs):
+
+        raise NotImplementedError
+
+    def sell(self, owner, data, size, price=None, plimit=None,
+             exectype=None, valid=None, tradeid=0, oco=None,
+             trailamount=None, trailpercent=None,
+             **kwargs):
+
+        raise NotImplementedError
+
+    def next(self):
+        pass</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.brokers.bbroker.BackBroker" href="brokers/bbroker.html#backtrader.brokers.bbroker.BackBroker">BackBroker</a></li>
+<li><a title="backtrader.brokers.vcbroker.VCBroker" href="brokers/vcbroker.html#backtrader.brokers.vcbroker.VCBroker">VCBroker</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.broker.BrokerBase.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.broker.BrokerBase.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.broker.BrokerBase.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="backtrader.broker.BrokerBase.fundmode"><code class="name">var <span class="ident">fundmode</span></code></dt>
+<dd>
+<div class="desc"><p>Returns the actual fundmode (True or False)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fundmode(self):
+    &#39;&#39;&#39;Returns the actual fundmode (True or False)&#39;&#39;&#39;
+    return False</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.fundshares"><code class="name">var <span class="ident">fundshares</span></code></dt>
+<dd>
+<div class="desc"><p>Returns the current number of shares in the fund-like mode</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fundshares(self):
+    &#39;&#39;&#39;Returns the current number of shares in the fund-like mode&#39;&#39;&#39;
+    return 1.0  # the abstract mode has only 1 share</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.fundvalue"><code class="name">var <span class="ident">fundvalue</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fundvalue(self):
+    return self.getvalue()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.broker.BrokerBase.BrokerBase"><code class="name flex">
+<span>def <span class="ident">BrokerBase</span></span>(<span>self, datas=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getvalue(self, datas=None):
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.add_order_history"><code class="name flex">
+<span>def <span class="ident">add_order_history</span></span>(<span>self, orders, notify=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add order history. See cerebro for details</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_order_history(self, orders, notify=False):
+    &#39;&#39;&#39;Add order history. See cerebro for details&#39;&#39;&#39;
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.addcommissioninfo"><code class="name flex">
+<span>def <span class="ident">addcommissioninfo</span></span>(<span>self, comminfo, name=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a <code>CommissionInfo</code> object that will be the default for all assets if
+<code>name</code> is <code>None</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addcommissioninfo(self, comminfo, name=None):
+    &#39;&#39;&#39;Adds a ``CommissionInfo`` object that will be the default for all assets if
+    ``name`` is ``None``&#39;&#39;&#39;
+    self.comminfo[name] = comminfo</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.buy"><code class="name flex">
+<span>def <span class="ident">buy</span></span>(<span>self, owner, data, size, price=None, plimit=None, exectype=None, valid=None, tradeid=0, oco=None, trailamount=None, trailpercent=None, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def buy(self, owner, data, size, price=None, plimit=None,
+        exectype=None, valid=None, tradeid=0, oco=None,
+        trailamount=None, trailpercent=None,
+        **kwargs):
+
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.cancel"><code class="name flex">
+<span>def <span class="ident">cancel</span></span>(<span>self, order)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cancel(self, order):
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.get_fundmode"><code class="name flex">
+<span>def <span class="ident">get_fundmode</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the actual fundmode (True or False)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fundmode(self):
+    &#39;&#39;&#39;Returns the actual fundmode (True or False)&#39;&#39;&#39;
+    return False</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.get_fundshares"><code class="name flex">
+<span>def <span class="ident">get_fundshares</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current number of shares in the fund-like mode</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fundshares(self):
+    &#39;&#39;&#39;Returns the current number of shares in the fund-like mode&#39;&#39;&#39;
+    return 1.0  # the abstract mode has only 1 share</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.get_fundvalue"><code class="name flex">
+<span>def <span class="ident">get_fundvalue</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fundvalue(self):
+    return self.getvalue()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.getcash"><code class="name flex">
+<span>def <span class="ident">getcash</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getcash(self):
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.getcommissioninfo"><code class="name flex">
+<span>def <span class="ident">getcommissioninfo</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves the <code>CommissionInfo</code> scheme associated with the given
+<code>data</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getcommissioninfo(self, data):
+    &#39;&#39;&#39;Retrieves the ``CommissionInfo`` scheme associated with the given
+    ``data``&#39;&#39;&#39;
+    if data._name in self.comminfo:
+        return self.comminfo[data._name]
+
+    return self.comminfo[None]</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.getposition"><code class="name flex">
+<span>def <span class="ident">getposition</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getposition(self, data):
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.getvalue"><code class="name flex">
+<span>def <span class="ident">getvalue</span></span>(<span>self, datas=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getvalue(self, datas=None):
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.init"><code class="name flex">
+<span>def <span class="ident">init</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def init(self):
+    # called from init and from start
+    if None not in self.comminfo:
+        self.comminfo = dict({None: self.p.commission})</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.next"><code class="name flex">
+<span>def <span class="ident">next</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def next(self):
+    pass</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.sell"><code class="name flex">
+<span>def <span class="ident">sell</span></span>(<span>self, owner, data, size, price=None, plimit=None, exectype=None, valid=None, tradeid=0, oco=None, trailamount=None, trailpercent=None, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sell(self, owner, data, size, price=None, plimit=None,
+         exectype=None, valid=None, tradeid=0, oco=None,
+         trailamount=None, trailpercent=None,
+         **kwargs):
+
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.set_fund_history"><code class="name flex">
+<span>def <span class="ident">set_fund_history</span></span>(<span>self, fund)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add fund history. See cerebro for details</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_fund_history(self, fund):
+    &#39;&#39;&#39;Add fund history. See cerebro for details&#39;&#39;&#39;
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.set_fundmode"><code class="name flex">
+<span>def <span class="ident">set_fundmode</span></span>(<span>self, fundmode, fundstartval=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the actual fundmode (True or False)</p>
+<p>If the argument fundstartval is not <code>None</code>, it will used</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_fundmode(self, fundmode, fundstartval=None):
+    &#39;&#39;&#39;Set the actual fundmode (True or False)
+
+    If the argument fundstartval is not ``None``, it will used
+    &#39;&#39;&#39;
+    pass  # do nothing, not all brokers can support this</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.setcommission"><code class="name flex">
+<span>def <span class="ident">setcommission</span></span>(<span>self, commission=0.0, margin=None, mult=1.0, commtype=None, percabs=True, stocklike=False, interest=0.0, interest_long=False, leverage=1.0, automargin=False, name=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method sets a <code> CommissionInfo</code> object for assets managed in
+the broker with the parameters. Consult the reference for
+<code>CommInfoBase</code></p>
+<p>If name is <code>None</code>, this will be the default for assets for which no
+other <code>CommissionInfo</code> scheme can be found</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setcommission(self,
+                  commission=0.0, margin=None, mult=1.0,
+                  commtype=None, percabs=True, stocklike=False,
+                  interest=0.0, interest_long=False, leverage=1.0,
+                  automargin=False,
+                  name=None):
+
+    &#39;&#39;&#39;This method sets a `` CommissionInfo`` object for assets managed in
+    the broker with the parameters. Consult the reference for
+    ``CommInfoBase``
+
+    If name is ``None``, this will be the default for assets for which no
+    other ``CommissionInfo`` scheme can be found
+    &#39;&#39;&#39;
+
+    comm = CommInfoBase(commission=commission, margin=margin, mult=mult,
+                        commtype=commtype, stocklike=stocklike,
+                        percabs=percabs,
+                        interest=interest, interest_long=interest_long,
+                        leverage=leverage, automargin=automargin)
+    self.comminfo[name] = comm</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    self.init()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stop(self):
+    pass</code></pre>
+</details>
+</dd>
+<dt id="backtrader.broker.BrokerBase.submit"><code class="name flex">
+<span>def <span class="ident">submit</span></span>(<span>self, order)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def submit(self, order):
+    raise NotImplementedError</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="backtrader.broker.MetaBroker"><code class="flex name class">
+<span>class <span class="ident">MetaBroker</span></span>
+<span>(</span><span>name, bases, dct)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>type(object) -&gt; the object's type
+type(name, bases, dict, **kwds) -&gt; a new type</p>
+<p>Class has already been created &hellip; fill missing methods if needed be</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MetaBroker(MetaParams):
+    def __init__(cls, name, bases, dct):
+        &#39;&#39;&#39;
+        Class has already been created ... fill missing methods if needed be
+        &#39;&#39;&#39;
+        # Initialize the class
+        super(MetaBroker, cls).__init__(name, bases, dct)
+        translations = {
+            &#39;get_cash&#39;: &#39;getcash&#39;,
+            &#39;get_value&#39;: &#39;getvalue&#39;,
+        }
+
+        for attr, trans in translations.items():
+            if not hasattr(cls, attr):
+                setattr(cls, name, getattr(cls, trans))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.metabase.MetaParams" href="metabase.html#backtrader.metabase.MetaParams">MetaParams</a></li>
+<li><a title="backtrader.metabase.MetaBase" href="metabase.html#backtrader.metabase.MetaBase">MetaBase</a></li>
+<li>builtins.type</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.brokers.vcbroker.MetaVCBroker" href="brokers/vcbroker.html#backtrader.brokers.vcbroker.MetaVCBroker">MetaVCBroker</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader" href="index.html">backtrader</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.broker.BrokerBase" href="#backtrader.broker.BrokerBase">BrokerBase</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.broker.BrokerBase.BrokerBase" href="#backtrader.broker.BrokerBase.BrokerBase">BrokerBase</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.add_order_history" href="#backtrader.broker.BrokerBase.add_order_history">add_order_history</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.addcommissioninfo" href="#backtrader.broker.BrokerBase.addcommissioninfo">addcommissioninfo</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.buy" href="#backtrader.broker.BrokerBase.buy">buy</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.cancel" href="#backtrader.broker.BrokerBase.cancel">cancel</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.frompackages" href="#backtrader.broker.BrokerBase.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.fundmode" href="#backtrader.broker.BrokerBase.fundmode">fundmode</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.fundshares" href="#backtrader.broker.BrokerBase.fundshares">fundshares</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.fundvalue" href="#backtrader.broker.BrokerBase.fundvalue">fundvalue</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.get_fundmode" href="#backtrader.broker.BrokerBase.get_fundmode">get_fundmode</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.get_fundshares" href="#backtrader.broker.BrokerBase.get_fundshares">get_fundshares</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.get_fundvalue" href="#backtrader.broker.BrokerBase.get_fundvalue">get_fundvalue</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.getcash" href="#backtrader.broker.BrokerBase.getcash">getcash</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.getcommissioninfo" href="#backtrader.broker.BrokerBase.getcommissioninfo">getcommissioninfo</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.getposition" href="#backtrader.broker.BrokerBase.getposition">getposition</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.getvalue" href="#backtrader.broker.BrokerBase.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.init" href="#backtrader.broker.BrokerBase.init">init</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.next" href="#backtrader.broker.BrokerBase.next">next</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.packages" href="#backtrader.broker.BrokerBase.packages">packages</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.params" href="#backtrader.broker.BrokerBase.params">params</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.sell" href="#backtrader.broker.BrokerBase.sell">sell</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.set_fund_history" href="#backtrader.broker.BrokerBase.set_fund_history">set_fund_history</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.set_fundmode" href="#backtrader.broker.BrokerBase.set_fundmode">set_fundmode</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.setcommission" href="#backtrader.broker.BrokerBase.setcommission">setcommission</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.start" href="#backtrader.broker.BrokerBase.start">start</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.stop" href="#backtrader.broker.BrokerBase.stop">stop</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.submit" href="#backtrader.broker.BrokerBase.submit">submit</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.broker.MetaBroker" href="#backtrader.broker.MetaBroker">MetaBroker</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

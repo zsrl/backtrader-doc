@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.indicator API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.indicator</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+
+from .utils.py3 import range, with_metaclass
+
+from .lineiterator import LineIterator, IndicatorBase
+from .lineseries import LineSeriesMaker, Lines
+from .metabase import AutoInfoClass
+
+
+class MetaIndicator(IndicatorBase.__class__):
+    _refname = &#39;_indcol&#39;
+    _indcol = dict()
+
+    _icache = dict()
+    _icacheuse = False
+
+    @classmethod
+    def cleancache(cls):
+        cls._icache = dict()
+
+    @classmethod
+    def usecache(cls, onoff):
+        cls._icacheuse = onoff
+
+    # Object cache deactivated on 2016-08-17. If the object is being used
+    # inside another object, the minperiod information carried over
+    # influences the first usage when being modified during the 2nd usage
+
+    def __call__(cls, *args, **kwargs):
+        if not cls._icacheuse:
+            return super(MetaIndicator, cls).__call__(*args, **kwargs)
+
+        # implement a cache to avoid duplicating lines actions
+        ckey = (cls, tuple(args), tuple(kwargs.items()))  # tuples hashable
+        try:
+            return cls._icache[ckey]
+        except TypeError:  # something not hashable
+            return super(MetaIndicator, cls).__call__(*args, **kwargs)
+        except KeyError:
+            pass  # hashable but not in the cache
+
+        _obj = super(MetaIndicator, cls).__call__(*args, **kwargs)
+        return cls._icache.setdefault(ckey, _obj)
+
+    def __init__(cls, name, bases, dct):
+        &#39;&#39;&#39;
+        Class has already been created ... register subclasses
+        &#39;&#39;&#39;
+        # Initialize the class
+        super(MetaIndicator, cls).__init__(name, bases, dct)
+
+        if not cls.aliased and \
+           name != &#39;Indicator&#39; and not name.startswith(&#39;_&#39;):
+            refattr = getattr(cls, cls._refname)
+            refattr[name] = cls
+
+        # Check if next and once have both been overridden
+        next_over = cls.next != IndicatorBase.next
+        once_over = cls.once != IndicatorBase.once
+
+        if next_over and not once_over:
+            # No -&gt; need pointer movement to once simulation via next
+            cls.once = cls.once_via_next
+            cls.preonce = cls.preonce_via_prenext
+            cls.oncestart = cls.oncestart_via_nextstart
+
+
+class Indicator(with_metaclass(MetaIndicator, IndicatorBase)):
+    _ltype = LineIterator.IndType
+
+    csv = False
+
+    def advance(self, size=1):
+        # Need intercepting this call to support datas with
+        # different lengths (timeframes)
+        if len(self) &lt; len(self._clock):
+            self.lines.advance(size=size)
+
+    def preonce_via_prenext(self, start, end):
+        # generic implementation if prenext is overridden but preonce is not
+        for i in range(start, end):
+            for data in self.datas:
+                data.advance()
+
+            for indicator in self._lineiterators[LineIterator.IndType]:
+                indicator.advance()
+
+            self.advance()
+            self.prenext()
+
+    def oncestart_via_nextstart(self, start, end):
+        # nextstart has been overriden, but oncestart has not and the code is
+        # here. call the overriden nextstart
+        for i in range(start, end):
+            for data in self.datas:
+                data.advance()
+
+            for indicator in self._lineiterators[LineIterator.IndType]:
+                indicator.advance()
+
+            self.advance()
+            self.nextstart()
+
+    def once_via_next(self, start, end):
+        # Not overridden, next must be there ...
+        for i in range(start, end):
+            for data in self.datas:
+                data.advance()
+
+            for indicator in self._lineiterators[LineIterator.IndType]:
+                indicator.advance()
+
+            self.advance()
+            self.next()
+
+
+class MtLinePlotterIndicator(Indicator.__class__):
+    def donew(cls, *args, **kwargs):
+        lname = kwargs.pop(&#39;name&#39;)
+        name = cls.__name__
+
+        lines = getattr(cls, &#39;lines&#39;, Lines)
+        cls.lines = lines._derive(name, (lname,), 0, [])
+
+        plotlines = AutoInfoClass
+        newplotlines = dict()
+        newplotlines.setdefault(lname, dict())
+        cls.plotlines = plotlines._derive(name, newplotlines, [], recurse=True)
+
+        # Create the object and set the params in place
+        _obj, args, kwargs =  \
+            super(MtLinePlotterIndicator, cls).donew(*args, **kwargs)
+
+        _obj.owner = _obj.data.owner._clock
+        _obj.data.lines[0].addbinding(_obj.lines[0])
+
+        # Return the object and arguments to the chain
+        return _obj, args, kwargs
+
+
+class LinePlotterIndicator(with_metaclass(MtLinePlotterIndicator, Indicator)):
+    pass</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.indicator.Indicator"><code class="flex name class">
+<span>class <span class="ident">Indicator</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for LineXXX instances that hold more than one line</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Indicator(with_metaclass(MetaIndicator, IndicatorBase)):
+    _ltype = LineIterator.IndType
+
+    csv = False
+
+    def advance(self, size=1):
+        # Need intercepting this call to support datas with
+        # different lengths (timeframes)
+        if len(self) &lt; len(self._clock):
+            self.lines.advance(size=size)
+
+    def preonce_via_prenext(self, start, end):
+        # generic implementation if prenext is overridden but preonce is not
+        for i in range(start, end):
+            for data in self.datas:
+                data.advance()
+
+            for indicator in self._lineiterators[LineIterator.IndType]:
+                indicator.advance()
+
+            self.advance()
+            self.prenext()
+
+    def oncestart_via_nextstart(self, start, end):
+        # nextstart has been overriden, but oncestart has not and the code is
+        # here. call the overriden nextstart
+        for i in range(start, end):
+            for data in self.datas:
+                data.advance()
+
+            for indicator in self._lineiterators[LineIterator.IndType]:
+                indicator.advance()
+
+            self.advance()
+            self.nextstart()
+
+    def once_via_next(self, start, end):
+        # Not overridden, next must be there ...
+        for i in range(start, end):
+            for data in self.datas:
+                data.advance()
+
+            for indicator in self._lineiterators[LineIterator.IndType]:
+                indicator.advance()
+
+            self.advance()
+            self.next()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.lineiterator.IndicatorBase" href="lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicator.LinePlotterIndicator" href="#backtrader.indicator.LinePlotterIndicator">LinePlotterIndicator</a></li>
+<li><a title="backtrader.indicators.accdecoscillator.AccelerationDecelerationOscillator" href="indicators/accdecoscillator.html#backtrader.indicators.accdecoscillator.AccelerationDecelerationOscillator">AccelerationDecelerationOscillator</a></li>
+<li>backtrader.indicators.aroon._AroonBase</li>
+<li><a title="backtrader.indicators.atr.AverageTrueRange" href="indicators/atr.html#backtrader.indicators.atr.AverageTrueRange">AverageTrueRange</a></li>
+<li><a title="backtrader.indicators.atr.TrueHigh" href="indicators/atr.html#backtrader.indicators.atr.TrueHigh">TrueHigh</a></li>
+<li><a title="backtrader.indicators.atr.TrueLow" href="indicators/atr.html#backtrader.indicators.atr.TrueLow">TrueLow</a></li>
+<li><a title="backtrader.indicators.atr.TrueRange" href="indicators/atr.html#backtrader.indicators.atr.TrueRange">TrueRange</a></li>
+<li><a title="backtrader.indicators.awesomeoscillator.AwesomeOscillator" href="indicators/awesomeoscillator.html#backtrader.indicators.awesomeoscillator.AwesomeOscillator">AwesomeOscillator</a></li>
+<li><a title="backtrader.indicators.basicops.Accum" href="indicators/basicops.html#backtrader.indicators.basicops.Accum">Accum</a></li>
+<li><a title="backtrader.indicators.basicops.PeriodN" href="indicators/basicops.html#backtrader.indicators.basicops.PeriodN">PeriodN</a></li>
+<li><a title="backtrader.indicators.bollinger.BollingerBands" href="indicators/bollinger.html#backtrader.indicators.bollinger.BollingerBands">BollingerBands</a></li>
+<li><a title="backtrader.indicators.cci.CommodityChannelIndex" href="indicators/cci.html#backtrader.indicators.cci.CommodityChannelIndex">CommodityChannelIndex</a></li>
+<li><a title="backtrader.indicators.contrib.vortex.Vortex" href="indicators/contrib/vortex.html#backtrader.indicators.contrib.vortex.Vortex">Vortex</a></li>
+<li><a title="backtrader.indicators.crossover.CrossOver" href="indicators/crossover.html#backtrader.indicators.crossover.CrossOver">CrossOver</a></li>
+<li><a title="backtrader.indicators.crossover.NonZeroDifference" href="indicators/crossover.html#backtrader.indicators.crossover.NonZeroDifference">NonZeroDifference</a></li>
+<li>backtrader.indicators.crossover._CrossBase</li>
+<li><a title="backtrader.indicators.deviation.MeanDeviation" href="indicators/deviation.html#backtrader.indicators.deviation.MeanDeviation">MeanDeviation</a></li>
+<li><a title="backtrader.indicators.deviation.StandardDeviation" href="indicators/deviation.html#backtrader.indicators.deviation.StandardDeviation">StandardDeviation</a></li>
+<li><a title="backtrader.indicators.directionalmove.DownMove" href="indicators/directionalmove.html#backtrader.indicators.directionalmove.DownMove">DownMove</a></li>
+<li><a title="backtrader.indicators.directionalmove.UpMove" href="indicators/directionalmove.html#backtrader.indicators.directionalmove.UpMove">UpMove</a></li>
+<li>backtrader.indicators.directionalmove._DirectionalIndicator</li>
+<li><a title="backtrader.indicators.dpo.DetrendedPriceOscillator" href="indicators/dpo.html#backtrader.indicators.dpo.DetrendedPriceOscillator">DetrendedPriceOscillator</a></li>
+<li><a title="backtrader.indicators.dv2.DV2" href="indicators/dv2.html#backtrader.indicators.dv2.DV2">DV2</a></li>
+<li>backtrader.indicators.envelope._EnvelopeBase</li>
+<li><a title="backtrader.indicators.hadelta.haDelta" href="indicators/hadelta.html#backtrader.indicators.hadelta.haDelta">haDelta</a></li>
+<li><a title="backtrader.indicators.heikinashi.HeikinAshi" href="indicators/heikinashi.html#backtrader.indicators.heikinashi.HeikinAshi">HeikinAshi</a></li>
+<li><a title="backtrader.indicators.ichimoku.Ichimoku" href="indicators/ichimoku.html#backtrader.indicators.ichimoku.Ichimoku">Ichimoku</a></li>
+<li><a title="backtrader.indicators.kst.KnowSureThing" href="indicators/kst.html#backtrader.indicators.kst.KnowSureThing">KnowSureThing</a></li>
+<li><a title="backtrader.indicators.mabase.MovingAverageBase" href="indicators/mabase.html#backtrader.indicators.mabase.MovingAverageBase">MovingAverageBase</a></li>
+<li><a title="backtrader.indicators.macd.MACD" href="indicators/macd.html#backtrader.indicators.macd.MACD">MACD</a></li>
+<li><a title="backtrader.indicators.momentum.Momentum" href="indicators/momentum.html#backtrader.indicators.momentum.Momentum">Momentum</a></li>
+<li><a title="backtrader.indicators.momentum.MomentumOscillator" href="indicators/momentum.html#backtrader.indicators.momentum.MomentumOscillator">MomentumOscillator</a></li>
+<li><a title="backtrader.indicators.momentum.RateOfChange" href="indicators/momentum.html#backtrader.indicators.momentum.RateOfChange">RateOfChange</a></li>
+<li><a title="backtrader.indicators.momentum.RateOfChange100" href="indicators/momentum.html#backtrader.indicators.momentum.RateOfChange100">RateOfChange100</a></li>
+<li><a title="backtrader.indicators.oscillator.Oscillator" href="indicators/oscillator.html#backtrader.indicators.oscillator.Oscillator">Oscillator</a></li>
+<li><a title="backtrader.indicators.oscillator.OscillatorMixIn" href="indicators/oscillator.html#backtrader.indicators.oscillator.OscillatorMixIn">OscillatorMixIn</a></li>
+<li><a title="backtrader.indicators.percentchange.PercentChange" href="indicators/percentchange.html#backtrader.indicators.percentchange.PercentChange">PercentChange</a></li>
+<li><a title="backtrader.indicators.pivotpoint.DemarkPivotPoint" href="indicators/pivotpoint.html#backtrader.indicators.pivotpoint.DemarkPivotPoint">DemarkPivotPoint</a></li>
+<li><a title="backtrader.indicators.pivotpoint.FibonacciPivotPoint" href="indicators/pivotpoint.html#backtrader.indicators.pivotpoint.FibonacciPivotPoint">FibonacciPivotPoint</a></li>
+<li><a title="backtrader.indicators.pivotpoint.PivotPoint" href="indicators/pivotpoint.html#backtrader.indicators.pivotpoint.PivotPoint">PivotPoint</a></li>
+<li><a title="backtrader.indicators.prettygoodoscillator.PrettyGoodOscillator" href="indicators/prettygoodoscillator.html#backtrader.indicators.prettygoodoscillator.PrettyGoodOscillator">PrettyGoodOscillator</a></li>
+<li>backtrader.indicators.priceoscillator._PriceOscBase</li>
+<li><a title="backtrader.indicators.rsi.DownDay" href="indicators/rsi.html#backtrader.indicators.rsi.DownDay">DownDay</a></li>
+<li><a title="backtrader.indicators.rsi.DownDayBool" href="indicators/rsi.html#backtrader.indicators.rsi.DownDayBool">DownDayBool</a></li>
+<li><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="indicators/rsi.html#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></li>
+<li><a title="backtrader.indicators.rsi.UpDay" href="indicators/rsi.html#backtrader.indicators.rsi.UpDay">UpDay</a></li>
+<li><a title="backtrader.indicators.rsi.UpDayBool" href="indicators/rsi.html#backtrader.indicators.rsi.UpDayBool">UpDayBool</a></li>
+<li>backtrader.indicators.stochastic._StochasticBase</li>
+<li><a title="backtrader.indicators.trix.Trix" href="indicators/trix.html#backtrader.indicators.trix.Trix">Trix</a></li>
+<li><a title="backtrader.indicators.tsi.TrueStrengthIndicator" href="indicators/tsi.html#backtrader.indicators.tsi.TrueStrengthIndicator">TrueStrengthIndicator</a></li>
+<li><a title="backtrader.indicators.ultimateoscillator.UltimateOscillator" href="indicators/ultimateoscillator.html#backtrader.indicators.ultimateoscillator.UltimateOscillator">UltimateOscillator</a></li>
+<li><a title="backtrader.indicators.vortex.Vortex" href="indicators/vortex.html#backtrader.indicators.vortex.Vortex">Vortex</a></li>
+<li><a title="backtrader.indicators.williams.WilliamsAD" href="indicators/williams.html#backtrader.indicators.williams.WilliamsAD">WilliamsAD</a></li>
+<li><a title="backtrader.indicators.williams.WilliamsR" href="indicators/williams.html#backtrader.indicators.williams.WilliamsR">WilliamsR</a></li>
+<li><a title="backtrader.signal.Signal" href="signal.html#backtrader.signal.Signal">Signal</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicator.Indicator.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.Indicator.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.Indicator.csv"><code class="name">var <span class="ident">csv</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.Indicator.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.Indicator.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.Indicator.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.Indicator.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.Indicator.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.Indicator.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.indicator.Indicator.advance"><code class="name flex">
+<span>def <span class="ident">advance</span></span>(<span>self, size=1)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def advance(self, size=1):
+    # Need intercepting this call to support datas with
+    # different lengths (timeframes)
+    if len(self) &lt; len(self._clock):
+        self.lines.advance(size=size)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.indicator.Indicator.once_via_next"><code class="name flex">
+<span>def <span class="ident">once_via_next</span></span>(<span>self, start, end)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def once_via_next(self, start, end):
+    # Not overridden, next must be there ...
+    for i in range(start, end):
+        for data in self.datas:
+            data.advance()
+
+        for indicator in self._lineiterators[LineIterator.IndType]:
+            indicator.advance()
+
+        self.advance()
+        self.next()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.indicator.Indicator.oncestart_via_nextstart"><code class="name flex">
+<span>def <span class="ident">oncestart_via_nextstart</span></span>(<span>self, start, end)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def oncestart_via_nextstart(self, start, end):
+    # nextstart has been overriden, but oncestart has not and the code is
+    # here. call the overriden nextstart
+    for i in range(start, end):
+        for data in self.datas:
+            data.advance()
+
+        for indicator in self._lineiterators[LineIterator.IndType]:
+            indicator.advance()
+
+        self.advance()
+        self.nextstart()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.indicator.Indicator.preonce_via_prenext"><code class="name flex">
+<span>def <span class="ident">preonce_via_prenext</span></span>(<span>self, start, end)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def preonce_via_prenext(self, start, end):
+    # generic implementation if prenext is overridden but preonce is not
+    for i in range(start, end):
+        for data in self.datas:
+            data.advance()
+
+        for indicator in self._lineiterators[LineIterator.IndType]:
+            indicator.advance()
+
+        self.advance()
+        self.prenext()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.lineiterator.IndicatorBase" href="lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.lineiterator.IndicatorBase.addminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.incminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.lines" href="lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.minbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.next" href="lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.nextstart" href="lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.once" href="lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.oncestart" href="lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.prenext" href="lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.preonce" href="lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.qbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.setminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.lineiterator.IndicatorBase.updateminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicator.LinePlotterIndicator"><code class="flex name class">
+<span>class <span class="ident">LinePlotterIndicator</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for LineXXX instances that hold more than one line</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LinePlotterIndicator(with_metaclass(MtLinePlotterIndicator, Indicator)):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicator.Indicator" href="#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicator.LinePlotterIndicator.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.LinePlotterIndicator.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.LinePlotterIndicator.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.LinePlotterIndicator.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.LinePlotterIndicator.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.LinePlotterIndicator.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.LinePlotterIndicator.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicator.LinePlotterIndicator.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.Indicator" href="#backtrader.indicator.Indicator">Indicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.Indicator.addminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.incminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.lines" href="lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.minbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.next" href="lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.nextstart" href="lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once" href="lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart" href="lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.prenext" href="lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce" href="lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.qbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.setminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.updateminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicator.MetaIndicator"><code class="flex name class">
+<span>class <span class="ident">MetaIndicator</span></span>
+<span>(</span><span>name, bases, dct)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dirty job manager for a LineSeries</p>
+<ul>
+<li>
+<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
+"plotlines" class variable definitions and turns them into
+Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
+</li>
+<li>
+<p>During "new" (instance creation) the lines/plotinfo/plotlines
+classes are substituted in the instance with instances of the
+aforementioned classes and aliases are added for the "lines" held
+in the "lines" instance</p>
+<p>Additionally and for remaining kwargs, these are matched against
+args in plotinfo and if existent are set there and removed from kwargs</p>
+<p>Remember that this Metaclass has a MetaParams (from metabase)
+as root class and therefore "params" defined for the class have been
+removed from kwargs at an earlier state</p>
+</li>
+</ul>
+<p>Class has already been created &hellip; register subclasses</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MetaIndicator(IndicatorBase.__class__):
+    _refname = &#39;_indcol&#39;
+    _indcol = dict()
+
+    _icache = dict()
+    _icacheuse = False
+
+    @classmethod
+    def cleancache(cls):
+        cls._icache = dict()
+
+    @classmethod
+    def usecache(cls, onoff):
+        cls._icacheuse = onoff
+
+    # Object cache deactivated on 2016-08-17. If the object is being used
+    # inside another object, the minperiod information carried over
+    # influences the first usage when being modified during the 2nd usage
+
+    def __call__(cls, *args, **kwargs):
+        if not cls._icacheuse:
+            return super(MetaIndicator, cls).__call__(*args, **kwargs)
+
+        # implement a cache to avoid duplicating lines actions
+        ckey = (cls, tuple(args), tuple(kwargs.items()))  # tuples hashable
+        try:
+            return cls._icache[ckey]
+        except TypeError:  # something not hashable
+            return super(MetaIndicator, cls).__call__(*args, **kwargs)
+        except KeyError:
+            pass  # hashable but not in the cache
+
+        _obj = super(MetaIndicator, cls).__call__(*args, **kwargs)
+        return cls._icache.setdefault(ckey, _obj)
+
+    def __init__(cls, name, bases, dct):
+        &#39;&#39;&#39;
+        Class has already been created ... register subclasses
+        &#39;&#39;&#39;
+        # Initialize the class
+        super(MetaIndicator, cls).__init__(name, bases, dct)
+
+        if not cls.aliased and \
+           name != &#39;Indicator&#39; and not name.startswith(&#39;_&#39;):
+            refattr = getattr(cls, cls._refname)
+            refattr[name] = cls
+
+        # Check if next and once have both been overridden
+        next_over = cls.next != IndicatorBase.next
+        once_over = cls.once != IndicatorBase.once
+
+        if next_over and not once_over:
+            # No -&gt; need pointer movement to once simulation via next
+            cls.once = cls.once_via_next
+            cls.preonce = cls.preonce_via_prenext
+            cls.oncestart = cls.oncestart_via_nextstart</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.lineiterator.MetaLineIterator" href="lineiterator.html#backtrader.lineiterator.MetaLineIterator">MetaLineIterator</a></li>
+<li><a title="backtrader.lineseries.MetaLineSeries" href="lineseries.html#backtrader.lineseries.MetaLineSeries">MetaLineSeries</a></li>
+<li><a title="backtrader.lineroot.MetaLineRoot" href="lineroot.html#backtrader.lineroot.MetaLineRoot">MetaLineRoot</a></li>
+<li><a title="backtrader.metabase.MetaParams" href="metabase.html#backtrader.metabase.MetaParams">MetaParams</a></li>
+<li><a title="backtrader.metabase.MetaBase" href="metabase.html#backtrader.metabase.MetaBase">MetaBase</a></li>
+<li>builtins.type</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicator.MtLinePlotterIndicator" href="#backtrader.indicator.MtLinePlotterIndicator">MtLinePlotterIndicator</a></li>
+<li><a title="backtrader.indicators.mabase.MetaMovAvBase" href="indicators/mabase.html#backtrader.indicators.mabase.MetaMovAvBase">MetaMovAvBase</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="backtrader.indicator.MetaIndicator.cleancache"><code class="name flex">
+<span>def <span class="ident">cleancache</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def cleancache(cls):
+    cls._icache = dict()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.indicator.MetaIndicator.usecache"><code class="name flex">
+<span>def <span class="ident">usecache</span></span>(<span>onoff)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def usecache(cls, onoff):
+    cls._icacheuse = onoff</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.lineiterator.MetaLineIterator" href="lineiterator.html#backtrader.lineiterator.MetaLineIterator">MetaLineIterator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.lineiterator.MetaLineIterator.donew" href="lineseries.html#backtrader.lineseries.MetaLineSeries.donew">donew</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicator.MtLinePlotterIndicator"><code class="flex name class">
+<span>class <span class="ident">MtLinePlotterIndicator</span></span>
+<span>(</span><span>name, bases, dct)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dirty job manager for a LineSeries</p>
+<ul>
+<li>
+<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
+"plotlines" class variable definitions and turns them into
+Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
+</li>
+<li>
+<p>During "new" (instance creation) the lines/plotinfo/plotlines
+classes are substituted in the instance with instances of the
+aforementioned classes and aliases are added for the "lines" held
+in the "lines" instance</p>
+<p>Additionally and for remaining kwargs, these are matched against
+args in plotinfo and if existent are set there and removed from kwargs</p>
+<p>Remember that this Metaclass has a MetaParams (from metabase)
+as root class and therefore "params" defined for the class have been
+removed from kwargs at an earlier state</p>
+</li>
+</ul>
+<p>Class has already been created &hellip; register subclasses</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MtLinePlotterIndicator(Indicator.__class__):
+    def donew(cls, *args, **kwargs):
+        lname = kwargs.pop(&#39;name&#39;)
+        name = cls.__name__
+
+        lines = getattr(cls, &#39;lines&#39;, Lines)
+        cls.lines = lines._derive(name, (lname,), 0, [])
+
+        plotlines = AutoInfoClass
+        newplotlines = dict()
+        newplotlines.setdefault(lname, dict())
+        cls.plotlines = plotlines._derive(name, newplotlines, [], recurse=True)
+
+        # Create the object and set the params in place
+        _obj, args, kwargs =  \
+            super(MtLinePlotterIndicator, cls).donew(*args, **kwargs)
+
+        _obj.owner = _obj.data.owner._clock
+        _obj.data.lines[0].addbinding(_obj.lines[0])
+
+        # Return the object and arguments to the chain
+        return _obj, args, kwargs</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicator.MetaIndicator" href="#backtrader.indicator.MetaIndicator">MetaIndicator</a></li>
+<li><a title="backtrader.lineiterator.MetaLineIterator" href="lineiterator.html#backtrader.lineiterator.MetaLineIterator">MetaLineIterator</a></li>
+<li><a title="backtrader.lineseries.MetaLineSeries" href="lineseries.html#backtrader.lineseries.MetaLineSeries">MetaLineSeries</a></li>
+<li><a title="backtrader.lineroot.MetaLineRoot" href="lineroot.html#backtrader.lineroot.MetaLineRoot">MetaLineRoot</a></li>
+<li><a title="backtrader.metabase.MetaParams" href="metabase.html#backtrader.metabase.MetaParams">MetaParams</a></li>
+<li><a title="backtrader.metabase.MetaBase" href="metabase.html#backtrader.metabase.MetaBase">MetaBase</a></li>
+<li>builtins.type</li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.MetaIndicator" href="#backtrader.indicator.MetaIndicator">MetaIndicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.MetaIndicator.donew" href="lineseries.html#backtrader.lineseries.MetaLineSeries.donew">donew</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader" href="index.html">backtrader</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.indicator.Indicator" href="#backtrader.indicator.Indicator">Indicator</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.indicator.Indicator.advance" href="#backtrader.indicator.Indicator.advance">advance</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.alias" href="#backtrader.indicator.Indicator.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.aliased" href="#backtrader.indicator.Indicator.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.csv" href="#backtrader.indicator.Indicator.csv">csv</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.frompackages" href="#backtrader.indicator.Indicator.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.linealias" href="#backtrader.indicator.Indicator.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once_via_next" href="#backtrader.indicator.Indicator.once_via_next">once_via_next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart_via_nextstart" href="#backtrader.indicator.Indicator.oncestart_via_nextstart">oncestart_via_nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.packages" href="#backtrader.indicator.Indicator.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.params" href="#backtrader.indicator.Indicator.params">params</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.plotinfo" href="#backtrader.indicator.Indicator.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.plotlines" href="#backtrader.indicator.Indicator.plotlines">plotlines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce_via_prenext" href="#backtrader.indicator.Indicator.preonce_via_prenext">preonce_via_prenext</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicator.LinePlotterIndicator" href="#backtrader.indicator.LinePlotterIndicator">LinePlotterIndicator</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicator.LinePlotterIndicator.alias" href="#backtrader.indicator.LinePlotterIndicator.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicator.LinePlotterIndicator.aliased" href="#backtrader.indicator.LinePlotterIndicator.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicator.LinePlotterIndicator.frompackages" href="#backtrader.indicator.LinePlotterIndicator.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicator.LinePlotterIndicator.linealias" href="#backtrader.indicator.LinePlotterIndicator.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicator.LinePlotterIndicator.packages" href="#backtrader.indicator.LinePlotterIndicator.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicator.LinePlotterIndicator.params" href="#backtrader.indicator.LinePlotterIndicator.params">params</a></code></li>
+<li><code><a title="backtrader.indicator.LinePlotterIndicator.plotinfo" href="#backtrader.indicator.LinePlotterIndicator.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicator.LinePlotterIndicator.plotlines" href="#backtrader.indicator.LinePlotterIndicator.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicator.MetaIndicator" href="#backtrader.indicator.MetaIndicator">MetaIndicator</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.indicator.MetaIndicator.cleancache" href="#backtrader.indicator.MetaIndicator.cleancache">cleancache</a></code></li>
+<li><code><a title="backtrader.indicator.MetaIndicator.usecache" href="#backtrader.indicator.MetaIndicator.usecache">usecache</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicator.MtLinePlotterIndicator" href="#backtrader.indicator.MtLinePlotterIndicator">MtLinePlotterIndicator</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

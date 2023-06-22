@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.timer API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.timer</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+
+import bisect
+import collections
+from datetime import date, datetime, timedelta
+from itertools import islice
+
+from .feed import AbstractDataBase
+from .metabase import MetaParams
+from .utils import date2num, num2date
+from .utils.py3 import integer_types, range, with_metaclass
+from .utils import TIME_MAX
+
+
+__all__ = [&#39;SESSION_TIME&#39;, &#39;SESSION_START&#39;, &#39;SESSION_END&#39;, &#39;Timer&#39;]
+
+SESSION_TIME, SESSION_START, SESSION_END = range(3)
+
+
+class Timer(with_metaclass(MetaParams, object)):
+    params = (
+        (&#39;tid&#39;, None),
+        (&#39;owner&#39;, None),
+        (&#39;strats&#39;, False),
+        (&#39;when&#39;, None),
+        (&#39;offset&#39;, timedelta()),
+        (&#39;repeat&#39;, timedelta()),
+        (&#39;weekdays&#39;, []),
+        (&#39;weekcarry&#39;, False),
+        (&#39;monthdays&#39;, []),
+        (&#39;monthcarry&#39;, True),
+        (&#39;allow&#39;, None),  # callable that allows a timer to take place
+        (&#39;tzdata&#39;, None),
+        (&#39;cheat&#39;, False),
+    )
+
+    SESSION_TIME, SESSION_START, SESSION_END = range(3)
+
+    def __init__(self, *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
+
+    def start(self, data):
+        # write down the &#39;reset when&#39; value
+        if not isinstance(self.p.when, integer_types):  # expect time/datetime
+            self._rstwhen = self.p.when
+            self._tzdata = self.p.tzdata
+        else:
+            self._tzdata = data if self.p.tzdata is None else self.p.tzdata
+
+            if self.p.when == SESSION_START:
+                self._rstwhen = self._tzdata.p.sessionstart
+            elif self.p.when == SESSION_END:
+                self._rstwhen = self._tzdata.p.sessionend
+
+        self._isdata = isinstance(self._tzdata, AbstractDataBase)
+        self._reset_when()
+
+        self._nexteos = datetime.min
+        self._curdate = date.min
+
+        self._curmonth = -1  # non-existent month
+        self._monthmask = collections.deque()
+
+        self._curweek = -1  # non-existent week
+        self._weekmask = collections.deque()
+
+    def _reset_when(self, ddate=datetime.min):
+        self._when = self._rstwhen
+        self._dtwhen = self._dwhen = None
+
+        self._lastcall = ddate
+
+    def _check_month(self, ddate):
+        if not self.p.monthdays:
+            return True
+
+        mask = self._monthmask
+        daycarry = False
+        dmonth = ddate.month
+        if dmonth != self._curmonth:
+            self._curmonth = dmonth  # write down new month
+            daycarry = self.p.monthcarry and bool(mask)
+            self._monthmask = mask = collections.deque(self.p.monthdays)
+
+        dday = ddate.day
+        dc = bisect.bisect_left(mask, dday)  # &#34;left&#34; for days before dday
+        daycarry = daycarry or (self.p.monthcarry and dc &gt; 0)
+        if dc &lt; len(mask):
+            curday = bisect.bisect_right(mask, dday, lo=dc) &gt; 0  # check dday
+            dc += curday
+        else:
+            curday = False
+
+        while dc:
+            mask.popleft()
+            dc -= 1
+
+        return daycarry or curday
+
+    def _check_week(self, ddate=date.min):
+        if not self.p.weekdays:
+            return True
+
+        _, dweek, dwkday = ddate.isocalendar()
+
+        mask = self._weekmask
+        daycarry = False
+        if dweek != self._curweek:
+            self._curweek = dweek  # write down new month
+            daycarry = self.p.weekcarry and bool(mask)
+            self._weekmask = mask = collections.deque(self.p.weekdays)
+
+        dc = bisect.bisect_left(mask, dwkday)  # &#34;left&#34; for days before dday
+        daycarry = daycarry or (self.p.weekcarry and dc &gt; 0)
+        if dc &lt; len(mask):
+            curday = bisect.bisect_right(mask, dwkday, lo=dc) &gt; 0  # check dday
+            dc += curday
+        else:
+            curday = False
+
+        while dc:
+            mask.popleft()
+            dc -= 1
+
+        return daycarry or curday
+
+    def check(self, dt):
+        d = num2date(dt)
+        ddate = d.date()
+        if self._lastcall == ddate:  # not repeating, awaiting date change
+            return False
+
+        if d &gt; self._nexteos:
+            if self._isdata:  # eos provided by data
+                nexteos, _ = self._tzdata._getnexteos()
+            else:  # generic eos
+                nexteos = datetime.combine(ddate, TIME_MAX)
+            self._nexteos = nexteos
+            self._reset_when()
+
+        if ddate &gt; self._curdate:  # day change
+            self._curdate = ddate
+            ret = self._check_month(ddate)
+            if ret:
+                ret = self._check_week(ddate)
+            if ret and self.p.allow is not None:
+                ret = self.p.allow(ddate)
+
+            if not ret:
+                self._reset_when(ddate)  # this day won&#39;t make it
+                return False  # timer target not met
+
+        # no day change or passed month, week and allow filters on date change
+        dwhen = self._dwhen
+        dtwhen = self._dtwhen
+        if dtwhen is None:
+            dwhen = datetime.combine(ddate, self._when)
+            if self.p.offset:
+                dwhen += self.p.offset
+
+            self._dwhen = dwhen
+
+            if self._isdata:
+                self._dtwhen = dtwhen = self._tzdata.date2num(dwhen)
+            else:
+                self._dtwhen = dtwhen = date2num(dwhen, tz=self._tzdata)
+
+        if dt &lt; dtwhen:
+            return False  # timer target not met
+
+        self.lastwhen = dwhen  # record when the last timer &#34;when&#34; happened
+
+        if not self.p.repeat:  # cannot repeat
+            self._reset_when(ddate)  # reset and mark as called on ddate
+        else:
+            if d &gt; self._nexteos:
+                if self._isdata:  # eos provided by data
+                    nexteos, _ = self._tzdata._getnexteos()
+                else:  # generic eos
+                    nexteos = datetime.combine(ddate, TIME_MAX)
+
+                self._nexteos = nexteos
+            else:
+                nexteos = self._nexteos
+
+            while True:
+                dwhen += self.p.repeat
+                if dwhen &gt; nexteos:  # new schedule is beyone session
+                    self._reset_when(ddate)  # reset to original point
+                    break
+
+                if dwhen &gt; d:  # gone over current datetime
+                    self._dtwhen = dtwhen = date2num(dwhen)  # float timestamp
+                    # Get the localized expected next time
+                    if self._isdata:
+                        self._dwhen = self._tzdata.num2date(dtwhen)
+                    else:  # assume pytz compatible or None
+                        self._dwhen = num2date(dtwhen, tz=self._tzdata)
+
+                    break
+
+        return True  # timer target was met</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.timer.Timer"><code class="flex name class">
+<span>class <span class="ident">Timer</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Timer(with_metaclass(MetaParams, object)):
+    params = (
+        (&#39;tid&#39;, None),
+        (&#39;owner&#39;, None),
+        (&#39;strats&#39;, False),
+        (&#39;when&#39;, None),
+        (&#39;offset&#39;, timedelta()),
+        (&#39;repeat&#39;, timedelta()),
+        (&#39;weekdays&#39;, []),
+        (&#39;weekcarry&#39;, False),
+        (&#39;monthdays&#39;, []),
+        (&#39;monthcarry&#39;, True),
+        (&#39;allow&#39;, None),  # callable that allows a timer to take place
+        (&#39;tzdata&#39;, None),
+        (&#39;cheat&#39;, False),
+    )
+
+    SESSION_TIME, SESSION_START, SESSION_END = range(3)
+
+    def __init__(self, *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
+
+    def start(self, data):
+        # write down the &#39;reset when&#39; value
+        if not isinstance(self.p.when, integer_types):  # expect time/datetime
+            self._rstwhen = self.p.when
+            self._tzdata = self.p.tzdata
+        else:
+            self._tzdata = data if self.p.tzdata is None else self.p.tzdata
+
+            if self.p.when == SESSION_START:
+                self._rstwhen = self._tzdata.p.sessionstart
+            elif self.p.when == SESSION_END:
+                self._rstwhen = self._tzdata.p.sessionend
+
+        self._isdata = isinstance(self._tzdata, AbstractDataBase)
+        self._reset_when()
+
+        self._nexteos = datetime.min
+        self._curdate = date.min
+
+        self._curmonth = -1  # non-existent month
+        self._monthmask = collections.deque()
+
+        self._curweek = -1  # non-existent week
+        self._weekmask = collections.deque()
+
+    def _reset_when(self, ddate=datetime.min):
+        self._when = self._rstwhen
+        self._dtwhen = self._dwhen = None
+
+        self._lastcall = ddate
+
+    def _check_month(self, ddate):
+        if not self.p.monthdays:
+            return True
+
+        mask = self._monthmask
+        daycarry = False
+        dmonth = ddate.month
+        if dmonth != self._curmonth:
+            self._curmonth = dmonth  # write down new month
+            daycarry = self.p.monthcarry and bool(mask)
+            self._monthmask = mask = collections.deque(self.p.monthdays)
+
+        dday = ddate.day
+        dc = bisect.bisect_left(mask, dday)  # &#34;left&#34; for days before dday
+        daycarry = daycarry or (self.p.monthcarry and dc &gt; 0)
+        if dc &lt; len(mask):
+            curday = bisect.bisect_right(mask, dday, lo=dc) &gt; 0  # check dday
+            dc += curday
+        else:
+            curday = False
+
+        while dc:
+            mask.popleft()
+            dc -= 1
+
+        return daycarry or curday
+
+    def _check_week(self, ddate=date.min):
+        if not self.p.weekdays:
+            return True
+
+        _, dweek, dwkday = ddate.isocalendar()
+
+        mask = self._weekmask
+        daycarry = False
+        if dweek != self._curweek:
+            self._curweek = dweek  # write down new month
+            daycarry = self.p.weekcarry and bool(mask)
+            self._weekmask = mask = collections.deque(self.p.weekdays)
+
+        dc = bisect.bisect_left(mask, dwkday)  # &#34;left&#34; for days before dday
+        daycarry = daycarry or (self.p.weekcarry and dc &gt; 0)
+        if dc &lt; len(mask):
+            curday = bisect.bisect_right(mask, dwkday, lo=dc) &gt; 0  # check dday
+            dc += curday
+        else:
+            curday = False
+
+        while dc:
+            mask.popleft()
+            dc -= 1
+
+        return daycarry or curday
+
+    def check(self, dt):
+        d = num2date(dt)
+        ddate = d.date()
+        if self._lastcall == ddate:  # not repeating, awaiting date change
+            return False
+
+        if d &gt; self._nexteos:
+            if self._isdata:  # eos provided by data
+                nexteos, _ = self._tzdata._getnexteos()
+            else:  # generic eos
+                nexteos = datetime.combine(ddate, TIME_MAX)
+            self._nexteos = nexteos
+            self._reset_when()
+
+        if ddate &gt; self._curdate:  # day change
+            self._curdate = ddate
+            ret = self._check_month(ddate)
+            if ret:
+                ret = self._check_week(ddate)
+            if ret and self.p.allow is not None:
+                ret = self.p.allow(ddate)
+
+            if not ret:
+                self._reset_when(ddate)  # this day won&#39;t make it
+                return False  # timer target not met
+
+        # no day change or passed month, week and allow filters on date change
+        dwhen = self._dwhen
+        dtwhen = self._dtwhen
+        if dtwhen is None:
+            dwhen = datetime.combine(ddate, self._when)
+            if self.p.offset:
+                dwhen += self.p.offset
+
+            self._dwhen = dwhen
+
+            if self._isdata:
+                self._dtwhen = dtwhen = self._tzdata.date2num(dwhen)
+            else:
+                self._dtwhen = dtwhen = date2num(dwhen, tz=self._tzdata)
+
+        if dt &lt; dtwhen:
+            return False  # timer target not met
+
+        self.lastwhen = dwhen  # record when the last timer &#34;when&#34; happened
+
+        if not self.p.repeat:  # cannot repeat
+            self._reset_when(ddate)  # reset and mark as called on ddate
+        else:
+            if d &gt; self._nexteos:
+                if self._isdata:  # eos provided by data
+                    nexteos, _ = self._tzdata._getnexteos()
+                else:  # generic eos
+                    nexteos = datetime.combine(ddate, TIME_MAX)
+
+                self._nexteos = nexteos
+            else:
+                nexteos = self._nexteos
+
+            while True:
+                dwhen += self.p.repeat
+                if dwhen &gt; nexteos:  # new schedule is beyone session
+                    self._reset_when(ddate)  # reset to original point
+                    break
+
+                if dwhen &gt; d:  # gone over current datetime
+                    self._dtwhen = dtwhen = date2num(dwhen)  # float timestamp
+                    # Get the localized expected next time
+                    if self._isdata:
+                        self._dwhen = self._tzdata.num2date(dtwhen)
+                    else:  # assume pytz compatible or None
+                        self._dwhen = num2date(dtwhen, tz=self._tzdata)
+
+                    break
+
+        return True  # timer target was met</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.timer.Timer.SESSION_END"><code class="name">var <span class="ident">SESSION_END</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.timer.Timer.SESSION_START"><code class="name">var <span class="ident">SESSION_START</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.timer.Timer.SESSION_TIME"><code class="name">var <span class="ident">SESSION_TIME</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.timer.Timer.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.timer.Timer.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.timer.Timer.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.timer.Timer.check"><code class="name flex">
+<span>def <span class="ident">check</span></span>(<span>self, dt)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check(self, dt):
+    d = num2date(dt)
+    ddate = d.date()
+    if self._lastcall == ddate:  # not repeating, awaiting date change
+        return False
+
+    if d &gt; self._nexteos:
+        if self._isdata:  # eos provided by data
+            nexteos, _ = self._tzdata._getnexteos()
+        else:  # generic eos
+            nexteos = datetime.combine(ddate, TIME_MAX)
+        self._nexteos = nexteos
+        self._reset_when()
+
+    if ddate &gt; self._curdate:  # day change
+        self._curdate = ddate
+        ret = self._check_month(ddate)
+        if ret:
+            ret = self._check_week(ddate)
+        if ret and self.p.allow is not None:
+            ret = self.p.allow(ddate)
+
+        if not ret:
+            self._reset_when(ddate)  # this day won&#39;t make it
+            return False  # timer target not met
+
+    # no day change or passed month, week and allow filters on date change
+    dwhen = self._dwhen
+    dtwhen = self._dtwhen
+    if dtwhen is None:
+        dwhen = datetime.combine(ddate, self._when)
+        if self.p.offset:
+            dwhen += self.p.offset
+
+        self._dwhen = dwhen
+
+        if self._isdata:
+            self._dtwhen = dtwhen = self._tzdata.date2num(dwhen)
+        else:
+            self._dtwhen = dtwhen = date2num(dwhen, tz=self._tzdata)
+
+    if dt &lt; dtwhen:
+        return False  # timer target not met
+
+    self.lastwhen = dwhen  # record when the last timer &#34;when&#34; happened
+
+    if not self.p.repeat:  # cannot repeat
+        self._reset_when(ddate)  # reset and mark as called on ddate
+    else:
+        if d &gt; self._nexteos:
+            if self._isdata:  # eos provided by data
+                nexteos, _ = self._tzdata._getnexteos()
+            else:  # generic eos
+                nexteos = datetime.combine(ddate, TIME_MAX)
+
+            self._nexteos = nexteos
+        else:
+            nexteos = self._nexteos
+
+        while True:
+            dwhen += self.p.repeat
+            if dwhen &gt; nexteos:  # new schedule is beyone session
+                self._reset_when(ddate)  # reset to original point
+                break
+
+            if dwhen &gt; d:  # gone over current datetime
+                self._dtwhen = dtwhen = date2num(dwhen)  # float timestamp
+                # Get the localized expected next time
+                if self._isdata:
+                    self._dwhen = self._tzdata.num2date(dtwhen)
+                else:  # assume pytz compatible or None
+                    self._dwhen = num2date(dtwhen, tz=self._tzdata)
+
+                break
+
+    return True  # timer target was met</code></pre>
+</details>
+</dd>
+<dt id="backtrader.timer.Timer.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self, data):
+    # write down the &#39;reset when&#39; value
+    if not isinstance(self.p.when, integer_types):  # expect time/datetime
+        self._rstwhen = self.p.when
+        self._tzdata = self.p.tzdata
+    else:
+        self._tzdata = data if self.p.tzdata is None else self.p.tzdata
+
+        if self.p.when == SESSION_START:
+            self._rstwhen = self._tzdata.p.sessionstart
+        elif self.p.when == SESSION_END:
+            self._rstwhen = self._tzdata.p.sessionend
+
+    self._isdata = isinstance(self._tzdata, AbstractDataBase)
+    self._reset_when()
+
+    self._nexteos = datetime.min
+    self._curdate = date.min
+
+    self._curmonth = -1  # non-existent month
+    self._monthmask = collections.deque()
+
+    self._curweek = -1  # non-existent week
+    self._weekmask = collections.deque()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader" href="index.html">backtrader</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.timer.Timer" href="#backtrader.timer.Timer">Timer</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.timer.Timer.SESSION_END" href="#backtrader.timer.Timer.SESSION_END">SESSION_END</a></code></li>
+<li><code><a title="backtrader.timer.Timer.SESSION_START" href="#backtrader.timer.Timer.SESSION_START">SESSION_START</a></code></li>
+<li><code><a title="backtrader.timer.Timer.SESSION_TIME" href="#backtrader.timer.Timer.SESSION_TIME">SESSION_TIME</a></code></li>
+<li><code><a title="backtrader.timer.Timer.check" href="#backtrader.timer.Timer.check">check</a></code></li>
+<li><code><a title="backtrader.timer.Timer.frompackages" href="#backtrader.timer.Timer.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.timer.Timer.packages" href="#backtrader.timer.Timer.packages">packages</a></code></li>
+<li><code><a title="backtrader.timer.Timer.params" href="#backtrader.timer.Timer.params">params</a></code></li>
+<li><code><a title="backtrader.timer.Timer.start" href="#backtrader.timer.Timer.start">start</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

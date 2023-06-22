@@ -1,0 +1,1608 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.brokers.vcbroker API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.brokers.vcbroker</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+import collections
+from datetime import date, datetime, timedelta
+import threading
+
+from backtrader import BrokerBase, Order, BuyOrder, SellOrder
+from backtrader.comminfo import CommInfoBase
+from backtrader.feed import DataBase
+from backtrader.metabase import MetaParams
+from backtrader.position import Position
+from backtrader.utils.py3 import with_metaclass
+
+from backtrader.stores import vcstore
+
+
+class VCCommInfo(CommInfoBase):
+    &#39;&#39;&#39;
+    Commissions are calculated by ib, but the trades calculations in the
+    ```Strategy`` rely on the order carrying a CommInfo object attached for the
+    calculation of the operation cost and value.
+
+    These are non-critical informations, but removing them from the trade could
+    break existing usage and it is better to provide a CommInfo objet which
+    enables those calculations even if with approvimate values.
+
+    The margin calculation is not a known in advance information with IB
+    (margin impact can be gotten from OrderState objects) and therefore it is
+    left as future exercise to get it&#39;&#39;&#39;
+
+    def getvaluesize(self, size, price):
+        # In real life the margin approaches the price
+        return abs(size) * price
+
+    def getoperationcost(self, size, price):
+        &#39;&#39;&#39;Returns the needed amount of cash an operation would cost&#39;&#39;&#39;
+        # Same reasoning as above
+        return abs(size) * price
+
+
+class MetaVCBroker(BrokerBase.__class__):
+    def __init__(cls, name, bases, dct):
+        &#39;&#39;&#39;Class has already been created ... register&#39;&#39;&#39;
+        # Initialize the class
+        super(MetaVCBroker, cls).__init__(name, bases, dct)
+        vcstore.VCStore.BrokerCls = cls
+
+
+class VCBroker(with_metaclass(MetaVCBroker, BrokerBase)):
+    &#39;&#39;&#39;Broker implementation for VisualChart.
+
+    This class maps the orders/positions from VisualChart to the
+    internal API of ``backtrader``.
+
+    Params:
+
+      - ``account`` (default: None)
+
+        VisualChart supports several accounts simultaneously on the broker. If
+        the default ``None`` is in place the 1st account in the ComTrader
+        ``Accounts`` collection will be used.
+
+        If an account name is provided, the ``Accounts`` collection will be
+        checked and used if present
+
+      - ``commission`` (default: None)
+
+        An object will be autogenerated if no commission-scheme is passed as
+        parameter
+
+        See the notes below for further explanations
+
+    Notes:
+
+      - Position
+
+        VisualChart reports &#34;OpenPositions&#34; updates through the ComTrader
+        interface but only when the position has a &#34;size&#34;. An update to
+        indicate a position has moved to ZERO is reported by the absence of
+        such position. This forces to keep accounting of the positions by
+        looking at the execution events, just like the simulation broker does
+
+      - Commission
+
+        The ComTrader interface of VisualChart does not report commissions and
+        as such the auto-generated CommissionInfo object cannot use
+        non-existent commissions to properly account for them. In order to
+        support commissions a ``commission`` parameter has to be passed with
+        the appropriate commission schemes.
+
+        The documentation on Commission Schemes details how to do this
+
+      - Expiration Timing
+
+        The ComTrader interface (or is it the comtypes module?) discards
+        ``time`` information from ``datetime`` objects and expiration dates are
+        always full dates.
+
+      - Expiration Reporting
+
+        At the moment no heuristic is in place to determine when a cancelled
+        order has been cancelled due to expiration. And therefore expired
+        orders are reported as cancelled.
+    &#39;&#39;&#39;
+    params = (
+        (&#39;account&#39;, None),
+        (&#39;commission&#39;, None),
+    )
+
+    def __init__(self, **kwargs):
+        super(VCBroker, self).__init__()
+
+        self.store = vcstore.VCStore(**kwargs)
+
+        # Account data
+        self._acc_name = None
+        self.startingcash = self.cash = 0.0
+        self.startingvalue = self.value = 0.0
+
+        # Position accounting
+        self._lock_pos = threading.Lock()  # sync account updates
+        self.positions = collections.defaultdict(Position)  # actual positions
+
+        # Order storage
+        self._lock_orders = threading.Lock()  # control access
+        self.orderbyid = dict()  # orders by order id
+
+        # Notifications
+        self.notifs = collections.deque()
+
+        # Dictionaries of values for order mapping
+        self._otypes = {
+            Order.Market: self.store.vcctmod.OT_Market,
+            Order.Close: self.store.vcctmod.OT_Market,
+            Order.Limit: self.store.vcctmod.OT_Limit,
+            Order.Stop: self.store.vcctmod.OT_StopMarket,
+            Order.StopLimit: self.store.vcctmod.OT_StopLimit,
+        }
+
+        self._osides = {
+            Order.Buy: self.store.vcctmod.OS_Buy,
+            Order.Sell: self.store.vcctmod.OS_Sell,
+        }
+
+        self._otrestriction = {
+            Order.T_None: self.store.vcctmod.TR_NoRestriction,
+            Order.T_Date: self.store.vcctmod.TR_Date,
+            Order.T_Close: self.store.vcctmod.TR_CloseAuction,
+            Order.T_Day: self.store.vcctmod.TR_Session,
+        }
+
+        self._ovrestriction = {
+            Order.V_None: self.store.vcctmod.VR_NoRestriction,
+        }
+
+        self._futlikes = (
+            self.store.vcdsmod.IT_Future, self.store.vcdsmod.IT_Option,
+            self.store.vcdsmod.IT_Fund,
+        )
+
+    def start(self):
+        super(VCBroker, self).start()
+        self.store.start(broker=self)
+
+    def stop(self):
+        super(VCBroker, self).stop()
+        self.store.stop()
+
+    def getcash(self):
+        # This call cannot block if no answer is available from ib
+        return self.cash
+
+    def getvalue(self, datas=None):
+        return self.value
+
+    def get_notification(self):
+        return self.notifs.popleft()  # at leat a None is present
+
+    def notify(self, order):
+        self.notifs.append(order.clone())
+
+    def next(self):
+        self.notifs.append(None)  # mark notificatino boundary
+
+    def getposition(self, data, clone=True):
+        with self._lock_pos:
+            pos = self.positions[data._tradename]
+            if clone:
+                return pos.clone()
+
+        return pos
+
+    def getcommissioninfo(self, data):
+        if data._tradename in self.comminfo:
+            return self.comminfo[data._tradename]
+
+        comminfo = self.comminfo[None]
+        if comminfo is not None:
+            return comminfo
+
+        stocklike = data._syminfo.Type in self._futlikes
+
+        return VCCommInfo(mult=data._syminfo.PointValue, stocklike=stocklike)
+
+    def _makeorder(self, ordtype, owner, data,
+                   size, price=None, plimit=None,
+                   exectype=None, valid=None,
+                   tradeid=0, **kwargs):
+
+        order = self.store.vcctmod.Order()
+        order.Account = self._acc_name
+        order.SymbolCode = data._tradename
+        order.OrderType = self._otypes[exectype]
+        order.OrderSide = self._osides[ordtype]
+
+        order.VolumeRestriction = self._ovrestriction[Order.V_None]
+        order.HideVolume = 0
+        order.MinVolume = 0
+
+        # order.UserName = &#39;danjrod&#39;  # str(tradeid)
+        # order.OrderId = &#39;a&#39; * 50  # str(tradeid)
+        order.UserOrderId = &#39;&#39;
+        if tradeid:
+            order.ExtendedInfo = &#39;TradeId {}&#39;.format(tradeid)
+        else:
+            order.ExtendedInfo = &#39;&#39;
+
+        order.Volume = abs(size)
+
+        order.StopPrice = 0.0
+        order.Price = 0.0
+        if exectype == Order.Market:
+            pass
+        elif exectype == Order.Limit:
+            order.Price = price or plimit  # cover naming confusion cases
+        elif exectype == Order.Close:
+            pass
+        elif exectype == Order.Stop:
+            order.StopPrice = price
+        elif exectype == Order.StopLimit:
+            order.StopPrice = price
+            order.Price = plimit
+
+        order.ValidDate = None
+        if exectype == Order.Close:
+            order.TimeRestriction = self._otrestriction[Order.T_Close]
+        else:
+            if valid is None:
+                order.TimeRestriction = self._otrestriction[Order.T_None]
+            elif isinstance(valid, (datetime, date)):
+                order.TimeRestriction = self._otrestriction[Order.T_Date]
+                order.ValidDate = valid
+            elif isinstance(valid, (timedelta,)):
+                if valid == Order.DAY:
+                    order.TimeRestriction = self._otrestriction[Order.T_Day]
+                else:
+                    order.TimeRestriction = self._otrestriction[Order.T_Date]
+                    order.ValidDate = datetime.now() + valid
+
+            elif not self.valid:  # DAY
+                order.TimeRestriction = self._otrestriction[Order.T_Day]
+
+        # Support for custom user arguments
+        for k in kwargs:
+            if hasattr(order, k):
+                setattr(order, k, kwargs[k])
+
+        return order
+
+    def submit(self, order, vcorder):
+        order.submit(self)
+
+        vco = vcorder
+        oid = self.store.vcct.SendOrder(
+            vco.Account, vco.SymbolCode,
+            vco.OrderType, vco.OrderSide, vco.Volume, vco.Price, vco.StopPrice,
+            vco.VolumeRestriction, vco.TimeRestriction,
+            ValidDate=vco.ValidDate
+        )
+
+        order.vcorder = oid
+        order.addcomminfo(self.getcommissioninfo(order.data))
+
+        with self._lock_orders:
+            self.orderbyid[oid] = order
+        self.notify(order)
+        return order
+
+    def buy(self, owner, data,
+            size, price=None, plimit=None,
+            exectype=None, valid=None, tradeid=0,
+            **kwargs):
+
+        order = BuyOrder(owner=owner, data=data,
+                         size=size, price=price, pricelimit=plimit,
+                         exectype=exectype, valid=valid, tradeid=tradeid)
+
+        order.addinfo(**kwargs)
+
+        vcorder = self._makeorder(order.ordtype, owner, data, size, price,
+                                  plimit, exectype, valid, tradeid,
+                                  **kwargs)
+
+        return self.submit(order, vcorder)
+
+    def sell(self, owner, data,
+             size, price=None, plimit=None,
+             exectype=None, valid=None, tradeid=0,
+             **kwargs):
+
+        order = SellOrder(owner=owner, data=data,
+                          size=size, price=price, pricelimit=plimit,
+                          exectype=exectype, valid=valid, tradeid=tradeid)
+
+        order.addinfo(**kwargs)
+
+        vcorder = self._makeorder(order.ordtype, owner, data, size, price,
+                                  plimit, exectype, valid, tradeid,
+                                  **kwargs)
+
+        return self.submit(order, vcorder)
+
+    #
+    # COM Events implementation
+    #
+    def __call__(self, trader):
+        # Called to start the process, call in sub-thread. only the passed
+        # trader can be used in the thread
+        self.trader = trader
+
+        for acc in trader.Accounts:
+            if self.p.account is None or self.p.account == acc.Account:
+                self.startingcash = self.cash = acc.Balance.Cash
+                self.startingvalue = self.value = acc.Balance.NetWorth
+                self._acc_name = acc.Account
+                break  # found the account
+
+        return self
+
+    def OnChangedBalance(self, Account):
+        if self._acc_name is None or self._acc_name != Account:
+            return  # skip notifs for other accounts
+
+        for acc in self.trader.Accounts:
+            if acc.Account == Account:
+                # Update store values
+                self.cash = acc.Balance.Cash
+                self.value = acc.Balance.NetWorth
+                break
+
+    def OnModifiedOrder(self, Order):
+        # We are not expecting this: unless backtrader starts implementing
+        # modify order method
+        pass
+
+    def OnCancelledOrder(self, Order):
+        with self._lock_orders:
+            try:
+                border = self.orderbyid[Order.OrderId]
+            except KeyError:
+                return  # possibly external order
+
+        border.cancel()
+        self.notify(border)
+
+    def OnTotalExecutedOrder(self, Order):
+        self.OnExecutedOrder(Order, partial=False)
+
+    def OnPartialExecutedOrder(self, Order):
+        self.OnExecutedOrder(Order, partial=True)
+
+    def OnExecutedOrder(self, Order, partial):
+        with self._lock_orders:
+            try:
+                border = self.orderbyid[Order.OrderId]
+            except KeyError:
+                return  # possibly external order
+
+        price = Order.Price
+        size = Order.Volume
+        if border.issell():
+            size *= -1
+
+        # Find position and do a real update - accounting happens here
+        position = self.getposition(border.data, clone=False)
+        pprice_orig = position.price
+        psize, pprice, opened, closed = position.update(size, price)
+
+        comminfo = border.comminfo
+        closedvalue = comminfo.getoperationcost(closed, pprice_orig)
+        closedcomm = comminfo.getcommission(closed, price)
+
+        openedvalue = comminfo.getoperationcost(opened, price)
+        openedcomm = comminfo.getcommission(opened, price)
+
+        pnl = comminfo.profitandloss(-closed, pprice_orig, price)
+        margin = comminfo.getvaluesize(size, price)
+
+        # NOTE: No commission information available in the Trader interface
+        # CHECK: Use reported time instead of last data time?
+        border.execute(border.data.datetime[0],
+                       size, price,
+                       closed, closedvalue, closedcomm,
+                       opened, openedvalue, openedcomm,
+                       margin, pnl,
+                       psize, pprice)  # pnl
+
+        if partial:
+            border.partial()
+        else:
+            border.completed()
+
+        self.notify(border)
+
+    def OnOrderInMarket(self, Order):
+        # Other is in ther market ... therefore &#34;accepted&#34;
+        with self._lock_orders:
+            try:
+                border = self.orderbyid[Order.OrderId]
+            except KeyError:
+                return  # possibly external order
+
+        border.accept()
+        self.notify(border)
+
+    def OnNewOrderLocation(self, Order):
+        # Can be used for &#34;submitted&#34;, but the status is set manually
+        pass
+
+    def OnChangedOpenPositions(self, Account):
+        # This would be useful if it reported a position moving back to 0. In
+        # this case the report contains a no-position and this doesn&#39;t help in
+        # the accounting. That&#39;s why the accounting is delegated to the
+        # reception of order execution
+        pass
+
+    def OnNewClosedOperations(self, Account):
+        # This call-back has not been seen
+        pass
+
+    def OnServerShutDown(self):
+        pass
+
+    def OnInternalEvent(self, p1, p2, p3):
+        pass</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.brokers.vcbroker.MetaVCBroker"><code class="flex name class">
+<span>class <span class="ident">MetaVCBroker</span></span>
+<span>(</span><span>name, bases, dct)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>type(object) -&gt; the object's type
+type(name, bases, dict, **kwds) -&gt; a new type</p>
+<p>Class has already been created &hellip; register</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MetaVCBroker(BrokerBase.__class__):
+    def __init__(cls, name, bases, dct):
+        &#39;&#39;&#39;Class has already been created ... register&#39;&#39;&#39;
+        # Initialize the class
+        super(MetaVCBroker, cls).__init__(name, bases, dct)
+        vcstore.VCStore.BrokerCls = cls</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.broker.MetaBroker" href="../broker.html#backtrader.broker.MetaBroker">MetaBroker</a></li>
+<li><a title="backtrader.metabase.MetaParams" href="../metabase.html#backtrader.metabase.MetaParams">MetaParams</a></li>
+<li><a title="backtrader.metabase.MetaBase" href="../metabase.html#backtrader.metabase.MetaBase">MetaBase</a></li>
+<li>builtins.type</li>
+</ul>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker"><code class="flex name class">
+<span>class <span class="ident">VCBroker</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Broker implementation for VisualChart.</p>
+<p>This class maps the orders/positions from VisualChart to the
+internal API of <code><a title="backtrader" href="../index.html">backtrader</a></code>.</p>
+<h2 id="params">Params</h2>
+<ul>
+<li><code>account</code> (default: None)</li>
+</ul>
+<p>VisualChart supports several accounts simultaneously on the broker. If
+the default <code>None</code> is in place the 1st account in the ComTrader
+<code>Accounts</code> collection will be used.</p>
+<p>If an account name is provided, the <code>Accounts</code> collection will be
+checked and used if present</p>
+<ul>
+<li><code>commission</code> (default: None)</li>
+</ul>
+<p>An object will be autogenerated if no commission-scheme is passed as
+parameter</p>
+<p>See the notes below for further explanations</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Position</li>
+</ul>
+<p>VisualChart reports "OpenPositions" updates through the ComTrader
+interface but only when the position has a "size". An update to
+indicate a position has moved to ZERO is reported by the absence of
+such position. This forces to keep accounting of the positions by
+looking at the execution events, just like the simulation broker does</p>
+<ul>
+<li>Commission</li>
+</ul>
+<p>The ComTrader interface of VisualChart does not report commissions and
+as such the auto-generated CommissionInfo object cannot use
+non-existent commissions to properly account for them. In order to
+support commissions a <code>commission</code> parameter has to be passed with
+the appropriate commission schemes.</p>
+<p>The documentation on Commission Schemes details how to do this</p>
+<ul>
+<li>Expiration Timing</li>
+</ul>
+<p>The ComTrader interface (or is it the comtypes module?) discards
+<code>time</code> information from <code>datetime</code> objects and expiration dates are
+always full dates.</p>
+<ul>
+<li>Expiration Reporting</li>
+</ul>
+<p>At the moment no heuristic is in place to determine when a cancelled
+order has been cancelled due to expiration. And therefore expired
+orders are reported as cancelled.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class VCBroker(with_metaclass(MetaVCBroker, BrokerBase)):
+    &#39;&#39;&#39;Broker implementation for VisualChart.
+
+    This class maps the orders/positions from VisualChart to the
+    internal API of ``backtrader``.
+
+    Params:
+
+      - ``account`` (default: None)
+
+        VisualChart supports several accounts simultaneously on the broker. If
+        the default ``None`` is in place the 1st account in the ComTrader
+        ``Accounts`` collection will be used.
+
+        If an account name is provided, the ``Accounts`` collection will be
+        checked and used if present
+
+      - ``commission`` (default: None)
+
+        An object will be autogenerated if no commission-scheme is passed as
+        parameter
+
+        See the notes below for further explanations
+
+    Notes:
+
+      - Position
+
+        VisualChart reports &#34;OpenPositions&#34; updates through the ComTrader
+        interface but only when the position has a &#34;size&#34;. An update to
+        indicate a position has moved to ZERO is reported by the absence of
+        such position. This forces to keep accounting of the positions by
+        looking at the execution events, just like the simulation broker does
+
+      - Commission
+
+        The ComTrader interface of VisualChart does not report commissions and
+        as such the auto-generated CommissionInfo object cannot use
+        non-existent commissions to properly account for them. In order to
+        support commissions a ``commission`` parameter has to be passed with
+        the appropriate commission schemes.
+
+        The documentation on Commission Schemes details how to do this
+
+      - Expiration Timing
+
+        The ComTrader interface (or is it the comtypes module?) discards
+        ``time`` information from ``datetime`` objects and expiration dates are
+        always full dates.
+
+      - Expiration Reporting
+
+        At the moment no heuristic is in place to determine when a cancelled
+        order has been cancelled due to expiration. And therefore expired
+        orders are reported as cancelled.
+    &#39;&#39;&#39;
+    params = (
+        (&#39;account&#39;, None),
+        (&#39;commission&#39;, None),
+    )
+
+    def __init__(self, **kwargs):
+        super(VCBroker, self).__init__()
+
+        self.store = vcstore.VCStore(**kwargs)
+
+        # Account data
+        self._acc_name = None
+        self.startingcash = self.cash = 0.0
+        self.startingvalue = self.value = 0.0
+
+        # Position accounting
+        self._lock_pos = threading.Lock()  # sync account updates
+        self.positions = collections.defaultdict(Position)  # actual positions
+
+        # Order storage
+        self._lock_orders = threading.Lock()  # control access
+        self.orderbyid = dict()  # orders by order id
+
+        # Notifications
+        self.notifs = collections.deque()
+
+        # Dictionaries of values for order mapping
+        self._otypes = {
+            Order.Market: self.store.vcctmod.OT_Market,
+            Order.Close: self.store.vcctmod.OT_Market,
+            Order.Limit: self.store.vcctmod.OT_Limit,
+            Order.Stop: self.store.vcctmod.OT_StopMarket,
+            Order.StopLimit: self.store.vcctmod.OT_StopLimit,
+        }
+
+        self._osides = {
+            Order.Buy: self.store.vcctmod.OS_Buy,
+            Order.Sell: self.store.vcctmod.OS_Sell,
+        }
+
+        self._otrestriction = {
+            Order.T_None: self.store.vcctmod.TR_NoRestriction,
+            Order.T_Date: self.store.vcctmod.TR_Date,
+            Order.T_Close: self.store.vcctmod.TR_CloseAuction,
+            Order.T_Day: self.store.vcctmod.TR_Session,
+        }
+
+        self._ovrestriction = {
+            Order.V_None: self.store.vcctmod.VR_NoRestriction,
+        }
+
+        self._futlikes = (
+            self.store.vcdsmod.IT_Future, self.store.vcdsmod.IT_Option,
+            self.store.vcdsmod.IT_Fund,
+        )
+
+    def start(self):
+        super(VCBroker, self).start()
+        self.store.start(broker=self)
+
+    def stop(self):
+        super(VCBroker, self).stop()
+        self.store.stop()
+
+    def getcash(self):
+        # This call cannot block if no answer is available from ib
+        return self.cash
+
+    def getvalue(self, datas=None):
+        return self.value
+
+    def get_notification(self):
+        return self.notifs.popleft()  # at leat a None is present
+
+    def notify(self, order):
+        self.notifs.append(order.clone())
+
+    def next(self):
+        self.notifs.append(None)  # mark notificatino boundary
+
+    def getposition(self, data, clone=True):
+        with self._lock_pos:
+            pos = self.positions[data._tradename]
+            if clone:
+                return pos.clone()
+
+        return pos
+
+    def getcommissioninfo(self, data):
+        if data._tradename in self.comminfo:
+            return self.comminfo[data._tradename]
+
+        comminfo = self.comminfo[None]
+        if comminfo is not None:
+            return comminfo
+
+        stocklike = data._syminfo.Type in self._futlikes
+
+        return VCCommInfo(mult=data._syminfo.PointValue, stocklike=stocklike)
+
+    def _makeorder(self, ordtype, owner, data,
+                   size, price=None, plimit=None,
+                   exectype=None, valid=None,
+                   tradeid=0, **kwargs):
+
+        order = self.store.vcctmod.Order()
+        order.Account = self._acc_name
+        order.SymbolCode = data._tradename
+        order.OrderType = self._otypes[exectype]
+        order.OrderSide = self._osides[ordtype]
+
+        order.VolumeRestriction = self._ovrestriction[Order.V_None]
+        order.HideVolume = 0
+        order.MinVolume = 0
+
+        # order.UserName = &#39;danjrod&#39;  # str(tradeid)
+        # order.OrderId = &#39;a&#39; * 50  # str(tradeid)
+        order.UserOrderId = &#39;&#39;
+        if tradeid:
+            order.ExtendedInfo = &#39;TradeId {}&#39;.format(tradeid)
+        else:
+            order.ExtendedInfo = &#39;&#39;
+
+        order.Volume = abs(size)
+
+        order.StopPrice = 0.0
+        order.Price = 0.0
+        if exectype == Order.Market:
+            pass
+        elif exectype == Order.Limit:
+            order.Price = price or plimit  # cover naming confusion cases
+        elif exectype == Order.Close:
+            pass
+        elif exectype == Order.Stop:
+            order.StopPrice = price
+        elif exectype == Order.StopLimit:
+            order.StopPrice = price
+            order.Price = plimit
+
+        order.ValidDate = None
+        if exectype == Order.Close:
+            order.TimeRestriction = self._otrestriction[Order.T_Close]
+        else:
+            if valid is None:
+                order.TimeRestriction = self._otrestriction[Order.T_None]
+            elif isinstance(valid, (datetime, date)):
+                order.TimeRestriction = self._otrestriction[Order.T_Date]
+                order.ValidDate = valid
+            elif isinstance(valid, (timedelta,)):
+                if valid == Order.DAY:
+                    order.TimeRestriction = self._otrestriction[Order.T_Day]
+                else:
+                    order.TimeRestriction = self._otrestriction[Order.T_Date]
+                    order.ValidDate = datetime.now() + valid
+
+            elif not self.valid:  # DAY
+                order.TimeRestriction = self._otrestriction[Order.T_Day]
+
+        # Support for custom user arguments
+        for k in kwargs:
+            if hasattr(order, k):
+                setattr(order, k, kwargs[k])
+
+        return order
+
+    def submit(self, order, vcorder):
+        order.submit(self)
+
+        vco = vcorder
+        oid = self.store.vcct.SendOrder(
+            vco.Account, vco.SymbolCode,
+            vco.OrderType, vco.OrderSide, vco.Volume, vco.Price, vco.StopPrice,
+            vco.VolumeRestriction, vco.TimeRestriction,
+            ValidDate=vco.ValidDate
+        )
+
+        order.vcorder = oid
+        order.addcomminfo(self.getcommissioninfo(order.data))
+
+        with self._lock_orders:
+            self.orderbyid[oid] = order
+        self.notify(order)
+        return order
+
+    def buy(self, owner, data,
+            size, price=None, plimit=None,
+            exectype=None, valid=None, tradeid=0,
+            **kwargs):
+
+        order = BuyOrder(owner=owner, data=data,
+                         size=size, price=price, pricelimit=plimit,
+                         exectype=exectype, valid=valid, tradeid=tradeid)
+
+        order.addinfo(**kwargs)
+
+        vcorder = self._makeorder(order.ordtype, owner, data, size, price,
+                                  plimit, exectype, valid, tradeid,
+                                  **kwargs)
+
+        return self.submit(order, vcorder)
+
+    def sell(self, owner, data,
+             size, price=None, plimit=None,
+             exectype=None, valid=None, tradeid=0,
+             **kwargs):
+
+        order = SellOrder(owner=owner, data=data,
+                          size=size, price=price, pricelimit=plimit,
+                          exectype=exectype, valid=valid, tradeid=tradeid)
+
+        order.addinfo(**kwargs)
+
+        vcorder = self._makeorder(order.ordtype, owner, data, size, price,
+                                  plimit, exectype, valid, tradeid,
+                                  **kwargs)
+
+        return self.submit(order, vcorder)
+
+    #
+    # COM Events implementation
+    #
+    def __call__(self, trader):
+        # Called to start the process, call in sub-thread. only the passed
+        # trader can be used in the thread
+        self.trader = trader
+
+        for acc in trader.Accounts:
+            if self.p.account is None or self.p.account == acc.Account:
+                self.startingcash = self.cash = acc.Balance.Cash
+                self.startingvalue = self.value = acc.Balance.NetWorth
+                self._acc_name = acc.Account
+                break  # found the account
+
+        return self
+
+    def OnChangedBalance(self, Account):
+        if self._acc_name is None or self._acc_name != Account:
+            return  # skip notifs for other accounts
+
+        for acc in self.trader.Accounts:
+            if acc.Account == Account:
+                # Update store values
+                self.cash = acc.Balance.Cash
+                self.value = acc.Balance.NetWorth
+                break
+
+    def OnModifiedOrder(self, Order):
+        # We are not expecting this: unless backtrader starts implementing
+        # modify order method
+        pass
+
+    def OnCancelledOrder(self, Order):
+        with self._lock_orders:
+            try:
+                border = self.orderbyid[Order.OrderId]
+            except KeyError:
+                return  # possibly external order
+
+        border.cancel()
+        self.notify(border)
+
+    def OnTotalExecutedOrder(self, Order):
+        self.OnExecutedOrder(Order, partial=False)
+
+    def OnPartialExecutedOrder(self, Order):
+        self.OnExecutedOrder(Order, partial=True)
+
+    def OnExecutedOrder(self, Order, partial):
+        with self._lock_orders:
+            try:
+                border = self.orderbyid[Order.OrderId]
+            except KeyError:
+                return  # possibly external order
+
+        price = Order.Price
+        size = Order.Volume
+        if border.issell():
+            size *= -1
+
+        # Find position and do a real update - accounting happens here
+        position = self.getposition(border.data, clone=False)
+        pprice_orig = position.price
+        psize, pprice, opened, closed = position.update(size, price)
+
+        comminfo = border.comminfo
+        closedvalue = comminfo.getoperationcost(closed, pprice_orig)
+        closedcomm = comminfo.getcommission(closed, price)
+
+        openedvalue = comminfo.getoperationcost(opened, price)
+        openedcomm = comminfo.getcommission(opened, price)
+
+        pnl = comminfo.profitandloss(-closed, pprice_orig, price)
+        margin = comminfo.getvaluesize(size, price)
+
+        # NOTE: No commission information available in the Trader interface
+        # CHECK: Use reported time instead of last data time?
+        border.execute(border.data.datetime[0],
+                       size, price,
+                       closed, closedvalue, closedcomm,
+                       opened, openedvalue, openedcomm,
+                       margin, pnl,
+                       psize, pprice)  # pnl
+
+        if partial:
+            border.partial()
+        else:
+            border.completed()
+
+        self.notify(border)
+
+    def OnOrderInMarket(self, Order):
+        # Other is in ther market ... therefore &#34;accepted&#34;
+        with self._lock_orders:
+            try:
+                border = self.orderbyid[Order.OrderId]
+            except KeyError:
+                return  # possibly external order
+
+        border.accept()
+        self.notify(border)
+
+    def OnNewOrderLocation(self, Order):
+        # Can be used for &#34;submitted&#34;, but the status is set manually
+        pass
+
+    def OnChangedOpenPositions(self, Account):
+        # This would be useful if it reported a position moving back to 0. In
+        # this case the report contains a no-position and this doesn&#39;t help in
+        # the accounting. That&#39;s why the accounting is delegated to the
+        # reception of order execution
+        pass
+
+    def OnNewClosedOperations(self, Account):
+        # This call-back has not been seen
+        pass
+
+    def OnServerShutDown(self):
+        pass
+
+    def OnInternalEvent(self, p1, p2, p3):
+        pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.broker.BrokerBase" href="../broker.html#backtrader.broker.BrokerBase">BrokerBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.brokers.vcbroker.VCBroker.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnCancelledOrder"><code class="name flex">
+<span>def <span class="ident">OnCancelledOrder</span></span>(<span>self, Order)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnCancelledOrder(self, Order):
+    with self._lock_orders:
+        try:
+            border = self.orderbyid[Order.OrderId]
+        except KeyError:
+            return  # possibly external order
+
+    border.cancel()
+    self.notify(border)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnChangedBalance"><code class="name flex">
+<span>def <span class="ident">OnChangedBalance</span></span>(<span>self, Account)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnChangedBalance(self, Account):
+    if self._acc_name is None or self._acc_name != Account:
+        return  # skip notifs for other accounts
+
+    for acc in self.trader.Accounts:
+        if acc.Account == Account:
+            # Update store values
+            self.cash = acc.Balance.Cash
+            self.value = acc.Balance.NetWorth
+            break</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnChangedOpenPositions"><code class="name flex">
+<span>def <span class="ident">OnChangedOpenPositions</span></span>(<span>self, Account)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnChangedOpenPositions(self, Account):
+    # This would be useful if it reported a position moving back to 0. In
+    # this case the report contains a no-position and this doesn&#39;t help in
+    # the accounting. That&#39;s why the accounting is delegated to the
+    # reception of order execution
+    pass</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnExecutedOrder"><code class="name flex">
+<span>def <span class="ident">OnExecutedOrder</span></span>(<span>self, Order, partial)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnExecutedOrder(self, Order, partial):
+    with self._lock_orders:
+        try:
+            border = self.orderbyid[Order.OrderId]
+        except KeyError:
+            return  # possibly external order
+
+    price = Order.Price
+    size = Order.Volume
+    if border.issell():
+        size *= -1
+
+    # Find position and do a real update - accounting happens here
+    position = self.getposition(border.data, clone=False)
+    pprice_orig = position.price
+    psize, pprice, opened, closed = position.update(size, price)
+
+    comminfo = border.comminfo
+    closedvalue = comminfo.getoperationcost(closed, pprice_orig)
+    closedcomm = comminfo.getcommission(closed, price)
+
+    openedvalue = comminfo.getoperationcost(opened, price)
+    openedcomm = comminfo.getcommission(opened, price)
+
+    pnl = comminfo.profitandloss(-closed, pprice_orig, price)
+    margin = comminfo.getvaluesize(size, price)
+
+    # NOTE: No commission information available in the Trader interface
+    # CHECK: Use reported time instead of last data time?
+    border.execute(border.data.datetime[0],
+                   size, price,
+                   closed, closedvalue, closedcomm,
+                   opened, openedvalue, openedcomm,
+                   margin, pnl,
+                   psize, pprice)  # pnl
+
+    if partial:
+        border.partial()
+    else:
+        border.completed()
+
+    self.notify(border)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnInternalEvent"><code class="name flex">
+<span>def <span class="ident">OnInternalEvent</span></span>(<span>self, p1, p2, p3)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnInternalEvent(self, p1, p2, p3):
+    pass</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnModifiedOrder"><code class="name flex">
+<span>def <span class="ident">OnModifiedOrder</span></span>(<span>self, Order)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnModifiedOrder(self, Order):
+    # We are not expecting this: unless backtrader starts implementing
+    # modify order method
+    pass</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnNewClosedOperations"><code class="name flex">
+<span>def <span class="ident">OnNewClosedOperations</span></span>(<span>self, Account)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnNewClosedOperations(self, Account):
+    # This call-back has not been seen
+    pass</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnNewOrderLocation"><code class="name flex">
+<span>def <span class="ident">OnNewOrderLocation</span></span>(<span>self, Order)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnNewOrderLocation(self, Order):
+    # Can be used for &#34;submitted&#34;, but the status is set manually
+    pass</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnOrderInMarket"><code class="name flex">
+<span>def <span class="ident">OnOrderInMarket</span></span>(<span>self, Order)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnOrderInMarket(self, Order):
+    # Other is in ther market ... therefore &#34;accepted&#34;
+    with self._lock_orders:
+        try:
+            border = self.orderbyid[Order.OrderId]
+        except KeyError:
+            return  # possibly external order
+
+    border.accept()
+    self.notify(border)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnPartialExecutedOrder"><code class="name flex">
+<span>def <span class="ident">OnPartialExecutedOrder</span></span>(<span>self, Order)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnPartialExecutedOrder(self, Order):
+    self.OnExecutedOrder(Order, partial=True)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnServerShutDown"><code class="name flex">
+<span>def <span class="ident">OnServerShutDown</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnServerShutDown(self):
+    pass</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.OnTotalExecutedOrder"><code class="name flex">
+<span>def <span class="ident">OnTotalExecutedOrder</span></span>(<span>self, Order)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OnTotalExecutedOrder(self, Order):
+    self.OnExecutedOrder(Order, partial=False)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.VCBroker"><code class="name flex">
+<span>def <span class="ident">VCBroker</span></span>(<span>self, datas=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getvalue(self, datas=None):
+    return self.value</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.buy"><code class="name flex">
+<span>def <span class="ident">buy</span></span>(<span>self, owner, data, size, price=None, plimit=None, exectype=None, valid=None, tradeid=0, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def buy(self, owner, data,
+        size, price=None, plimit=None,
+        exectype=None, valid=None, tradeid=0,
+        **kwargs):
+
+    order = BuyOrder(owner=owner, data=data,
+                     size=size, price=price, pricelimit=plimit,
+                     exectype=exectype, valid=valid, tradeid=tradeid)
+
+    order.addinfo(**kwargs)
+
+    vcorder = self._makeorder(order.ordtype, owner, data, size, price,
+                              plimit, exectype, valid, tradeid,
+                              **kwargs)
+
+    return self.submit(order, vcorder)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.get_notification"><code class="name flex">
+<span>def <span class="ident">get_notification</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_notification(self):
+    return self.notifs.popleft()  # at leat a None is present</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.getcash"><code class="name flex">
+<span>def <span class="ident">getcash</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getcash(self):
+    # This call cannot block if no answer is available from ib
+    return self.cash</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.getposition"><code class="name flex">
+<span>def <span class="ident">getposition</span></span>(<span>self, data, clone=True)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getposition(self, data, clone=True):
+    with self._lock_pos:
+        pos = self.positions[data._tradename]
+        if clone:
+            return pos.clone()
+
+    return pos</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.getvalue"><code class="name flex">
+<span>def <span class="ident">getvalue</span></span>(<span>self, datas=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getvalue(self, datas=None):
+    return self.value</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.next"><code class="name flex">
+<span>def <span class="ident">next</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def next(self):
+    self.notifs.append(None)  # mark notificatino boundary</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.notify"><code class="name flex">
+<span>def <span class="ident">notify</span></span>(<span>self, order)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def notify(self, order):
+    self.notifs.append(order.clone())</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.sell"><code class="name flex">
+<span>def <span class="ident">sell</span></span>(<span>self, owner, data, size, price=None, plimit=None, exectype=None, valid=None, tradeid=0, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sell(self, owner, data,
+         size, price=None, plimit=None,
+         exectype=None, valid=None, tradeid=0,
+         **kwargs):
+
+    order = SellOrder(owner=owner, data=data,
+                      size=size, price=price, pricelimit=plimit,
+                      exectype=exectype, valid=valid, tradeid=tradeid)
+
+    order.addinfo(**kwargs)
+
+    vcorder = self._makeorder(order.ordtype, owner, data, size, price,
+                              plimit, exectype, valid, tradeid,
+                              **kwargs)
+
+    return self.submit(order, vcorder)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    super(VCBroker, self).start()
+    self.store.start(broker=self)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stop(self):
+    super(VCBroker, self).stop()
+    self.store.stop()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCBroker.submit"><code class="name flex">
+<span>def <span class="ident">submit</span></span>(<span>self, order, vcorder)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def submit(self, order, vcorder):
+    order.submit(self)
+
+    vco = vcorder
+    oid = self.store.vcct.SendOrder(
+        vco.Account, vco.SymbolCode,
+        vco.OrderType, vco.OrderSide, vco.Volume, vco.Price, vco.StopPrice,
+        vco.VolumeRestriction, vco.TimeRestriction,
+        ValidDate=vco.ValidDate
+    )
+
+    order.vcorder = oid
+    order.addcomminfo(self.getcommissioninfo(order.data))
+
+    with self._lock_orders:
+        self.orderbyid[oid] = order
+    self.notify(order)
+    return order</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.broker.BrokerBase" href="../broker.html#backtrader.broker.BrokerBase">BrokerBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.broker.BrokerBase.add_order_history" href="../broker.html#backtrader.broker.BrokerBase.add_order_history">add_order_history</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.addcommissioninfo" href="../broker.html#backtrader.broker.BrokerBase.addcommissioninfo">addcommissioninfo</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.fundmode" href="../broker.html#backtrader.broker.BrokerBase.fundmode">fundmode</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.fundshares" href="../broker.html#backtrader.broker.BrokerBase.fundshares">fundshares</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.get_fundmode" href="../broker.html#backtrader.broker.BrokerBase.get_fundmode">get_fundmode</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.get_fundshares" href="../broker.html#backtrader.broker.BrokerBase.get_fundshares">get_fundshares</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.getcommissioninfo" href="../broker.html#backtrader.broker.BrokerBase.getcommissioninfo">getcommissioninfo</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.set_fund_history" href="../broker.html#backtrader.broker.BrokerBase.set_fund_history">set_fund_history</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.set_fundmode" href="../broker.html#backtrader.broker.BrokerBase.set_fundmode">set_fundmode</a></code></li>
+<li><code><a title="backtrader.broker.BrokerBase.setcommission" href="../broker.html#backtrader.broker.BrokerBase.setcommission">setcommission</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCCommInfo"><code class="flex name class">
+<span>class <span class="ident">VCCommInfo</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Commissions are calculated by ib, but the trades calculations in the
+<code>`Strategy</code> rely on the order carrying a CommInfo object attached for the
+calculation of the operation cost and value.</p>
+<p>These are non-critical informations, but removing them from the trade could
+break existing usage and it is better to provide a CommInfo objet which
+enables those calculations even if with approvimate values.</p>
+<p>The margin calculation is not a known in advance information with IB
+(margin impact can be gotten from OrderState objects) and therefore it is
+left as future exercise to get it</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class VCCommInfo(CommInfoBase):
+    &#39;&#39;&#39;
+    Commissions are calculated by ib, but the trades calculations in the
+    ```Strategy`` rely on the order carrying a CommInfo object attached for the
+    calculation of the operation cost and value.
+
+    These are non-critical informations, but removing them from the trade could
+    break existing usage and it is better to provide a CommInfo objet which
+    enables those calculations even if with approvimate values.
+
+    The margin calculation is not a known in advance information with IB
+    (margin impact can be gotten from OrderState objects) and therefore it is
+    left as future exercise to get it&#39;&#39;&#39;
+
+    def getvaluesize(self, size, price):
+        # In real life the margin approaches the price
+        return abs(size) * price
+
+    def getoperationcost(self, size, price):
+        &#39;&#39;&#39;Returns the needed amount of cash an operation would cost&#39;&#39;&#39;
+        # Same reasoning as above
+        return abs(size) * price</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.brokers.vcbroker.VCCommInfo.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCCommInfo.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.brokers.vcbroker.VCCommInfo.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.comminfo.CommInfoBase" href="../comminfo.html#backtrader.comminfo.CommInfoBase">CommInfoBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.comminfo.CommInfoBase.cashadjust" href="../comminfo.html#backtrader.comminfo.CommInfoBase.cashadjust">cashadjust</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_credit_interest" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_credit_interest">get_credit_interest</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_leverage" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_leverage">get_leverage</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.get_margin" href="../comminfo.html#backtrader.comminfo.CommInfoBase.get_margin">get_margin</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getcommission" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getcommission">getcommission</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getoperationcost" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getoperationcost">getoperationcost</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getsize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getsize">getsize</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getvalue" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.getvaluesize" href="../comminfo.html#backtrader.comminfo.CommInfoBase.getvaluesize">getvaluesize</a></code></li>
+<li><code><a title="backtrader.comminfo.CommInfoBase.profitandloss" href="../comminfo.html#backtrader.comminfo.CommInfoBase.profitandloss">profitandloss</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader.brokers" href="index.html">backtrader.brokers</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.brokers.vcbroker.MetaVCBroker" href="#backtrader.brokers.vcbroker.MetaVCBroker">MetaVCBroker</a></code></h4>
+</li>
+<li>
+<h4><code><a title="backtrader.brokers.vcbroker.VCBroker" href="#backtrader.brokers.vcbroker.VCBroker">VCBroker</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnCancelledOrder" href="#backtrader.brokers.vcbroker.VCBroker.OnCancelledOrder">OnCancelledOrder</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnChangedBalance" href="#backtrader.brokers.vcbroker.VCBroker.OnChangedBalance">OnChangedBalance</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnChangedOpenPositions" href="#backtrader.brokers.vcbroker.VCBroker.OnChangedOpenPositions">OnChangedOpenPositions</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnExecutedOrder" href="#backtrader.brokers.vcbroker.VCBroker.OnExecutedOrder">OnExecutedOrder</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnInternalEvent" href="#backtrader.brokers.vcbroker.VCBroker.OnInternalEvent">OnInternalEvent</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnModifiedOrder" href="#backtrader.brokers.vcbroker.VCBroker.OnModifiedOrder">OnModifiedOrder</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnNewClosedOperations" href="#backtrader.brokers.vcbroker.VCBroker.OnNewClosedOperations">OnNewClosedOperations</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnNewOrderLocation" href="#backtrader.brokers.vcbroker.VCBroker.OnNewOrderLocation">OnNewOrderLocation</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnOrderInMarket" href="#backtrader.brokers.vcbroker.VCBroker.OnOrderInMarket">OnOrderInMarket</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnPartialExecutedOrder" href="#backtrader.brokers.vcbroker.VCBroker.OnPartialExecutedOrder">OnPartialExecutedOrder</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnServerShutDown" href="#backtrader.brokers.vcbroker.VCBroker.OnServerShutDown">OnServerShutDown</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.OnTotalExecutedOrder" href="#backtrader.brokers.vcbroker.VCBroker.OnTotalExecutedOrder">OnTotalExecutedOrder</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.VCBroker" href="#backtrader.brokers.vcbroker.VCBroker.VCBroker">VCBroker</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.buy" href="#backtrader.brokers.vcbroker.VCBroker.buy">buy</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.frompackages" href="#backtrader.brokers.vcbroker.VCBroker.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.get_notification" href="#backtrader.brokers.vcbroker.VCBroker.get_notification">get_notification</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.getcash" href="#backtrader.brokers.vcbroker.VCBroker.getcash">getcash</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.getposition" href="#backtrader.brokers.vcbroker.VCBroker.getposition">getposition</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.getvalue" href="#backtrader.brokers.vcbroker.VCBroker.getvalue">getvalue</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.next" href="#backtrader.brokers.vcbroker.VCBroker.next">next</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.notify" href="#backtrader.brokers.vcbroker.VCBroker.notify">notify</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.packages" href="#backtrader.brokers.vcbroker.VCBroker.packages">packages</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.params" href="#backtrader.brokers.vcbroker.VCBroker.params">params</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.sell" href="#backtrader.brokers.vcbroker.VCBroker.sell">sell</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.start" href="#backtrader.brokers.vcbroker.VCBroker.start">start</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.stop" href="#backtrader.brokers.vcbroker.VCBroker.stop">stop</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCBroker.submit" href="#backtrader.brokers.vcbroker.VCBroker.submit">submit</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.brokers.vcbroker.VCCommInfo" href="#backtrader.brokers.vcbroker.VCCommInfo">VCCommInfo</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.brokers.vcbroker.VCCommInfo.frompackages" href="#backtrader.brokers.vcbroker.VCCommInfo.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCCommInfo.packages" href="#backtrader.brokers.vcbroker.VCCommInfo.packages">packages</a></code></li>
+<li><code><a title="backtrader.brokers.vcbroker.VCCommInfo.params" href="#backtrader.brokers.vcbroker.VCCommInfo.params">params</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

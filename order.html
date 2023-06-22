@@ -1,0 +1,2908 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.order API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.order</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+import collections
+from copy import copy
+import datetime
+import itertools
+
+from .utils.py3 import range, with_metaclass, iteritems
+
+from .metabase import MetaParams
+from .utils import AutoOrderedDict
+
+
+class OrderExecutionBit(object):
+    &#39;&#39;&#39;
+    Intended to hold information about order execution. A &#34;bit&#34; does not
+    determine if the order has been fully/partially executed, it just holds
+    information.
+
+    Member Attributes:
+
+      - dt: datetime (float) execution time
+      - size: how much was executed
+      - price: execution price
+      - closed: how much of the execution closed an existing postion
+      - opened: how much of the execution opened a new position
+      - openedvalue: market value of the &#34;opened&#34; part
+      - closedvalue: market value of the &#34;closed&#34; part
+      - closedcomm: commission for the &#34;closed&#34; part
+      - openedcomm: commission for the &#34;opened&#34; part
+
+      - value: market value for the entire bit size
+      - comm: commission for the entire bit execution
+      - pnl: pnl generated by this bit (if something was closed)
+
+      - psize: current open position size
+      - pprice: current open position price
+
+    &#39;&#39;&#39;
+
+    def __init__(self,
+                 dt=None, size=0, price=0.0,
+                 closed=0, closedvalue=0.0, closedcomm=0.0,
+                 opened=0, openedvalue=0.0, openedcomm=0.0,
+                 pnl=0.0,
+                 psize=0, pprice=0.0):
+
+        self.dt = dt
+        self.size = size
+        self.price = price
+
+        self.closed = closed
+        self.opened = opened
+        self.closedvalue = closedvalue
+        self.openedvalue = openedvalue
+        self.closedcomm = closedcomm
+        self.openedcomm = openedcomm
+
+        self.value = closedvalue + openedvalue
+        self.comm = closedcomm + openedcomm
+        self.pnl = pnl
+
+        self.psize = psize
+        self.pprice = pprice
+
+
+class OrderData(object):
+    &#39;&#39;&#39;
+    Holds actual order data for Creation and Execution.
+
+    In the case of Creation the request made and in the case of Execution the
+    actual outcome.
+
+    Member Attributes:
+
+      - exbits : iterable of OrderExecutionBits for this OrderData
+
+      - dt: datetime (float) creation/execution time
+      - size: requested/executed size
+      - price: execution price
+        Note: if no price is given and no pricelimite is given, the closing
+        price at the time or order creation will be used as reference
+      - pricelimit: holds pricelimit for StopLimit (which has trigger first)
+      - trailamount: absolute price distance in trailing stops
+      - trailpercent: percentage price distance in trailing stops
+
+      - value: market value for the entire bit size
+      - comm: commission for the entire bit execution
+      - pnl: pnl generated by this bit (if something was closed)
+      - margin: margin incurred by the Order (if any)
+
+      - psize: current open position size
+      - pprice: current open position price
+
+    &#39;&#39;&#39;
+    # According to the docs, collections.deque is thread-safe with appends at
+    # both ends, there will be no pop (nowhere) and therefore to know which the
+    # new exbits are two indices are needed. At time of cloning (__copy__) the
+    # indices can be updated to match the previous end, and the new end
+    # (len(exbits)
+    # Example: start 0, 0 -&gt; islice(exbits, 0, 0) -&gt; []
+    # One added -&gt; copy -&gt; updated 0, 1 -&gt; islice(exbits, 0, 1) -&gt; [1 elem]
+    # Other added -&gt; copy -&gt; updated 1, 2 -&gt; islice(exbits, 1, 2) -&gt; [1 elem]
+    # &#34;add&#34; and &#34;__copy__&#34; happen always in the same thread (with all current
+    # implementations) and therefore no append will happen during a copy and
+    # the len of the exbits can be queried with no concerns about another
+    # thread making an append and with no need for a lock
+
+    def __init__(self, dt=None, size=0, price=0.0, pricelimit=0.0, remsize=0,
+                 pclose=0.0, trailamount=0.0, trailpercent=0.0):
+
+        self.pclose = pclose
+        self.exbits = collections.deque()  # for historical purposes
+        self.p1, self.p2 = 0, 0  # indices to pending notifications
+
+        self.dt = dt
+        self.size = size
+        self.remsize = remsize
+        self.price = price
+        self.pricelimit = pricelimit
+        self.trailamount = trailamount
+        self.trailpercent = trailpercent
+
+        if not pricelimit:
+            # if no pricelimit is given, use the given price
+            self.pricelimit = self.price
+
+        if pricelimit and not price:
+            # price must always be set if pricelimit is set ...
+            self.price = pricelimit
+
+        self.plimit = pricelimit
+
+        self.value = 0.0
+        self.comm = 0.0
+        self.margin = None
+        self.pnl = 0.0
+
+        self.psize = 0
+        self.pprice = 0
+
+    def _getplimit(self):
+        return self._plimit
+
+    def _setplimit(self, val):
+        self._plimit = val
+
+    plimit = property(_getplimit, _setplimit)
+
+    def __len__(self):
+        return len(self.exbits)
+
+    def __getitem__(self, key):
+        return self.exbits[key]
+
+    def add(self, dt, size, price,
+            closed=0, closedvalue=0.0, closedcomm=0.0,
+            opened=0, openedvalue=0.0, openedcomm=0.0,
+            pnl=0.0,
+            psize=0, pprice=0.0):
+
+        self.addbit(
+            OrderExecutionBit(dt, size, price,
+                              closed, closedvalue, closedcomm,
+                              opened, openedvalue, openedcomm, pnl,
+                              psize, pprice))
+
+    def addbit(self, exbit):
+        # Stores an ExecutionBit and recalculates own values from ExBit
+        self.exbits.append(exbit)
+
+        self.remsize -= exbit.size
+
+        self.dt = exbit.dt
+        oldvalue = self.size * self.price
+        newvalue = exbit.size * exbit.price
+        self.size += exbit.size
+        self.price = (oldvalue + newvalue) / self.size
+        self.value += exbit.value
+        self.comm += exbit.comm
+        self.pnl += exbit.pnl
+        self.psize = exbit.psize
+        self.pprice = exbit.pprice
+
+    def getpending(self):
+        return list(self.iterpending())
+
+    def iterpending(self):
+        return itertools.islice(self.exbits, self.p1, self.p2)
+
+    def markpending(self):
+        # rebuild the indices to mark which exbits are pending in clone
+        self.p1, self.p2 = self.p2, len(self.exbits)
+
+    def clone(self):
+        self.markpending()
+        obj = copy(self)
+        return obj
+
+
+class OrderBase(with_metaclass(MetaParams, object)):
+    params = (
+        (&#39;owner&#39;, None), (&#39;data&#39;, None),
+        (&#39;size&#39;, None), (&#39;price&#39;, None), (&#39;pricelimit&#39;, None),
+        (&#39;exectype&#39;, None), (&#39;valid&#39;, None), (&#39;tradeid&#39;, 0), (&#39;oco&#39;, None),
+        (&#39;trailamount&#39;, None), (&#39;trailpercent&#39;, None),
+        (&#39;parent&#39;, None), (&#39;transmit&#39;, True),
+        (&#39;simulated&#39;, False),
+        # To support historical order evaluation
+        (&#39;histnotify&#39;, False),
+    )
+
+    DAY = datetime.timedelta()  # constant for DAY order identification
+
+    # Time Restrictions for orders
+    T_Close, T_Day, T_Date, T_None = range(4)
+
+    # Volume Restrictions for orders
+    V_None = range(1)
+
+    (Market, Close, Limit, Stop, StopLimit, StopTrail, StopTrailLimit,
+     Historical) = range(8)
+    ExecTypes = [&#39;Market&#39;, &#39;Close&#39;, &#39;Limit&#39;, &#39;Stop&#39;, &#39;StopLimit&#39;, &#39;StopTrail&#39;,
+                 &#39;StopTrailLimit&#39;, &#39;Historical&#39;]
+
+    OrdTypes = [&#39;Buy&#39;, &#39;Sell&#39;]
+    Buy, Sell = range(2)
+
+    Created, Submitted, Accepted, Partial, Completed, \
+        Canceled, Expired, Margin, Rejected = range(9)
+
+    Cancelled = Canceled  # alias
+
+    Status = [
+        &#39;Created&#39;, &#39;Submitted&#39;, &#39;Accepted&#39;, &#39;Partial&#39;, &#39;Completed&#39;,
+        &#39;Canceled&#39;, &#39;Expired&#39;, &#39;Margin&#39;, &#39;Rejected&#39;,
+    ]
+
+    refbasis = itertools.count(1)  # for a unique identifier per order
+
+    def _getplimit(self):
+        return self._plimit
+
+    def _setplimit(self, val):
+        self._plimit = val
+
+    plimit = property(_getplimit, _setplimit)
+
+    def __getattr__(self, name):
+        # Return attr from params if not found in order
+        return getattr(self.params, name)
+
+    def __setattribute__(self, name, value):
+        if hasattr(self.params, name):
+            setattr(self.params, name, value)
+        else:
+            super(Order, self).__setattribute__(name, value)
+
+    def __str__(self):
+        tojoin = list()
+        tojoin.append(&#39;Ref: {}&#39;.format(self.ref))
+        tojoin.append(&#39;OrdType: {}&#39;.format(self.ordtype))
+        tojoin.append(&#39;OrdType: {}&#39;.format(self.ordtypename()))
+        tojoin.append(&#39;Status: {}&#39;.format(self.status))
+        tojoin.append(&#39;Status: {}&#39;.format(self.getstatusname()))
+        tojoin.append(&#39;Size: {}&#39;.format(self.size))
+        tojoin.append(&#39;Price: {}&#39;.format(self.price))
+        tojoin.append(&#39;Price Limit: {}&#39;.format(self.pricelimit))
+        tojoin.append(&#39;TrailAmount: {}&#39;.format(self.trailamount))
+        tojoin.append(&#39;TrailPercent: {}&#39;.format(self.trailpercent))
+        tojoin.append(&#39;ExecType: {}&#39;.format(self.exectype))
+        tojoin.append(&#39;ExecType: {}&#39;.format(self.getordername()))
+        tojoin.append(&#39;CommInfo: {}&#39;.format(self.comminfo))
+        tojoin.append(&#39;End of Session: {}&#39;.format(self.dteos))
+        tojoin.append(&#39;Info: {}&#39;.format(self.info))
+        tojoin.append(&#39;Broker: {}&#39;.format(self.broker))
+        tojoin.append(&#39;Alive: {}&#39;.format(self.alive()))
+
+        return &#39;\n&#39;.join(tojoin)
+
+    def __init__(self):
+        self.ref = next(self.refbasis)
+        self.broker = None
+        self.info = AutoOrderedDict()
+        self.comminfo = None
+        self.triggered = False
+
+        self._active = self.parent is None
+        self.status = Order.Created
+
+        self.plimit = self.p.pricelimit  # alias via property
+
+        if self.exectype is None:
+            self.exectype = Order.Market
+
+        if not self.isbuy():
+            self.size = -self.size
+
+        # Set a reference price if price is not set using
+        # the close price
+        pclose = self.data.close[0] if not self.p.simulated else self.price
+        price = pclose if not self.price and not self.pricelimit else self.price
+
+        dcreated = self.data.datetime[0] if not self.p.simulated else 0.0
+        self.created = OrderData(dt=dcreated,
+                                 size=self.size,
+                                 price=price,
+                                 pricelimit=self.pricelimit,
+                                 pclose=pclose,
+                                 trailamount=self.trailamount,
+                                 trailpercent=self.trailpercent)
+
+        # Adjust price in case a trailing limit is wished
+        if self.exectype in [Order.StopTrail, Order.StopTrailLimit]:
+            self._limitoffset = self.created.price - self.created.pricelimit
+            price = self.created.price
+            self.created.price = float(&#39;inf&#39; * self.isbuy() or &#39;-inf&#39;)
+            self.trailadjust(price)
+        else:
+            self._limitoffset = 0.0
+
+        self.executed = OrderData(remsize=self.size)
+        self.position = 0
+
+        if isinstance(self.valid, datetime.date):
+            # comparison will later be done against the raw datetime[0] value
+            self.valid = self.data.date2num(self.valid)
+        elif isinstance(self.valid, datetime.timedelta):
+            # offset with regards to now ... get utcnow + offset
+            # when reading with date2num ... it will be automatically localized
+            if self.valid == self.DAY:
+                valid = datetime.datetime.combine(
+                    self.data.datetime.date(), datetime.time(23, 59, 59, 9999))
+            else:
+                valid = self.data.datetime.datetime() + self.valid
+
+            self.valid = self.data.date2num(valid)
+
+        elif self.valid is not None:
+            if not self.valid:  # avoid comparing None and 0
+                valid = datetime.datetime.combine(
+                    self.data.datetime.date(), datetime.time(23, 59, 59, 9999))
+            else:  # assume float
+                valid = self.data.datetime[0] + self.valid
+
+        if not self.p.simulated:
+            # provisional end-of-session
+            # get next session end
+            dtime = self.data.datetime.datetime(0)
+            session = self.data.p.sessionend
+            dteos = dtime.replace(hour=session.hour, minute=session.minute,
+                                  second=session.second,
+                                  microsecond=session.microsecond)
+
+            if dteos &lt; dtime:
+                # eos before current time ... no ... must be at least next day
+                dteos += datetime.timedelta(days=1)
+
+            self.dteos = self.data.date2num(dteos)
+        else:
+            self.dteos = 0.0
+
+    def clone(self):
+        # status, triggered and executed are the only moving parts in order
+        # status and triggered are covered by copy
+        # executed has to be replaced with an intelligent clone of itself
+        obj = copy(self)
+        obj.executed = self.executed.clone()
+        return obj  # status could change in next to completed
+
+    def getstatusname(self, status=None):
+        &#39;&#39;&#39;Returns the name for a given status or the one of the order&#39;&#39;&#39;
+        return self.Status[self.status if status is None else status]
+
+    def getordername(self, exectype=None):
+        &#39;&#39;&#39;Returns the name for a given exectype or the one of the order&#39;&#39;&#39;
+        return self.ExecTypes[self.exectype if exectype is None else exectype]
+
+    @classmethod
+    def ExecType(cls, exectype):
+        return getattr(cls, exectype)
+
+    def ordtypename(self, ordtype=None):
+        &#39;&#39;&#39;Returns the name for a given ordtype or the one of the order&#39;&#39;&#39;
+        return self.OrdTypes[self.ordtype if ordtype is None else ordtype]
+
+    def active(self):
+        return self._active
+
+    def activate(self):
+        self._active = True
+
+    def alive(self):
+        &#39;&#39;&#39;Returns True if the order is in a status in which it can still be
+        executed
+        &#39;&#39;&#39;
+        return self.status in [Order.Created, Order.Submitted,
+                               Order.Partial, Order.Accepted]
+
+    def addcomminfo(self, comminfo):
+        &#39;&#39;&#39;Stores a CommInfo scheme associated with the asset&#39;&#39;&#39;
+        self.comminfo = comminfo
+
+    def addinfo(self, **kwargs):
+        &#39;&#39;&#39;Add the keys, values of kwargs to the internal info dictionary to
+        hold custom information in the order
+        &#39;&#39;&#39;
+        for key, val in iteritems(kwargs):
+            self.info[key] = val
+
+    def __eq__(self, other):
+        return other is not None and self.ref == other.ref
+
+    def __ne__(self, other):
+        return self.ref != other.ref
+
+    def isbuy(self):
+        &#39;&#39;&#39;Returns True if the order is a Buy order&#39;&#39;&#39;
+        return self.ordtype == self.Buy
+
+    def issell(self):
+        &#39;&#39;&#39;Returns True if the order is a Sell order&#39;&#39;&#39;
+        return self.ordtype == self.Sell
+
+    def setposition(self, position):
+        &#39;&#39;&#39;Receives the current position for the asset and stotres it&#39;&#39;&#39;
+        self.position = position
+
+    def submit(self, broker=None):
+        &#39;&#39;&#39;Marks an order as submitted and stores the broker to which it was
+        submitted&#39;&#39;&#39;
+        self.status = Order.Submitted
+        self.broker = broker
+        self.plen = len(self.data)
+
+    def accept(self, broker=None):
+        &#39;&#39;&#39;Marks an order as accepted&#39;&#39;&#39;
+        self.status = Order.Accepted
+        self.broker = broker
+
+    def brokerstatus(self):
+        &#39;&#39;&#39;Tries to retrieve the status from the broker in which the order is.
+
+        Defaults to last known status if no broker is associated&#39;&#39;&#39;
+        if self.broker:
+            return self.broker.orderstatus(self)
+
+        return self.status
+
+    def reject(self, broker=None):
+        &#39;&#39;&#39;Marks an order as rejected&#39;&#39;&#39;
+        if self.status == Order.Rejected:
+            return False
+
+        self.status = Order.Rejected
+        self.broker = broker
+        if not self.p.simulated:
+            self.executed.dt = self.data.datetime[0]
+        return True
+
+    def cancel(self):
+        &#39;&#39;&#39;Marks an order as cancelled&#39;&#39;&#39;
+        self.status = Order.Canceled
+        if not self.p.simulated:
+            self.executed.dt = self.data.datetime[0]
+
+    def margin(self):
+        &#39;&#39;&#39;Marks an order as having met a margin call&#39;&#39;&#39;
+        self.status = Order.Margin
+        if not self.p.simulated:
+            self.executed.dt = self.data.datetime[0]
+
+    def completed(self):
+        &#39;&#39;&#39;Marks an order as completely filled&#39;&#39;&#39;
+        self.status = self.Completed
+
+    def partial(self):
+        &#39;&#39;&#39;Marks an order as partially filled&#39;&#39;&#39;
+        self.status = self.Partial
+
+    def execute(self, dt, size, price,
+                closed, closedvalue, closedcomm,
+                opened, openedvalue, openedcomm,
+                margin, pnl,
+                psize, pprice):
+
+        &#39;&#39;&#39;Receives data execution input and stores it&#39;&#39;&#39;
+        if not size:
+            return
+
+        self.executed.add(dt, size, price,
+                          closed, closedvalue, closedcomm,
+                          opened, openedvalue, openedcomm,
+                          pnl, psize, pprice)
+
+        self.executed.margin = margin
+
+    def expire(self):
+        &#39;&#39;&#39;Marks an order as expired. Returns True if it worked&#39;&#39;&#39;
+        self.status = self.Expired
+        return True
+
+    def trailadjust(self, price):
+        pass  # generic interface
+
+
+class Order(OrderBase):
+    &#39;&#39;&#39;
+    Class which holds creation/execution data and type of oder.
+
+    The order may have the following status:
+
+      - Submitted: sent to the broker and awaiting confirmation
+      - Accepted: accepted by the broker
+      - Partial: partially executed
+      - Completed: fully exexcuted
+      - Canceled/Cancelled: canceled by the user
+      - Expired: expired
+      - Margin: not enough cash to execute the order.
+      - Rejected: Rejected by the broker
+
+        This can happen during order submission (and therefore the order will
+        not reach the Accepted status) or before execution with each new bar
+        price because cash has been drawn by other sources (future-like
+        instruments may have reduced the cash or orders orders may have been
+        executed)
+
+    Member Attributes:
+
+      - ref: unique order identifier
+      - created: OrderData holding creation data
+      - executed: OrderData holding execution data
+
+      - info: custom information passed over method :func:`addinfo`. It is kept
+        in the form of an OrderedDict which has been subclassed, so that keys
+        can also be specified using &#39;.&#39; notation
+
+    User Methods:
+
+      - isbuy(): returns bool indicating if the order buys
+      - issell(): returns bool indicating if the order sells
+      - alive(): returns bool if order is in status Partial or Accepted
+    &#39;&#39;&#39;
+
+    def execute(self, dt, size, price,
+                closed, closedvalue, closedcomm,
+                opened, openedvalue, openedcomm,
+                margin, pnl,
+                psize, pprice):
+
+        super(Order, self).execute(dt, size, price,
+                                   closed, closedvalue, closedcomm,
+                                   opened, openedvalue, openedcomm,
+                                   margin, pnl, psize, pprice)
+
+        if self.executed.remsize:
+            self.status = Order.Partial
+        else:
+            self.status = Order.Completed
+
+        # self.comminfo = None
+
+    def expire(self):
+        if self.exectype == Order.Market:
+            return False  # will be executed yes or yes
+
+        if self.valid and self.data.datetime[0] &gt; self.valid:
+            self.status = Order.Expired
+            self.executed.dt = self.data.datetime[0]
+            return True
+
+        return False
+
+    def trailadjust(self, price):
+        if self.trailamount:
+            pamount = self.trailamount
+        elif self.trailpercent:
+            pamount = price * self.trailpercent
+        else:
+            pamount = 0.0
+
+        # Stop sell is below (-), stop buy is above, move only if needed
+        if self.isbuy():
+            price += pamount
+            if price &lt; self.created.price:
+                self.created.price = price
+                if self.exectype == Order.StopTrailLimit:
+                    self.created.pricelimit = price - self._limitoffset
+        else:
+            price -= pamount
+            if price &gt; self.created.price:
+                self.created.price = price
+                if self.exectype == Order.StopTrailLimit:
+                    # limitoffset is negative when pricelimit was greater
+                    # the - allows increasing the price limit if stop increases
+                    self.created.pricelimit = price - self._limitoffset
+
+
+class BuyOrder(Order):
+    ordtype = Order.Buy
+
+
+class StopBuyOrder(BuyOrder):
+    pass
+
+
+class StopLimitBuyOrder(BuyOrder):
+    pass
+
+
+class SellOrder(Order):
+    ordtype = Order.Sell
+
+
+class StopSellOrder(SellOrder):
+    pass
+
+
+class StopLimitSellOrder(SellOrder):
+    pass</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.order.BuyOrder"><code class="flex name class">
+<span>class <span class="ident">BuyOrder</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
+<p>The order may have the following status:</p>
+<ul>
+<li>Submitted: sent to the broker and awaiting confirmation</li>
+<li>Accepted: accepted by the broker</li>
+<li>Partial: partially executed</li>
+<li>Completed: fully exexcuted</li>
+<li>Canceled/Cancelled: canceled by the user</li>
+<li>Expired: expired</li>
+<li>Margin: not enough cash to execute the order.</li>
+<li>
+<p>Rejected: Rejected by the broker</p>
+<p>This can happen during order submission (and therefore the order will
+not reach the Accepted status) or before execution with each new bar
+price because cash has been drawn by other sources (future-like
+instruments may have reduced the cash or orders orders may have been
+executed)</p>
+</li>
+</ul>
+<p>Member Attributes:</p>
+<ul>
+<li>ref: unique order identifier</li>
+<li>created: OrderData holding creation data</li>
+<li>
+<p>executed: OrderData holding execution data</p>
+</li>
+<li>
+<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
+in the form of an OrderedDict which has been subclassed, so that keys
+can also be specified using '.' notation</p>
+</li>
+</ul>
+<p>User Methods:</p>
+<ul>
+<li>isbuy(): returns bool indicating if the order buys</li>
+<li>issell(): returns bool indicating if the order sells</li>
+<li>alive(): returns bool if order is in status Partial or Accepted</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BuyOrder(Order):
+    ordtype = Order.Buy</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></li>
+<li><a title="backtrader.order.OrderBase" href="#backtrader.order.OrderBase">OrderBase</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.StopBuyOrder" href="#backtrader.order.StopBuyOrder">StopBuyOrder</a></li>
+<li><a title="backtrader.order.StopLimitBuyOrder" href="#backtrader.order.StopLimitBuyOrder">StopLimitBuyOrder</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.order.BuyOrder.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.BuyOrder.ordtype"><code class="name">var <span class="ident">ordtype</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.BuyOrder.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.BuyOrder.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.order.Order.accept" href="#backtrader.order.OrderBase.accept">accept</a></code></li>
+<li><code><a title="backtrader.order.Order.addcomminfo" href="#backtrader.order.OrderBase.addcomminfo">addcomminfo</a></code></li>
+<li><code><a title="backtrader.order.Order.addinfo" href="#backtrader.order.OrderBase.addinfo">addinfo</a></code></li>
+<li><code><a title="backtrader.order.Order.alive" href="#backtrader.order.OrderBase.alive">alive</a></code></li>
+<li><code><a title="backtrader.order.Order.brokerstatus" href="#backtrader.order.OrderBase.brokerstatus">brokerstatus</a></code></li>
+<li><code><a title="backtrader.order.Order.cancel" href="#backtrader.order.OrderBase.cancel">cancel</a></code></li>
+<li><code><a title="backtrader.order.Order.completed" href="#backtrader.order.OrderBase.completed">completed</a></code></li>
+<li><code><a title="backtrader.order.Order.execute" href="#backtrader.order.OrderBase.execute">execute</a></code></li>
+<li><code><a title="backtrader.order.Order.expire" href="#backtrader.order.OrderBase.expire">expire</a></code></li>
+<li><code><a title="backtrader.order.Order.getordername" href="#backtrader.order.OrderBase.getordername">getordername</a></code></li>
+<li><code><a title="backtrader.order.Order.getstatusname" href="#backtrader.order.OrderBase.getstatusname">getstatusname</a></code></li>
+<li><code><a title="backtrader.order.Order.isbuy" href="#backtrader.order.OrderBase.isbuy">isbuy</a></code></li>
+<li><code><a title="backtrader.order.Order.issell" href="#backtrader.order.OrderBase.issell">issell</a></code></li>
+<li><code><a title="backtrader.order.Order.margin" href="#backtrader.order.OrderBase.margin">margin</a></code></li>
+<li><code><a title="backtrader.order.Order.ordtypename" href="#backtrader.order.OrderBase.ordtypename">ordtypename</a></code></li>
+<li><code><a title="backtrader.order.Order.partial" href="#backtrader.order.OrderBase.partial">partial</a></code></li>
+<li><code><a title="backtrader.order.Order.reject" href="#backtrader.order.OrderBase.reject">reject</a></code></li>
+<li><code><a title="backtrader.order.Order.setposition" href="#backtrader.order.OrderBase.setposition">setposition</a></code></li>
+<li><code><a title="backtrader.order.Order.submit" href="#backtrader.order.OrderBase.submit">submit</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.order.Order"><code class="flex name class">
+<span>class <span class="ident">Order</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
+<p>The order may have the following status:</p>
+<ul>
+<li>Submitted: sent to the broker and awaiting confirmation</li>
+<li>Accepted: accepted by the broker</li>
+<li>Partial: partially executed</li>
+<li>Completed: fully exexcuted</li>
+<li>Canceled/Cancelled: canceled by the user</li>
+<li>Expired: expired</li>
+<li>Margin: not enough cash to execute the order.</li>
+<li>
+<p>Rejected: Rejected by the broker</p>
+<p>This can happen during order submission (and therefore the order will
+not reach the Accepted status) or before execution with each new bar
+price because cash has been drawn by other sources (future-like
+instruments may have reduced the cash or orders orders may have been
+executed)</p>
+</li>
+</ul>
+<p>Member Attributes:</p>
+<ul>
+<li>ref: unique order identifier</li>
+<li>created: OrderData holding creation data</li>
+<li>
+<p>executed: OrderData holding execution data</p>
+</li>
+<li>
+<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
+in the form of an OrderedDict which has been subclassed, so that keys
+can also be specified using '.' notation</p>
+</li>
+</ul>
+<p>User Methods:</p>
+<ul>
+<li>isbuy(): returns bool indicating if the order buys</li>
+<li>issell(): returns bool indicating if the order sells</li>
+<li>alive(): returns bool if order is in status Partial or Accepted</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Order(OrderBase):
+    &#39;&#39;&#39;
+    Class which holds creation/execution data and type of oder.
+
+    The order may have the following status:
+
+      - Submitted: sent to the broker and awaiting confirmation
+      - Accepted: accepted by the broker
+      - Partial: partially executed
+      - Completed: fully exexcuted
+      - Canceled/Cancelled: canceled by the user
+      - Expired: expired
+      - Margin: not enough cash to execute the order.
+      - Rejected: Rejected by the broker
+
+        This can happen during order submission (and therefore the order will
+        not reach the Accepted status) or before execution with each new bar
+        price because cash has been drawn by other sources (future-like
+        instruments may have reduced the cash or orders orders may have been
+        executed)
+
+    Member Attributes:
+
+      - ref: unique order identifier
+      - created: OrderData holding creation data
+      - executed: OrderData holding execution data
+
+      - info: custom information passed over method :func:`addinfo`. It is kept
+        in the form of an OrderedDict which has been subclassed, so that keys
+        can also be specified using &#39;.&#39; notation
+
+    User Methods:
+
+      - isbuy(): returns bool indicating if the order buys
+      - issell(): returns bool indicating if the order sells
+      - alive(): returns bool if order is in status Partial or Accepted
+    &#39;&#39;&#39;
+
+    def execute(self, dt, size, price,
+                closed, closedvalue, closedcomm,
+                opened, openedvalue, openedcomm,
+                margin, pnl,
+                psize, pprice):
+
+        super(Order, self).execute(dt, size, price,
+                                   closed, closedvalue, closedcomm,
+                                   opened, openedvalue, openedcomm,
+                                   margin, pnl, psize, pprice)
+
+        if self.executed.remsize:
+            self.status = Order.Partial
+        else:
+            self.status = Order.Completed
+
+        # self.comminfo = None
+
+    def expire(self):
+        if self.exectype == Order.Market:
+            return False  # will be executed yes or yes
+
+        if self.valid and self.data.datetime[0] &gt; self.valid:
+            self.status = Order.Expired
+            self.executed.dt = self.data.datetime[0]
+            return True
+
+        return False
+
+    def trailadjust(self, price):
+        if self.trailamount:
+            pamount = self.trailamount
+        elif self.trailpercent:
+            pamount = price * self.trailpercent
+        else:
+            pamount = 0.0
+
+        # Stop sell is below (-), stop buy is above, move only if needed
+        if self.isbuy():
+            price += pamount
+            if price &lt; self.created.price:
+                self.created.price = price
+                if self.exectype == Order.StopTrailLimit:
+                    self.created.pricelimit = price - self._limitoffset
+        else:
+            price -= pamount
+            if price &gt; self.created.price:
+                self.created.price = price
+                if self.exectype == Order.StopTrailLimit:
+                    # limitoffset is negative when pricelimit was greater
+                    # the - allows increasing the price limit if stop increases
+                    self.created.pricelimit = price - self._limitoffset</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.OrderBase" href="#backtrader.order.OrderBase">OrderBase</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.BuyOrder" href="#backtrader.order.BuyOrder">BuyOrder</a></li>
+<li><a title="backtrader.order.SellOrder" href="#backtrader.order.SellOrder">SellOrder</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.order.Order.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.Order.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.Order.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.order.Order.trailadjust"><code class="name flex">
+<span>def <span class="ident">trailadjust</span></span>(<span>self, price)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def trailadjust(self, price):
+    if self.trailamount:
+        pamount = self.trailamount
+    elif self.trailpercent:
+        pamount = price * self.trailpercent
+    else:
+        pamount = 0.0
+
+    # Stop sell is below (-), stop buy is above, move only if needed
+    if self.isbuy():
+        price += pamount
+        if price &lt; self.created.price:
+            self.created.price = price
+            if self.exectype == Order.StopTrailLimit:
+                self.created.pricelimit = price - self._limitoffset
+    else:
+        price -= pamount
+        if price &gt; self.created.price:
+            self.created.price = price
+            if self.exectype == Order.StopTrailLimit:
+                # limitoffset is negative when pricelimit was greater
+                # the - allows increasing the price limit if stop increases
+                self.created.pricelimit = price - self._limitoffset</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.order.OrderBase" href="#backtrader.order.OrderBase">OrderBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.order.OrderBase.accept" href="#backtrader.order.OrderBase.accept">accept</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.addcomminfo" href="#backtrader.order.OrderBase.addcomminfo">addcomminfo</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.addinfo" href="#backtrader.order.OrderBase.addinfo">addinfo</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.alive" href="#backtrader.order.OrderBase.alive">alive</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.brokerstatus" href="#backtrader.order.OrderBase.brokerstatus">brokerstatus</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.cancel" href="#backtrader.order.OrderBase.cancel">cancel</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.completed" href="#backtrader.order.OrderBase.completed">completed</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.execute" href="#backtrader.order.OrderBase.execute">execute</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.expire" href="#backtrader.order.OrderBase.expire">expire</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.getordername" href="#backtrader.order.OrderBase.getordername">getordername</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.getstatusname" href="#backtrader.order.OrderBase.getstatusname">getstatusname</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.isbuy" href="#backtrader.order.OrderBase.isbuy">isbuy</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.issell" href="#backtrader.order.OrderBase.issell">issell</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.margin" href="#backtrader.order.OrderBase.margin">margin</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.ordtypename" href="#backtrader.order.OrderBase.ordtypename">ordtypename</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.partial" href="#backtrader.order.OrderBase.partial">partial</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.reject" href="#backtrader.order.OrderBase.reject">reject</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.setposition" href="#backtrader.order.OrderBase.setposition">setposition</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.submit" href="#backtrader.order.OrderBase.submit">submit</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.order.OrderBase"><code class="flex name class">
+<span>class <span class="ident">OrderBase</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OrderBase(with_metaclass(MetaParams, object)):
+    params = (
+        (&#39;owner&#39;, None), (&#39;data&#39;, None),
+        (&#39;size&#39;, None), (&#39;price&#39;, None), (&#39;pricelimit&#39;, None),
+        (&#39;exectype&#39;, None), (&#39;valid&#39;, None), (&#39;tradeid&#39;, 0), (&#39;oco&#39;, None),
+        (&#39;trailamount&#39;, None), (&#39;trailpercent&#39;, None),
+        (&#39;parent&#39;, None), (&#39;transmit&#39;, True),
+        (&#39;simulated&#39;, False),
+        # To support historical order evaluation
+        (&#39;histnotify&#39;, False),
+    )
+
+    DAY = datetime.timedelta()  # constant for DAY order identification
+
+    # Time Restrictions for orders
+    T_Close, T_Day, T_Date, T_None = range(4)
+
+    # Volume Restrictions for orders
+    V_None = range(1)
+
+    (Market, Close, Limit, Stop, StopLimit, StopTrail, StopTrailLimit,
+     Historical) = range(8)
+    ExecTypes = [&#39;Market&#39;, &#39;Close&#39;, &#39;Limit&#39;, &#39;Stop&#39;, &#39;StopLimit&#39;, &#39;StopTrail&#39;,
+                 &#39;StopTrailLimit&#39;, &#39;Historical&#39;]
+
+    OrdTypes = [&#39;Buy&#39;, &#39;Sell&#39;]
+    Buy, Sell = range(2)
+
+    Created, Submitted, Accepted, Partial, Completed, \
+        Canceled, Expired, Margin, Rejected = range(9)
+
+    Cancelled = Canceled  # alias
+
+    Status = [
+        &#39;Created&#39;, &#39;Submitted&#39;, &#39;Accepted&#39;, &#39;Partial&#39;, &#39;Completed&#39;,
+        &#39;Canceled&#39;, &#39;Expired&#39;, &#39;Margin&#39;, &#39;Rejected&#39;,
+    ]
+
+    refbasis = itertools.count(1)  # for a unique identifier per order
+
+    def _getplimit(self):
+        return self._plimit
+
+    def _setplimit(self, val):
+        self._plimit = val
+
+    plimit = property(_getplimit, _setplimit)
+
+    def __getattr__(self, name):
+        # Return attr from params if not found in order
+        return getattr(self.params, name)
+
+    def __setattribute__(self, name, value):
+        if hasattr(self.params, name):
+            setattr(self.params, name, value)
+        else:
+            super(Order, self).__setattribute__(name, value)
+
+    def __str__(self):
+        tojoin = list()
+        tojoin.append(&#39;Ref: {}&#39;.format(self.ref))
+        tojoin.append(&#39;OrdType: {}&#39;.format(self.ordtype))
+        tojoin.append(&#39;OrdType: {}&#39;.format(self.ordtypename()))
+        tojoin.append(&#39;Status: {}&#39;.format(self.status))
+        tojoin.append(&#39;Status: {}&#39;.format(self.getstatusname()))
+        tojoin.append(&#39;Size: {}&#39;.format(self.size))
+        tojoin.append(&#39;Price: {}&#39;.format(self.price))
+        tojoin.append(&#39;Price Limit: {}&#39;.format(self.pricelimit))
+        tojoin.append(&#39;TrailAmount: {}&#39;.format(self.trailamount))
+        tojoin.append(&#39;TrailPercent: {}&#39;.format(self.trailpercent))
+        tojoin.append(&#39;ExecType: {}&#39;.format(self.exectype))
+        tojoin.append(&#39;ExecType: {}&#39;.format(self.getordername()))
+        tojoin.append(&#39;CommInfo: {}&#39;.format(self.comminfo))
+        tojoin.append(&#39;End of Session: {}&#39;.format(self.dteos))
+        tojoin.append(&#39;Info: {}&#39;.format(self.info))
+        tojoin.append(&#39;Broker: {}&#39;.format(self.broker))
+        tojoin.append(&#39;Alive: {}&#39;.format(self.alive()))
+
+        return &#39;\n&#39;.join(tojoin)
+
+    def __init__(self):
+        self.ref = next(self.refbasis)
+        self.broker = None
+        self.info = AutoOrderedDict()
+        self.comminfo = None
+        self.triggered = False
+
+        self._active = self.parent is None
+        self.status = Order.Created
+
+        self.plimit = self.p.pricelimit  # alias via property
+
+        if self.exectype is None:
+            self.exectype = Order.Market
+
+        if not self.isbuy():
+            self.size = -self.size
+
+        # Set a reference price if price is not set using
+        # the close price
+        pclose = self.data.close[0] if not self.p.simulated else self.price
+        price = pclose if not self.price and not self.pricelimit else self.price
+
+        dcreated = self.data.datetime[0] if not self.p.simulated else 0.0
+        self.created = OrderData(dt=dcreated,
+                                 size=self.size,
+                                 price=price,
+                                 pricelimit=self.pricelimit,
+                                 pclose=pclose,
+                                 trailamount=self.trailamount,
+                                 trailpercent=self.trailpercent)
+
+        # Adjust price in case a trailing limit is wished
+        if self.exectype in [Order.StopTrail, Order.StopTrailLimit]:
+            self._limitoffset = self.created.price - self.created.pricelimit
+            price = self.created.price
+            self.created.price = float(&#39;inf&#39; * self.isbuy() or &#39;-inf&#39;)
+            self.trailadjust(price)
+        else:
+            self._limitoffset = 0.0
+
+        self.executed = OrderData(remsize=self.size)
+        self.position = 0
+
+        if isinstance(self.valid, datetime.date):
+            # comparison will later be done against the raw datetime[0] value
+            self.valid = self.data.date2num(self.valid)
+        elif isinstance(self.valid, datetime.timedelta):
+            # offset with regards to now ... get utcnow + offset
+            # when reading with date2num ... it will be automatically localized
+            if self.valid == self.DAY:
+                valid = datetime.datetime.combine(
+                    self.data.datetime.date(), datetime.time(23, 59, 59, 9999))
+            else:
+                valid = self.data.datetime.datetime() + self.valid
+
+            self.valid = self.data.date2num(valid)
+
+        elif self.valid is not None:
+            if not self.valid:  # avoid comparing None and 0
+                valid = datetime.datetime.combine(
+                    self.data.datetime.date(), datetime.time(23, 59, 59, 9999))
+            else:  # assume float
+                valid = self.data.datetime[0] + self.valid
+
+        if not self.p.simulated:
+            # provisional end-of-session
+            # get next session end
+            dtime = self.data.datetime.datetime(0)
+            session = self.data.p.sessionend
+            dteos = dtime.replace(hour=session.hour, minute=session.minute,
+                                  second=session.second,
+                                  microsecond=session.microsecond)
+
+            if dteos &lt; dtime:
+                # eos before current time ... no ... must be at least next day
+                dteos += datetime.timedelta(days=1)
+
+            self.dteos = self.data.date2num(dteos)
+        else:
+            self.dteos = 0.0
+
+    def clone(self):
+        # status, triggered and executed are the only moving parts in order
+        # status and triggered are covered by copy
+        # executed has to be replaced with an intelligent clone of itself
+        obj = copy(self)
+        obj.executed = self.executed.clone()
+        return obj  # status could change in next to completed
+
+    def getstatusname(self, status=None):
+        &#39;&#39;&#39;Returns the name for a given status or the one of the order&#39;&#39;&#39;
+        return self.Status[self.status if status is None else status]
+
+    def getordername(self, exectype=None):
+        &#39;&#39;&#39;Returns the name for a given exectype or the one of the order&#39;&#39;&#39;
+        return self.ExecTypes[self.exectype if exectype is None else exectype]
+
+    @classmethod
+    def ExecType(cls, exectype):
+        return getattr(cls, exectype)
+
+    def ordtypename(self, ordtype=None):
+        &#39;&#39;&#39;Returns the name for a given ordtype or the one of the order&#39;&#39;&#39;
+        return self.OrdTypes[self.ordtype if ordtype is None else ordtype]
+
+    def active(self):
+        return self._active
+
+    def activate(self):
+        self._active = True
+
+    def alive(self):
+        &#39;&#39;&#39;Returns True if the order is in a status in which it can still be
+        executed
+        &#39;&#39;&#39;
+        return self.status in [Order.Created, Order.Submitted,
+                               Order.Partial, Order.Accepted]
+
+    def addcomminfo(self, comminfo):
+        &#39;&#39;&#39;Stores a CommInfo scheme associated with the asset&#39;&#39;&#39;
+        self.comminfo = comminfo
+
+    def addinfo(self, **kwargs):
+        &#39;&#39;&#39;Add the keys, values of kwargs to the internal info dictionary to
+        hold custom information in the order
+        &#39;&#39;&#39;
+        for key, val in iteritems(kwargs):
+            self.info[key] = val
+
+    def __eq__(self, other):
+        return other is not None and self.ref == other.ref
+
+    def __ne__(self, other):
+        return self.ref != other.ref
+
+    def isbuy(self):
+        &#39;&#39;&#39;Returns True if the order is a Buy order&#39;&#39;&#39;
+        return self.ordtype == self.Buy
+
+    def issell(self):
+        &#39;&#39;&#39;Returns True if the order is a Sell order&#39;&#39;&#39;
+        return self.ordtype == self.Sell
+
+    def setposition(self, position):
+        &#39;&#39;&#39;Receives the current position for the asset and stotres it&#39;&#39;&#39;
+        self.position = position
+
+    def submit(self, broker=None):
+        &#39;&#39;&#39;Marks an order as submitted and stores the broker to which it was
+        submitted&#39;&#39;&#39;
+        self.status = Order.Submitted
+        self.broker = broker
+        self.plen = len(self.data)
+
+    def accept(self, broker=None):
+        &#39;&#39;&#39;Marks an order as accepted&#39;&#39;&#39;
+        self.status = Order.Accepted
+        self.broker = broker
+
+    def brokerstatus(self):
+        &#39;&#39;&#39;Tries to retrieve the status from the broker in which the order is.
+
+        Defaults to last known status if no broker is associated&#39;&#39;&#39;
+        if self.broker:
+            return self.broker.orderstatus(self)
+
+        return self.status
+
+    def reject(self, broker=None):
+        &#39;&#39;&#39;Marks an order as rejected&#39;&#39;&#39;
+        if self.status == Order.Rejected:
+            return False
+
+        self.status = Order.Rejected
+        self.broker = broker
+        if not self.p.simulated:
+            self.executed.dt = self.data.datetime[0]
+        return True
+
+    def cancel(self):
+        &#39;&#39;&#39;Marks an order as cancelled&#39;&#39;&#39;
+        self.status = Order.Canceled
+        if not self.p.simulated:
+            self.executed.dt = self.data.datetime[0]
+
+    def margin(self):
+        &#39;&#39;&#39;Marks an order as having met a margin call&#39;&#39;&#39;
+        self.status = Order.Margin
+        if not self.p.simulated:
+            self.executed.dt = self.data.datetime[0]
+
+    def completed(self):
+        &#39;&#39;&#39;Marks an order as completely filled&#39;&#39;&#39;
+        self.status = self.Completed
+
+    def partial(self):
+        &#39;&#39;&#39;Marks an order as partially filled&#39;&#39;&#39;
+        self.status = self.Partial
+
+    def execute(self, dt, size, price,
+                closed, closedvalue, closedcomm,
+                opened, openedvalue, openedcomm,
+                margin, pnl,
+                psize, pprice):
+
+        &#39;&#39;&#39;Receives data execution input and stores it&#39;&#39;&#39;
+        if not size:
+            return
+
+        self.executed.add(dt, size, price,
+                          closed, closedvalue, closedcomm,
+                          opened, openedvalue, openedcomm,
+                          pnl, psize, pprice)
+
+        self.executed.margin = margin
+
+    def expire(self):
+        &#39;&#39;&#39;Marks an order as expired. Returns True if it worked&#39;&#39;&#39;
+        self.status = self.Expired
+        return True
+
+    def trailadjust(self, price):
+        pass  # generic interface</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.order.OrderBase.Accepted"><code class="name">var <span class="ident">Accepted</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Buy"><code class="name">var <span class="ident">Buy</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Canceled"><code class="name">var <span class="ident">Canceled</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Cancelled"><code class="name">var <span class="ident">Cancelled</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Close"><code class="name">var <span class="ident">Close</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Completed"><code class="name">var <span class="ident">Completed</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Created"><code class="name">var <span class="ident">Created</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.DAY"><code class="name">var <span class="ident">DAY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.ExecTypes"><code class="name">var <span class="ident">ExecTypes</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Expired"><code class="name">var <span class="ident">Expired</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Historical"><code class="name">var <span class="ident">Historical</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Limit"><code class="name">var <span class="ident">Limit</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Margin"><code class="name">var <span class="ident">Margin</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Market"><code class="name">var <span class="ident">Market</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.OrdTypes"><code class="name">var <span class="ident">OrdTypes</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Partial"><code class="name">var <span class="ident">Partial</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Rejected"><code class="name">var <span class="ident">Rejected</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Sell"><code class="name">var <span class="ident">Sell</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Status"><code class="name">var <span class="ident">Status</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Stop"><code class="name">var <span class="ident">Stop</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.StopLimit"><code class="name">var <span class="ident">StopLimit</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.StopTrail"><code class="name">var <span class="ident">StopTrail</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.StopTrailLimit"><code class="name">var <span class="ident">StopTrailLimit</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.Submitted"><code class="name">var <span class="ident">Submitted</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.T_Close"><code class="name">var <span class="ident">T_Close</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.T_Date"><code class="name">var <span class="ident">T_Date</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.T_Day"><code class="name">var <span class="ident">T_Day</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.T_None"><code class="name">var <span class="ident">T_None</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.V_None"><code class="name">var <span class="ident">V_None</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.OrderBase.refbasis"><code class="name">var <span class="ident">refbasis</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="backtrader.order.OrderBase.ExecType"><code class="name flex">
+<span>def <span class="ident">ExecType</span></span>(<span>exectype)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def ExecType(cls, exectype):
+    return getattr(cls, exectype)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="backtrader.order.OrderBase.plimit"><code class="name">var <span class="ident">plimit</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def _getplimit(self):
+    return self._plimit</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.order.OrderBase.accept"><code class="name flex">
+<span>def <span class="ident">accept</span></span>(<span>self, broker=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Marks an order as accepted</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def accept(self, broker=None):
+    &#39;&#39;&#39;Marks an order as accepted&#39;&#39;&#39;
+    self.status = Order.Accepted
+    self.broker = broker</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.activate"><code class="name flex">
+<span>def <span class="ident">activate</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate(self):
+    self._active = True</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.active"><code class="name flex">
+<span>def <span class="ident">active</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def active(self):
+    return self._active</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.addcomminfo"><code class="name flex">
+<span>def <span class="ident">addcomminfo</span></span>(<span>self, comminfo)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Stores a CommInfo scheme associated with the asset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addcomminfo(self, comminfo):
+    &#39;&#39;&#39;Stores a CommInfo scheme associated with the asset&#39;&#39;&#39;
+    self.comminfo = comminfo</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.addinfo"><code class="name flex">
+<span>def <span class="ident">addinfo</span></span>(<span>self, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add the keys, values of kwargs to the internal info dictionary to
+hold custom information in the order</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addinfo(self, **kwargs):
+    &#39;&#39;&#39;Add the keys, values of kwargs to the internal info dictionary to
+    hold custom information in the order
+    &#39;&#39;&#39;
+    for key, val in iteritems(kwargs):
+        self.info[key] = val</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.alive"><code class="name flex">
+<span>def <span class="ident">alive</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns True if the order is in a status in which it can still be
+executed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def alive(self):
+    &#39;&#39;&#39;Returns True if the order is in a status in which it can still be
+    executed
+    &#39;&#39;&#39;
+    return self.status in [Order.Created, Order.Submitted,
+                           Order.Partial, Order.Accepted]</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.brokerstatus"><code class="name flex">
+<span>def <span class="ident">brokerstatus</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tries to retrieve the status from the broker in which the order is.</p>
+<p>Defaults to last known status if no broker is associated</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def brokerstatus(self):
+    &#39;&#39;&#39;Tries to retrieve the status from the broker in which the order is.
+
+    Defaults to last known status if no broker is associated&#39;&#39;&#39;
+    if self.broker:
+        return self.broker.orderstatus(self)
+
+    return self.status</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.cancel"><code class="name flex">
+<span>def <span class="ident">cancel</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Marks an order as cancelled</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cancel(self):
+    &#39;&#39;&#39;Marks an order as cancelled&#39;&#39;&#39;
+    self.status = Order.Canceled
+    if not self.p.simulated:
+        self.executed.dt = self.data.datetime[0]</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.clone"><code class="name flex">
+<span>def <span class="ident">clone</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clone(self):
+    # status, triggered and executed are the only moving parts in order
+    # status and triggered are covered by copy
+    # executed has to be replaced with an intelligent clone of itself
+    obj = copy(self)
+    obj.executed = self.executed.clone()
+    return obj  # status could change in next to completed</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.completed"><code class="name flex">
+<span>def <span class="ident">completed</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Marks an order as completely filled</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def completed(self):
+    &#39;&#39;&#39;Marks an order as completely filled&#39;&#39;&#39;
+    self.status = self.Completed</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.execute"><code class="name flex">
+<span>def <span class="ident">execute</span></span>(<span>self, dt, size, price, closed, closedvalue, closedcomm, opened, openedvalue, openedcomm, margin, pnl, psize, pprice)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Receives data execution input and stores it</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def execute(self, dt, size, price,
+            closed, closedvalue, closedcomm,
+            opened, openedvalue, openedcomm,
+            margin, pnl,
+            psize, pprice):
+
+    &#39;&#39;&#39;Receives data execution input and stores it&#39;&#39;&#39;
+    if not size:
+        return
+
+    self.executed.add(dt, size, price,
+                      closed, closedvalue, closedcomm,
+                      opened, openedvalue, openedcomm,
+                      pnl, psize, pprice)
+
+    self.executed.margin = margin</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.expire"><code class="name flex">
+<span>def <span class="ident">expire</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Marks an order as expired. Returns True if it worked</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def expire(self):
+    &#39;&#39;&#39;Marks an order as expired. Returns True if it worked&#39;&#39;&#39;
+    self.status = self.Expired
+    return True</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.getordername"><code class="name flex">
+<span>def <span class="ident">getordername</span></span>(<span>self, exectype=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the name for a given exectype or the one of the order</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getordername(self, exectype=None):
+    &#39;&#39;&#39;Returns the name for a given exectype or the one of the order&#39;&#39;&#39;
+    return self.ExecTypes[self.exectype if exectype is None else exectype]</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.getstatusname"><code class="name flex">
+<span>def <span class="ident">getstatusname</span></span>(<span>self, status=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the name for a given status or the one of the order</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getstatusname(self, status=None):
+    &#39;&#39;&#39;Returns the name for a given status or the one of the order&#39;&#39;&#39;
+    return self.Status[self.status if status is None else status]</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.isbuy"><code class="name flex">
+<span>def <span class="ident">isbuy</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns True if the order is a Buy order</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isbuy(self):
+    &#39;&#39;&#39;Returns True if the order is a Buy order&#39;&#39;&#39;
+    return self.ordtype == self.Buy</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.issell"><code class="name flex">
+<span>def <span class="ident">issell</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns True if the order is a Sell order</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def issell(self):
+    &#39;&#39;&#39;Returns True if the order is a Sell order&#39;&#39;&#39;
+    return self.ordtype == self.Sell</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.margin"><code class="name flex">
+<span>def <span class="ident">margin</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Marks an order as having met a margin call</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def margin(self):
+    &#39;&#39;&#39;Marks an order as having met a margin call&#39;&#39;&#39;
+    self.status = Order.Margin
+    if not self.p.simulated:
+        self.executed.dt = self.data.datetime[0]</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.ordtypename"><code class="name flex">
+<span>def <span class="ident">ordtypename</span></span>(<span>self, ordtype=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the name for a given ordtype or the one of the order</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ordtypename(self, ordtype=None):
+    &#39;&#39;&#39;Returns the name for a given ordtype or the one of the order&#39;&#39;&#39;
+    return self.OrdTypes[self.ordtype if ordtype is None else ordtype]</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.partial"><code class="name flex">
+<span>def <span class="ident">partial</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Marks an order as partially filled</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def partial(self):
+    &#39;&#39;&#39;Marks an order as partially filled&#39;&#39;&#39;
+    self.status = self.Partial</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.reject"><code class="name flex">
+<span>def <span class="ident">reject</span></span>(<span>self, broker=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Marks an order as rejected</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reject(self, broker=None):
+    &#39;&#39;&#39;Marks an order as rejected&#39;&#39;&#39;
+    if self.status == Order.Rejected:
+        return False
+
+    self.status = Order.Rejected
+    self.broker = broker
+    if not self.p.simulated:
+        self.executed.dt = self.data.datetime[0]
+    return True</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.setposition"><code class="name flex">
+<span>def <span class="ident">setposition</span></span>(<span>self, position)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Receives the current position for the asset and stotres it</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setposition(self, position):
+    &#39;&#39;&#39;Receives the current position for the asset and stotres it&#39;&#39;&#39;
+    self.position = position</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.submit"><code class="name flex">
+<span>def <span class="ident">submit</span></span>(<span>self, broker=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Marks an order as submitted and stores the broker to which it was
+submitted</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def submit(self, broker=None):
+    &#39;&#39;&#39;Marks an order as submitted and stores the broker to which it was
+    submitted&#39;&#39;&#39;
+    self.status = Order.Submitted
+    self.broker = broker
+    self.plen = len(self.data)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderBase.trailadjust"><code class="name flex">
+<span>def <span class="ident">trailadjust</span></span>(<span>self, price)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def trailadjust(self, price):
+    pass  # generic interface</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="backtrader.order.OrderData"><code class="flex name class">
+<span>class <span class="ident">OrderData</span></span>
+<span>(</span><span>dt=None, size=0, price=0.0, pricelimit=0.0, remsize=0, pclose=0.0, trailamount=0.0, trailpercent=0.0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Holds actual order data for Creation and Execution.</p>
+<p>In the case of Creation the request made and in the case of Execution the
+actual outcome.</p>
+<p>Member Attributes:</p>
+<ul>
+<li>
+<p>exbits : iterable of OrderExecutionBits for this OrderData</p>
+</li>
+<li>
+<p>dt: datetime (float) creation/execution time</p>
+</li>
+<li>size: requested/executed size</li>
+<li>price: execution price
+Note: if no price is given and no pricelimite is given, the closing
+price at the time or order creation will be used as reference</li>
+<li>pricelimit: holds pricelimit for StopLimit (which has trigger first)</li>
+<li>trailamount: absolute price distance in trailing stops</li>
+<li>
+<p>trailpercent: percentage price distance in trailing stops</p>
+</li>
+<li>
+<p>value: market value for the entire bit size</p>
+</li>
+<li>comm: commission for the entire bit execution</li>
+<li>pnl: pnl generated by this bit (if something was closed)</li>
+<li>
+<p>margin: margin incurred by the Order (if any)</p>
+</li>
+<li>
+<p>psize: current open position size</p>
+</li>
+<li>pprice: current open position price</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OrderData(object):
+    &#39;&#39;&#39;
+    Holds actual order data for Creation and Execution.
+
+    In the case of Creation the request made and in the case of Execution the
+    actual outcome.
+
+    Member Attributes:
+
+      - exbits : iterable of OrderExecutionBits for this OrderData
+
+      - dt: datetime (float) creation/execution time
+      - size: requested/executed size
+      - price: execution price
+        Note: if no price is given and no pricelimite is given, the closing
+        price at the time or order creation will be used as reference
+      - pricelimit: holds pricelimit for StopLimit (which has trigger first)
+      - trailamount: absolute price distance in trailing stops
+      - trailpercent: percentage price distance in trailing stops
+
+      - value: market value for the entire bit size
+      - comm: commission for the entire bit execution
+      - pnl: pnl generated by this bit (if something was closed)
+      - margin: margin incurred by the Order (if any)
+
+      - psize: current open position size
+      - pprice: current open position price
+
+    &#39;&#39;&#39;
+    # According to the docs, collections.deque is thread-safe with appends at
+    # both ends, there will be no pop (nowhere) and therefore to know which the
+    # new exbits are two indices are needed. At time of cloning (__copy__) the
+    # indices can be updated to match the previous end, and the new end
+    # (len(exbits)
+    # Example: start 0, 0 -&gt; islice(exbits, 0, 0) -&gt; []
+    # One added -&gt; copy -&gt; updated 0, 1 -&gt; islice(exbits, 0, 1) -&gt; [1 elem]
+    # Other added -&gt; copy -&gt; updated 1, 2 -&gt; islice(exbits, 1, 2) -&gt; [1 elem]
+    # &#34;add&#34; and &#34;__copy__&#34; happen always in the same thread (with all current
+    # implementations) and therefore no append will happen during a copy and
+    # the len of the exbits can be queried with no concerns about another
+    # thread making an append and with no need for a lock
+
+    def __init__(self, dt=None, size=0, price=0.0, pricelimit=0.0, remsize=0,
+                 pclose=0.0, trailamount=0.0, trailpercent=0.0):
+
+        self.pclose = pclose
+        self.exbits = collections.deque()  # for historical purposes
+        self.p1, self.p2 = 0, 0  # indices to pending notifications
+
+        self.dt = dt
+        self.size = size
+        self.remsize = remsize
+        self.price = price
+        self.pricelimit = pricelimit
+        self.trailamount = trailamount
+        self.trailpercent = trailpercent
+
+        if not pricelimit:
+            # if no pricelimit is given, use the given price
+            self.pricelimit = self.price
+
+        if pricelimit and not price:
+            # price must always be set if pricelimit is set ...
+            self.price = pricelimit
+
+        self.plimit = pricelimit
+
+        self.value = 0.0
+        self.comm = 0.0
+        self.margin = None
+        self.pnl = 0.0
+
+        self.psize = 0
+        self.pprice = 0
+
+    def _getplimit(self):
+        return self._plimit
+
+    def _setplimit(self, val):
+        self._plimit = val
+
+    plimit = property(_getplimit, _setplimit)
+
+    def __len__(self):
+        return len(self.exbits)
+
+    def __getitem__(self, key):
+        return self.exbits[key]
+
+    def add(self, dt, size, price,
+            closed=0, closedvalue=0.0, closedcomm=0.0,
+            opened=0, openedvalue=0.0, openedcomm=0.0,
+            pnl=0.0,
+            psize=0, pprice=0.0):
+
+        self.addbit(
+            OrderExecutionBit(dt, size, price,
+                              closed, closedvalue, closedcomm,
+                              opened, openedvalue, openedcomm, pnl,
+                              psize, pprice))
+
+    def addbit(self, exbit):
+        # Stores an ExecutionBit and recalculates own values from ExBit
+        self.exbits.append(exbit)
+
+        self.remsize -= exbit.size
+
+        self.dt = exbit.dt
+        oldvalue = self.size * self.price
+        newvalue = exbit.size * exbit.price
+        self.size += exbit.size
+        self.price = (oldvalue + newvalue) / self.size
+        self.value += exbit.value
+        self.comm += exbit.comm
+        self.pnl += exbit.pnl
+        self.psize = exbit.psize
+        self.pprice = exbit.pprice
+
+    def getpending(self):
+        return list(self.iterpending())
+
+    def iterpending(self):
+        return itertools.islice(self.exbits, self.p1, self.p2)
+
+    def markpending(self):
+        # rebuild the indices to mark which exbits are pending in clone
+        self.p1, self.p2 = self.p2, len(self.exbits)
+
+    def clone(self):
+        self.markpending()
+        obj = copy(self)
+        return obj</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="backtrader.order.OrderData.plimit"><code class="name">var <span class="ident">plimit</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def _getplimit(self):
+    return self._plimit</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.order.OrderData.add"><code class="name flex">
+<span>def <span class="ident">add</span></span>(<span>self, dt, size, price, closed=0, closedvalue=0.0, closedcomm=0.0, opened=0, openedvalue=0.0, openedcomm=0.0, pnl=0.0, psize=0, pprice=0.0)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add(self, dt, size, price,
+        closed=0, closedvalue=0.0, closedcomm=0.0,
+        opened=0, openedvalue=0.0, openedcomm=0.0,
+        pnl=0.0,
+        psize=0, pprice=0.0):
+
+    self.addbit(
+        OrderExecutionBit(dt, size, price,
+                          closed, closedvalue, closedcomm,
+                          opened, openedvalue, openedcomm, pnl,
+                          psize, pprice))</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderData.addbit"><code class="name flex">
+<span>def <span class="ident">addbit</span></span>(<span>self, exbit)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addbit(self, exbit):
+    # Stores an ExecutionBit and recalculates own values from ExBit
+    self.exbits.append(exbit)
+
+    self.remsize -= exbit.size
+
+    self.dt = exbit.dt
+    oldvalue = self.size * self.price
+    newvalue = exbit.size * exbit.price
+    self.size += exbit.size
+    self.price = (oldvalue + newvalue) / self.size
+    self.value += exbit.value
+    self.comm += exbit.comm
+    self.pnl += exbit.pnl
+    self.psize = exbit.psize
+    self.pprice = exbit.pprice</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderData.clone"><code class="name flex">
+<span>def <span class="ident">clone</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clone(self):
+    self.markpending()
+    obj = copy(self)
+    return obj</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderData.getpending"><code class="name flex">
+<span>def <span class="ident">getpending</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getpending(self):
+    return list(self.iterpending())</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderData.iterpending"><code class="name flex">
+<span>def <span class="ident">iterpending</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def iterpending(self):
+    return itertools.islice(self.exbits, self.p1, self.p2)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.OrderData.markpending"><code class="name flex">
+<span>def <span class="ident">markpending</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def markpending(self):
+    # rebuild the indices to mark which exbits are pending in clone
+    self.p1, self.p2 = self.p2, len(self.exbits)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="backtrader.order.OrderExecutionBit"><code class="flex name class">
+<span>class <span class="ident">OrderExecutionBit</span></span>
+<span>(</span><span>dt=None, size=0, price=0.0, closed=0, closedvalue=0.0, closedcomm=0.0, opened=0, openedvalue=0.0, openedcomm=0.0, pnl=0.0, psize=0, pprice=0.0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Intended to hold information about order execution. A "bit" does not
+determine if the order has been fully/partially executed, it just holds
+information.</p>
+<p>Member Attributes:</p>
+<ul>
+<li>dt: datetime (float) execution time</li>
+<li>size: how much was executed</li>
+<li>price: execution price</li>
+<li>closed: how much of the execution closed an existing postion</li>
+<li>opened: how much of the execution opened a new position</li>
+<li>openedvalue: market value of the "opened" part</li>
+<li>closedvalue: market value of the "closed" part</li>
+<li>closedcomm: commission for the "closed" part</li>
+<li>
+<p>openedcomm: commission for the "opened" part</p>
+</li>
+<li>
+<p>value: market value for the entire bit size</p>
+</li>
+<li>comm: commission for the entire bit execution</li>
+<li>
+<p>pnl: pnl generated by this bit (if something was closed)</p>
+</li>
+<li>
+<p>psize: current open position size</p>
+</li>
+<li>pprice: current open position price</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OrderExecutionBit(object):
+    &#39;&#39;&#39;
+    Intended to hold information about order execution. A &#34;bit&#34; does not
+    determine if the order has been fully/partially executed, it just holds
+    information.
+
+    Member Attributes:
+
+      - dt: datetime (float) execution time
+      - size: how much was executed
+      - price: execution price
+      - closed: how much of the execution closed an existing postion
+      - opened: how much of the execution opened a new position
+      - openedvalue: market value of the &#34;opened&#34; part
+      - closedvalue: market value of the &#34;closed&#34; part
+      - closedcomm: commission for the &#34;closed&#34; part
+      - openedcomm: commission for the &#34;opened&#34; part
+
+      - value: market value for the entire bit size
+      - comm: commission for the entire bit execution
+      - pnl: pnl generated by this bit (if something was closed)
+
+      - psize: current open position size
+      - pprice: current open position price
+
+    &#39;&#39;&#39;
+
+    def __init__(self,
+                 dt=None, size=0, price=0.0,
+                 closed=0, closedvalue=0.0, closedcomm=0.0,
+                 opened=0, openedvalue=0.0, openedcomm=0.0,
+                 pnl=0.0,
+                 psize=0, pprice=0.0):
+
+        self.dt = dt
+        self.size = size
+        self.price = price
+
+        self.closed = closed
+        self.opened = opened
+        self.closedvalue = closedvalue
+        self.openedvalue = openedvalue
+        self.closedcomm = closedcomm
+        self.openedcomm = openedcomm
+
+        self.value = closedvalue + openedvalue
+        self.comm = closedcomm + openedcomm
+        self.pnl = pnl
+
+        self.psize = psize
+        self.pprice = pprice</code></pre>
+</details>
+</dd>
+<dt id="backtrader.order.SellOrder"><code class="flex name class">
+<span>class <span class="ident">SellOrder</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
+<p>The order may have the following status:</p>
+<ul>
+<li>Submitted: sent to the broker and awaiting confirmation</li>
+<li>Accepted: accepted by the broker</li>
+<li>Partial: partially executed</li>
+<li>Completed: fully exexcuted</li>
+<li>Canceled/Cancelled: canceled by the user</li>
+<li>Expired: expired</li>
+<li>Margin: not enough cash to execute the order.</li>
+<li>
+<p>Rejected: Rejected by the broker</p>
+<p>This can happen during order submission (and therefore the order will
+not reach the Accepted status) or before execution with each new bar
+price because cash has been drawn by other sources (future-like
+instruments may have reduced the cash or orders orders may have been
+executed)</p>
+</li>
+</ul>
+<p>Member Attributes:</p>
+<ul>
+<li>ref: unique order identifier</li>
+<li>created: OrderData holding creation data</li>
+<li>
+<p>executed: OrderData holding execution data</p>
+</li>
+<li>
+<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
+in the form of an OrderedDict which has been subclassed, so that keys
+can also be specified using '.' notation</p>
+</li>
+</ul>
+<p>User Methods:</p>
+<ul>
+<li>isbuy(): returns bool indicating if the order buys</li>
+<li>issell(): returns bool indicating if the order sells</li>
+<li>alive(): returns bool if order is in status Partial or Accepted</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SellOrder(Order):
+    ordtype = Order.Sell</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></li>
+<li><a title="backtrader.order.OrderBase" href="#backtrader.order.OrderBase">OrderBase</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.StopLimitSellOrder" href="#backtrader.order.StopLimitSellOrder">StopLimitSellOrder</a></li>
+<li><a title="backtrader.order.StopSellOrder" href="#backtrader.order.StopSellOrder">StopSellOrder</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.order.SellOrder.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.SellOrder.ordtype"><code class="name">var <span class="ident">ordtype</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.SellOrder.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.SellOrder.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.order.Order.accept" href="#backtrader.order.OrderBase.accept">accept</a></code></li>
+<li><code><a title="backtrader.order.Order.addcomminfo" href="#backtrader.order.OrderBase.addcomminfo">addcomminfo</a></code></li>
+<li><code><a title="backtrader.order.Order.addinfo" href="#backtrader.order.OrderBase.addinfo">addinfo</a></code></li>
+<li><code><a title="backtrader.order.Order.alive" href="#backtrader.order.OrderBase.alive">alive</a></code></li>
+<li><code><a title="backtrader.order.Order.brokerstatus" href="#backtrader.order.OrderBase.brokerstatus">brokerstatus</a></code></li>
+<li><code><a title="backtrader.order.Order.cancel" href="#backtrader.order.OrderBase.cancel">cancel</a></code></li>
+<li><code><a title="backtrader.order.Order.completed" href="#backtrader.order.OrderBase.completed">completed</a></code></li>
+<li><code><a title="backtrader.order.Order.execute" href="#backtrader.order.OrderBase.execute">execute</a></code></li>
+<li><code><a title="backtrader.order.Order.expire" href="#backtrader.order.OrderBase.expire">expire</a></code></li>
+<li><code><a title="backtrader.order.Order.getordername" href="#backtrader.order.OrderBase.getordername">getordername</a></code></li>
+<li><code><a title="backtrader.order.Order.getstatusname" href="#backtrader.order.OrderBase.getstatusname">getstatusname</a></code></li>
+<li><code><a title="backtrader.order.Order.isbuy" href="#backtrader.order.OrderBase.isbuy">isbuy</a></code></li>
+<li><code><a title="backtrader.order.Order.issell" href="#backtrader.order.OrderBase.issell">issell</a></code></li>
+<li><code><a title="backtrader.order.Order.margin" href="#backtrader.order.OrderBase.margin">margin</a></code></li>
+<li><code><a title="backtrader.order.Order.ordtypename" href="#backtrader.order.OrderBase.ordtypename">ordtypename</a></code></li>
+<li><code><a title="backtrader.order.Order.partial" href="#backtrader.order.OrderBase.partial">partial</a></code></li>
+<li><code><a title="backtrader.order.Order.reject" href="#backtrader.order.OrderBase.reject">reject</a></code></li>
+<li><code><a title="backtrader.order.Order.setposition" href="#backtrader.order.OrderBase.setposition">setposition</a></code></li>
+<li><code><a title="backtrader.order.Order.submit" href="#backtrader.order.OrderBase.submit">submit</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.order.StopBuyOrder"><code class="flex name class">
+<span>class <span class="ident">StopBuyOrder</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
+<p>The order may have the following status:</p>
+<ul>
+<li>Submitted: sent to the broker and awaiting confirmation</li>
+<li>Accepted: accepted by the broker</li>
+<li>Partial: partially executed</li>
+<li>Completed: fully exexcuted</li>
+<li>Canceled/Cancelled: canceled by the user</li>
+<li>Expired: expired</li>
+<li>Margin: not enough cash to execute the order.</li>
+<li>
+<p>Rejected: Rejected by the broker</p>
+<p>This can happen during order submission (and therefore the order will
+not reach the Accepted status) or before execution with each new bar
+price because cash has been drawn by other sources (future-like
+instruments may have reduced the cash or orders orders may have been
+executed)</p>
+</li>
+</ul>
+<p>Member Attributes:</p>
+<ul>
+<li>ref: unique order identifier</li>
+<li>created: OrderData holding creation data</li>
+<li>
+<p>executed: OrderData holding execution data</p>
+</li>
+<li>
+<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
+in the form of an OrderedDict which has been subclassed, so that keys
+can also be specified using '.' notation</p>
+</li>
+</ul>
+<p>User Methods:</p>
+<ul>
+<li>isbuy(): returns bool indicating if the order buys</li>
+<li>issell(): returns bool indicating if the order sells</li>
+<li>alive(): returns bool if order is in status Partial or Accepted</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StopBuyOrder(BuyOrder):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.BuyOrder" href="#backtrader.order.BuyOrder">BuyOrder</a></li>
+<li><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></li>
+<li><a title="backtrader.order.OrderBase" href="#backtrader.order.OrderBase">OrderBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.order.StopBuyOrder.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.StopBuyOrder.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.StopBuyOrder.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.order.BuyOrder" href="#backtrader.order.BuyOrder">BuyOrder</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.order.BuyOrder.accept" href="#backtrader.order.OrderBase.accept">accept</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.addcomminfo" href="#backtrader.order.OrderBase.addcomminfo">addcomminfo</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.addinfo" href="#backtrader.order.OrderBase.addinfo">addinfo</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.alive" href="#backtrader.order.OrderBase.alive">alive</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.brokerstatus" href="#backtrader.order.OrderBase.brokerstatus">brokerstatus</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.cancel" href="#backtrader.order.OrderBase.cancel">cancel</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.completed" href="#backtrader.order.OrderBase.completed">completed</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.execute" href="#backtrader.order.OrderBase.execute">execute</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.expire" href="#backtrader.order.OrderBase.expire">expire</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.getordername" href="#backtrader.order.OrderBase.getordername">getordername</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.getstatusname" href="#backtrader.order.OrderBase.getstatusname">getstatusname</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.isbuy" href="#backtrader.order.OrderBase.isbuy">isbuy</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.issell" href="#backtrader.order.OrderBase.issell">issell</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.margin" href="#backtrader.order.OrderBase.margin">margin</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.ordtypename" href="#backtrader.order.OrderBase.ordtypename">ordtypename</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.partial" href="#backtrader.order.OrderBase.partial">partial</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.reject" href="#backtrader.order.OrderBase.reject">reject</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.setposition" href="#backtrader.order.OrderBase.setposition">setposition</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.submit" href="#backtrader.order.OrderBase.submit">submit</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.order.StopLimitBuyOrder"><code class="flex name class">
+<span>class <span class="ident">StopLimitBuyOrder</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
+<p>The order may have the following status:</p>
+<ul>
+<li>Submitted: sent to the broker and awaiting confirmation</li>
+<li>Accepted: accepted by the broker</li>
+<li>Partial: partially executed</li>
+<li>Completed: fully exexcuted</li>
+<li>Canceled/Cancelled: canceled by the user</li>
+<li>Expired: expired</li>
+<li>Margin: not enough cash to execute the order.</li>
+<li>
+<p>Rejected: Rejected by the broker</p>
+<p>This can happen during order submission (and therefore the order will
+not reach the Accepted status) or before execution with each new bar
+price because cash has been drawn by other sources (future-like
+instruments may have reduced the cash or orders orders may have been
+executed)</p>
+</li>
+</ul>
+<p>Member Attributes:</p>
+<ul>
+<li>ref: unique order identifier</li>
+<li>created: OrderData holding creation data</li>
+<li>
+<p>executed: OrderData holding execution data</p>
+</li>
+<li>
+<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
+in the form of an OrderedDict which has been subclassed, so that keys
+can also be specified using '.' notation</p>
+</li>
+</ul>
+<p>User Methods:</p>
+<ul>
+<li>isbuy(): returns bool indicating if the order buys</li>
+<li>issell(): returns bool indicating if the order sells</li>
+<li>alive(): returns bool if order is in status Partial or Accepted</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StopLimitBuyOrder(BuyOrder):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.BuyOrder" href="#backtrader.order.BuyOrder">BuyOrder</a></li>
+<li><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></li>
+<li><a title="backtrader.order.OrderBase" href="#backtrader.order.OrderBase">OrderBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.order.StopLimitBuyOrder.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.StopLimitBuyOrder.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.StopLimitBuyOrder.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.order.BuyOrder" href="#backtrader.order.BuyOrder">BuyOrder</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.order.BuyOrder.accept" href="#backtrader.order.OrderBase.accept">accept</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.addcomminfo" href="#backtrader.order.OrderBase.addcomminfo">addcomminfo</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.addinfo" href="#backtrader.order.OrderBase.addinfo">addinfo</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.alive" href="#backtrader.order.OrderBase.alive">alive</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.brokerstatus" href="#backtrader.order.OrderBase.brokerstatus">brokerstatus</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.cancel" href="#backtrader.order.OrderBase.cancel">cancel</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.completed" href="#backtrader.order.OrderBase.completed">completed</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.execute" href="#backtrader.order.OrderBase.execute">execute</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.expire" href="#backtrader.order.OrderBase.expire">expire</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.getordername" href="#backtrader.order.OrderBase.getordername">getordername</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.getstatusname" href="#backtrader.order.OrderBase.getstatusname">getstatusname</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.isbuy" href="#backtrader.order.OrderBase.isbuy">isbuy</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.issell" href="#backtrader.order.OrderBase.issell">issell</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.margin" href="#backtrader.order.OrderBase.margin">margin</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.ordtypename" href="#backtrader.order.OrderBase.ordtypename">ordtypename</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.partial" href="#backtrader.order.OrderBase.partial">partial</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.reject" href="#backtrader.order.OrderBase.reject">reject</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.setposition" href="#backtrader.order.OrderBase.setposition">setposition</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.submit" href="#backtrader.order.OrderBase.submit">submit</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.order.StopLimitSellOrder"><code class="flex name class">
+<span>class <span class="ident">StopLimitSellOrder</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
+<p>The order may have the following status:</p>
+<ul>
+<li>Submitted: sent to the broker and awaiting confirmation</li>
+<li>Accepted: accepted by the broker</li>
+<li>Partial: partially executed</li>
+<li>Completed: fully exexcuted</li>
+<li>Canceled/Cancelled: canceled by the user</li>
+<li>Expired: expired</li>
+<li>Margin: not enough cash to execute the order.</li>
+<li>
+<p>Rejected: Rejected by the broker</p>
+<p>This can happen during order submission (and therefore the order will
+not reach the Accepted status) or before execution with each new bar
+price because cash has been drawn by other sources (future-like
+instruments may have reduced the cash or orders orders may have been
+executed)</p>
+</li>
+</ul>
+<p>Member Attributes:</p>
+<ul>
+<li>ref: unique order identifier</li>
+<li>created: OrderData holding creation data</li>
+<li>
+<p>executed: OrderData holding execution data</p>
+</li>
+<li>
+<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
+in the form of an OrderedDict which has been subclassed, so that keys
+can also be specified using '.' notation</p>
+</li>
+</ul>
+<p>User Methods:</p>
+<ul>
+<li>isbuy(): returns bool indicating if the order buys</li>
+<li>issell(): returns bool indicating if the order sells</li>
+<li>alive(): returns bool if order is in status Partial or Accepted</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StopLimitSellOrder(SellOrder):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.SellOrder" href="#backtrader.order.SellOrder">SellOrder</a></li>
+<li><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></li>
+<li><a title="backtrader.order.OrderBase" href="#backtrader.order.OrderBase">OrderBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.order.StopLimitSellOrder.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.StopLimitSellOrder.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.StopLimitSellOrder.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.order.SellOrder" href="#backtrader.order.SellOrder">SellOrder</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.order.SellOrder.accept" href="#backtrader.order.OrderBase.accept">accept</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.addcomminfo" href="#backtrader.order.OrderBase.addcomminfo">addcomminfo</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.addinfo" href="#backtrader.order.OrderBase.addinfo">addinfo</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.alive" href="#backtrader.order.OrderBase.alive">alive</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.brokerstatus" href="#backtrader.order.OrderBase.brokerstatus">brokerstatus</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.cancel" href="#backtrader.order.OrderBase.cancel">cancel</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.completed" href="#backtrader.order.OrderBase.completed">completed</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.execute" href="#backtrader.order.OrderBase.execute">execute</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.expire" href="#backtrader.order.OrderBase.expire">expire</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.getordername" href="#backtrader.order.OrderBase.getordername">getordername</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.getstatusname" href="#backtrader.order.OrderBase.getstatusname">getstatusname</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.isbuy" href="#backtrader.order.OrderBase.isbuy">isbuy</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.issell" href="#backtrader.order.OrderBase.issell">issell</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.margin" href="#backtrader.order.OrderBase.margin">margin</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.ordtypename" href="#backtrader.order.OrderBase.ordtypename">ordtypename</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.partial" href="#backtrader.order.OrderBase.partial">partial</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.reject" href="#backtrader.order.OrderBase.reject">reject</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.setposition" href="#backtrader.order.OrderBase.setposition">setposition</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.submit" href="#backtrader.order.OrderBase.submit">submit</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.order.StopSellOrder"><code class="flex name class">
+<span>class <span class="ident">StopSellOrder</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
+<p>The order may have the following status:</p>
+<ul>
+<li>Submitted: sent to the broker and awaiting confirmation</li>
+<li>Accepted: accepted by the broker</li>
+<li>Partial: partially executed</li>
+<li>Completed: fully exexcuted</li>
+<li>Canceled/Cancelled: canceled by the user</li>
+<li>Expired: expired</li>
+<li>Margin: not enough cash to execute the order.</li>
+<li>
+<p>Rejected: Rejected by the broker</p>
+<p>This can happen during order submission (and therefore the order will
+not reach the Accepted status) or before execution with each new bar
+price because cash has been drawn by other sources (future-like
+instruments may have reduced the cash or orders orders may have been
+executed)</p>
+</li>
+</ul>
+<p>Member Attributes:</p>
+<ul>
+<li>ref: unique order identifier</li>
+<li>created: OrderData holding creation data</li>
+<li>
+<p>executed: OrderData holding execution data</p>
+</li>
+<li>
+<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
+in the form of an OrderedDict which has been subclassed, so that keys
+can also be specified using '.' notation</p>
+</li>
+</ul>
+<p>User Methods:</p>
+<ul>
+<li>isbuy(): returns bool indicating if the order buys</li>
+<li>issell(): returns bool indicating if the order sells</li>
+<li>alive(): returns bool if order is in status Partial or Accepted</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StopSellOrder(SellOrder):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.order.SellOrder" href="#backtrader.order.SellOrder">SellOrder</a></li>
+<li><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></li>
+<li><a title="backtrader.order.OrderBase" href="#backtrader.order.OrderBase">OrderBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.order.StopSellOrder.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.StopSellOrder.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.order.StopSellOrder.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.order.SellOrder" href="#backtrader.order.SellOrder">SellOrder</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.order.SellOrder.accept" href="#backtrader.order.OrderBase.accept">accept</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.addcomminfo" href="#backtrader.order.OrderBase.addcomminfo">addcomminfo</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.addinfo" href="#backtrader.order.OrderBase.addinfo">addinfo</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.alive" href="#backtrader.order.OrderBase.alive">alive</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.brokerstatus" href="#backtrader.order.OrderBase.brokerstatus">brokerstatus</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.cancel" href="#backtrader.order.OrderBase.cancel">cancel</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.completed" href="#backtrader.order.OrderBase.completed">completed</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.execute" href="#backtrader.order.OrderBase.execute">execute</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.expire" href="#backtrader.order.OrderBase.expire">expire</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.getordername" href="#backtrader.order.OrderBase.getordername">getordername</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.getstatusname" href="#backtrader.order.OrderBase.getstatusname">getstatusname</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.isbuy" href="#backtrader.order.OrderBase.isbuy">isbuy</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.issell" href="#backtrader.order.OrderBase.issell">issell</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.margin" href="#backtrader.order.OrderBase.margin">margin</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.ordtypename" href="#backtrader.order.OrderBase.ordtypename">ordtypename</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.partial" href="#backtrader.order.OrderBase.partial">partial</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.reject" href="#backtrader.order.OrderBase.reject">reject</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.setposition" href="#backtrader.order.OrderBase.setposition">setposition</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.submit" href="#backtrader.order.OrderBase.submit">submit</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader" href="index.html">backtrader</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.order.BuyOrder" href="#backtrader.order.BuyOrder">BuyOrder</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.order.BuyOrder.frompackages" href="#backtrader.order.BuyOrder.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.ordtype" href="#backtrader.order.BuyOrder.ordtype">ordtype</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.packages" href="#backtrader.order.BuyOrder.packages">packages</a></code></li>
+<li><code><a title="backtrader.order.BuyOrder.params" href="#backtrader.order.BuyOrder.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.order.Order" href="#backtrader.order.Order">Order</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.order.Order.frompackages" href="#backtrader.order.Order.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.order.Order.packages" href="#backtrader.order.Order.packages">packages</a></code></li>
+<li><code><a title="backtrader.order.Order.params" href="#backtrader.order.Order.params">params</a></code></li>
+<li><code><a title="backtrader.order.Order.trailadjust" href="#backtrader.order.Order.trailadjust">trailadjust</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.order.OrderBase" href="#backtrader.order.OrderBase">OrderBase</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.order.OrderBase.Accepted" href="#backtrader.order.OrderBase.Accepted">Accepted</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Buy" href="#backtrader.order.OrderBase.Buy">Buy</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Canceled" href="#backtrader.order.OrderBase.Canceled">Canceled</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Cancelled" href="#backtrader.order.OrderBase.Cancelled">Cancelled</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Close" href="#backtrader.order.OrderBase.Close">Close</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Completed" href="#backtrader.order.OrderBase.Completed">Completed</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Created" href="#backtrader.order.OrderBase.Created">Created</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.DAY" href="#backtrader.order.OrderBase.DAY">DAY</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.ExecType" href="#backtrader.order.OrderBase.ExecType">ExecType</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.ExecTypes" href="#backtrader.order.OrderBase.ExecTypes">ExecTypes</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Expired" href="#backtrader.order.OrderBase.Expired">Expired</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Historical" href="#backtrader.order.OrderBase.Historical">Historical</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Limit" href="#backtrader.order.OrderBase.Limit">Limit</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Margin" href="#backtrader.order.OrderBase.Margin">Margin</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Market" href="#backtrader.order.OrderBase.Market">Market</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.OrdTypes" href="#backtrader.order.OrderBase.OrdTypes">OrdTypes</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Partial" href="#backtrader.order.OrderBase.Partial">Partial</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Rejected" href="#backtrader.order.OrderBase.Rejected">Rejected</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Sell" href="#backtrader.order.OrderBase.Sell">Sell</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Status" href="#backtrader.order.OrderBase.Status">Status</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Stop" href="#backtrader.order.OrderBase.Stop">Stop</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.StopLimit" href="#backtrader.order.OrderBase.StopLimit">StopLimit</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.StopTrail" href="#backtrader.order.OrderBase.StopTrail">StopTrail</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.StopTrailLimit" href="#backtrader.order.OrderBase.StopTrailLimit">StopTrailLimit</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.Submitted" href="#backtrader.order.OrderBase.Submitted">Submitted</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.T_Close" href="#backtrader.order.OrderBase.T_Close">T_Close</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.T_Date" href="#backtrader.order.OrderBase.T_Date">T_Date</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.T_Day" href="#backtrader.order.OrderBase.T_Day">T_Day</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.T_None" href="#backtrader.order.OrderBase.T_None">T_None</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.V_None" href="#backtrader.order.OrderBase.V_None">V_None</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.accept" href="#backtrader.order.OrderBase.accept">accept</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.activate" href="#backtrader.order.OrderBase.activate">activate</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.active" href="#backtrader.order.OrderBase.active">active</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.addcomminfo" href="#backtrader.order.OrderBase.addcomminfo">addcomminfo</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.addinfo" href="#backtrader.order.OrderBase.addinfo">addinfo</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.alive" href="#backtrader.order.OrderBase.alive">alive</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.brokerstatus" href="#backtrader.order.OrderBase.brokerstatus">brokerstatus</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.cancel" href="#backtrader.order.OrderBase.cancel">cancel</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.clone" href="#backtrader.order.OrderBase.clone">clone</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.completed" href="#backtrader.order.OrderBase.completed">completed</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.execute" href="#backtrader.order.OrderBase.execute">execute</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.expire" href="#backtrader.order.OrderBase.expire">expire</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.frompackages" href="#backtrader.order.OrderBase.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.getordername" href="#backtrader.order.OrderBase.getordername">getordername</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.getstatusname" href="#backtrader.order.OrderBase.getstatusname">getstatusname</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.isbuy" href="#backtrader.order.OrderBase.isbuy">isbuy</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.issell" href="#backtrader.order.OrderBase.issell">issell</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.margin" href="#backtrader.order.OrderBase.margin">margin</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.ordtypename" href="#backtrader.order.OrderBase.ordtypename">ordtypename</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.packages" href="#backtrader.order.OrderBase.packages">packages</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.params" href="#backtrader.order.OrderBase.params">params</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.partial" href="#backtrader.order.OrderBase.partial">partial</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.plimit" href="#backtrader.order.OrderBase.plimit">plimit</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.refbasis" href="#backtrader.order.OrderBase.refbasis">refbasis</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.reject" href="#backtrader.order.OrderBase.reject">reject</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.setposition" href="#backtrader.order.OrderBase.setposition">setposition</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.submit" href="#backtrader.order.OrderBase.submit">submit</a></code></li>
+<li><code><a title="backtrader.order.OrderBase.trailadjust" href="#backtrader.order.OrderBase.trailadjust">trailadjust</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.order.OrderData" href="#backtrader.order.OrderData">OrderData</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.order.OrderData.add" href="#backtrader.order.OrderData.add">add</a></code></li>
+<li><code><a title="backtrader.order.OrderData.addbit" href="#backtrader.order.OrderData.addbit">addbit</a></code></li>
+<li><code><a title="backtrader.order.OrderData.clone" href="#backtrader.order.OrderData.clone">clone</a></code></li>
+<li><code><a title="backtrader.order.OrderData.getpending" href="#backtrader.order.OrderData.getpending">getpending</a></code></li>
+<li><code><a title="backtrader.order.OrderData.iterpending" href="#backtrader.order.OrderData.iterpending">iterpending</a></code></li>
+<li><code><a title="backtrader.order.OrderData.markpending" href="#backtrader.order.OrderData.markpending">markpending</a></code></li>
+<li><code><a title="backtrader.order.OrderData.plimit" href="#backtrader.order.OrderData.plimit">plimit</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.order.OrderExecutionBit" href="#backtrader.order.OrderExecutionBit">OrderExecutionBit</a></code></h4>
+</li>
+<li>
+<h4><code><a title="backtrader.order.SellOrder" href="#backtrader.order.SellOrder">SellOrder</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.order.SellOrder.frompackages" href="#backtrader.order.SellOrder.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.ordtype" href="#backtrader.order.SellOrder.ordtype">ordtype</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.packages" href="#backtrader.order.SellOrder.packages">packages</a></code></li>
+<li><code><a title="backtrader.order.SellOrder.params" href="#backtrader.order.SellOrder.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.order.StopBuyOrder" href="#backtrader.order.StopBuyOrder">StopBuyOrder</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.order.StopBuyOrder.frompackages" href="#backtrader.order.StopBuyOrder.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.order.StopBuyOrder.packages" href="#backtrader.order.StopBuyOrder.packages">packages</a></code></li>
+<li><code><a title="backtrader.order.StopBuyOrder.params" href="#backtrader.order.StopBuyOrder.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.order.StopLimitBuyOrder" href="#backtrader.order.StopLimitBuyOrder">StopLimitBuyOrder</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.order.StopLimitBuyOrder.frompackages" href="#backtrader.order.StopLimitBuyOrder.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.order.StopLimitBuyOrder.packages" href="#backtrader.order.StopLimitBuyOrder.packages">packages</a></code></li>
+<li><code><a title="backtrader.order.StopLimitBuyOrder.params" href="#backtrader.order.StopLimitBuyOrder.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.order.StopLimitSellOrder" href="#backtrader.order.StopLimitSellOrder">StopLimitSellOrder</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.order.StopLimitSellOrder.frompackages" href="#backtrader.order.StopLimitSellOrder.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.order.StopLimitSellOrder.packages" href="#backtrader.order.StopLimitSellOrder.packages">packages</a></code></li>
+<li><code><a title="backtrader.order.StopLimitSellOrder.params" href="#backtrader.order.StopLimitSellOrder.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.order.StopSellOrder" href="#backtrader.order.StopSellOrder">StopSellOrder</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.order.StopSellOrder.frompackages" href="#backtrader.order.StopSellOrder.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.order.StopSellOrder.packages" href="#backtrader.order.StopSellOrder.packages">packages</a></code></li>
+<li><code><a title="backtrader.order.StopSellOrder.params" href="#backtrader.order.StopSellOrder.params">params</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.indicators.rsi API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.indicators.rsi</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+from . import Indicator, Max, MovAv
+from . import DivZeroByZero
+
+
+class UpDay(Indicator):
+    &#39;&#39;&#39;
+    Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;* for the RSI
+
+    Records days which have been &#34;up&#34;, i.e.: the close price has been
+    higher than the day before.
+
+    Formula:
+      - upday = max(close - close_prev, 0)
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    lines = (&#39;upday&#39;,)
+    params = ((&#39;period&#39;, 1),)
+
+    def __init__(self):
+        self.lines.upday = Max(self.data - self.data(-self.p.period), 0.0)
+        super(UpDay, self).__init__()
+
+
+class DownDay(Indicator):
+    &#39;&#39;&#39;
+    Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;* for the RSI
+
+    Records days which have been &#34;down&#34;, i.e.: the close price has been
+    lower than the day before.
+
+    Formula:
+      - downday = max(close_prev - close, 0)
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    lines = (&#39;downday&#39;,)
+    params = ((&#39;period&#39;, 1),)
+
+    def __init__(self):
+        self.lines.downday = Max(self.data(-self.p.period) - self.data, 0.0)
+        super(DownDay, self).__init__()
+
+
+class UpDayBool(Indicator):
+    &#39;&#39;&#39;
+    Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;* for the RSI
+
+    Records days which have been &#34;up&#34;, i.e.: the close price has been
+    higher than the day before.
+
+    Note:
+      - This version returns a bool rather than the difference
+
+    Formula:
+      - upday = close &gt; close_prev
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    lines = (&#39;upday&#39;,)
+    params = ((&#39;period&#39;, 1),)
+
+    def __init__(self):
+        self.lines.upday = self.data &gt; self.data(-self.p.period)
+        super(UpDayBool, self).__init__()
+
+
+class DownDayBool(Indicator):
+    &#39;&#39;&#39;
+    Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;* for the RSI
+
+    Records days which have been &#34;down&#34;, i.e.: the close price has been
+    lower than the day before.
+
+    Note:
+      - This version returns a bool rather than the difference
+
+    Formula:
+      - downday = close_prev &gt; close
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    lines = (&#39;downday&#39;,)
+    params = ((&#39;period&#39;, 1),)
+
+    def __init__(self):
+        self.lines.downday = self.data(-self.p.period) &gt; self.data
+        super(DownDayBool, self).__init__()
+
+
+class RelativeStrengthIndex(Indicator):
+    &#39;&#39;&#39;Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;*.
+
+    It measures momentum by calculating the ration of higher closes and
+    lower closes after having been smoothed by an average, normalizing
+    the result between 0 and 100
+
+    Formula:
+      - up = upday(data)
+      - down = downday(data)
+      - maup = movingaverage(up, period)
+      - madown = movingaverage(down, period)
+      - rs = maup / madown
+      - rsi = 100 - 100 / (1 + rs)
+
+    The moving average used is the one originally defined by Wilder,
+    the SmoothedMovingAverage
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+
+    Notes:
+      - ``safediv`` (default: False) If this parameter is True the division
+        rs = maup / madown will be checked for the special cases in which a
+        ``0 / 0`` or ``x / 0`` division will happen
+
+      - ``safehigh`` (default: 100.0) will be used as RSI value for the
+        ``x / 0`` case
+
+      - ``safelow``  (default: 50.0) will be used as RSI value for the
+        ``0 / 0`` case
+    &#39;&#39;&#39;
+    alias = (&#39;RSI&#39;, &#39;RSI_SMMA&#39;, &#39;RSI_Wilder&#39;,)
+
+    lines = (&#39;rsi&#39;,)
+    params = (
+        (&#39;period&#39;, 14),
+        (&#39;movav&#39;, MovAv.Smoothed),
+        (&#39;upperband&#39;, 70.0),
+        (&#39;lowerband&#39;, 30.0),
+        (&#39;safediv&#39;, False),
+        (&#39;safehigh&#39;, 100.0),
+        (&#39;safelow&#39;, 50.0),
+        (&#39;lookback&#39;, 1),
+    )
+
+    def _plotlabel(self):
+        plabels = [self.p.period]
+        plabels += [self.p.movav] * self.p.notdefault(&#39;movav&#39;)
+        plabels += [self.p.lookback] * self.p.notdefault(&#39;lookback&#39;)
+        return plabels
+
+    def _plotinit(self):
+        self.plotinfo.plotyhlines = [self.p.upperband, self.p.lowerband]
+
+    def __init__(self):
+        upday = UpDay(self.data, period=self.p.lookback)
+        downday = DownDay(self.data, period=self.p.lookback)
+        maup = self.p.movav(upday, period=self.p.period)
+        madown = self.p.movav(downday, period=self.p.period)
+        if not self.p.safediv:
+            rs = maup / madown
+        else:
+            highrs = self._rscalc(self.p.safehigh)
+            lowrs = self._rscalc(self.p.safelow)
+            rs = DivZeroByZero(maup, madown, highrs, lowrs)
+
+        self.lines.rsi = 100.0 - 100.0 / (1.0 + rs)
+        super(RelativeStrengthIndex, self).__init__()
+
+    def _rscalc(self, rsi):
+        try:
+            rs = (-100.0 / (rsi - 100.0)) - 1.0
+        except ZeroDivisionError:
+            return float(&#39;inf&#39;)
+
+        return rs
+
+
+class RSI_Safe(RSI):
+    &#39;&#39;&#39;
+    Subclass of RSI which changes parameers ``safediv`` to ``True`` as the
+    default value
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    params = ((&#39;safediv&#39;, True),)
+
+
+class RSI_SMA(RSI):
+    &#39;&#39;&#39;
+    Uses a SimpleMovingAverage as described in Wikipedia and other soures
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    alias = (&#39;RSI_Cutler&#39;,)
+
+    params = ((&#39;movav&#39;, MovAv.Simple),)
+
+
+class RSI_EMA(RSI):
+    &#39;&#39;&#39;
+    Uses an ExponentialMovingAverage as described in Wikipedia
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    params = ((&#39;movav&#39;, MovAv.Exponential),)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.indicators.rsi.DownDay"><code class="flex name class">
+<span>class <span class="ident">DownDay</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defined by J. Welles Wilder, Jr. in 1978 in his book <em>"New Concepts in
+Technical Trading Systems"</em> for the RSI</p>
+<p>Records days which have been "down", i.e.: the close price has been
+lower than the day before.</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>downday = max(close_prev - close, 0)</li>
+</ul>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DownDay(Indicator):
+    &#39;&#39;&#39;
+    Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;* for the RSI
+
+    Records days which have been &#34;down&#34;, i.e.: the close price has been
+    lower than the day before.
+
+    Formula:
+      - downday = max(close_prev - close, 0)
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    lines = (&#39;downday&#39;,)
+    params = ((&#39;period&#39;, 1),)
+
+    def __init__(self):
+        self.lines.downday = Max(self.data(-self.p.period) - self.data, 0.0)
+        super(DownDay, self).__init__()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.DownDay.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDay.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDay.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDay.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDay.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDay.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDay.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDay.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.Indicator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDayBool"><code class="flex name class">
+<span>class <span class="ident">DownDayBool</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defined by J. Welles Wilder, Jr. in 1978 in his book <em>"New Concepts in
+Technical Trading Systems"</em> for the RSI</p>
+<p>Records days which have been "down", i.e.: the close price has been
+lower than the day before.</p>
+<h2 id="note">Note</h2>
+<ul>
+<li>This version returns a bool rather than the difference</li>
+</ul>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>downday = close_prev &gt; close</li>
+</ul>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DownDayBool(Indicator):
+    &#39;&#39;&#39;
+    Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;* for the RSI
+
+    Records days which have been &#34;down&#34;, i.e.: the close price has been
+    lower than the day before.
+
+    Note:
+      - This version returns a bool rather than the difference
+
+    Formula:
+      - downday = close_prev &gt; close
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    lines = (&#39;downday&#39;,)
+    params = ((&#39;period&#39;, 1),)
+
+    def __init__(self):
+        self.lines.downday = self.data(-self.p.period) &gt; self.data
+        super(DownDayBool, self).__init__()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.DownDayBool.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDayBool.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDayBool.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDayBool.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDayBool.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDayBool.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDayBool.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.DownDayBool.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.Indicator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI"><code class="flex name class">
+<span>class <span class="ident">RSI</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defined by J. Welles Wilder, Jr. in 1978 in his book <em>"New Concepts in
+Technical Trading Systems"</em>.</p>
+<p>It measures momentum by calculating the ration of higher closes and
+lower closes after having been smoothed by an average, normalizing
+the result between 0 and 100</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>up = upday(data)</li>
+<li>down = downday(data)</li>
+<li>maup = movingaverage(up, period)</li>
+<li>madown = movingaverage(down, period)</li>
+<li>rs = maup / madown</li>
+<li>rsi = 100 - 100 / (1 + rs)</li>
+</ul>
+<p>The moving average used is the one originally defined by Wilder,
+the SmoothedMovingAverage</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>
+<p><code>safediv</code> (default: False) If this parameter is True the division
+rs = maup / madown will be checked for the special cases in which a
+<code>0 / 0</code> or <code>x / 0</code> division will happen</p>
+</li>
+<li>
+<p><code>safehigh</code> (default: 100.0) will be used as RSI value for the
+<code>x / 0</code> case</p>
+</li>
+<li>
+<p><code>safelow</code>
+(default: 50.0) will be used as RSI value for the
+<code>0 / 0</code> case</p>
+</li>
+</ul></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rmi.RelativeMomentumIndex" href="rmi.html#backtrader.indicators.rmi.RelativeMomentumIndex">RelativeMomentumIndex</a></li>
+<li><a title="backtrader.indicators.rsi.RSI_EMA" href="#backtrader.indicators.rsi.RSI_EMA">RSI_EMA</a></li>
+<li><a title="backtrader.indicators.rsi.RSI_SMA" href="#backtrader.indicators.rsi.RSI_SMA">RSI_SMA</a></li>
+<li><a title="backtrader.indicators.rsi.RSI_Safe" href="#backtrader.indicators.rsi.RSI_Safe">RSI_Safe</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.RSI.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Cutler"><code class="flex name class">
+<span>class <span class="ident">RSI_Cutler</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses a SimpleMovingAverage as described in Wikipedia and other soures</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rsi.RSI_SMA" href="#backtrader.indicators.rsi.RSI_SMA">RSI_SMA</a></li>
+<li><a title="backtrader.indicators.rsi.RSI" href="#backtrader.indicators.rsi.RSI">RSI</a></li>
+<li><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.RSI_Cutler.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Cutler.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Cutler.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Cutler.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Cutler.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Cutler.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Cutler.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Cutler.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.rsi.RSI_SMA" href="#backtrader.indicators.rsi.RSI_SMA">RSI_SMA</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_EMA"><code class="flex name class">
+<span>class <span class="ident">RSI_EMA</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses an ExponentialMovingAverage as described in Wikipedia</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RSI_EMA(RSI):
+    &#39;&#39;&#39;
+    Uses an ExponentialMovingAverage as described in Wikipedia
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    params = ((&#39;movav&#39;, MovAv.Exponential),)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rsi.RSI" href="#backtrader.indicators.rsi.RSI">RSI</a></li>
+<li><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.RSI_EMA.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_EMA.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_EMA.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_EMA.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_EMA.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_EMA.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_EMA.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_EMA.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.rsi.RSI" href="#backtrader.indicators.rsi.RSI">RSI</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.rsi.RSI.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMA"><code class="flex name class">
+<span>class <span class="ident">RSI_SMA</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses a SimpleMovingAverage as described in Wikipedia and other soures</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RSI_SMA(RSI):
+    &#39;&#39;&#39;
+    Uses a SimpleMovingAverage as described in Wikipedia and other soures
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    alias = (&#39;RSI_Cutler&#39;,)
+
+    params = ((&#39;movav&#39;, MovAv.Simple),)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rsi.RSI" href="#backtrader.indicators.rsi.RSI">RSI</a></li>
+<li><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rsi.RSI_Cutler" href="#backtrader.indicators.rsi.RSI_Cutler">RSI_Cutler</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.RSI_SMA.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMA.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMA.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMA.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMA.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMA.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMA.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMA.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.rsi.RSI" href="#backtrader.indicators.rsi.RSI">RSI</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.rsi.RSI.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMMA"><code class="flex name class">
+<span>class <span class="ident">RSI_SMMA</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defined by J. Welles Wilder, Jr. in 1978 in his book <em>"New Concepts in
+Technical Trading Systems"</em>.</p>
+<p>It measures momentum by calculating the ration of higher closes and
+lower closes after having been smoothed by an average, normalizing
+the result between 0 and 100</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>up = upday(data)</li>
+<li>down = downday(data)</li>
+<li>maup = movingaverage(up, period)</li>
+<li>madown = movingaverage(down, period)</li>
+<li>rs = maup / madown</li>
+<li>rsi = 100 - 100 / (1 + rs)</li>
+</ul>
+<p>The moving average used is the one originally defined by Wilder,
+the SmoothedMovingAverage</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>
+<p><code>safediv</code> (default: False) If this parameter is True the division
+rs = maup / madown will be checked for the special cases in which a
+<code>0 / 0</code> or <code>x / 0</code> division will happen</p>
+</li>
+<li>
+<p><code>safehigh</code> (default: 100.0) will be used as RSI value for the
+<code>x / 0</code> case</p>
+</li>
+<li>
+<p><code>safelow</code>
+(default: 50.0) will be used as RSI value for the
+<code>0 / 0</code> case</p>
+</li>
+</ul></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.RSI_SMMA.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMMA.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMMA.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMMA.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMMA.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMMA.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMMA.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_SMMA.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Safe"><code class="flex name class">
+<span>class <span class="ident">RSI_Safe</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Subclass of RSI which changes parameers <code>safediv</code> to <code>True</code> as the
+default value</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RSI_Safe(RSI):
+    &#39;&#39;&#39;
+    Subclass of RSI which changes parameers ``safediv`` to ``True`` as the
+    default value
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    params = ((&#39;safediv&#39;, True),)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rsi.RSI" href="#backtrader.indicators.rsi.RSI">RSI</a></li>
+<li><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.RSI_Safe.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Safe.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Safe.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Safe.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Safe.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Safe.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Safe.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Safe.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.rsi.RSI" href="#backtrader.indicators.rsi.RSI">RSI</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.rsi.RSI.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Wilder"><code class="flex name class">
+<span>class <span class="ident">RSI_Wilder</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defined by J. Welles Wilder, Jr. in 1978 in his book <em>"New Concepts in
+Technical Trading Systems"</em>.</p>
+<p>It measures momentum by calculating the ration of higher closes and
+lower closes after having been smoothed by an average, normalizing
+the result between 0 and 100</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>up = upday(data)</li>
+<li>down = downday(data)</li>
+<li>maup = movingaverage(up, period)</li>
+<li>madown = movingaverage(down, period)</li>
+<li>rs = maup / madown</li>
+<li>rsi = 100 - 100 / (1 + rs)</li>
+</ul>
+<p>The moving average used is the one originally defined by Wilder,
+the SmoothedMovingAverage</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>
+<p><code>safediv</code> (default: False) If this parameter is True the division
+rs = maup / madown will be checked for the special cases in which a
+<code>0 / 0</code> or <code>x / 0</code> division will happen</p>
+</li>
+<li>
+<p><code>safehigh</code> (default: 100.0) will be used as RSI value for the
+<code>x / 0</code> case</p>
+</li>
+<li>
+<p><code>safelow</code>
+(default: 50.0) will be used as RSI value for the
+<code>0 / 0</code> case</p>
+</li>
+</ul></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></li>
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.RSI_Wilder.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Wilder.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Wilder.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Wilder.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Wilder.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Wilder.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Wilder.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RSI_Wilder.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.RelativeStrengthIndex"><code class="flex name class">
+<span>class <span class="ident">RelativeStrengthIndex</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defined by J. Welles Wilder, Jr. in 1978 in his book <em>"New Concepts in
+Technical Trading Systems"</em>.</p>
+<p>It measures momentum by calculating the ration of higher closes and
+lower closes after having been smoothed by an average, normalizing
+the result between 0 and 100</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>up = upday(data)</li>
+<li>down = downday(data)</li>
+<li>maup = movingaverage(up, period)</li>
+<li>madown = movingaverage(down, period)</li>
+<li>rs = maup / madown</li>
+<li>rsi = 100 - 100 / (1 + rs)</li>
+</ul>
+<p>The moving average used is the one originally defined by Wilder,
+the SmoothedMovingAverage</p>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>
+<p><code>safediv</code> (default: False) If this parameter is True the division
+rs = maup / madown will be checked for the special cases in which a
+<code>0 / 0</code> or <code>x / 0</code> division will happen</p>
+</li>
+<li>
+<p><code>safehigh</code> (default: 100.0) will be used as RSI value for the
+<code>x / 0</code> case</p>
+</li>
+<li>
+<p><code>safelow</code>
+(default: 50.0) will be used as RSI value for the
+<code>0 / 0</code> case</p>
+</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RelativeStrengthIndex(Indicator):
+    &#39;&#39;&#39;Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;*.
+
+    It measures momentum by calculating the ration of higher closes and
+    lower closes after having been smoothed by an average, normalizing
+    the result between 0 and 100
+
+    Formula:
+      - up = upday(data)
+      - down = downday(data)
+      - maup = movingaverage(up, period)
+      - madown = movingaverage(down, period)
+      - rs = maup / madown
+      - rsi = 100 - 100 / (1 + rs)
+
+    The moving average used is the one originally defined by Wilder,
+    the SmoothedMovingAverage
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+
+    Notes:
+      - ``safediv`` (default: False) If this parameter is True the division
+        rs = maup / madown will be checked for the special cases in which a
+        ``0 / 0`` or ``x / 0`` division will happen
+
+      - ``safehigh`` (default: 100.0) will be used as RSI value for the
+        ``x / 0`` case
+
+      - ``safelow``  (default: 50.0) will be used as RSI value for the
+        ``0 / 0`` case
+    &#39;&#39;&#39;
+    alias = (&#39;RSI&#39;, &#39;RSI_SMMA&#39;, &#39;RSI_Wilder&#39;,)
+
+    lines = (&#39;rsi&#39;,)
+    params = (
+        (&#39;period&#39;, 14),
+        (&#39;movav&#39;, MovAv.Smoothed),
+        (&#39;upperband&#39;, 70.0),
+        (&#39;lowerband&#39;, 30.0),
+        (&#39;safediv&#39;, False),
+        (&#39;safehigh&#39;, 100.0),
+        (&#39;safelow&#39;, 50.0),
+        (&#39;lookback&#39;, 1),
+    )
+
+    def _plotlabel(self):
+        plabels = [self.p.period]
+        plabels += [self.p.movav] * self.p.notdefault(&#39;movav&#39;)
+        plabels += [self.p.lookback] * self.p.notdefault(&#39;lookback&#39;)
+        return plabels
+
+    def _plotinit(self):
+        self.plotinfo.plotyhlines = [self.p.upperband, self.p.lowerband]
+
+    def __init__(self):
+        upday = UpDay(self.data, period=self.p.lookback)
+        downday = DownDay(self.data, period=self.p.lookback)
+        maup = self.p.movav(upday, period=self.p.period)
+        madown = self.p.movav(downday, period=self.p.period)
+        if not self.p.safediv:
+            rs = maup / madown
+        else:
+            highrs = self._rscalc(self.p.safehigh)
+            lowrs = self._rscalc(self.p.safelow)
+            rs = DivZeroByZero(maup, madown, highrs, lowrs)
+
+        self.lines.rsi = 100.0 - 100.0 / (1.0 + rs)
+        super(RelativeStrengthIndex, self).__init__()
+
+    def _rscalc(self, rsi):
+        try:
+            rs = (-100.0 / (rsi - 100.0)) - 1.0
+        except ZeroDivisionError:
+            return float(&#39;inf&#39;)
+
+        return rs</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicators.rsi.RSI" href="#backtrader.indicators.rsi.RSI">RSI</a></li>
+<li><a title="backtrader.indicators.rsi.RSI_SMMA" href="#backtrader.indicators.rsi.RSI_SMMA">RSI_SMMA</a></li>
+<li><a title="backtrader.indicators.rsi.RSI_Wilder" href="#backtrader.indicators.rsi.RSI_Wilder">RSI_Wilder</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.RelativeStrengthIndex.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RelativeStrengthIndex.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RelativeStrengthIndex.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RelativeStrengthIndex.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RelativeStrengthIndex.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RelativeStrengthIndex.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RelativeStrengthIndex.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.RelativeStrengthIndex.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.Indicator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDay"><code class="flex name class">
+<span>class <span class="ident">UpDay</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defined by J. Welles Wilder, Jr. in 1978 in his book <em>"New Concepts in
+Technical Trading Systems"</em> for the RSI</p>
+<p>Records days which have been "up", i.e.: the close price has been
+higher than the day before.</p>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>upday = max(close - close_prev, 0)</li>
+</ul>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UpDay(Indicator):
+    &#39;&#39;&#39;
+    Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;* for the RSI
+
+    Records days which have been &#34;up&#34;, i.e.: the close price has been
+    higher than the day before.
+
+    Formula:
+      - upday = max(close - close_prev, 0)
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    lines = (&#39;upday&#39;,)
+    params = ((&#39;period&#39;, 1),)
+
+    def __init__(self):
+        self.lines.upday = Max(self.data - self.data(-self.p.period), 0.0)
+        super(UpDay, self).__init__()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.UpDay.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDay.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDay.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDay.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDay.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDay.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDay.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDay.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.Indicator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDayBool"><code class="flex name class">
+<span>class <span class="ident">UpDayBool</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defined by J. Welles Wilder, Jr. in 1978 in his book <em>"New Concepts in
+Technical Trading Systems"</em> for the RSI</p>
+<p>Records days which have been "up", i.e.: the close price has been
+higher than the day before.</p>
+<h2 id="note">Note</h2>
+<ul>
+<li>This version returns a bool rather than the difference</li>
+</ul>
+<h2 id="formula">Formula</h2>
+<ul>
+<li>upday = close &gt; close_prev</li>
+</ul>
+<h2 id="see">See</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Relative_strength_index">http://en.wikipedia.org/wiki/Relative_strength_index</a></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UpDayBool(Indicator):
+    &#39;&#39;&#39;
+    Defined by J. Welles Wilder, Jr. in 1978 in his book *&#34;New Concepts in
+    Technical Trading Systems&#34;* for the RSI
+
+    Records days which have been &#34;up&#34;, i.e.: the close price has been
+    higher than the day before.
+
+    Note:
+      - This version returns a bool rather than the difference
+
+    Formula:
+      - upday = close &gt; close_prev
+
+    See:
+      - http://en.wikipedia.org/wiki/Relative_strength_index
+    &#39;&#39;&#39;
+    lines = (&#39;upday&#39;,)
+    params = ((&#39;period&#39;, 1),)
+
+    def __init__(self):
+        self.lines.upday = self.data &gt; self.data(-self.p.period)
+        super(UpDayBool, self).__init__()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></li>
+<li><a title="backtrader.lineiterator.IndicatorBase" href="../lineiterator.html#backtrader.lineiterator.IndicatorBase">IndicatorBase</a></li>
+<li><a title="backtrader.lineiterator.DataAccessor" href="../lineiterator.html#backtrader.lineiterator.DataAccessor">DataAccessor</a></li>
+<li><a title="backtrader.lineiterator.LineIterator" href="../lineiterator.html#backtrader.lineiterator.LineIterator">LineIterator</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.indicators.rsi.UpDayBool.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDayBool.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDayBool.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDayBool.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDayBool.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDayBool.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDayBool.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.indicators.rsi.UpDayBool.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.indicator.Indicator" href="../indicator.html#backtrader.indicator.Indicator">Indicator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.indicator.Indicator.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.next" href="../lineiterator.html#backtrader.lineiterator.LineIterator.next">next</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.nextstart" href="../lineiterator.html#backtrader.lineiterator.LineIterator.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.prenext" href="../lineiterator.html#backtrader.lineiterator.LineIterator.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.indicator.Indicator.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader.indicators" href="index.html">backtrader.indicators</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.DownDay" href="#backtrader.indicators.rsi.DownDay">DownDay</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.DownDay.alias" href="#backtrader.indicators.rsi.DownDay.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDay.aliased" href="#backtrader.indicators.rsi.DownDay.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDay.frompackages" href="#backtrader.indicators.rsi.DownDay.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDay.linealias" href="#backtrader.indicators.rsi.DownDay.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDay.packages" href="#backtrader.indicators.rsi.DownDay.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDay.params" href="#backtrader.indicators.rsi.DownDay.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDay.plotinfo" href="#backtrader.indicators.rsi.DownDay.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDay.plotlines" href="#backtrader.indicators.rsi.DownDay.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.DownDayBool" href="#backtrader.indicators.rsi.DownDayBool">DownDayBool</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.DownDayBool.alias" href="#backtrader.indicators.rsi.DownDayBool.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDayBool.aliased" href="#backtrader.indicators.rsi.DownDayBool.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDayBool.frompackages" href="#backtrader.indicators.rsi.DownDayBool.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDayBool.linealias" href="#backtrader.indicators.rsi.DownDayBool.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDayBool.packages" href="#backtrader.indicators.rsi.DownDayBool.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDayBool.params" href="#backtrader.indicators.rsi.DownDayBool.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDayBool.plotinfo" href="#backtrader.indicators.rsi.DownDayBool.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.DownDayBool.plotlines" href="#backtrader.indicators.rsi.DownDayBool.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.RSI" href="#backtrader.indicators.rsi.RSI">RSI</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.RSI.alias" href="#backtrader.indicators.rsi.RSI.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.aliased" href="#backtrader.indicators.rsi.RSI.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.frompackages" href="#backtrader.indicators.rsi.RSI.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.linealias" href="#backtrader.indicators.rsi.RSI.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.packages" href="#backtrader.indicators.rsi.RSI.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.params" href="#backtrader.indicators.rsi.RSI.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.plotinfo" href="#backtrader.indicators.rsi.RSI.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI.plotlines" href="#backtrader.indicators.rsi.RSI.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.RSI_Cutler" href="#backtrader.indicators.rsi.RSI_Cutler">RSI_Cutler</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.RSI_Cutler.alias" href="#backtrader.indicators.rsi.RSI_Cutler.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Cutler.aliased" href="#backtrader.indicators.rsi.RSI_Cutler.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Cutler.frompackages" href="#backtrader.indicators.rsi.RSI_Cutler.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Cutler.linealias" href="#backtrader.indicators.rsi.RSI_Cutler.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Cutler.packages" href="#backtrader.indicators.rsi.RSI_Cutler.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Cutler.params" href="#backtrader.indicators.rsi.RSI_Cutler.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Cutler.plotinfo" href="#backtrader.indicators.rsi.RSI_Cutler.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Cutler.plotlines" href="#backtrader.indicators.rsi.RSI_Cutler.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.RSI_EMA" href="#backtrader.indicators.rsi.RSI_EMA">RSI_EMA</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.RSI_EMA.alias" href="#backtrader.indicators.rsi.RSI_EMA.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_EMA.aliased" href="#backtrader.indicators.rsi.RSI_EMA.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_EMA.frompackages" href="#backtrader.indicators.rsi.RSI_EMA.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_EMA.linealias" href="#backtrader.indicators.rsi.RSI_EMA.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_EMA.packages" href="#backtrader.indicators.rsi.RSI_EMA.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_EMA.params" href="#backtrader.indicators.rsi.RSI_EMA.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_EMA.plotinfo" href="#backtrader.indicators.rsi.RSI_EMA.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_EMA.plotlines" href="#backtrader.indicators.rsi.RSI_EMA.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.RSI_SMA" href="#backtrader.indicators.rsi.RSI_SMA">RSI_SMA</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.alias" href="#backtrader.indicators.rsi.RSI_SMA.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.aliased" href="#backtrader.indicators.rsi.RSI_SMA.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.frompackages" href="#backtrader.indicators.rsi.RSI_SMA.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.linealias" href="#backtrader.indicators.rsi.RSI_SMA.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.packages" href="#backtrader.indicators.rsi.RSI_SMA.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.params" href="#backtrader.indicators.rsi.RSI_SMA.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.plotinfo" href="#backtrader.indicators.rsi.RSI_SMA.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMA.plotlines" href="#backtrader.indicators.rsi.RSI_SMA.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.RSI_SMMA" href="#backtrader.indicators.rsi.RSI_SMMA">RSI_SMMA</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.RSI_SMMA.alias" href="#backtrader.indicators.rsi.RSI_SMMA.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMMA.aliased" href="#backtrader.indicators.rsi.RSI_SMMA.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMMA.frompackages" href="#backtrader.indicators.rsi.RSI_SMMA.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMMA.linealias" href="#backtrader.indicators.rsi.RSI_SMMA.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMMA.packages" href="#backtrader.indicators.rsi.RSI_SMMA.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMMA.params" href="#backtrader.indicators.rsi.RSI_SMMA.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMMA.plotinfo" href="#backtrader.indicators.rsi.RSI_SMMA.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_SMMA.plotlines" href="#backtrader.indicators.rsi.RSI_SMMA.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.RSI_Safe" href="#backtrader.indicators.rsi.RSI_Safe">RSI_Safe</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.RSI_Safe.alias" href="#backtrader.indicators.rsi.RSI_Safe.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Safe.aliased" href="#backtrader.indicators.rsi.RSI_Safe.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Safe.frompackages" href="#backtrader.indicators.rsi.RSI_Safe.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Safe.linealias" href="#backtrader.indicators.rsi.RSI_Safe.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Safe.packages" href="#backtrader.indicators.rsi.RSI_Safe.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Safe.params" href="#backtrader.indicators.rsi.RSI_Safe.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Safe.plotinfo" href="#backtrader.indicators.rsi.RSI_Safe.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Safe.plotlines" href="#backtrader.indicators.rsi.RSI_Safe.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.RSI_Wilder" href="#backtrader.indicators.rsi.RSI_Wilder">RSI_Wilder</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.RSI_Wilder.alias" href="#backtrader.indicators.rsi.RSI_Wilder.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Wilder.aliased" href="#backtrader.indicators.rsi.RSI_Wilder.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Wilder.frompackages" href="#backtrader.indicators.rsi.RSI_Wilder.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Wilder.linealias" href="#backtrader.indicators.rsi.RSI_Wilder.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Wilder.packages" href="#backtrader.indicators.rsi.RSI_Wilder.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Wilder.params" href="#backtrader.indicators.rsi.RSI_Wilder.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Wilder.plotinfo" href="#backtrader.indicators.rsi.RSI_Wilder.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RSI_Wilder.plotlines" href="#backtrader.indicators.rsi.RSI_Wilder.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex" href="#backtrader.indicators.rsi.RelativeStrengthIndex">RelativeStrengthIndex</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.alias" href="#backtrader.indicators.rsi.RelativeStrengthIndex.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.aliased" href="#backtrader.indicators.rsi.RelativeStrengthIndex.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.frompackages" href="#backtrader.indicators.rsi.RelativeStrengthIndex.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.linealias" href="#backtrader.indicators.rsi.RelativeStrengthIndex.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.packages" href="#backtrader.indicators.rsi.RelativeStrengthIndex.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.params" href="#backtrader.indicators.rsi.RelativeStrengthIndex.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.plotinfo" href="#backtrader.indicators.rsi.RelativeStrengthIndex.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.RelativeStrengthIndex.plotlines" href="#backtrader.indicators.rsi.RelativeStrengthIndex.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.UpDay" href="#backtrader.indicators.rsi.UpDay">UpDay</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.UpDay.alias" href="#backtrader.indicators.rsi.UpDay.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDay.aliased" href="#backtrader.indicators.rsi.UpDay.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDay.frompackages" href="#backtrader.indicators.rsi.UpDay.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDay.linealias" href="#backtrader.indicators.rsi.UpDay.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDay.packages" href="#backtrader.indicators.rsi.UpDay.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDay.params" href="#backtrader.indicators.rsi.UpDay.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDay.plotinfo" href="#backtrader.indicators.rsi.UpDay.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDay.plotlines" href="#backtrader.indicators.rsi.UpDay.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.indicators.rsi.UpDayBool" href="#backtrader.indicators.rsi.UpDayBool">UpDayBool</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.indicators.rsi.UpDayBool.alias" href="#backtrader.indicators.rsi.UpDayBool.alias">alias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDayBool.aliased" href="#backtrader.indicators.rsi.UpDayBool.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDayBool.frompackages" href="#backtrader.indicators.rsi.UpDayBool.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDayBool.linealias" href="#backtrader.indicators.rsi.UpDayBool.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDayBool.packages" href="#backtrader.indicators.rsi.UpDayBool.packages">packages</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDayBool.params" href="#backtrader.indicators.rsi.UpDayBool.params">params</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDayBool.plotinfo" href="#backtrader.indicators.rsi.UpDayBool.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.indicators.rsi.UpDayBool.plotlines" href="#backtrader.indicators.rsi.UpDayBool.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

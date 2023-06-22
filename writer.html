@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.writer API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.writer</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+import collections
+import io
+import itertools
+import sys
+
+try:  # For new Python versions
+    collectionsAbc = collections.abc  # collections.Iterable -&gt; collections.abc.Iterable
+except AttributeError:  # For old Python versions
+    collectionsAbc = collections  # Используем collections.Iterable
+
+import backtrader as bt
+from backtrader.utils.py3 import (map, with_metaclass, string_types,
+                                  integer_types)
+
+
+class WriterBase(with_metaclass(bt.MetaParams, object)):
+    pass
+
+
+class WriterFile(WriterBase):
+    &#39;&#39;&#39;The system wide writer class.
+
+    It can be parametrized with:
+
+      - ``out`` (default: ``sys.stdout``): output stream to write to
+
+        If a string is passed a filename with the content of the parameter will
+        be used.
+
+        If you wish to run with ``sys.stdout`` while doing multiprocess optimization, leave it as ``None``, which will
+        automatically initiate ``sys.stdout`` on the child processes.
+
+      - ``close_out``  (default: ``False``)
+
+        If ``out`` is a stream whether it has to be explicitly closed by the
+        writer
+
+      - ``csv`` (default: ``False``)
+
+        If a csv stream of the data feeds, strategies, observers and indicators
+        has to be written to the stream during execution
+
+        Which objects actually go into the csv stream can be controlled with
+        the ``csv`` attribute of each object (defaults to ``True`` for ``data
+        feeds`` and ``observers`` / False for ``indicators``)
+
+      - ``csv_filternan`` (default: ``True``) whether ``nan`` values have to be
+        purged out of the csv stream (replaced by an empty field)
+
+      - ``csv_counter`` (default: ``True``) if the writer shall keep and print
+        out a counter of the lines actually output
+
+      - ``indent`` (default: ``2``) indentation spaces for each level
+
+      - ``separators`` (default: ``[&#39;=&#39;, &#39;-&#39;, &#39;+&#39;, &#39;*&#39;, &#39;.&#39;, &#39;~&#39;, &#39;&#34;&#39;, &#39;^&#39;,
+        &#39;#&#39;]``)
+
+        Characters used for line separators across section/sub(sub)sections
+
+      - ``seplen`` (default: ``79``)
+
+        total length of a line separator including indentation
+
+      - ``rounding`` (default: ``None``)
+
+        Number of decimal places to round floats down to. With ``None`` no
+        rounding is performed
+
+    &#39;&#39;&#39;
+    params = (
+        (&#39;out&#39;, None),
+        (&#39;close_out&#39;, False),
+
+        (&#39;csv&#39;, False),
+        (&#39;csvsep&#39;, &#39;,&#39;),
+        (&#39;csv_filternan&#39;, True),
+        (&#39;csv_counter&#39;, True),
+
+        (&#39;indent&#39;, 2),
+        (&#39;separators&#39;, [&#39;=&#39;, &#39;-&#39;, &#39;+&#39;, &#39;*&#39;, &#39;.&#39;, &#39;~&#39;, &#39;&#34;&#39;, &#39;^&#39;, &#39;#&#39;]),
+        (&#39;seplen&#39;, 79),
+        (&#39;rounding&#39;, None),
+    )
+
+    def __init__(self):
+        self._len = itertools.count(1)
+        self.headers = list()
+        self.values = list()
+
+    def _start_output(self):
+        # open file if needed
+        if not hasattr(self, &#39;out&#39;) or not self.out:
+            if self.p.out is None:
+                self.out = sys.stdout
+                self.close_out = False
+            elif isinstance(self.p.out, string_types):
+                self.out = open(self.p.out, &#39;w&#39;)
+                self.close_out = True
+            else:
+                self.out = self.p.out
+                self.close_out = self.p.close_out
+
+    def start(self):
+        self._start_output()
+
+        if self.p.csv:
+            self.writelineseparator()
+            self.writeiterable(self.headers, counter=&#39;Id&#39;)
+
+    def stop(self):
+        if self.close_out:
+            self.out.close()
+
+    def next(self):
+        if self.p.csv:
+            self.writeiterable(self.values, func=str, counter=next(self._len))
+            self.values = list()
+
+    def addheaders(self, headers):
+        if self.p.csv:
+            self.headers.extend(headers)
+
+    def addvalues(self, values):
+        if self.p.csv:
+            if self.p.csv_filternan:
+                values = map(lambda x: x if x == x else &#39;&#39;, values)
+            self.values.extend(values)
+
+    def writeiterable(self, iterable, func=None, counter=&#39;&#39;):
+        if self.p.csv_counter:
+            iterable = itertools.chain([counter], iterable)
+
+        if func is not None:
+            iterable = map(lambda x: func(x), iterable)
+
+        line = self.p.csvsep.join(iterable)
+        self.writeline(line)
+
+    def writeline(self, line):
+        self.out.write(line + &#39;\n&#39;)
+
+    def writelines(self, lines):
+        for l in lines:
+            self.out.write(l + &#39;\n&#39;)
+
+    def writelineseparator(self, level=0):
+        sepnum = level % len(self.p.separators)
+        separator = self.p.separators[sepnum]
+
+        line = &#39; &#39; * (level * self.p.indent)
+        line += separator * (self.p.seplen - (level * self.p.indent))
+        self.writeline(line)
+
+    def writedict(self, dct, level=0, recurse=False):
+        if not recurse:
+            self.writelineseparator(level)
+
+        indent0 = level * self.p.indent
+        for key, val in dct.items():
+            kline = &#39; &#39; * indent0
+            if recurse:
+                kline += &#39;- &#39;
+
+            kline += str(key) + &#39;:&#39;
+
+            try:
+                sclass = issubclass(val, bt.LineSeries)
+            except TypeError:
+                sclass = False
+
+            if sclass:
+                kline += &#39; &#39; + val.__name__
+                self.writeline(kline)
+            elif isinstance(val, string_types):
+                kline += &#39; &#39; + val
+                self.writeline(kline)
+            elif isinstance(val, integer_types):
+                kline += &#39; &#39; + str(val)
+                self.writeline(kline)
+            elif isinstance(val, float):
+                if self.p.rounding is not None:
+                    val = round(val, self.p.rounding)
+                kline += &#39; &#39; + str(val)
+                self.writeline(kline)
+            elif isinstance(val, dict):
+                if recurse:
+                    self.writelineseparator(level=level)
+                self.writeline(kline)
+                self.writedict(val, level=level + 1, recurse=True)
+            elif isinstance(val, (list, tuple, collectionsAbc.Iterable)):  # Для разных версий Python будут вызываться разные функции
+                line = &#39;, &#39;.join(map(str, val))
+                self.writeline(kline + &#39; &#39; + line)
+            else:
+                kline += &#39; &#39; + str(val)
+                self.writeline(kline)
+
+
+class WriterStringIO(WriterFile):
+    params = ((&#39;out&#39;, io.StringIO),)
+
+    def __init__(self):
+        super(WriterStringIO, self).__init__()
+
+    def _start_output(self):
+        super(WriterStringIO, self)._start_output()
+        self.out = self.out()
+
+    def stop(self):
+        super(WriterStringIO, self).stop()
+        # Leave the file positioned at the beginning
+        self.out.seek(0)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.writer.WriterBase"><code class="flex name class">
+<span>class <span class="ident">WriterBase</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WriterBase(with_metaclass(bt.MetaParams, object)):
+    pass</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.writer.WriterFile" href="#backtrader.writer.WriterFile">WriterFile</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.writer.WriterBase.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.writer.WriterBase.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.writer.WriterBase.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="backtrader.writer.WriterFile"><code class="flex name class">
+<span>class <span class="ident">WriterFile</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>The system wide writer class.</p>
+<p>It can be parametrized with:</p>
+<ul>
+<li>
+<p><code>out</code> (default: <code>sys.stdout</code>): output stream to write to</p>
+<p>If a string is passed a filename with the content of the parameter will
+be used.</p>
+<p>If you wish to run with <code>sys.stdout</code> while doing multiprocess optimization, leave it as <code>None</code>, which will
+automatically initiate <code>sys.stdout</code> on the child processes.</p>
+</li>
+<li>
+<p><code>close_out</code>
+(default: <code>False</code>)</p>
+<p>If <code>out</code> is a stream whether it has to be explicitly closed by the
+writer</p>
+</li>
+<li>
+<p><code>csv</code> (default: <code>False</code>)</p>
+<p>If a csv stream of the data feeds, strategies, observers and indicators
+has to be written to the stream during execution</p>
+<p>Which objects actually go into the csv stream can be controlled with
+the <code>csv</code> attribute of each object (defaults to <code>True</code> for <code>data
+feeds&lt;code&gt; and &lt;/code&gt;observers</code> / False for <code>indicators</code>)</p>
+</li>
+<li>
+<p><code>csv_filternan</code> (default: <code>True</code>) whether <code>nan</code> values have to be
+purged out of the csv stream (replaced by an empty field)</p>
+</li>
+<li>
+<p><code>csv_counter</code> (default: <code>True</code>) if the writer shall keep and print
+out a counter of the lines actually output</p>
+</li>
+<li>
+<p><code>indent</code> (default: <code>2</code>) indentation spaces for each level</p>
+</li>
+<li>
+<p><code>separators</code> (default: <code>['=', '-', '+', '*', '.', '~', '"', '^',
+'#']</code>)</p>
+<p>Characters used for line separators across section/sub(sub)sections</p>
+</li>
+<li>
+<p><code>seplen</code> (default: <code>79</code>)</p>
+<p>total length of a line separator including indentation</p>
+</li>
+<li>
+<p><code>rounding</code> (default: <code>None</code>)</p>
+<p>Number of decimal places to round floats down to. With <code>None</code> no
+rounding is performed</p>
+</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WriterFile(WriterBase):
+    &#39;&#39;&#39;The system wide writer class.
+
+    It can be parametrized with:
+
+      - ``out`` (default: ``sys.stdout``): output stream to write to
+
+        If a string is passed a filename with the content of the parameter will
+        be used.
+
+        If you wish to run with ``sys.stdout`` while doing multiprocess optimization, leave it as ``None``, which will
+        automatically initiate ``sys.stdout`` on the child processes.
+
+      - ``close_out``  (default: ``False``)
+
+        If ``out`` is a stream whether it has to be explicitly closed by the
+        writer
+
+      - ``csv`` (default: ``False``)
+
+        If a csv stream of the data feeds, strategies, observers and indicators
+        has to be written to the stream during execution
+
+        Which objects actually go into the csv stream can be controlled with
+        the ``csv`` attribute of each object (defaults to ``True`` for ``data
+        feeds`` and ``observers`` / False for ``indicators``)
+
+      - ``csv_filternan`` (default: ``True``) whether ``nan`` values have to be
+        purged out of the csv stream (replaced by an empty field)
+
+      - ``csv_counter`` (default: ``True``) if the writer shall keep and print
+        out a counter of the lines actually output
+
+      - ``indent`` (default: ``2``) indentation spaces for each level
+
+      - ``separators`` (default: ``[&#39;=&#39;, &#39;-&#39;, &#39;+&#39;, &#39;*&#39;, &#39;.&#39;, &#39;~&#39;, &#39;&#34;&#39;, &#39;^&#39;,
+        &#39;#&#39;]``)
+
+        Characters used for line separators across section/sub(sub)sections
+
+      - ``seplen`` (default: ``79``)
+
+        total length of a line separator including indentation
+
+      - ``rounding`` (default: ``None``)
+
+        Number of decimal places to round floats down to. With ``None`` no
+        rounding is performed
+
+    &#39;&#39;&#39;
+    params = (
+        (&#39;out&#39;, None),
+        (&#39;close_out&#39;, False),
+
+        (&#39;csv&#39;, False),
+        (&#39;csvsep&#39;, &#39;,&#39;),
+        (&#39;csv_filternan&#39;, True),
+        (&#39;csv_counter&#39;, True),
+
+        (&#39;indent&#39;, 2),
+        (&#39;separators&#39;, [&#39;=&#39;, &#39;-&#39;, &#39;+&#39;, &#39;*&#39;, &#39;.&#39;, &#39;~&#39;, &#39;&#34;&#39;, &#39;^&#39;, &#39;#&#39;]),
+        (&#39;seplen&#39;, 79),
+        (&#39;rounding&#39;, None),
+    )
+
+    def __init__(self):
+        self._len = itertools.count(1)
+        self.headers = list()
+        self.values = list()
+
+    def _start_output(self):
+        # open file if needed
+        if not hasattr(self, &#39;out&#39;) or not self.out:
+            if self.p.out is None:
+                self.out = sys.stdout
+                self.close_out = False
+            elif isinstance(self.p.out, string_types):
+                self.out = open(self.p.out, &#39;w&#39;)
+                self.close_out = True
+            else:
+                self.out = self.p.out
+                self.close_out = self.p.close_out
+
+    def start(self):
+        self._start_output()
+
+        if self.p.csv:
+            self.writelineseparator()
+            self.writeiterable(self.headers, counter=&#39;Id&#39;)
+
+    def stop(self):
+        if self.close_out:
+            self.out.close()
+
+    def next(self):
+        if self.p.csv:
+            self.writeiterable(self.values, func=str, counter=next(self._len))
+            self.values = list()
+
+    def addheaders(self, headers):
+        if self.p.csv:
+            self.headers.extend(headers)
+
+    def addvalues(self, values):
+        if self.p.csv:
+            if self.p.csv_filternan:
+                values = map(lambda x: x if x == x else &#39;&#39;, values)
+            self.values.extend(values)
+
+    def writeiterable(self, iterable, func=None, counter=&#39;&#39;):
+        if self.p.csv_counter:
+            iterable = itertools.chain([counter], iterable)
+
+        if func is not None:
+            iterable = map(lambda x: func(x), iterable)
+
+        line = self.p.csvsep.join(iterable)
+        self.writeline(line)
+
+    def writeline(self, line):
+        self.out.write(line + &#39;\n&#39;)
+
+    def writelines(self, lines):
+        for l in lines:
+            self.out.write(l + &#39;\n&#39;)
+
+    def writelineseparator(self, level=0):
+        sepnum = level % len(self.p.separators)
+        separator = self.p.separators[sepnum]
+
+        line = &#39; &#39; * (level * self.p.indent)
+        line += separator * (self.p.seplen - (level * self.p.indent))
+        self.writeline(line)
+
+    def writedict(self, dct, level=0, recurse=False):
+        if not recurse:
+            self.writelineseparator(level)
+
+        indent0 = level * self.p.indent
+        for key, val in dct.items():
+            kline = &#39; &#39; * indent0
+            if recurse:
+                kline += &#39;- &#39;
+
+            kline += str(key) + &#39;:&#39;
+
+            try:
+                sclass = issubclass(val, bt.LineSeries)
+            except TypeError:
+                sclass = False
+
+            if sclass:
+                kline += &#39; &#39; + val.__name__
+                self.writeline(kline)
+            elif isinstance(val, string_types):
+                kline += &#39; &#39; + val
+                self.writeline(kline)
+            elif isinstance(val, integer_types):
+                kline += &#39; &#39; + str(val)
+                self.writeline(kline)
+            elif isinstance(val, float):
+                if self.p.rounding is not None:
+                    val = round(val, self.p.rounding)
+                kline += &#39; &#39; + str(val)
+                self.writeline(kline)
+            elif isinstance(val, dict):
+                if recurse:
+                    self.writelineseparator(level=level)
+                self.writeline(kline)
+                self.writedict(val, level=level + 1, recurse=True)
+            elif isinstance(val, (list, tuple, collectionsAbc.Iterable)):  # Для разных версий Python будут вызываться разные функции
+                line = &#39;, &#39;.join(map(str, val))
+                self.writeline(kline + &#39; &#39; + line)
+            else:
+                kline += &#39; &#39; + str(val)
+                self.writeline(kline)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.writer.WriterBase" href="#backtrader.writer.WriterBase">WriterBase</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.writer.WriterStringIO" href="#backtrader.writer.WriterStringIO">WriterStringIO</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.writer.WriterFile.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.writer.WriterFile.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.writer.WriterFile.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.writer.WriterFile.addheaders"><code class="name flex">
+<span>def <span class="ident">addheaders</span></span>(<span>self, headers)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addheaders(self, headers):
+    if self.p.csv:
+        self.headers.extend(headers)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.writer.WriterFile.addvalues"><code class="name flex">
+<span>def <span class="ident">addvalues</span></span>(<span>self, values)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addvalues(self, values):
+    if self.p.csv:
+        if self.p.csv_filternan:
+            values = map(lambda x: x if x == x else &#39;&#39;, values)
+        self.values.extend(values)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.writer.WriterFile.next"><code class="name flex">
+<span>def <span class="ident">next</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def next(self):
+    if self.p.csv:
+        self.writeiterable(self.values, func=str, counter=next(self._len))
+        self.values = list()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.writer.WriterFile.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    self._start_output()
+
+    if self.p.csv:
+        self.writelineseparator()
+        self.writeiterable(self.headers, counter=&#39;Id&#39;)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.writer.WriterFile.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stop(self):
+    if self.close_out:
+        self.out.close()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.writer.WriterFile.writedict"><code class="name flex">
+<span>def <span class="ident">writedict</span></span>(<span>self, dct, level=0, recurse=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def writedict(self, dct, level=0, recurse=False):
+    if not recurse:
+        self.writelineseparator(level)
+
+    indent0 = level * self.p.indent
+    for key, val in dct.items():
+        kline = &#39; &#39; * indent0
+        if recurse:
+            kline += &#39;- &#39;
+
+        kline += str(key) + &#39;:&#39;
+
+        try:
+            sclass = issubclass(val, bt.LineSeries)
+        except TypeError:
+            sclass = False
+
+        if sclass:
+            kline += &#39; &#39; + val.__name__
+            self.writeline(kline)
+        elif isinstance(val, string_types):
+            kline += &#39; &#39; + val
+            self.writeline(kline)
+        elif isinstance(val, integer_types):
+            kline += &#39; &#39; + str(val)
+            self.writeline(kline)
+        elif isinstance(val, float):
+            if self.p.rounding is not None:
+                val = round(val, self.p.rounding)
+            kline += &#39; &#39; + str(val)
+            self.writeline(kline)
+        elif isinstance(val, dict):
+            if recurse:
+                self.writelineseparator(level=level)
+            self.writeline(kline)
+            self.writedict(val, level=level + 1, recurse=True)
+        elif isinstance(val, (list, tuple, collectionsAbc.Iterable)):  # Для разных версий Python будут вызываться разные функции
+            line = &#39;, &#39;.join(map(str, val))
+            self.writeline(kline + &#39; &#39; + line)
+        else:
+            kline += &#39; &#39; + str(val)
+            self.writeline(kline)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.writer.WriterFile.writeiterable"><code class="name flex">
+<span>def <span class="ident">writeiterable</span></span>(<span>self, iterable, func=None, counter='')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def writeiterable(self, iterable, func=None, counter=&#39;&#39;):
+    if self.p.csv_counter:
+        iterable = itertools.chain([counter], iterable)
+
+    if func is not None:
+        iterable = map(lambda x: func(x), iterable)
+
+    line = self.p.csvsep.join(iterable)
+    self.writeline(line)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.writer.WriterFile.writeline"><code class="name flex">
+<span>def <span class="ident">writeline</span></span>(<span>self, line)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def writeline(self, line):
+    self.out.write(line + &#39;\n&#39;)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.writer.WriterFile.writelines"><code class="name flex">
+<span>def <span class="ident">writelines</span></span>(<span>self, lines)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def writelines(self, lines):
+    for l in lines:
+        self.out.write(l + &#39;\n&#39;)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.writer.WriterFile.writelineseparator"><code class="name flex">
+<span>def <span class="ident">writelineseparator</span></span>(<span>self, level=0)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def writelineseparator(self, level=0):
+    sepnum = level % len(self.p.separators)
+    separator = self.p.separators[sepnum]
+
+    line = &#39; &#39; * (level * self.p.indent)
+    line += separator * (self.p.seplen - (level * self.p.indent))
+    self.writeline(line)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="backtrader.writer.WriterStringIO"><code class="flex name class">
+<span>class <span class="ident">WriterStringIO</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>The system wide writer class.</p>
+<p>It can be parametrized with:</p>
+<ul>
+<li>
+<p><code>out</code> (default: <code>sys.stdout</code>): output stream to write to</p>
+<p>If a string is passed a filename with the content of the parameter will
+be used.</p>
+<p>If you wish to run with <code>sys.stdout</code> while doing multiprocess optimization, leave it as <code>None</code>, which will
+automatically initiate <code>sys.stdout</code> on the child processes.</p>
+</li>
+<li>
+<p><code>close_out</code>
+(default: <code>False</code>)</p>
+<p>If <code>out</code> is a stream whether it has to be explicitly closed by the
+writer</p>
+</li>
+<li>
+<p><code>csv</code> (default: <code>False</code>)</p>
+<p>If a csv stream of the data feeds, strategies, observers and indicators
+has to be written to the stream during execution</p>
+<p>Which objects actually go into the csv stream can be controlled with
+the <code>csv</code> attribute of each object (defaults to <code>True</code> for <code>data
+feeds&lt;code&gt; and &lt;/code&gt;observers</code> / False for <code>indicators</code>)</p>
+</li>
+<li>
+<p><code>csv_filternan</code> (default: <code>True</code>) whether <code>nan</code> values have to be
+purged out of the csv stream (replaced by an empty field)</p>
+</li>
+<li>
+<p><code>csv_counter</code> (default: <code>True</code>) if the writer shall keep and print
+out a counter of the lines actually output</p>
+</li>
+<li>
+<p><code>indent</code> (default: <code>2</code>) indentation spaces for each level</p>
+</li>
+<li>
+<p><code>separators</code> (default: <code>['=', '-', '+', '*', '.', '~', '"', '^',
+'#']</code>)</p>
+<p>Characters used for line separators across section/sub(sub)sections</p>
+</li>
+<li>
+<p><code>seplen</code> (default: <code>79</code>)</p>
+<p>total length of a line separator including indentation</p>
+</li>
+<li>
+<p><code>rounding</code> (default: <code>None</code>)</p>
+<p>Number of decimal places to round floats down to. With <code>None</code> no
+rounding is performed</p>
+</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WriterStringIO(WriterFile):
+    params = ((&#39;out&#39;, io.StringIO),)
+
+    def __init__(self):
+        super(WriterStringIO, self).__init__()
+
+    def _start_output(self):
+        super(WriterStringIO, self)._start_output()
+        self.out = self.out()
+
+    def stop(self):
+        super(WriterStringIO, self).stop()
+        # Leave the file positioned at the beginning
+        self.out.seek(0)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.writer.WriterFile" href="#backtrader.writer.WriterFile">WriterFile</a></li>
+<li><a title="backtrader.writer.WriterBase" href="#backtrader.writer.WriterBase">WriterBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.writer.WriterStringIO.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.writer.WriterStringIO.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.writer.WriterStringIO.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.writer.WriterStringIO.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stop(self):
+    super(WriterStringIO, self).stop()
+    # Leave the file positioned at the beginning
+    self.out.seek(0)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader" href="index.html">backtrader</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.writer.WriterBase" href="#backtrader.writer.WriterBase">WriterBase</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.writer.WriterBase.frompackages" href="#backtrader.writer.WriterBase.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.writer.WriterBase.packages" href="#backtrader.writer.WriterBase.packages">packages</a></code></li>
+<li><code><a title="backtrader.writer.WriterBase.params" href="#backtrader.writer.WriterBase.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.writer.WriterFile" href="#backtrader.writer.WriterFile">WriterFile</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.writer.WriterFile.addheaders" href="#backtrader.writer.WriterFile.addheaders">addheaders</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.addvalues" href="#backtrader.writer.WriterFile.addvalues">addvalues</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.frompackages" href="#backtrader.writer.WriterFile.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.next" href="#backtrader.writer.WriterFile.next">next</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.packages" href="#backtrader.writer.WriterFile.packages">packages</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.params" href="#backtrader.writer.WriterFile.params">params</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.start" href="#backtrader.writer.WriterFile.start">start</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.stop" href="#backtrader.writer.WriterFile.stop">stop</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.writedict" href="#backtrader.writer.WriterFile.writedict">writedict</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.writeiterable" href="#backtrader.writer.WriterFile.writeiterable">writeiterable</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.writeline" href="#backtrader.writer.WriterFile.writeline">writeline</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.writelines" href="#backtrader.writer.WriterFile.writelines">writelines</a></code></li>
+<li><code><a title="backtrader.writer.WriterFile.writelineseparator" href="#backtrader.writer.WriterFile.writelineseparator">writelineseparator</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.writer.WriterStringIO" href="#backtrader.writer.WriterStringIO">WriterStringIO</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.writer.WriterStringIO.frompackages" href="#backtrader.writer.WriterStringIO.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.writer.WriterStringIO.packages" href="#backtrader.writer.WriterStringIO.packages">packages</a></code></li>
+<li><code><a title="backtrader.writer.WriterStringIO.params" href="#backtrader.writer.WriterStringIO.params">params</a></code></li>
+<li><code><a title="backtrader.writer.WriterStringIO.stop" href="#backtrader.writer.WriterStringIO.stop">stop</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
