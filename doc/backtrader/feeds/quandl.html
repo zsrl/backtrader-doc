@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.feeds.quandl API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.feeds.quandl</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+import collections
+from datetime import date, datetime
+import io
+import itertools
+
+from ..utils.py3 import (urlopen, urlquote, ProxyHandler, build_opener,
+                         install_opener)
+
+from .. import feed
+from ..utils import date2num
+
+
+__all__ = [&#39;QuandlCSV&#39;, &#39;Quandl&#39;]
+
+
+class QuandlCSV(feed.CSVDataBase):
+    &#39;&#39;&#39;
+    Parses pre-downloaded Quandl CSV Data Feeds (or locally generated if they
+    comply to the Quandl format)
+
+    Specific parameters:
+
+      - ``dataname``: The filename to parse or a file-like object
+
+      - ``reverse`` (default: ``False``)
+
+        It is assumed that locally stored files have already been reversed
+        during the download process
+
+      - ``adjclose`` (default: ``True``)
+
+        Whether to use the dividend/split adjusted close and adjust all
+        values according to it.
+
+      - ``round`` (default: ``False``)
+
+        Whether to round the values to a specific number of decimals after
+        having adjusted the close
+
+      - ``decimals`` (default: ``2``)
+
+        Number of decimals to round to
+    &#39;&#39;&#39;
+    _online = False  # flag to avoid double reversal
+
+    params = (
+        (&#39;reverse&#39;, False),
+        (&#39;adjclose&#39;, True),
+        (&#39;round&#39;, False),
+        (&#39;decimals&#39;, 2),
+    )
+
+    def start(self):
+        super(QuandlCSV, self).start()
+
+        if not self.params.reverse:
+            return
+        elif self._online:
+            return  # revers is True but also online, managed with order=asc
+
+        # Quandl data can be in reverse order -&gt; reverse
+        dq = collections.deque()
+        for line in self.f:
+            dq.appendleft(line)
+
+        f = io.StringIO(newline=None)
+        f.writelines(dq)
+        f.seek(0)
+        self.f.close()
+        self.f = f
+
+    def _loadline(self, linetokens):
+        i = itertools.count(0)
+
+        dttxt = linetokens[next(i)]  # YYYY-MM-DD
+        dt = date(int(dttxt[0:4]), int(dttxt[5:7]), int(dttxt[8:10]))
+        dtnum = date2num(datetime.combine(dt, self.p.sessionend))
+
+        self.lines.datetime[0] = dtnum
+        if self.p.adjclose:
+            for _ in range(7):
+                next(i)  # skip ohlcv, ex-dividend, split ratio
+
+        o = float(linetokens[next(i)])
+        h = float(linetokens[next(i)])
+        l = float(linetokens[next(i)])
+        c = float(linetokens[next(i)])
+        v = float(linetokens[next(i)])
+        self.lines.openinterest[0] = 0.0
+
+        if self.p.round:
+            decimals = self.p.decimals
+            o = round(o, decimals)
+            h = round(h, decimals)
+            l = round(l, decimals)
+            c = round(c, decimals)
+            v = round(v, decimals)
+
+        self.lines.open[0] = o
+        self.lines.high[0] = h
+        self.lines.low[0] = l
+        self.lines.close[0] = c
+        self.lines.volume[0] = v
+
+        return True
+
+
+class Quandl(QuandlCSV):
+    &#39;&#39;&#39;
+    Executes a direct download of data from Quandl servers for the given time
+    range.
+
+    Specific parameters (or specific meaning):
+
+      - ``dataname``
+
+        The ticker to download (&#39;YHOO&#39; for example)
+
+      - ``baseurl``
+
+        The server url. Someone might decide to open a Quandl compatible
+        service in the future.
+
+      - ``proxies``
+
+        A dict indicating which proxy to go through for the download as in
+        {&#39;http&#39;: &#39;http://myproxy.com&#39;} or {&#39;http&#39;: &#39;http://127.0.0.1:8080&#39;}
+
+      - ``buffered``
+
+        If True the entire socket connection wil be buffered locally before
+        parsing starts.
+
+      - ``reverse``
+
+        Quandl returns the value in descending order (newest first). If this is
+        ``True`` (the default), the request will tell Quandl to return in
+        ascending (oldest to newest) format
+
+      - ``adjclose``
+
+        Whether to use the dividend/split adjusted close and adjust all values
+        according to it.
+
+      - ``apikey``
+
+        apikey identification in case it may be needed
+
+      - ``dataset``
+
+        string identifying the dataset to query. Defaults to ``WIKI``
+
+      &#39;&#39;&#39;
+
+    _online = True  # flag to avoid double reversal
+
+    params = (
+        (&#39;baseurl&#39;, &#39;https://www.quandl.com/api/v3/datasets&#39;),
+        (&#39;proxies&#39;, {}),
+        (&#39;buffered&#39;, True),
+        (&#39;reverse&#39;, True),
+        (&#39;apikey&#39;, None),
+        (&#39;dataset&#39;, &#39;WIKI&#39;),
+    )
+
+    def start(self):
+        self.error = None
+
+        url = &#39;{}/{}/{}.csv&#39;.format(
+            self.p.baseurl, self.p.dataset, urlquote(self.p.dataname))
+
+        urlargs = []
+        if self.p.reverse:
+            urlargs.append(&#39;order=asc&#39;)
+
+        if self.p.apikey is not None:
+            urlargs.append(&#39;api_key={}&#39;.format(self.p.apikey))
+
+        if self.p.fromdate:
+            dtxt = self.p.fromdate.strftime(&#39;%Y-%m-%d&#39;)
+            urlargs.append(&#39;start_date={}&#39;.format(dtxt))
+
+        if self.p.todate:
+            dtxt = self.p.todate.strftime(&#39;%Y-%m-%d&#39;)
+            urlargs.append(&#39;end_date={}&#39;.format(dtxt))
+
+        if urlargs:
+            url += &#39;?&#39; + &#39;&amp;&#39;.join(urlargs)
+
+        if self.p.proxies:
+            proxy = ProxyHandler(self.p.proxies)
+            opener = build_opener(proxy)
+            install_opener(opener)
+
+        try:
+            datafile = urlopen(url)
+        except IOError as e:
+            self.error = str(e)
+            # leave us empty
+            return
+
+        if datafile.headers[&#39;Content-Type&#39;] != &#39;text/csv&#39;:
+            self.error = &#39;Wrong content type: %s&#39; % datafile.headers
+            return  # HTML returned? wrong url?
+
+        if self.params.buffered:
+            # buffer everything from the socket into a local buffer
+            f = io.StringIO(datafile.read().decode(&#39;utf-8&#39;), newline=None)
+            datafile.close()
+        else:
+            f = datafile
+
+        self.f = f
+
+        # Prepared a &#34;path&#34; file -  CSV Parser can take over
+        super(Quandl, self).start()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.feeds.quandl.Quandl"><code class="flex name class">
+<span>class <span class="ident">Quandl</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Executes a direct download of data from Quandl servers for the given time
+range.</p>
+<p>Specific parameters (or specific meaning):</p>
+<ul>
+<li>
+<p><code>dataname</code></p>
+<p>The ticker to download ('YHOO' for example)</p>
+</li>
+<li>
+<p><code>baseurl</code></p>
+<p>The server url. Someone might decide to open a Quandl compatible
+service in the future.</p>
+</li>
+<li>
+<p><code>proxies</code></p>
+<p>A dict indicating which proxy to go through for the download as in
+{'http': 'http://myproxy.com'} or {'http': 'http://127.0.0.1:8080'}</p>
+</li>
+<li>
+<p><code>buffered</code></p>
+<p>If True the entire socket connection wil be buffered locally before
+parsing starts.</p>
+</li>
+<li>
+<p><code>reverse</code></p>
+<p>Quandl returns the value in descending order (newest first). If this is
+<code>True</code> (the default), the request will tell Quandl to return in
+ascending (oldest to newest) format</p>
+</li>
+<li>
+<p><code>adjclose</code></p>
+<p>Whether to use the dividend/split adjusted close and adjust all values
+according to it.</p>
+</li>
+<li>
+<p><code>apikey</code></p>
+<p>apikey identification in case it may be needed</p>
+</li>
+<li>
+<p><code>dataset</code></p>
+<p>string identifying the dataset to query. Defaults to <code>WIKI</code></p>
+</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Quandl(QuandlCSV):
+    &#39;&#39;&#39;
+    Executes a direct download of data from Quandl servers for the given time
+    range.
+
+    Specific parameters (or specific meaning):
+
+      - ``dataname``
+
+        The ticker to download (&#39;YHOO&#39; for example)
+
+      - ``baseurl``
+
+        The server url. Someone might decide to open a Quandl compatible
+        service in the future.
+
+      - ``proxies``
+
+        A dict indicating which proxy to go through for the download as in
+        {&#39;http&#39;: &#39;http://myproxy.com&#39;} or {&#39;http&#39;: &#39;http://127.0.0.1:8080&#39;}
+
+      - ``buffered``
+
+        If True the entire socket connection wil be buffered locally before
+        parsing starts.
+
+      - ``reverse``
+
+        Quandl returns the value in descending order (newest first). If this is
+        ``True`` (the default), the request will tell Quandl to return in
+        ascending (oldest to newest) format
+
+      - ``adjclose``
+
+        Whether to use the dividend/split adjusted close and adjust all values
+        according to it.
+
+      - ``apikey``
+
+        apikey identification in case it may be needed
+
+      - ``dataset``
+
+        string identifying the dataset to query. Defaults to ``WIKI``
+
+      &#39;&#39;&#39;
+
+    _online = True  # flag to avoid double reversal
+
+    params = (
+        (&#39;baseurl&#39;, &#39;https://www.quandl.com/api/v3/datasets&#39;),
+        (&#39;proxies&#39;, {}),
+        (&#39;buffered&#39;, True),
+        (&#39;reverse&#39;, True),
+        (&#39;apikey&#39;, None),
+        (&#39;dataset&#39;, &#39;WIKI&#39;),
+    )
+
+    def start(self):
+        self.error = None
+
+        url = &#39;{}/{}/{}.csv&#39;.format(
+            self.p.baseurl, self.p.dataset, urlquote(self.p.dataname))
+
+        urlargs = []
+        if self.p.reverse:
+            urlargs.append(&#39;order=asc&#39;)
+
+        if self.p.apikey is not None:
+            urlargs.append(&#39;api_key={}&#39;.format(self.p.apikey))
+
+        if self.p.fromdate:
+            dtxt = self.p.fromdate.strftime(&#39;%Y-%m-%d&#39;)
+            urlargs.append(&#39;start_date={}&#39;.format(dtxt))
+
+        if self.p.todate:
+            dtxt = self.p.todate.strftime(&#39;%Y-%m-%d&#39;)
+            urlargs.append(&#39;end_date={}&#39;.format(dtxt))
+
+        if urlargs:
+            url += &#39;?&#39; + &#39;&amp;&#39;.join(urlargs)
+
+        if self.p.proxies:
+            proxy = ProxyHandler(self.p.proxies)
+            opener = build_opener(proxy)
+            install_opener(opener)
+
+        try:
+            datafile = urlopen(url)
+        except IOError as e:
+            self.error = str(e)
+            # leave us empty
+            return
+
+        if datafile.headers[&#39;Content-Type&#39;] != &#39;text/csv&#39;:
+            self.error = &#39;Wrong content type: %s&#39; % datafile.headers
+            return  # HTML returned? wrong url?
+
+        if self.params.buffered:
+            # buffer everything from the socket into a local buffer
+            f = io.StringIO(datafile.read().decode(&#39;utf-8&#39;), newline=None)
+            datafile.close()
+        else:
+            f = datafile
+
+        self.f = f
+
+        # Prepared a &#34;path&#34; file -  CSV Parser can take over
+        super(Quandl, self).start()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.feeds.quandl.QuandlCSV" href="#backtrader.feeds.quandl.QuandlCSV">QuandlCSV</a></li>
+<li><a title="backtrader.feed.CSVDataBase" href="../feed.html#backtrader.feed.CSVDataBase">CSVDataBase</a></li>
+<li><a title="backtrader.feed.DataBase" href="../feed.html#backtrader.feed.DataBase">DataBase</a></li>
+<li><a title="backtrader.feed.AbstractDataBase" href="../feed.html#backtrader.feed.AbstractDataBase">AbstractDataBase</a></li>
+<li><a title="backtrader.dataseries.OHLCDateTime" href="../dataseries.html#backtrader.dataseries.OHLCDateTime">OHLCDateTime</a></li>
+<li><a title="backtrader.dataseries.OHLC" href="../dataseries.html#backtrader.dataseries.OHLC">OHLC</a></li>
+<li><a title="backtrader.dataseries.DataSeries" href="../dataseries.html#backtrader.dataseries.DataSeries">DataSeries</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.feeds.quandl.Quandl.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.Quandl.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.Quandl.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.Quandl.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.Quandl.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.Quandl.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.Quandl.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.Quandl.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.feeds.quandl.Quandl.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    self.error = None
+
+    url = &#39;{}/{}/{}.csv&#39;.format(
+        self.p.baseurl, self.p.dataset, urlquote(self.p.dataname))
+
+    urlargs = []
+    if self.p.reverse:
+        urlargs.append(&#39;order=asc&#39;)
+
+    if self.p.apikey is not None:
+        urlargs.append(&#39;api_key={}&#39;.format(self.p.apikey))
+
+    if self.p.fromdate:
+        dtxt = self.p.fromdate.strftime(&#39;%Y-%m-%d&#39;)
+        urlargs.append(&#39;start_date={}&#39;.format(dtxt))
+
+    if self.p.todate:
+        dtxt = self.p.todate.strftime(&#39;%Y-%m-%d&#39;)
+        urlargs.append(&#39;end_date={}&#39;.format(dtxt))
+
+    if urlargs:
+        url += &#39;?&#39; + &#39;&amp;&#39;.join(urlargs)
+
+    if self.p.proxies:
+        proxy = ProxyHandler(self.p.proxies)
+        opener = build_opener(proxy)
+        install_opener(opener)
+
+    try:
+        datafile = urlopen(url)
+    except IOError as e:
+        self.error = str(e)
+        # leave us empty
+        return
+
+    if datafile.headers[&#39;Content-Type&#39;] != &#39;text/csv&#39;:
+        self.error = &#39;Wrong content type: %s&#39; % datafile.headers
+        return  # HTML returned? wrong url?
+
+    if self.params.buffered:
+        # buffer everything from the socket into a local buffer
+        f = io.StringIO(datafile.read().decode(&#39;utf-8&#39;), newline=None)
+        datafile.close()
+    else:
+        f = datafile
+
+    self.f = f
+
+    # Prepared a &#34;path&#34; file -  CSV Parser can take over
+    super(Quandl, self).start()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.feeds.quandl.QuandlCSV" href="#backtrader.feeds.quandl.QuandlCSV">QuandlCSV</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.compensate" href="../feed.html#backtrader.feed.AbstractDataBase.compensate">compensate</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.get_notifications" href="../feed.html#backtrader.feed.AbstractDataBase.get_notifications">get_notifications</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.islive" href="../feed.html#backtrader.feed.AbstractDataBase.islive">islive</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.next" href="../lineroot.html#backtrader.lineroot.LineRoot.next">next</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.nextstart" href="../lineroot.html#backtrader.lineroot.LineRoot.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.prenext" href="../lineroot.html#backtrader.lineroot.LineRoot.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.put_notification" href="../feed.html#backtrader.feed.AbstractDataBase.put_notification">put_notification</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.setenvironment" href="../feed.html#backtrader.feed.AbstractDataBase.setenvironment">setenvironment</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.feeds.quandl.QuandlCSV"><code class="flex name class">
+<span>class <span class="ident">QuandlCSV</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Parses pre-downloaded Quandl CSV Data Feeds (or locally generated if they
+comply to the Quandl format)</p>
+<p>Specific parameters:</p>
+<ul>
+<li>
+<p><code>dataname</code>: The filename to parse or a file-like object</p>
+</li>
+<li>
+<p><code>reverse</code> (default: <code>False</code>)</p>
+<p>It is assumed that locally stored files have already been reversed
+during the download process</p>
+</li>
+<li>
+<p><code>adjclose</code> (default: <code>True</code>)</p>
+<p>Whether to use the dividend/split adjusted close and adjust all
+values according to it.</p>
+</li>
+<li>
+<p><code>round</code> (default: <code>False</code>)</p>
+<p>Whether to round the values to a specific number of decimals after
+having adjusted the close</p>
+</li>
+<li>
+<p><code>decimals</code> (default: <code>2</code>)</p>
+<p>Number of decimals to round to</p>
+</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class QuandlCSV(feed.CSVDataBase):
+    &#39;&#39;&#39;
+    Parses pre-downloaded Quandl CSV Data Feeds (or locally generated if they
+    comply to the Quandl format)
+
+    Specific parameters:
+
+      - ``dataname``: The filename to parse or a file-like object
+
+      - ``reverse`` (default: ``False``)
+
+        It is assumed that locally stored files have already been reversed
+        during the download process
+
+      - ``adjclose`` (default: ``True``)
+
+        Whether to use the dividend/split adjusted close and adjust all
+        values according to it.
+
+      - ``round`` (default: ``False``)
+
+        Whether to round the values to a specific number of decimals after
+        having adjusted the close
+
+      - ``decimals`` (default: ``2``)
+
+        Number of decimals to round to
+    &#39;&#39;&#39;
+    _online = False  # flag to avoid double reversal
+
+    params = (
+        (&#39;reverse&#39;, False),
+        (&#39;adjclose&#39;, True),
+        (&#39;round&#39;, False),
+        (&#39;decimals&#39;, 2),
+    )
+
+    def start(self):
+        super(QuandlCSV, self).start()
+
+        if not self.params.reverse:
+            return
+        elif self._online:
+            return  # revers is True but also online, managed with order=asc
+
+        # Quandl data can be in reverse order -&gt; reverse
+        dq = collections.deque()
+        for line in self.f:
+            dq.appendleft(line)
+
+        f = io.StringIO(newline=None)
+        f.writelines(dq)
+        f.seek(0)
+        self.f.close()
+        self.f = f
+
+    def _loadline(self, linetokens):
+        i = itertools.count(0)
+
+        dttxt = linetokens[next(i)]  # YYYY-MM-DD
+        dt = date(int(dttxt[0:4]), int(dttxt[5:7]), int(dttxt[8:10]))
+        dtnum = date2num(datetime.combine(dt, self.p.sessionend))
+
+        self.lines.datetime[0] = dtnum
+        if self.p.adjclose:
+            for _ in range(7):
+                next(i)  # skip ohlcv, ex-dividend, split ratio
+
+        o = float(linetokens[next(i)])
+        h = float(linetokens[next(i)])
+        l = float(linetokens[next(i)])
+        c = float(linetokens[next(i)])
+        v = float(linetokens[next(i)])
+        self.lines.openinterest[0] = 0.0
+
+        if self.p.round:
+            decimals = self.p.decimals
+            o = round(o, decimals)
+            h = round(h, decimals)
+            l = round(l, decimals)
+            c = round(c, decimals)
+            v = round(v, decimals)
+
+        self.lines.open[0] = o
+        self.lines.high[0] = h
+        self.lines.low[0] = l
+        self.lines.close[0] = c
+        self.lines.volume[0] = v
+
+        return True</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.CSVDataBase" href="../feed.html#backtrader.feed.CSVDataBase">CSVDataBase</a></li>
+<li><a title="backtrader.feed.DataBase" href="../feed.html#backtrader.feed.DataBase">DataBase</a></li>
+<li><a title="backtrader.feed.AbstractDataBase" href="../feed.html#backtrader.feed.AbstractDataBase">AbstractDataBase</a></li>
+<li><a title="backtrader.dataseries.OHLCDateTime" href="../dataseries.html#backtrader.dataseries.OHLCDateTime">OHLCDateTime</a></li>
+<li><a title="backtrader.dataseries.OHLC" href="../dataseries.html#backtrader.dataseries.OHLC">OHLC</a></li>
+<li><a title="backtrader.dataseries.DataSeries" href="../dataseries.html#backtrader.dataseries.DataSeries">DataSeries</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="../lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="../lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="../lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.feeds.quandl.Quandl" href="#backtrader.feeds.quandl.Quandl">Quandl</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.feeds.quandl.QuandlCSV.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.QuandlCSV.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.QuandlCSV.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.QuandlCSV.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.QuandlCSV.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.QuandlCSV.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.QuandlCSV.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feeds.quandl.QuandlCSV.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.feeds.quandl.QuandlCSV.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    super(QuandlCSV, self).start()
+
+    if not self.params.reverse:
+        return
+    elif self._online:
+        return  # revers is True but also online, managed with order=asc
+
+    # Quandl data can be in reverse order -&gt; reverse
+    dq = collections.deque()
+    for line in self.f:
+        dq.appendleft(line)
+
+    f = io.StringIO(newline=None)
+    f.writelines(dq)
+    f.seek(0)
+    self.f.close()
+    self.f = f</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.feed.CSVDataBase" href="../feed.html#backtrader.feed.CSVDataBase">CSVDataBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.feed.CSVDataBase.addminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.compensate" href="../feed.html#backtrader.feed.AbstractDataBase.compensate">compensate</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.get_notifications" href="../feed.html#backtrader.feed.AbstractDataBase.get_notifications">get_notifications</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.incminperiod" href="../lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.islive" href="../feed.html#backtrader.feed.AbstractDataBase.islive">islive</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.lines" href="../lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.minbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.next" href="../lineroot.html#backtrader.lineroot.LineRoot.next">next</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.nextstart" href="../lineroot.html#backtrader.lineroot.LineRoot.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.once" href="../lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.oncestart" href="../lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.prenext" href="../lineroot.html#backtrader.lineroot.LineRoot.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.preonce" href="../lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.put_notification" href="../feed.html#backtrader.feed.AbstractDataBase.put_notification">put_notification</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.qbuffer" href="../lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.setenvironment" href="../feed.html#backtrader.feed.AbstractDataBase.setenvironment">setenvironment</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.setminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.updateminperiod" href="../lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader.feeds" href="index.html">backtrader.feeds</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.feeds.quandl.Quandl" href="#backtrader.feeds.quandl.Quandl">Quandl</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.feeds.quandl.Quandl.alias" href="#backtrader.feeds.quandl.Quandl.alias">alias</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.Quandl.aliased" href="#backtrader.feeds.quandl.Quandl.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.Quandl.frompackages" href="#backtrader.feeds.quandl.Quandl.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.Quandl.linealias" href="#backtrader.feeds.quandl.Quandl.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.Quandl.packages" href="#backtrader.feeds.quandl.Quandl.packages">packages</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.Quandl.params" href="#backtrader.feeds.quandl.Quandl.params">params</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.Quandl.plotinfo" href="#backtrader.feeds.quandl.Quandl.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.Quandl.plotlines" href="#backtrader.feeds.quandl.Quandl.plotlines">plotlines</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.Quandl.start" href="#backtrader.feeds.quandl.Quandl.start">start</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.feeds.quandl.QuandlCSV" href="#backtrader.feeds.quandl.QuandlCSV">QuandlCSV</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.alias" href="#backtrader.feeds.quandl.QuandlCSV.alias">alias</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.aliased" href="#backtrader.feeds.quandl.QuandlCSV.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.frompackages" href="#backtrader.feeds.quandl.QuandlCSV.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.linealias" href="#backtrader.feeds.quandl.QuandlCSV.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.packages" href="#backtrader.feeds.quandl.QuandlCSV.packages">packages</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.params" href="#backtrader.feeds.quandl.QuandlCSV.params">params</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.plotinfo" href="#backtrader.feeds.quandl.QuandlCSV.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.plotlines" href="#backtrader.feeds.quandl.QuandlCSV.plotlines">plotlines</a></code></li>
+<li><code><a title="backtrader.feeds.quandl.QuandlCSV.start" href="#backtrader.feeds.quandl.QuandlCSV.start">start</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

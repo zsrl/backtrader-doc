@@ -1,0 +1,3056 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>backtrader.feed API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>backtrader.feed</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+###############################################################################
+#
+# Copyright (C) 2015-2023 Daniel Rodriguez
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+###############################################################################
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+import collections
+import datetime
+import inspect
+import io
+import os.path
+
+import backtrader as bt
+from backtrader import (date2num, num2date, time2num, TimeFrame, dataseries,
+                        metabase)
+
+from backtrader.utils.py3 import with_metaclass, zip, range, string_types
+from backtrader.utils import tzparse
+from .dataseries import SimpleFilterWrapper
+from .resamplerfilter import Resampler, Replayer
+from .tradingcal import PandasMarketCalendar
+
+
+class MetaAbstractDataBase(dataseries.OHLCDateTime.__class__):
+    _indcol = dict()
+
+    def __init__(cls, name, bases, dct):
+        &#39;&#39;&#39;
+        Class has already been created ... register subclasses
+        &#39;&#39;&#39;
+        # Initialize the class
+        super(MetaAbstractDataBase, cls).__init__(name, bases, dct)
+
+        if not cls.aliased and \
+           name != &#39;DataBase&#39; and not name.startswith(&#39;_&#39;):
+            cls._indcol[name] = cls
+
+    def dopreinit(cls, _obj, *args, **kwargs):
+        _obj, args, kwargs = \
+            super(MetaAbstractDataBase, cls).dopreinit(_obj, *args, **kwargs)
+
+        # Find the owner and store it
+        _obj._feed = metabase.findowner(_obj, FeedBase)
+
+        _obj.notifs = collections.deque()  # store notifications for cerebro
+
+        _obj._dataname = _obj.p.dataname
+        _obj._name = &#39;&#39;
+        return _obj, args, kwargs
+
+    def dopostinit(cls, _obj, *args, **kwargs):
+        _obj, args, kwargs = \
+            super(MetaAbstractDataBase, cls).dopostinit(_obj, *args, **kwargs)
+
+        # Either set by subclass or the parameter or use the dataname (ticker)
+        _obj._name = _obj._name or _obj.p.name
+        if not _obj._name and isinstance(_obj.p.dataname, string_types):
+            _obj._name = _obj.p.dataname
+        _obj._compression = _obj.p.compression
+        _obj._timeframe = _obj.p.timeframe
+
+        if isinstance(_obj.p.sessionstart, datetime.datetime):
+            _obj.p.sessionstart = _obj.p.sessionstart.time()
+
+        elif _obj.p.sessionstart is None:
+            _obj.p.sessionstart = datetime.time.min
+
+        if isinstance(_obj.p.sessionend, datetime.datetime):
+            _obj.p.sessionend = _obj.p.sessionend.time()
+
+        elif _obj.p.sessionend is None:
+            # remove 9 to avoid precision rounding errors
+            _obj.p.sessionend = datetime.time(23, 59, 59, 999990)
+
+        if isinstance(_obj.p.fromdate, datetime.date):
+            # push it to the end of the day, or else intraday
+            # values before the end of the day would be gone
+            if not hasattr(_obj.p.fromdate, &#39;hour&#39;):
+                _obj.p.fromdate = datetime.datetime.combine(
+                    _obj.p.fromdate, _obj.p.sessionstart)
+
+        if isinstance(_obj.p.todate, datetime.date):
+            # push it to the end of the day, or else intraday
+            # values before the end of the day would be gone
+            if not hasattr(_obj.p.todate, &#39;hour&#39;):
+                _obj.p.todate = datetime.datetime.combine(
+                    _obj.p.todate, _obj.p.sessionend)
+
+        _obj._barstack = collections.deque()  # for filter operations
+        _obj._barstash = collections.deque()  # for filter operations
+
+        _obj._filters = list()
+        _obj._ffilters = list()
+        for fp in _obj.p.filters:
+            if inspect.isclass(fp):
+                fp = fp(_obj)
+                if hasattr(fp, &#39;last&#39;):
+                    _obj._ffilters.append((fp, [], {}))
+
+            _obj._filters.append((fp, [], {}))
+
+        return _obj, args, kwargs
+
+
+class AbstractDataBase(with_metaclass(MetaAbstractDataBase,
+                                      dataseries.OHLCDateTime)):
+
+    params = (
+        (&#39;dataname&#39;, None),
+        (&#39;name&#39;, &#39;&#39;),
+        (&#39;compression&#39;, 1),
+        (&#39;timeframe&#39;, TimeFrame.Days),
+        (&#39;fromdate&#39;, None),
+        (&#39;todate&#39;, None),
+        (&#39;sessionstart&#39;, None),
+        (&#39;sessionend&#39;, None),
+        (&#39;filters&#39;, []),
+        (&#39;tz&#39;, None),
+        (&#39;tzinput&#39;, None),
+        (&#39;qcheck&#39;, 0.0),  # timeout in seconds (float) to check for events
+        (&#39;calendar&#39;, None),
+    )
+
+    (CONNECTED, DISCONNECTED, CONNBROKEN, DELAYED,
+     LIVE, NOTSUBSCRIBED, NOTSUPPORTED_TF, UNKNOWN) = range(8)
+
+    _NOTIFNAMES = [
+        &#39;CONNECTED&#39;, &#39;DISCONNECTED&#39;, &#39;CONNBROKEN&#39;, &#39;DELAYED&#39;,
+        &#39;LIVE&#39;, &#39;NOTSUBSCRIBED&#39;, &#39;NOTSUPPORTED_TIMEFRAME&#39;, &#39;UNKNOWN&#39;]
+
+    @classmethod
+    def _getstatusname(cls, status):
+        return cls._NOTIFNAMES[status]
+
+    _compensate = None
+    _feed = None
+    _store = None
+
+    _clone = False
+    _qcheck = 0.0
+
+    _tmoffset = datetime.timedelta()
+
+    # Set to non 0 if resampling/replaying
+    resampling = 0
+    replaying = 0
+
+    _started = False
+
+    def _start_finish(self):
+        # A live feed (for example) may have learnt something about the
+        # timezones after the start and that&#39;s why the date/time related
+        # parameters are converted at this late stage
+        # Get the output timezone (if any)
+        self._tz = self._gettz()
+        # Lines have already been create, set the tz
+        self.lines.datetime._settz(self._tz)
+
+        # This should probably be also called from an override-able method
+        self._tzinput = bt.utils.date.Localizer(self._gettzinput())
+
+        # Convert user input times to the output timezone (or min/max)
+        if self.p.fromdate is None:
+            self.fromdate = float(&#39;-inf&#39;)
+        else:
+            self.fromdate = self.date2num(self.p.fromdate)
+
+        if self.p.todate is None:
+            self.todate = float(&#39;inf&#39;)
+        else:
+            self.todate = self.date2num(self.p.todate)
+
+        # FIXME: These two are never used and could be removed
+        self.sessionstart = time2num(self.p.sessionstart)
+        self.sessionend = time2num(self.p.sessionend)
+
+        self._calendar = cal = self.p.calendar
+        if cal is None:
+            self._calendar = self._env._tradingcal
+        elif isinstance(cal, string_types):
+            self._calendar = PandasMarketCalendar(calendar=cal)
+
+        self._started = True
+
+    def _start(self):
+        self.start()
+
+        if not self._started:
+            self._start_finish()
+
+    def _timeoffset(self):
+        return self._tmoffset
+
+    def _getnexteos(self):
+        &#39;&#39;&#39;Returns the next eos using a trading calendar if available&#39;&#39;&#39;
+        if self._clone:
+            return self.data._getnexteos()
+
+        if not len(self):
+            return datetime.datetime.min, 0.0
+
+        dt = self.lines.datetime[0]
+        dtime = num2date(dt)
+        if self._calendar is None:
+            nexteos = datetime.datetime.combine(dtime, self.p.sessionend)
+            nextdteos = self.date2num(nexteos)  # locl&#39;ed -&gt; utc-like
+            nexteos = num2date(nextdteos)  # utc
+            while dtime &gt; nexteos:
+                nexteos += datetime.timedelta(days=1)  # already utc-like
+
+            nextdteos = date2num(nexteos)  # -&gt; utc-like
+
+        else:
+            # returns times in utc
+            _, nexteos = self._calendar.schedule(dtime, self._tz)
+            nextdteos = date2num(nexteos)  # nextos is already utc
+
+        return nexteos, nextdteos
+
+    def _gettzinput(self):
+        &#39;&#39;&#39;Can be overriden by classes to return a timezone for input&#39;&#39;&#39;
+        return tzparse(self.p.tzinput)
+
+    def _gettz(self):
+        &#39;&#39;&#39;To be overriden by subclasses which may auto-calculate the
+        timezone&#39;&#39;&#39;
+        return tzparse(self.p.tz)
+
+    def date2num(self, dt):
+        if self._tz is not None:
+            return date2num(self._tz.localize(dt))
+
+        return date2num(dt)
+
+    def num2date(self, dt=None, tz=None, naive=True):
+        if dt is None:
+            return num2date(self.lines.datetime[0], tz or self._tz, naive)
+
+        return num2date(dt, tz or self._tz, naive)
+
+    def haslivedata(self):
+        return False  # must be overriden for those that can
+
+    def do_qcheck(self, onoff, qlapse):
+        # if onoff is True the data will wait p.qcheck for incoming live data
+        # on its queue.
+        qwait = self.p.qcheck if onoff else 0.0
+        qwait = max(0.0, qwait - qlapse)
+        self._qcheck = qwait
+
+    def islive(self):
+        &#39;&#39;&#39;If this returns True, ``Cerebro`` will deactivate ``preload`` and
+        ``runonce`` because a live data source must be fetched tick by tick (or
+        bar by bar)&#39;&#39;&#39;
+        return False
+
+    def put_notification(self, status, *args, **kwargs):
+        &#39;&#39;&#39;Add arguments to notification queue&#39;&#39;&#39;
+        if self._laststatus != status:
+            self.notifs.append((status, args, kwargs))
+            self._laststatus = status
+
+    def get_notifications(self):
+        &#39;&#39;&#39;Return the pending &#34;store&#34; notifications&#39;&#39;&#39;
+        # The background thread could keep on adding notifications. The None
+        # mark allows to identify which is the last notification to deliver
+        self.notifs.append(None)  # put a mark
+        notifs = list()
+        while True:
+            notif = self.notifs.popleft()
+            if notif is None:  # mark is reached
+                break
+            notifs.append(notif)
+
+        return notifs
+
+    def getfeed(self):
+        return self._feed
+
+    def qbuffer(self, savemem=0, replaying=False):
+        extrasize = self.resampling or replaying
+        for line in self.lines:
+            line.qbuffer(savemem=savemem, extrasize=extrasize)
+
+    def start(self):
+        self._barstack = collections.deque()
+        self._barstash = collections.deque()
+        self._laststatus = self.CONNECTED
+
+    def stop(self):
+        pass
+
+    def clone(self, **kwargs):
+        return DataClone(dataname=self, **kwargs)
+
+    def copyas(self, _dataname, **kwargs):
+        d = DataClone(dataname=self, **kwargs)
+        d._dataname = _dataname
+        d._name = _dataname
+        return d
+
+    def setenvironment(self, env):
+        &#39;&#39;&#39;Keep a reference to the environment&#39;&#39;&#39;
+        self._env = env
+
+    def getenvironment(self):
+        return self._env
+
+    def addfilter_simple(self, f, *args, **kwargs):
+        fp = SimpleFilterWrapper(self, f, *args, **kwargs)
+        self._filters.append((fp, fp.args, fp.kwargs))
+
+    def addfilter(self, p, *args, **kwargs):
+        if inspect.isclass(p):
+            pobj = p(self, *args, **kwargs)
+            self._filters.append((pobj, [], {}))
+
+            if hasattr(pobj, &#39;last&#39;):
+                self._ffilters.append((pobj, [], {}))
+
+        else:
+            self._filters.append((p, args, kwargs))
+
+    def compensate(self, other):
+        &#39;&#39;&#39;Call it to let the broker know that actions on this asset will
+        compensate open positions in another&#39;&#39;&#39;
+
+        self._compensate = other
+
+    def _tick_nullify(self):
+        # These are the updating prices in case the new bar is &#34;updated&#34;
+        # and the length doesn&#39;t change like if a replay is happening or
+        # a real-time data feed is in use and 1 minutes bars are being
+        # constructed with 5 seconds updates
+        for lalias in self.getlinealiases():
+            if lalias != &#39;datetime&#39;:
+                setattr(self, &#39;tick_&#39; + lalias, None)
+
+        self.tick_last = None
+
+    def _tick_fill(self, force=False):
+        # If nothing filled the tick_xxx attributes, the bar is the tick
+        alias0 = self._getlinealias(0)
+        if force or getattr(self, &#39;tick_&#39; + alias0, None) is None:
+            for lalias in self.getlinealiases():
+                if lalias != &#39;datetime&#39;:
+                    setattr(self, &#39;tick_&#39; + lalias,
+                            getattr(self.lines, lalias)[0])
+
+            self.tick_last = getattr(self.lines, alias0)[0]
+
+    def advance_peek(self):
+        if len(self) &lt; self.buflen():
+            return self.lines.datetime[1]  # return the future
+
+        return float(&#39;inf&#39;)  # max date else
+
+    def advance(self, size=1, datamaster=None, ticks=True):
+        if ticks:
+            self._tick_nullify()
+
+        # Need intercepting this call to support datas with
+        # different lengths (timeframes)
+        self.lines.advance(size)
+
+        if datamaster is not None:
+            if len(self) &gt; self.buflen():
+                # if no bar can be delivered, fill with an empty bar
+                self.rewind()
+                self.lines.forward()
+                return
+
+            if self.lines.datetime[0] &gt; datamaster.lines.datetime[0]:
+                self.lines.rewind()
+            else:
+                if ticks:
+                    self._tick_fill()
+        elif len(self) &lt; self.buflen():
+            # a resampler may have advance us past the last point
+            if ticks:
+                self._tick_fill()
+
+    def next(self, datamaster=None, ticks=True):
+
+        if len(self) &gt;= self.buflen():
+            if ticks:
+                self._tick_nullify()
+
+            # not preloaded - request next bar
+            ret = self.load()
+            if not ret:
+                # if load cannot produce bars - forward the result
+                return ret
+
+            if datamaster is None:
+                # bar is there and no master ... return load&#39;s result
+                if ticks:
+                    self._tick_fill()
+                return ret
+        else:
+            self.advance(ticks=ticks)
+
+        # a bar is &#34;loaded&#34; or was preloaded - index has been moved to it
+        if datamaster is not None:
+            # there is a time reference to check against
+            if self.lines.datetime[0] &gt; datamaster.lines.datetime[0]:
+                # can&#39;t deliver new bar, too early, go back
+                self.rewind()
+                return False
+            else:
+                if ticks:
+                    self._tick_fill()
+
+        else:
+            if ticks:
+                self._tick_fill()
+
+        # tell the world there is a bar (either the new or the previous
+        return True
+
+    def preload(self):
+        while self.load():
+            pass
+
+        self._last()
+        self.home()
+
+    def _last(self, datamaster=None):
+        # Last chance for filters to deliver something
+        ret = 0
+        for ff, fargs, fkwargs in self._ffilters:
+            ret += ff.last(self, *fargs, **fkwargs)
+
+        doticks = False
+        if datamaster is not None and self._barstack:
+            doticks = True
+
+        while self._fromstack(forward=True):
+            # consume bar(s) produced by &#34;last&#34;s - adding room
+            pass
+
+        if doticks:
+            self._tick_fill()
+
+        return bool(ret)
+
+    def _check(self, forcedata=None):
+        ret = 0
+        for ff, fargs, fkwargs in self._filters:
+            if not hasattr(ff, &#39;check&#39;):
+                continue
+            ff.check(self, _forcedata=forcedata, *fargs, **fkwargs)
+
+    def load(self):
+        while True:
+            # move data pointer forward for new bar
+            self.forward()
+
+            if self._fromstack():  # bar is available
+                return True
+
+            if not self._fromstack(stash=True):
+                _loadret = self._load()
+                if not _loadret:  # no bar use force to make sure in exactbars
+                    # the pointer is undone this covers especially (but not
+                    # uniquely) the case in which the last bar has been seen
+                    # and a backwards would ruin pointer accounting in the
+                    # &#34;stop&#34; method of the strategy
+                    self.backwards(force=True)  # undo data pointer
+
+                    # return the actual returned value which may be None to
+                    # signal no bar is available, but the data feed is not
+                    # done. False means game over
+                    return _loadret
+
+            # Get a reference to current loaded time
+            dt = self.lines.datetime[0]
+
+            # A bar has been loaded, adapt the time
+            if self._tzinput:
+                # Input has been converted at face value but it&#39;s not UTC in
+                # the input stream
+                dtime = num2date(dt)  # get it in a naive datetime
+                # localize it
+                dtime = self._tzinput.localize(dtime)  # pytz compatible-ized
+                self.lines.datetime[0] = dt = date2num(dtime)  # keep UTC val
+
+            # Check standard date from/to filters
+            if dt &lt; self.fromdate:
+                # discard loaded bar and carry on
+                self.backwards()
+                continue
+            if dt &gt; self.todate:
+                # discard loaded bar and break out
+                self.backwards(force=True)
+                break
+
+            # Pass through filters
+            retff = False
+            for ff, fargs, fkwargs in self._filters:
+                # previous filter may have put things onto the stack
+                if self._barstack:
+                    for i in range(len(self._barstack)):
+                        self._fromstack(forward=True)
+                        retff = ff(self, *fargs, **fkwargs)
+                else:
+                    retff = ff(self, *fargs, **fkwargs)
+
+                if retff:  # bar removed from systemn
+                    break  # out of the inner loop
+
+            if retff:  # bar removed from system - loop to get new bar
+                continue  # in the greater loop
+
+            # Checks let the bar through ... notify it
+            return True
+
+        # Out of the loop ... no more bars or past todate
+        return False
+
+    def _load(self):
+        return False
+
+    def _add2stack(self, bar, stash=False):
+        &#39;&#39;&#39;Saves given bar (list of values) to the stack for later retrieval&#39;&#39;&#39;
+        if not stash:
+            self._barstack.append(bar)
+        else:
+            self._barstash.append(bar)
+
+    def _save2stack(self, erase=False, force=False, stash=False):
+        &#39;&#39;&#39;Saves current bar to the bar stack for later retrieval
+
+        Parameter ``erase`` determines removal from the data stream
+        &#39;&#39;&#39;
+        bar = [line[0] for line in self.itersize()]
+        if not stash:
+            self._barstack.append(bar)
+        else:
+            self._barstash.append(bar)
+
+        if erase:  # remove bar if requested
+            self.backwards(force=force)
+
+    def _updatebar(self, bar, forward=False, ago=0):
+        &#39;&#39;&#39;Load a value from the stack onto the lines to form the new bar
+
+        Returns True if values are present, False otherwise
+        &#39;&#39;&#39;
+        if forward:
+            self.forward()
+
+        for line, val in zip(self.itersize(), bar):
+            line[0 + ago] = val
+
+    def _fromstack(self, forward=False, stash=False):
+        &#39;&#39;&#39;Load a value from the stack onto the lines to form the new bar
+
+        Returns True if values are present, False otherwise
+        &#39;&#39;&#39;
+
+        coll = self._barstack if not stash else self._barstash
+
+        if coll:
+            if forward:
+                self.forward()
+
+            for line, val in zip(self.itersize(), coll.popleft()):
+                line[0] = val
+
+            return True
+
+        return False
+
+    def resample(self, **kwargs):
+        self.addfilter(Resampler, **kwargs)
+
+    def replay(self, **kwargs):
+        self.addfilter(Replayer, **kwargs)
+
+
+class DataBase(AbstractDataBase):
+    pass
+
+
+class FeedBase(with_metaclass(metabase.MetaParams, object)):
+    params = () + DataBase.params._gettuple()
+
+    def __init__(self):
+        self.datas = list()
+
+    def start(self):
+        for data in self.datas:
+            data.start()
+
+    def stop(self):
+        for data in self.datas:
+            data.stop()
+
+    def getdata(self, dataname, name=None, **kwargs):
+        for pname, pvalue in self.p._getitems():
+            kwargs.setdefault(pname, getattr(self.p, pname))
+
+        kwargs[&#39;dataname&#39;] = dataname
+        data = self._getdata(**kwargs)
+
+        data._name = name
+
+        self.datas.append(data)
+        return data
+
+    def _getdata(self, dataname, **kwargs):
+        for pname, pvalue in self.p._getitems():
+            kwargs.setdefault(pname, getattr(self.p, pname))
+
+        kwargs[&#39;dataname&#39;] = dataname
+        return self.DataCls(**kwargs)
+
+
+class MetaCSVDataBase(DataBase.__class__):
+    def dopostinit(cls, _obj, *args, **kwargs):
+        # Before going to the base class to make sure it overrides the default
+        if not _obj.p.name and not _obj._name:
+            _obj._name, _ = os.path.splitext(os.path.basename(_obj.p.dataname))
+
+        _obj, args, kwargs = \
+            super(MetaCSVDataBase, cls).dopostinit(_obj, *args, **kwargs)
+
+        return _obj, args, kwargs
+
+
+class CSVDataBase(with_metaclass(MetaCSVDataBase, DataBase)):
+    &#39;&#39;&#39;
+    Base class for classes implementing CSV DataFeeds
+
+    The class takes care of opening the file, reading the lines and
+    tokenizing them.
+
+    Subclasses do only need to override:
+
+      - _loadline(tokens)
+
+    The return value of ``_loadline`` (True/False) will be the return value
+    of ``_load`` which has been overriden by this base class
+    &#39;&#39;&#39;
+
+    f = None
+    params = ((&#39;headers&#39;, True), (&#39;separator&#39;, &#39;,&#39;),)
+
+    def start(self):
+        super(CSVDataBase, self).start()
+
+        if self.f is None:
+            if hasattr(self.p.dataname, &#39;readline&#39;):
+                self.f = self.p.dataname
+            else:
+                # Let an exception propagate to let the caller know
+                self.f = io.open(self.p.dataname, &#39;r&#39;)
+
+        if self.p.headers:
+            self.f.readline()  # skip the headers
+
+        self.separator = self.p.separator
+
+    def stop(self):
+        super(CSVDataBase, self).stop()
+        if self.f is not None:
+            self.f.close()
+            self.f = None
+
+    def preload(self):
+        while self.load():
+            pass
+
+        self._last()
+        self.home()
+
+        # preloaded - no need to keep the object around - breaks multip in 3.x
+        self.f.close()
+        self.f = None
+
+    def _load(self):
+        if self.f is None:
+            return False
+
+        # Let an exception propagate to let the caller know
+        line = self.f.readline()
+
+        if not line:
+            return False
+
+        line = line.rstrip(&#39;\n&#39;)
+        linetokens = line.split(self.separator)
+        return self._loadline(linetokens)
+
+    def _getnextline(self):
+        if self.f is None:
+            return None
+
+        # Let an exception propagate to let the caller know
+        line = self.f.readline()
+
+        if not line:
+            return None
+
+        line = line.rstrip(&#39;\n&#39;)
+        linetokens = line.split(self.separator)
+        return linetokens
+
+
+class CSVFeedBase(FeedBase):
+    params = ((&#39;basepath&#39;, &#39;&#39;),) + CSVDataBase.params._gettuple()
+
+    def _getdata(self, dataname, **kwargs):
+        return self.DataCls(dataname=self.p.basepath + dataname,
+                            **self.p._getkwargs())
+
+
+class DataClone(AbstractDataBase):
+    _clone = True
+
+    def __init__(self):
+        self.data = self.p.dataname
+        self._dataname = self.data._dataname
+
+        # Copy date/session parameters
+        self.p.fromdate = self.p.fromdate
+        self.p.todate = self.p.todate
+        self.p.sessionstart = self.data.p.sessionstart
+        self.p.sessionend = self.data.p.sessionend
+
+        self.p.timeframe = self.data.p.timeframe
+        self.p.compression = self.data.p.compression
+
+    def _start(self):
+        # redefine to copy data bits from guest data
+        self.start()
+
+        # Copy tz infos
+        self._tz = self.data._tz
+        self.lines.datetime._settz(self._tz)
+
+        self._calendar = self.data._calendar
+
+        # input has already been converted by guest data
+        self._tzinput = None  # no need to further converr
+
+        # Copy dates/session infos
+        self.fromdate = self.data.fromdate
+        self.todate = self.data.todate
+
+        # FIXME: if removed from guest, remove here too
+        self.sessionstart = self.data.sessionstart
+        self.sessionend = self.data.sessionend
+
+    def start(self):
+        super(DataClone, self).start()
+        self._dlen = 0
+        self._preloading = False
+
+    def preload(self):
+        self._preloading = True
+        super(DataClone, self).preload()
+        self.data.home()  # preloading data was pushed forward
+        self._preloading = False
+
+    def _load(self):
+        # assumption: the data is in the system
+        # simply copy the lines
+        if self._preloading:
+            # data is preloaded, we are preloading too, can move
+            # forward until have full bar or data source is exhausted
+            self.data.advance()
+            if len(self.data) &gt; self.data.buflen():
+                return False
+
+            for line, dline in zip(self.lines, self.data.lines):
+                line[0] = dline[0]
+
+            return True
+
+        # Not preloading
+        if not (len(self.data) &gt; self._dlen):
+            # Data not beyond last seen bar
+            return False
+
+        self._dlen += 1
+
+        for line, dline in zip(self.lines, self.data.lines):
+            line[0] = dline[0]
+
+        return True
+
+    def advance(self, size=1, datamaster=None, ticks=True):
+        self._dlen += size
+        super(DataClone, self).advance(size, datamaster, ticks=ticks)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="backtrader.feed.AbstractDataBase"><code class="flex name class">
+<span>class <span class="ident">AbstractDataBase</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for LineXXX instances that hold more than one line</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AbstractDataBase(with_metaclass(MetaAbstractDataBase,
+                                      dataseries.OHLCDateTime)):
+
+    params = (
+        (&#39;dataname&#39;, None),
+        (&#39;name&#39;, &#39;&#39;),
+        (&#39;compression&#39;, 1),
+        (&#39;timeframe&#39;, TimeFrame.Days),
+        (&#39;fromdate&#39;, None),
+        (&#39;todate&#39;, None),
+        (&#39;sessionstart&#39;, None),
+        (&#39;sessionend&#39;, None),
+        (&#39;filters&#39;, []),
+        (&#39;tz&#39;, None),
+        (&#39;tzinput&#39;, None),
+        (&#39;qcheck&#39;, 0.0),  # timeout in seconds (float) to check for events
+        (&#39;calendar&#39;, None),
+    )
+
+    (CONNECTED, DISCONNECTED, CONNBROKEN, DELAYED,
+     LIVE, NOTSUBSCRIBED, NOTSUPPORTED_TF, UNKNOWN) = range(8)
+
+    _NOTIFNAMES = [
+        &#39;CONNECTED&#39;, &#39;DISCONNECTED&#39;, &#39;CONNBROKEN&#39;, &#39;DELAYED&#39;,
+        &#39;LIVE&#39;, &#39;NOTSUBSCRIBED&#39;, &#39;NOTSUPPORTED_TIMEFRAME&#39;, &#39;UNKNOWN&#39;]
+
+    @classmethod
+    def _getstatusname(cls, status):
+        return cls._NOTIFNAMES[status]
+
+    _compensate = None
+    _feed = None
+    _store = None
+
+    _clone = False
+    _qcheck = 0.0
+
+    _tmoffset = datetime.timedelta()
+
+    # Set to non 0 if resampling/replaying
+    resampling = 0
+    replaying = 0
+
+    _started = False
+
+    def _start_finish(self):
+        # A live feed (for example) may have learnt something about the
+        # timezones after the start and that&#39;s why the date/time related
+        # parameters are converted at this late stage
+        # Get the output timezone (if any)
+        self._tz = self._gettz()
+        # Lines have already been create, set the tz
+        self.lines.datetime._settz(self._tz)
+
+        # This should probably be also called from an override-able method
+        self._tzinput = bt.utils.date.Localizer(self._gettzinput())
+
+        # Convert user input times to the output timezone (or min/max)
+        if self.p.fromdate is None:
+            self.fromdate = float(&#39;-inf&#39;)
+        else:
+            self.fromdate = self.date2num(self.p.fromdate)
+
+        if self.p.todate is None:
+            self.todate = float(&#39;inf&#39;)
+        else:
+            self.todate = self.date2num(self.p.todate)
+
+        # FIXME: These two are never used and could be removed
+        self.sessionstart = time2num(self.p.sessionstart)
+        self.sessionend = time2num(self.p.sessionend)
+
+        self._calendar = cal = self.p.calendar
+        if cal is None:
+            self._calendar = self._env._tradingcal
+        elif isinstance(cal, string_types):
+            self._calendar = PandasMarketCalendar(calendar=cal)
+
+        self._started = True
+
+    def _start(self):
+        self.start()
+
+        if not self._started:
+            self._start_finish()
+
+    def _timeoffset(self):
+        return self._tmoffset
+
+    def _getnexteos(self):
+        &#39;&#39;&#39;Returns the next eos using a trading calendar if available&#39;&#39;&#39;
+        if self._clone:
+            return self.data._getnexteos()
+
+        if not len(self):
+            return datetime.datetime.min, 0.0
+
+        dt = self.lines.datetime[0]
+        dtime = num2date(dt)
+        if self._calendar is None:
+            nexteos = datetime.datetime.combine(dtime, self.p.sessionend)
+            nextdteos = self.date2num(nexteos)  # locl&#39;ed -&gt; utc-like
+            nexteos = num2date(nextdteos)  # utc
+            while dtime &gt; nexteos:
+                nexteos += datetime.timedelta(days=1)  # already utc-like
+
+            nextdteos = date2num(nexteos)  # -&gt; utc-like
+
+        else:
+            # returns times in utc
+            _, nexteos = self._calendar.schedule(dtime, self._tz)
+            nextdteos = date2num(nexteos)  # nextos is already utc
+
+        return nexteos, nextdteos
+
+    def _gettzinput(self):
+        &#39;&#39;&#39;Can be overriden by classes to return a timezone for input&#39;&#39;&#39;
+        return tzparse(self.p.tzinput)
+
+    def _gettz(self):
+        &#39;&#39;&#39;To be overriden by subclasses which may auto-calculate the
+        timezone&#39;&#39;&#39;
+        return tzparse(self.p.tz)
+
+    def date2num(self, dt):
+        if self._tz is not None:
+            return date2num(self._tz.localize(dt))
+
+        return date2num(dt)
+
+    def num2date(self, dt=None, tz=None, naive=True):
+        if dt is None:
+            return num2date(self.lines.datetime[0], tz or self._tz, naive)
+
+        return num2date(dt, tz or self._tz, naive)
+
+    def haslivedata(self):
+        return False  # must be overriden for those that can
+
+    def do_qcheck(self, onoff, qlapse):
+        # if onoff is True the data will wait p.qcheck for incoming live data
+        # on its queue.
+        qwait = self.p.qcheck if onoff else 0.0
+        qwait = max(0.0, qwait - qlapse)
+        self._qcheck = qwait
+
+    def islive(self):
+        &#39;&#39;&#39;If this returns True, ``Cerebro`` will deactivate ``preload`` and
+        ``runonce`` because a live data source must be fetched tick by tick (or
+        bar by bar)&#39;&#39;&#39;
+        return False
+
+    def put_notification(self, status, *args, **kwargs):
+        &#39;&#39;&#39;Add arguments to notification queue&#39;&#39;&#39;
+        if self._laststatus != status:
+            self.notifs.append((status, args, kwargs))
+            self._laststatus = status
+
+    def get_notifications(self):
+        &#39;&#39;&#39;Return the pending &#34;store&#34; notifications&#39;&#39;&#39;
+        # The background thread could keep on adding notifications. The None
+        # mark allows to identify which is the last notification to deliver
+        self.notifs.append(None)  # put a mark
+        notifs = list()
+        while True:
+            notif = self.notifs.popleft()
+            if notif is None:  # mark is reached
+                break
+            notifs.append(notif)
+
+        return notifs
+
+    def getfeed(self):
+        return self._feed
+
+    def qbuffer(self, savemem=0, replaying=False):
+        extrasize = self.resampling or replaying
+        for line in self.lines:
+            line.qbuffer(savemem=savemem, extrasize=extrasize)
+
+    def start(self):
+        self._barstack = collections.deque()
+        self._barstash = collections.deque()
+        self._laststatus = self.CONNECTED
+
+    def stop(self):
+        pass
+
+    def clone(self, **kwargs):
+        return DataClone(dataname=self, **kwargs)
+
+    def copyas(self, _dataname, **kwargs):
+        d = DataClone(dataname=self, **kwargs)
+        d._dataname = _dataname
+        d._name = _dataname
+        return d
+
+    def setenvironment(self, env):
+        &#39;&#39;&#39;Keep a reference to the environment&#39;&#39;&#39;
+        self._env = env
+
+    def getenvironment(self):
+        return self._env
+
+    def addfilter_simple(self, f, *args, **kwargs):
+        fp = SimpleFilterWrapper(self, f, *args, **kwargs)
+        self._filters.append((fp, fp.args, fp.kwargs))
+
+    def addfilter(self, p, *args, **kwargs):
+        if inspect.isclass(p):
+            pobj = p(self, *args, **kwargs)
+            self._filters.append((pobj, [], {}))
+
+            if hasattr(pobj, &#39;last&#39;):
+                self._ffilters.append((pobj, [], {}))
+
+        else:
+            self._filters.append((p, args, kwargs))
+
+    def compensate(self, other):
+        &#39;&#39;&#39;Call it to let the broker know that actions on this asset will
+        compensate open positions in another&#39;&#39;&#39;
+
+        self._compensate = other
+
+    def _tick_nullify(self):
+        # These are the updating prices in case the new bar is &#34;updated&#34;
+        # and the length doesn&#39;t change like if a replay is happening or
+        # a real-time data feed is in use and 1 minutes bars are being
+        # constructed with 5 seconds updates
+        for lalias in self.getlinealiases():
+            if lalias != &#39;datetime&#39;:
+                setattr(self, &#39;tick_&#39; + lalias, None)
+
+        self.tick_last = None
+
+    def _tick_fill(self, force=False):
+        # If nothing filled the tick_xxx attributes, the bar is the tick
+        alias0 = self._getlinealias(0)
+        if force or getattr(self, &#39;tick_&#39; + alias0, None) is None:
+            for lalias in self.getlinealiases():
+                if lalias != &#39;datetime&#39;:
+                    setattr(self, &#39;tick_&#39; + lalias,
+                            getattr(self.lines, lalias)[0])
+
+            self.tick_last = getattr(self.lines, alias0)[0]
+
+    def advance_peek(self):
+        if len(self) &lt; self.buflen():
+            return self.lines.datetime[1]  # return the future
+
+        return float(&#39;inf&#39;)  # max date else
+
+    def advance(self, size=1, datamaster=None, ticks=True):
+        if ticks:
+            self._tick_nullify()
+
+        # Need intercepting this call to support datas with
+        # different lengths (timeframes)
+        self.lines.advance(size)
+
+        if datamaster is not None:
+            if len(self) &gt; self.buflen():
+                # if no bar can be delivered, fill with an empty bar
+                self.rewind()
+                self.lines.forward()
+                return
+
+            if self.lines.datetime[0] &gt; datamaster.lines.datetime[0]:
+                self.lines.rewind()
+            else:
+                if ticks:
+                    self._tick_fill()
+        elif len(self) &lt; self.buflen():
+            # a resampler may have advance us past the last point
+            if ticks:
+                self._tick_fill()
+
+    def next(self, datamaster=None, ticks=True):
+
+        if len(self) &gt;= self.buflen():
+            if ticks:
+                self._tick_nullify()
+
+            # not preloaded - request next bar
+            ret = self.load()
+            if not ret:
+                # if load cannot produce bars - forward the result
+                return ret
+
+            if datamaster is None:
+                # bar is there and no master ... return load&#39;s result
+                if ticks:
+                    self._tick_fill()
+                return ret
+        else:
+            self.advance(ticks=ticks)
+
+        # a bar is &#34;loaded&#34; or was preloaded - index has been moved to it
+        if datamaster is not None:
+            # there is a time reference to check against
+            if self.lines.datetime[0] &gt; datamaster.lines.datetime[0]:
+                # can&#39;t deliver new bar, too early, go back
+                self.rewind()
+                return False
+            else:
+                if ticks:
+                    self._tick_fill()
+
+        else:
+            if ticks:
+                self._tick_fill()
+
+        # tell the world there is a bar (either the new or the previous
+        return True
+
+    def preload(self):
+        while self.load():
+            pass
+
+        self._last()
+        self.home()
+
+    def _last(self, datamaster=None):
+        # Last chance for filters to deliver something
+        ret = 0
+        for ff, fargs, fkwargs in self._ffilters:
+            ret += ff.last(self, *fargs, **fkwargs)
+
+        doticks = False
+        if datamaster is not None and self._barstack:
+            doticks = True
+
+        while self._fromstack(forward=True):
+            # consume bar(s) produced by &#34;last&#34;s - adding room
+            pass
+
+        if doticks:
+            self._tick_fill()
+
+        return bool(ret)
+
+    def _check(self, forcedata=None):
+        ret = 0
+        for ff, fargs, fkwargs in self._filters:
+            if not hasattr(ff, &#39;check&#39;):
+                continue
+            ff.check(self, _forcedata=forcedata, *fargs, **fkwargs)
+
+    def load(self):
+        while True:
+            # move data pointer forward for new bar
+            self.forward()
+
+            if self._fromstack():  # bar is available
+                return True
+
+            if not self._fromstack(stash=True):
+                _loadret = self._load()
+                if not _loadret:  # no bar use force to make sure in exactbars
+                    # the pointer is undone this covers especially (but not
+                    # uniquely) the case in which the last bar has been seen
+                    # and a backwards would ruin pointer accounting in the
+                    # &#34;stop&#34; method of the strategy
+                    self.backwards(force=True)  # undo data pointer
+
+                    # return the actual returned value which may be None to
+                    # signal no bar is available, but the data feed is not
+                    # done. False means game over
+                    return _loadret
+
+            # Get a reference to current loaded time
+            dt = self.lines.datetime[0]
+
+            # A bar has been loaded, adapt the time
+            if self._tzinput:
+                # Input has been converted at face value but it&#39;s not UTC in
+                # the input stream
+                dtime = num2date(dt)  # get it in a naive datetime
+                # localize it
+                dtime = self._tzinput.localize(dtime)  # pytz compatible-ized
+                self.lines.datetime[0] = dt = date2num(dtime)  # keep UTC val
+
+            # Check standard date from/to filters
+            if dt &lt; self.fromdate:
+                # discard loaded bar and carry on
+                self.backwards()
+                continue
+            if dt &gt; self.todate:
+                # discard loaded bar and break out
+                self.backwards(force=True)
+                break
+
+            # Pass through filters
+            retff = False
+            for ff, fargs, fkwargs in self._filters:
+                # previous filter may have put things onto the stack
+                if self._barstack:
+                    for i in range(len(self._barstack)):
+                        self._fromstack(forward=True)
+                        retff = ff(self, *fargs, **fkwargs)
+                else:
+                    retff = ff(self, *fargs, **fkwargs)
+
+                if retff:  # bar removed from systemn
+                    break  # out of the inner loop
+
+            if retff:  # bar removed from system - loop to get new bar
+                continue  # in the greater loop
+
+            # Checks let the bar through ... notify it
+            return True
+
+        # Out of the loop ... no more bars or past todate
+        return False
+
+    def _load(self):
+        return False
+
+    def _add2stack(self, bar, stash=False):
+        &#39;&#39;&#39;Saves given bar (list of values) to the stack for later retrieval&#39;&#39;&#39;
+        if not stash:
+            self._barstack.append(bar)
+        else:
+            self._barstash.append(bar)
+
+    def _save2stack(self, erase=False, force=False, stash=False):
+        &#39;&#39;&#39;Saves current bar to the bar stack for later retrieval
+
+        Parameter ``erase`` determines removal from the data stream
+        &#39;&#39;&#39;
+        bar = [line[0] for line in self.itersize()]
+        if not stash:
+            self._barstack.append(bar)
+        else:
+            self._barstash.append(bar)
+
+        if erase:  # remove bar if requested
+            self.backwards(force=force)
+
+    def _updatebar(self, bar, forward=False, ago=0):
+        &#39;&#39;&#39;Load a value from the stack onto the lines to form the new bar
+
+        Returns True if values are present, False otherwise
+        &#39;&#39;&#39;
+        if forward:
+            self.forward()
+
+        for line, val in zip(self.itersize(), bar):
+            line[0 + ago] = val
+
+    def _fromstack(self, forward=False, stash=False):
+        &#39;&#39;&#39;Load a value from the stack onto the lines to form the new bar
+
+        Returns True if values are present, False otherwise
+        &#39;&#39;&#39;
+
+        coll = self._barstack if not stash else self._barstash
+
+        if coll:
+            if forward:
+                self.forward()
+
+            for line, val in zip(self.itersize(), coll.popleft()):
+                line[0] = val
+
+            return True
+
+        return False
+
+    def resample(self, **kwargs):
+        self.addfilter(Resampler, **kwargs)
+
+    def replay(self, **kwargs):
+        self.addfilter(Replayer, **kwargs)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.dataseries.OHLCDateTime" href="dataseries.html#backtrader.dataseries.OHLCDateTime">OHLCDateTime</a></li>
+<li><a title="backtrader.dataseries.OHLC" href="dataseries.html#backtrader.dataseries.OHLC">OHLC</a></li>
+<li><a title="backtrader.dataseries.DataSeries" href="dataseries.html#backtrader.dataseries.DataSeries">DataSeries</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.DataBase" href="#backtrader.feed.DataBase">DataBase</a></li>
+<li><a title="backtrader.feed.DataClone" href="#backtrader.feed.DataClone">DataClone</a></li>
+<li><a title="backtrader.filters.datafiller.DataFiller" href="filters/datafiller.html#backtrader.filters.datafiller.DataFiller">DataFiller</a></li>
+<li><a title="backtrader.filters.datafilter.DataFilter" href="filters/datafilter.html#backtrader.filters.datafilter.DataFilter">DataFilter</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.feed.AbstractDataBase.CONNBROKEN"><code class="name">var <span class="ident">CONNBROKEN</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.CONNECTED"><code class="name">var <span class="ident">CONNECTED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.DELAYED"><code class="name">var <span class="ident">DELAYED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.DISCONNECTED"><code class="name">var <span class="ident">DISCONNECTED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.LIVE"><code class="name">var <span class="ident">LIVE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.NOTSUBSCRIBED"><code class="name">var <span class="ident">NOTSUBSCRIBED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.NOTSUPPORTED_TF"><code class="name">var <span class="ident">NOTSUPPORTED_TF</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.UNKNOWN"><code class="name">var <span class="ident">UNKNOWN</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.replaying"><code class="name">var <span class="ident">replaying</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.resampling"><code class="name">var <span class="ident">resampling</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.feed.AbstractDataBase.addfilter"><code class="name flex">
+<span>def <span class="ident">addfilter</span></span>(<span>self, p, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addfilter(self, p, *args, **kwargs):
+    if inspect.isclass(p):
+        pobj = p(self, *args, **kwargs)
+        self._filters.append((pobj, [], {}))
+
+        if hasattr(pobj, &#39;last&#39;):
+            self._ffilters.append((pobj, [], {}))
+
+    else:
+        self._filters.append((p, args, kwargs))</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.addfilter_simple"><code class="name flex">
+<span>def <span class="ident">addfilter_simple</span></span>(<span>self, f, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addfilter_simple(self, f, *args, **kwargs):
+    fp = SimpleFilterWrapper(self, f, *args, **kwargs)
+    self._filters.append((fp, fp.args, fp.kwargs))</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.advance"><code class="name flex">
+<span>def <span class="ident">advance</span></span>(<span>self, size=1, datamaster=None, ticks=True)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def advance(self, size=1, datamaster=None, ticks=True):
+    if ticks:
+        self._tick_nullify()
+
+    # Need intercepting this call to support datas with
+    # different lengths (timeframes)
+    self.lines.advance(size)
+
+    if datamaster is not None:
+        if len(self) &gt; self.buflen():
+            # if no bar can be delivered, fill with an empty bar
+            self.rewind()
+            self.lines.forward()
+            return
+
+        if self.lines.datetime[0] &gt; datamaster.lines.datetime[0]:
+            self.lines.rewind()
+        else:
+            if ticks:
+                self._tick_fill()
+    elif len(self) &lt; self.buflen():
+        # a resampler may have advance us past the last point
+        if ticks:
+            self._tick_fill()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.advance_peek"><code class="name flex">
+<span>def <span class="ident">advance_peek</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def advance_peek(self):
+    if len(self) &lt; self.buflen():
+        return self.lines.datetime[1]  # return the future
+
+    return float(&#39;inf&#39;)  # max date else</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.clone"><code class="name flex">
+<span>def <span class="ident">clone</span></span>(<span>self, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clone(self, **kwargs):
+    return DataClone(dataname=self, **kwargs)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.compensate"><code class="name flex">
+<span>def <span class="ident">compensate</span></span>(<span>self, other)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Call it to let the broker know that actions on this asset will
+compensate open positions in another</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compensate(self, other):
+    &#39;&#39;&#39;Call it to let the broker know that actions on this asset will
+    compensate open positions in another&#39;&#39;&#39;
+
+    self._compensate = other</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.copyas"><code class="name flex">
+<span>def <span class="ident">copyas</span></span>(<span>self, _dataname, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def copyas(self, _dataname, **kwargs):
+    d = DataClone(dataname=self, **kwargs)
+    d._dataname = _dataname
+    d._name = _dataname
+    return d</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.date2num"><code class="name flex">
+<span>def <span class="ident">date2num</span></span>(<span>self, dt)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def date2num(self, dt):
+    if self._tz is not None:
+        return date2num(self._tz.localize(dt))
+
+    return date2num(dt)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.do_qcheck"><code class="name flex">
+<span>def <span class="ident">do_qcheck</span></span>(<span>self, onoff, qlapse)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def do_qcheck(self, onoff, qlapse):
+    # if onoff is True the data will wait p.qcheck for incoming live data
+    # on its queue.
+    qwait = self.p.qcheck if onoff else 0.0
+    qwait = max(0.0, qwait - qlapse)
+    self._qcheck = qwait</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.get_notifications"><code class="name flex">
+<span>def <span class="ident">get_notifications</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the pending "store" notifications</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_notifications(self):
+    &#39;&#39;&#39;Return the pending &#34;store&#34; notifications&#39;&#39;&#39;
+    # The background thread could keep on adding notifications. The None
+    # mark allows to identify which is the last notification to deliver
+    self.notifs.append(None)  # put a mark
+    notifs = list()
+    while True:
+        notif = self.notifs.popleft()
+        if notif is None:  # mark is reached
+            break
+        notifs.append(notif)
+
+    return notifs</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.getenvironment"><code class="name flex">
+<span>def <span class="ident">getenvironment</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getenvironment(self):
+    return self._env</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.getfeed"><code class="name flex">
+<span>def <span class="ident">getfeed</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getfeed(self):
+    return self._feed</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.haslivedata"><code class="name flex">
+<span>def <span class="ident">haslivedata</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def haslivedata(self):
+    return False  # must be overriden for those that can</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.islive"><code class="name flex">
+<span>def <span class="ident">islive</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>If this returns True, <code>Cerebro</code> will deactivate <code>preload</code> and
+<code>runonce</code> because a live data source must be fetched tick by tick (or
+bar by bar)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def islive(self):
+    &#39;&#39;&#39;If this returns True, ``Cerebro`` will deactivate ``preload`` and
+    ``runonce`` because a live data source must be fetched tick by tick (or
+    bar by bar)&#39;&#39;&#39;
+    return False</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.load"><code class="name flex">
+<span>def <span class="ident">load</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load(self):
+    while True:
+        # move data pointer forward for new bar
+        self.forward()
+
+        if self._fromstack():  # bar is available
+            return True
+
+        if not self._fromstack(stash=True):
+            _loadret = self._load()
+            if not _loadret:  # no bar use force to make sure in exactbars
+                # the pointer is undone this covers especially (but not
+                # uniquely) the case in which the last bar has been seen
+                # and a backwards would ruin pointer accounting in the
+                # &#34;stop&#34; method of the strategy
+                self.backwards(force=True)  # undo data pointer
+
+                # return the actual returned value which may be None to
+                # signal no bar is available, but the data feed is not
+                # done. False means game over
+                return _loadret
+
+        # Get a reference to current loaded time
+        dt = self.lines.datetime[0]
+
+        # A bar has been loaded, adapt the time
+        if self._tzinput:
+            # Input has been converted at face value but it&#39;s not UTC in
+            # the input stream
+            dtime = num2date(dt)  # get it in a naive datetime
+            # localize it
+            dtime = self._tzinput.localize(dtime)  # pytz compatible-ized
+            self.lines.datetime[0] = dt = date2num(dtime)  # keep UTC val
+
+        # Check standard date from/to filters
+        if dt &lt; self.fromdate:
+            # discard loaded bar and carry on
+            self.backwards()
+            continue
+        if dt &gt; self.todate:
+            # discard loaded bar and break out
+            self.backwards(force=True)
+            break
+
+        # Pass through filters
+        retff = False
+        for ff, fargs, fkwargs in self._filters:
+            # previous filter may have put things onto the stack
+            if self._barstack:
+                for i in range(len(self._barstack)):
+                    self._fromstack(forward=True)
+                    retff = ff(self, *fargs, **fkwargs)
+            else:
+                retff = ff(self, *fargs, **fkwargs)
+
+            if retff:  # bar removed from systemn
+                break  # out of the inner loop
+
+        if retff:  # bar removed from system - loop to get new bar
+            continue  # in the greater loop
+
+        # Checks let the bar through ... notify it
+        return True
+
+    # Out of the loop ... no more bars or past todate
+    return False</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.num2date"><code class="name flex">
+<span>def <span class="ident">num2date</span></span>(<span>self, dt=None, tz=None, naive=True)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def num2date(self, dt=None, tz=None, naive=True):
+    if dt is None:
+        return num2date(self.lines.datetime[0], tz or self._tz, naive)
+
+    return num2date(dt, tz or self._tz, naive)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.preload"><code class="name flex">
+<span>def <span class="ident">preload</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def preload(self):
+    while self.load():
+        pass
+
+    self._last()
+    self.home()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.put_notification"><code class="name flex">
+<span>def <span class="ident">put_notification</span></span>(<span>self, status, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add arguments to notification queue</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_notification(self, status, *args, **kwargs):
+    &#39;&#39;&#39;Add arguments to notification queue&#39;&#39;&#39;
+    if self._laststatus != status:
+        self.notifs.append((status, args, kwargs))
+        self._laststatus = status</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.replay"><code class="name flex">
+<span>def <span class="ident">replay</span></span>(<span>self, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def replay(self, **kwargs):
+    self.addfilter(Replayer, **kwargs)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.resample"><code class="name flex">
+<span>def <span class="ident">resample</span></span>(<span>self, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def resample(self, **kwargs):
+    self.addfilter(Resampler, **kwargs)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.setenvironment"><code class="name flex">
+<span>def <span class="ident">setenvironment</span></span>(<span>self, env)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Keep a reference to the environment</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setenvironment(self, env):
+    &#39;&#39;&#39;Keep a reference to the environment&#39;&#39;&#39;
+    self._env = env</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    self._barstack = collections.deque()
+    self._barstash = collections.deque()
+    self._laststatus = self.CONNECTED</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.AbstractDataBase.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stop(self):
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.dataseries.OHLCDateTime" href="dataseries.html#backtrader.dataseries.OHLCDateTime">OHLCDateTime</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.dataseries.OHLCDateTime.addminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.incminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.lines" href="lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.minbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.next" href="lineroot.html#backtrader.lineroot.LineRoot.next">next</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.nextstart" href="lineroot.html#backtrader.lineroot.LineRoot.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.once" href="lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.oncestart" href="lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.prenext" href="lineroot.html#backtrader.lineroot.LineRoot.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.preonce" href="lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.qbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.setminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.dataseries.OHLCDateTime.updateminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.feed.CSVDataBase"><code class="flex name class">
+<span>class <span class="ident">CSVDataBase</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for classes implementing CSV DataFeeds</p>
+<p>The class takes care of opening the file, reading the lines and
+tokenizing them.</p>
+<p>Subclasses do only need to override:</p>
+<ul>
+<li>_loadline(tokens)</li>
+</ul>
+<p>The return value of <code>_loadline</code> (True/False) will be the return value
+of <code>_load</code> which has been overriden by this base class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CSVDataBase(with_metaclass(MetaCSVDataBase, DataBase)):
+    &#39;&#39;&#39;
+    Base class for classes implementing CSV DataFeeds
+
+    The class takes care of opening the file, reading the lines and
+    tokenizing them.
+
+    Subclasses do only need to override:
+
+      - _loadline(tokens)
+
+    The return value of ``_loadline`` (True/False) will be the return value
+    of ``_load`` which has been overriden by this base class
+    &#39;&#39;&#39;
+
+    f = None
+    params = ((&#39;headers&#39;, True), (&#39;separator&#39;, &#39;,&#39;),)
+
+    def start(self):
+        super(CSVDataBase, self).start()
+
+        if self.f is None:
+            if hasattr(self.p.dataname, &#39;readline&#39;):
+                self.f = self.p.dataname
+            else:
+                # Let an exception propagate to let the caller know
+                self.f = io.open(self.p.dataname, &#39;r&#39;)
+
+        if self.p.headers:
+            self.f.readline()  # skip the headers
+
+        self.separator = self.p.separator
+
+    def stop(self):
+        super(CSVDataBase, self).stop()
+        if self.f is not None:
+            self.f.close()
+            self.f = None
+
+    def preload(self):
+        while self.load():
+            pass
+
+        self._last()
+        self.home()
+
+        # preloaded - no need to keep the object around - breaks multip in 3.x
+        self.f.close()
+        self.f = None
+
+    def _load(self):
+        if self.f is None:
+            return False
+
+        # Let an exception propagate to let the caller know
+        line = self.f.readline()
+
+        if not line:
+            return False
+
+        line = line.rstrip(&#39;\n&#39;)
+        linetokens = line.split(self.separator)
+        return self._loadline(linetokens)
+
+    def _getnextline(self):
+        if self.f is None:
+            return None
+
+        # Let an exception propagate to let the caller know
+        line = self.f.readline()
+
+        if not line:
+            return None
+
+        line = line.rstrip(&#39;\n&#39;)
+        linetokens = line.split(self.separator)
+        return linetokens</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.DataBase" href="#backtrader.feed.DataBase">DataBase</a></li>
+<li><a title="backtrader.feed.AbstractDataBase" href="#backtrader.feed.AbstractDataBase">AbstractDataBase</a></li>
+<li><a title="backtrader.dataseries.OHLCDateTime" href="dataseries.html#backtrader.dataseries.OHLCDateTime">OHLCDateTime</a></li>
+<li><a title="backtrader.dataseries.OHLC" href="dataseries.html#backtrader.dataseries.OHLC">OHLC</a></li>
+<li><a title="backtrader.dataseries.DataSeries" href="dataseries.html#backtrader.dataseries.DataSeries">DataSeries</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.feeds.btcsv.BacktraderCSVData" href="feeds/btcsv.html#backtrader.feeds.btcsv.BacktraderCSVData">BacktraderCSVData</a></li>
+<li><a title="backtrader.feeds.csvgeneric.GenericCSVData" href="feeds/csvgeneric.html#backtrader.feeds.csvgeneric.GenericCSVData">GenericCSVData</a></li>
+<li><a title="backtrader.feeds.quandl.QuandlCSV" href="feeds/quandl.html#backtrader.feeds.quandl.QuandlCSV">QuandlCSV</a></li>
+<li><a title="backtrader.feeds.vchartcsv.VChartCSVData" href="feeds/vchartcsv.html#backtrader.feeds.vchartcsv.VChartCSVData">VChartCSVData</a></li>
+<li><a title="backtrader.feeds.yahoo.YahooFinanceCSVData" href="feeds/yahoo.html#backtrader.feeds.yahoo.YahooFinanceCSVData">YahooFinanceCSVData</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.feed.CSVDataBase.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.f"><code class="name">var <span class="ident">f</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.feed.CSVDataBase.preload"><code class="name flex">
+<span>def <span class="ident">preload</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def preload(self):
+    while self.load():
+        pass
+
+    self._last()
+    self.home()
+
+    # preloaded - no need to keep the object around - breaks multip in 3.x
+    self.f.close()
+    self.f = None</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    super(CSVDataBase, self).start()
+
+    if self.f is None:
+        if hasattr(self.p.dataname, &#39;readline&#39;):
+            self.f = self.p.dataname
+        else:
+            # Let an exception propagate to let the caller know
+            self.f = io.open(self.p.dataname, &#39;r&#39;)
+
+    if self.p.headers:
+        self.f.readline()  # skip the headers
+
+    self.separator = self.p.separator</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.CSVDataBase.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stop(self):
+    super(CSVDataBase, self).stop()
+    if self.f is not None:
+        self.f.close()
+        self.f = None</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.feed.DataBase" href="#backtrader.feed.DataBase">DataBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.feed.DataBase.addminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.compensate" href="#backtrader.feed.AbstractDataBase.compensate">compensate</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.get_notifications" href="#backtrader.feed.AbstractDataBase.get_notifications">get_notifications</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.incminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.islive" href="#backtrader.feed.AbstractDataBase.islive">islive</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.lines" href="lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.minbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.next" href="lineroot.html#backtrader.lineroot.LineRoot.next">next</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.nextstart" href="lineroot.html#backtrader.lineroot.LineRoot.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.once" href="lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.oncestart" href="lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.prenext" href="lineroot.html#backtrader.lineroot.LineRoot.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.preonce" href="lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.put_notification" href="#backtrader.feed.AbstractDataBase.put_notification">put_notification</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.qbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.setenvironment" href="#backtrader.feed.AbstractDataBase.setenvironment">setenvironment</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.setminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.updateminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.feed.CSVFeedBase"><code class="flex name class">
+<span>class <span class="ident">CSVFeedBase</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CSVFeedBase(FeedBase):
+    params = ((&#39;basepath&#39;, &#39;&#39;),) + CSVDataBase.params._gettuple()
+
+    def _getdata(self, dataname, **kwargs):
+        return self.DataCls(dataname=self.p.basepath + dataname,
+                            **self.p._getkwargs())</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.FeedBase" href="#backtrader.feed.FeedBase">FeedBase</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.feeds.btcsv.BacktraderCSV" href="feeds/btcsv.html#backtrader.feeds.btcsv.BacktraderCSV">BacktraderCSV</a></li>
+<li><a title="backtrader.feeds.csvgeneric.GenericCSV" href="feeds/csvgeneric.html#backtrader.feeds.csvgeneric.GenericCSV">GenericCSV</a></li>
+<li><a title="backtrader.feeds.vchartcsv.VChartCSV" href="feeds/vchartcsv.html#backtrader.feeds.vchartcsv.VChartCSV">VChartCSV</a></li>
+<li><a title="backtrader.feeds.yahoo.YahooFinance" href="feeds/yahoo.html#backtrader.feeds.yahoo.YahooFinance">YahooFinance</a></li>
+<li><a title="backtrader.feeds.yahoo.YahooFinanceCSV" href="feeds/yahoo.html#backtrader.feeds.yahoo.YahooFinanceCSV">YahooFinanceCSV</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.feed.CSVFeedBase.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVFeedBase.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.CSVFeedBase.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="backtrader.feed.DataBase"><code class="flex name class">
+<span>class <span class="ident">DataBase</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for LineXXX instances that hold more than one line</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataBase(AbstractDataBase):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.AbstractDataBase" href="#backtrader.feed.AbstractDataBase">AbstractDataBase</a></li>
+<li><a title="backtrader.dataseries.OHLCDateTime" href="dataseries.html#backtrader.dataseries.OHLCDateTime">OHLCDateTime</a></li>
+<li><a title="backtrader.dataseries.OHLC" href="dataseries.html#backtrader.dataseries.OHLC">OHLC</a></li>
+<li><a title="backtrader.dataseries.DataSeries" href="dataseries.html#backtrader.dataseries.DataSeries">DataSeries</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.CSVDataBase" href="#backtrader.feed.CSVDataBase">CSVDataBase</a></li>
+<li><a title="backtrader.feeds.blaze.BlazeData" href="feeds/blaze.html#backtrader.feeds.blaze.BlazeData">BlazeData</a></li>
+<li><a title="backtrader.feeds.chainer.Chainer" href="feeds/chainer.html#backtrader.feeds.chainer.Chainer">Chainer</a></li>
+<li><a title="backtrader.feeds.influxfeed.InfluxDB" href="feeds/influxfeed.html#backtrader.feeds.influxfeed.InfluxDB">InfluxDB</a></li>
+<li><a title="backtrader.feeds.pandafeed.PandasData" href="feeds/pandafeed.html#backtrader.feeds.pandafeed.PandasData">PandasData</a></li>
+<li><a title="backtrader.feeds.pandafeed.PandasDirectData" href="feeds/pandafeed.html#backtrader.feeds.pandafeed.PandasDirectData">PandasDirectData</a></li>
+<li><a title="backtrader.feeds.rollover.RollOver" href="feeds/rollover.html#backtrader.feeds.rollover.RollOver">RollOver</a></li>
+<li><a title="backtrader.feeds.vcdata.VCData" href="feeds/vcdata.html#backtrader.feeds.vcdata.VCData">VCData</a></li>
+<li><a title="backtrader.feeds.vchart.VChartData" href="feeds/vchart.html#backtrader.feeds.vchart.VChartData">VChartData</a></li>
+<li><a title="backtrader.feeds.vchartfile.VChartFile" href="feeds/vchartfile.html#backtrader.feeds.vchartfile.VChartFile">VChartFile</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.feed.DataBase.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataBase.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataBase.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataBase.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataBase.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataBase.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataBase.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataBase.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.feed.AbstractDataBase" href="#backtrader.feed.AbstractDataBase">AbstractDataBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.feed.AbstractDataBase.addminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.compensate" href="#backtrader.feed.AbstractDataBase.compensate">compensate</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.get_notifications" href="#backtrader.feed.AbstractDataBase.get_notifications">get_notifications</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.incminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.islive" href="#backtrader.feed.AbstractDataBase.islive">islive</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.lines" href="lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.minbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.next" href="lineroot.html#backtrader.lineroot.LineRoot.next">next</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.nextstart" href="lineroot.html#backtrader.lineroot.LineRoot.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.once" href="lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.oncestart" href="lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.prenext" href="lineroot.html#backtrader.lineroot.LineRoot.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.preonce" href="lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.put_notification" href="#backtrader.feed.AbstractDataBase.put_notification">put_notification</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.qbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.setenvironment" href="#backtrader.feed.AbstractDataBase.setenvironment">setenvironment</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.setminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.updateminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.feed.DataClone"><code class="flex name class">
+<span>class <span class="ident">DataClone</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for LineXXX instances that hold more than one line</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataClone(AbstractDataBase):
+    _clone = True
+
+    def __init__(self):
+        self.data = self.p.dataname
+        self._dataname = self.data._dataname
+
+        # Copy date/session parameters
+        self.p.fromdate = self.p.fromdate
+        self.p.todate = self.p.todate
+        self.p.sessionstart = self.data.p.sessionstart
+        self.p.sessionend = self.data.p.sessionend
+
+        self.p.timeframe = self.data.p.timeframe
+        self.p.compression = self.data.p.compression
+
+    def _start(self):
+        # redefine to copy data bits from guest data
+        self.start()
+
+        # Copy tz infos
+        self._tz = self.data._tz
+        self.lines.datetime._settz(self._tz)
+
+        self._calendar = self.data._calendar
+
+        # input has already been converted by guest data
+        self._tzinput = None  # no need to further converr
+
+        # Copy dates/session infos
+        self.fromdate = self.data.fromdate
+        self.todate = self.data.todate
+
+        # FIXME: if removed from guest, remove here too
+        self.sessionstart = self.data.sessionstart
+        self.sessionend = self.data.sessionend
+
+    def start(self):
+        super(DataClone, self).start()
+        self._dlen = 0
+        self._preloading = False
+
+    def preload(self):
+        self._preloading = True
+        super(DataClone, self).preload()
+        self.data.home()  # preloading data was pushed forward
+        self._preloading = False
+
+    def _load(self):
+        # assumption: the data is in the system
+        # simply copy the lines
+        if self._preloading:
+            # data is preloaded, we are preloading too, can move
+            # forward until have full bar or data source is exhausted
+            self.data.advance()
+            if len(self.data) &gt; self.data.buflen():
+                return False
+
+            for line, dline in zip(self.lines, self.data.lines):
+                line[0] = dline[0]
+
+            return True
+
+        # Not preloading
+        if not (len(self.data) &gt; self._dlen):
+            # Data not beyond last seen bar
+            return False
+
+        self._dlen += 1
+
+        for line, dline in zip(self.lines, self.data.lines):
+            line[0] = dline[0]
+
+        return True
+
+    def advance(self, size=1, datamaster=None, ticks=True):
+        self._dlen += size
+        super(DataClone, self).advance(size, datamaster, ticks=ticks)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.AbstractDataBase" href="#backtrader.feed.AbstractDataBase">AbstractDataBase</a></li>
+<li><a title="backtrader.dataseries.OHLCDateTime" href="dataseries.html#backtrader.dataseries.OHLCDateTime">OHLCDateTime</a></li>
+<li><a title="backtrader.dataseries.OHLC" href="dataseries.html#backtrader.dataseries.OHLC">OHLC</a></li>
+<li><a title="backtrader.dataseries.DataSeries" href="dataseries.html#backtrader.dataseries.DataSeries">DataSeries</a></li>
+<li><a title="backtrader.lineseries.LineSeries" href="lineseries.html#backtrader.lineseries.LineSeries">LineSeries</a></li>
+<li><a title="backtrader.lineroot.LineMultiple" href="lineroot.html#backtrader.lineroot.LineMultiple">LineMultiple</a></li>
+<li><a title="backtrader.lineroot.LineRoot" href="lineroot.html#backtrader.lineroot.LineRoot">LineRoot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.feed.DataClone.alias"><code class="name">var <span class="ident">alias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataClone.aliased"><code class="name">var <span class="ident">aliased</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataClone.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataClone.linealias"><code class="name">var <span class="ident">linealias</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataClone.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataClone.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataClone.plotinfo"><code class="name">var <span class="ident">plotinfo</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.DataClone.plotlines"><code class="name">var <span class="ident">plotlines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.feed.DataClone.advance"><code class="name flex">
+<span>def <span class="ident">advance</span></span>(<span>self, size=1, datamaster=None, ticks=True)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def advance(self, size=1, datamaster=None, ticks=True):
+    self._dlen += size
+    super(DataClone, self).advance(size, datamaster, ticks=ticks)</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.DataClone.preload"><code class="name flex">
+<span>def <span class="ident">preload</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def preload(self):
+    self._preloading = True
+    super(DataClone, self).preload()
+    self.data.home()  # preloading data was pushed forward
+    self._preloading = False</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.DataClone.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    super(DataClone, self).start()
+    self._dlen = 0
+    self._preloading = False</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.feed.AbstractDataBase" href="#backtrader.feed.AbstractDataBase">AbstractDataBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.feed.AbstractDataBase.addminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.addminperiod">addminperiod</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.compensate" href="#backtrader.feed.AbstractDataBase.compensate">compensate</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.get_notifications" href="#backtrader.feed.AbstractDataBase.get_notifications">get_notifications</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.incminperiod" href="lineroot.html#backtrader.lineroot.LineMultiple.incminperiod">incminperiod</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.islive" href="#backtrader.feed.AbstractDataBase.islive">islive</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.lines" href="lineseries.html#backtrader.lineseries.LineSeries.lines">lines</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.minbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.minbuffer">minbuffer</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.next" href="lineroot.html#backtrader.lineroot.LineRoot.next">next</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.nextstart" href="lineroot.html#backtrader.lineroot.LineRoot.nextstart">nextstart</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.once" href="lineroot.html#backtrader.lineroot.LineRoot.once">once</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.oncestart" href="lineroot.html#backtrader.lineroot.LineRoot.oncestart">oncestart</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.prenext" href="lineroot.html#backtrader.lineroot.LineRoot.prenext">prenext</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.preonce" href="lineroot.html#backtrader.lineroot.LineRoot.preonce">preonce</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.put_notification" href="#backtrader.feed.AbstractDataBase.put_notification">put_notification</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.qbuffer" href="lineroot.html#backtrader.lineroot.LineRoot.qbuffer">qbuffer</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.setenvironment" href="#backtrader.feed.AbstractDataBase.setenvironment">setenvironment</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.setminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.setminperiod">setminperiod</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.updateminperiod" href="lineroot.html#backtrader.lineroot.LineRoot.updateminperiod">updateminperiod</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.feed.FeedBase"><code class="flex name class">
+<span>class <span class="ident">FeedBase</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FeedBase(with_metaclass(metabase.MetaParams, object)):
+    params = () + DataBase.params._gettuple()
+
+    def __init__(self):
+        self.datas = list()
+
+    def start(self):
+        for data in self.datas:
+            data.start()
+
+    def stop(self):
+        for data in self.datas:
+            data.stop()
+
+    def getdata(self, dataname, name=None, **kwargs):
+        for pname, pvalue in self.p._getitems():
+            kwargs.setdefault(pname, getattr(self.p, pname))
+
+        kwargs[&#39;dataname&#39;] = dataname
+        data = self._getdata(**kwargs)
+
+        data._name = name
+
+        self.datas.append(data)
+        return data
+
+    def _getdata(self, dataname, **kwargs):
+        for pname, pvalue in self.p._getitems():
+            kwargs.setdefault(pname, getattr(self.p, pname))
+
+        kwargs[&#39;dataname&#39;] = dataname
+        return self.DataCls(**kwargs)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.CSVFeedBase" href="#backtrader.feed.CSVFeedBase">CSVFeedBase</a></li>
+<li><a title="backtrader.feeds.vchart.VChartFeed" href="feeds/vchart.html#backtrader.feeds.vchart.VChartFeed">VChartFeed</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="backtrader.feed.FeedBase.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.FeedBase.packages"><code class="name">var <span class="ident">packages</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="backtrader.feed.FeedBase.params"><code class="name">var <span class="ident">params</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.feed.FeedBase.getdata"><code class="name flex">
+<span>def <span class="ident">getdata</span></span>(<span>self, dataname, name=None, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getdata(self, dataname, name=None, **kwargs):
+    for pname, pvalue in self.p._getitems():
+        kwargs.setdefault(pname, getattr(self.p, pname))
+
+    kwargs[&#39;dataname&#39;] = dataname
+    data = self._getdata(**kwargs)
+
+    data._name = name
+
+    self.datas.append(data)
+    return data</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.FeedBase.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    for data in self.datas:
+        data.start()</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.FeedBase.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stop(self):
+    for data in self.datas:
+        data.stop()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="backtrader.feed.MetaAbstractDataBase"><code class="flex name class">
+<span>class <span class="ident">MetaAbstractDataBase</span></span>
+<span>(</span><span>name, bases, dct)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dirty job manager for a LineSeries</p>
+<ul>
+<li>
+<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
+"plotlines" class variable definitions and turns them into
+Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
+</li>
+<li>
+<p>During "new" (instance creation) the lines/plotinfo/plotlines
+classes are substituted in the instance with instances of the
+aforementioned classes and aliases are added for the "lines" held
+in the "lines" instance</p>
+<p>Additionally and for remaining kwargs, these are matched against
+args in plotinfo and if existent are set there and removed from kwargs</p>
+<p>Remember that this Metaclass has a MetaParams (from metabase)
+as root class and therefore "params" defined for the class have been
+removed from kwargs at an earlier state</p>
+</li>
+</ul>
+<p>Class has already been created &hellip; register subclasses</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MetaAbstractDataBase(dataseries.OHLCDateTime.__class__):
+    _indcol = dict()
+
+    def __init__(cls, name, bases, dct):
+        &#39;&#39;&#39;
+        Class has already been created ... register subclasses
+        &#39;&#39;&#39;
+        # Initialize the class
+        super(MetaAbstractDataBase, cls).__init__(name, bases, dct)
+
+        if not cls.aliased and \
+           name != &#39;DataBase&#39; and not name.startswith(&#39;_&#39;):
+            cls._indcol[name] = cls
+
+    def dopreinit(cls, _obj, *args, **kwargs):
+        _obj, args, kwargs = \
+            super(MetaAbstractDataBase, cls).dopreinit(_obj, *args, **kwargs)
+
+        # Find the owner and store it
+        _obj._feed = metabase.findowner(_obj, FeedBase)
+
+        _obj.notifs = collections.deque()  # store notifications for cerebro
+
+        _obj._dataname = _obj.p.dataname
+        _obj._name = &#39;&#39;
+        return _obj, args, kwargs
+
+    def dopostinit(cls, _obj, *args, **kwargs):
+        _obj, args, kwargs = \
+            super(MetaAbstractDataBase, cls).dopostinit(_obj, *args, **kwargs)
+
+        # Either set by subclass or the parameter or use the dataname (ticker)
+        _obj._name = _obj._name or _obj.p.name
+        if not _obj._name and isinstance(_obj.p.dataname, string_types):
+            _obj._name = _obj.p.dataname
+        _obj._compression = _obj.p.compression
+        _obj._timeframe = _obj.p.timeframe
+
+        if isinstance(_obj.p.sessionstart, datetime.datetime):
+            _obj.p.sessionstart = _obj.p.sessionstart.time()
+
+        elif _obj.p.sessionstart is None:
+            _obj.p.sessionstart = datetime.time.min
+
+        if isinstance(_obj.p.sessionend, datetime.datetime):
+            _obj.p.sessionend = _obj.p.sessionend.time()
+
+        elif _obj.p.sessionend is None:
+            # remove 9 to avoid precision rounding errors
+            _obj.p.sessionend = datetime.time(23, 59, 59, 999990)
+
+        if isinstance(_obj.p.fromdate, datetime.date):
+            # push it to the end of the day, or else intraday
+            # values before the end of the day would be gone
+            if not hasattr(_obj.p.fromdate, &#39;hour&#39;):
+                _obj.p.fromdate = datetime.datetime.combine(
+                    _obj.p.fromdate, _obj.p.sessionstart)
+
+        if isinstance(_obj.p.todate, datetime.date):
+            # push it to the end of the day, or else intraday
+            # values before the end of the day would be gone
+            if not hasattr(_obj.p.todate, &#39;hour&#39;):
+                _obj.p.todate = datetime.datetime.combine(
+                    _obj.p.todate, _obj.p.sessionend)
+
+        _obj._barstack = collections.deque()  # for filter operations
+        _obj._barstash = collections.deque()  # for filter operations
+
+        _obj._filters = list()
+        _obj._ffilters = list()
+        for fp in _obj.p.filters:
+            if inspect.isclass(fp):
+                fp = fp(_obj)
+                if hasattr(fp, &#39;last&#39;):
+                    _obj._ffilters.append((fp, [], {}))
+
+            _obj._filters.append((fp, [], {}))
+
+        return _obj, args, kwargs</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.lineseries.MetaLineSeries" href="lineseries.html#backtrader.lineseries.MetaLineSeries">MetaLineSeries</a></li>
+<li><a title="backtrader.lineroot.MetaLineRoot" href="lineroot.html#backtrader.lineroot.MetaLineRoot">MetaLineRoot</a></li>
+<li><a title="backtrader.metabase.MetaParams" href="metabase.html#backtrader.metabase.MetaParams">MetaParams</a></li>
+<li><a title="backtrader.metabase.MetaBase" href="metabase.html#backtrader.metabase.MetaBase">MetaBase</a></li>
+<li>builtins.type</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.MetaCSVDataBase" href="#backtrader.feed.MetaCSVDataBase">MetaCSVDataBase</a></li>
+<li><a title="backtrader.feeds.chainer.MetaChainer" href="feeds/chainer.html#backtrader.feeds.chainer.MetaChainer">MetaChainer</a></li>
+<li><a title="backtrader.feeds.rollover.MetaRollOver" href="feeds/rollover.html#backtrader.feeds.rollover.MetaRollOver">MetaRollOver</a></li>
+<li><a title="backtrader.feeds.vcdata.MetaVCData" href="feeds/vcdata.html#backtrader.feeds.vcdata.MetaVCData">MetaVCData</a></li>
+<li><a title="backtrader.feeds.vchartfile.MetaVChartFile" href="feeds/vchartfile.html#backtrader.feeds.vchartfile.MetaVChartFile">MetaVChartFile</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.feed.MetaAbstractDataBase.dopostinit"><code class="name flex">
+<span>def <span class="ident">dopostinit</span></span>(<span>cls, _obj, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dopostinit(cls, _obj, *args, **kwargs):
+    _obj, args, kwargs = \
+        super(MetaAbstractDataBase, cls).dopostinit(_obj, *args, **kwargs)
+
+    # Either set by subclass or the parameter or use the dataname (ticker)
+    _obj._name = _obj._name or _obj.p.name
+    if not _obj._name and isinstance(_obj.p.dataname, string_types):
+        _obj._name = _obj.p.dataname
+    _obj._compression = _obj.p.compression
+    _obj._timeframe = _obj.p.timeframe
+
+    if isinstance(_obj.p.sessionstart, datetime.datetime):
+        _obj.p.sessionstart = _obj.p.sessionstart.time()
+
+    elif _obj.p.sessionstart is None:
+        _obj.p.sessionstart = datetime.time.min
+
+    if isinstance(_obj.p.sessionend, datetime.datetime):
+        _obj.p.sessionend = _obj.p.sessionend.time()
+
+    elif _obj.p.sessionend is None:
+        # remove 9 to avoid precision rounding errors
+        _obj.p.sessionend = datetime.time(23, 59, 59, 999990)
+
+    if isinstance(_obj.p.fromdate, datetime.date):
+        # push it to the end of the day, or else intraday
+        # values before the end of the day would be gone
+        if not hasattr(_obj.p.fromdate, &#39;hour&#39;):
+            _obj.p.fromdate = datetime.datetime.combine(
+                _obj.p.fromdate, _obj.p.sessionstart)
+
+    if isinstance(_obj.p.todate, datetime.date):
+        # push it to the end of the day, or else intraday
+        # values before the end of the day would be gone
+        if not hasattr(_obj.p.todate, &#39;hour&#39;):
+            _obj.p.todate = datetime.datetime.combine(
+                _obj.p.todate, _obj.p.sessionend)
+
+    _obj._barstack = collections.deque()  # for filter operations
+    _obj._barstash = collections.deque()  # for filter operations
+
+    _obj._filters = list()
+    _obj._ffilters = list()
+    for fp in _obj.p.filters:
+        if inspect.isclass(fp):
+            fp = fp(_obj)
+            if hasattr(fp, &#39;last&#39;):
+                _obj._ffilters.append((fp, [], {}))
+
+        _obj._filters.append((fp, [], {}))
+
+    return _obj, args, kwargs</code></pre>
+</details>
+</dd>
+<dt id="backtrader.feed.MetaAbstractDataBase.dopreinit"><code class="name flex">
+<span>def <span class="ident">dopreinit</span></span>(<span>cls, _obj, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dopreinit(cls, _obj, *args, **kwargs):
+    _obj, args, kwargs = \
+        super(MetaAbstractDataBase, cls).dopreinit(_obj, *args, **kwargs)
+
+    # Find the owner and store it
+    _obj._feed = metabase.findowner(_obj, FeedBase)
+
+    _obj.notifs = collections.deque()  # store notifications for cerebro
+
+    _obj._dataname = _obj.p.dataname
+    _obj._name = &#39;&#39;
+    return _obj, args, kwargs</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.lineseries.MetaLineSeries" href="lineseries.html#backtrader.lineseries.MetaLineSeries">MetaLineSeries</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.lineseries.MetaLineSeries.donew" href="lineseries.html#backtrader.lineseries.MetaLineSeries.donew">donew</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="backtrader.feed.MetaCSVDataBase"><code class="flex name class">
+<span>class <span class="ident">MetaCSVDataBase</span></span>
+<span>(</span><span>name, bases, dct)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dirty job manager for a LineSeries</p>
+<ul>
+<li>
+<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
+"plotlines" class variable definitions and turns them into
+Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
+</li>
+<li>
+<p>During "new" (instance creation) the lines/plotinfo/plotlines
+classes are substituted in the instance with instances of the
+aforementioned classes and aliases are added for the "lines" held
+in the "lines" instance</p>
+<p>Additionally and for remaining kwargs, these are matched against
+args in plotinfo and if existent are set there and removed from kwargs</p>
+<p>Remember that this Metaclass has a MetaParams (from metabase)
+as root class and therefore "params" defined for the class have been
+removed from kwargs at an earlier state</p>
+</li>
+</ul>
+<p>Class has already been created &hellip; register subclasses</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MetaCSVDataBase(DataBase.__class__):
+    def dopostinit(cls, _obj, *args, **kwargs):
+        # Before going to the base class to make sure it overrides the default
+        if not _obj.p.name and not _obj._name:
+            _obj._name, _ = os.path.splitext(os.path.basename(_obj.p.dataname))
+
+        _obj, args, kwargs = \
+            super(MetaCSVDataBase, cls).dopostinit(_obj, *args, **kwargs)
+
+        return _obj, args, kwargs</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="backtrader.feed.MetaAbstractDataBase" href="#backtrader.feed.MetaAbstractDataBase">MetaAbstractDataBase</a></li>
+<li><a title="backtrader.lineseries.MetaLineSeries" href="lineseries.html#backtrader.lineseries.MetaLineSeries">MetaLineSeries</a></li>
+<li><a title="backtrader.lineroot.MetaLineRoot" href="lineroot.html#backtrader.lineroot.MetaLineRoot">MetaLineRoot</a></li>
+<li><a title="backtrader.metabase.MetaParams" href="metabase.html#backtrader.metabase.MetaParams">MetaParams</a></li>
+<li><a title="backtrader.metabase.MetaBase" href="metabase.html#backtrader.metabase.MetaBase">MetaBase</a></li>
+<li>builtins.type</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="backtrader.feed.MetaCSVDataBase.dopostinit"><code class="name flex">
+<span>def <span class="ident">dopostinit</span></span>(<span>cls, _obj, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dopostinit(cls, _obj, *args, **kwargs):
+    # Before going to the base class to make sure it overrides the default
+    if not _obj.p.name and not _obj._name:
+        _obj._name, _ = os.path.splitext(os.path.basename(_obj.p.dataname))
+
+    _obj, args, kwargs = \
+        super(MetaCSVDataBase, cls).dopostinit(_obj, *args, **kwargs)
+
+    return _obj, args, kwargs</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="backtrader.feed.MetaAbstractDataBase" href="#backtrader.feed.MetaAbstractDataBase">MetaAbstractDataBase</a></b></code>:
+<ul class="hlist">
+<li><code><a title="backtrader.feed.MetaAbstractDataBase.donew" href="lineseries.html#backtrader.lineseries.MetaLineSeries.donew">donew</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="backtrader" href="index.html">backtrader</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="backtrader.feed.AbstractDataBase" href="#backtrader.feed.AbstractDataBase">AbstractDataBase</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.feed.AbstractDataBase.CONNBROKEN" href="#backtrader.feed.AbstractDataBase.CONNBROKEN">CONNBROKEN</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.CONNECTED" href="#backtrader.feed.AbstractDataBase.CONNECTED">CONNECTED</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.DELAYED" href="#backtrader.feed.AbstractDataBase.DELAYED">DELAYED</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.DISCONNECTED" href="#backtrader.feed.AbstractDataBase.DISCONNECTED">DISCONNECTED</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.LIVE" href="#backtrader.feed.AbstractDataBase.LIVE">LIVE</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.NOTSUBSCRIBED" href="#backtrader.feed.AbstractDataBase.NOTSUBSCRIBED">NOTSUBSCRIBED</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.NOTSUPPORTED_TF" href="#backtrader.feed.AbstractDataBase.NOTSUPPORTED_TF">NOTSUPPORTED_TF</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.UNKNOWN" href="#backtrader.feed.AbstractDataBase.UNKNOWN">UNKNOWN</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.addfilter" href="#backtrader.feed.AbstractDataBase.addfilter">addfilter</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.addfilter_simple" href="#backtrader.feed.AbstractDataBase.addfilter_simple">addfilter_simple</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.advance" href="#backtrader.feed.AbstractDataBase.advance">advance</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.advance_peek" href="#backtrader.feed.AbstractDataBase.advance_peek">advance_peek</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.alias" href="#backtrader.feed.AbstractDataBase.alias">alias</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.aliased" href="#backtrader.feed.AbstractDataBase.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.clone" href="#backtrader.feed.AbstractDataBase.clone">clone</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.compensate" href="#backtrader.feed.AbstractDataBase.compensate">compensate</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.copyas" href="#backtrader.feed.AbstractDataBase.copyas">copyas</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.date2num" href="#backtrader.feed.AbstractDataBase.date2num">date2num</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.do_qcheck" href="#backtrader.feed.AbstractDataBase.do_qcheck">do_qcheck</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.frompackages" href="#backtrader.feed.AbstractDataBase.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.get_notifications" href="#backtrader.feed.AbstractDataBase.get_notifications">get_notifications</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.getenvironment" href="#backtrader.feed.AbstractDataBase.getenvironment">getenvironment</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.getfeed" href="#backtrader.feed.AbstractDataBase.getfeed">getfeed</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.haslivedata" href="#backtrader.feed.AbstractDataBase.haslivedata">haslivedata</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.islive" href="#backtrader.feed.AbstractDataBase.islive">islive</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.linealias" href="#backtrader.feed.AbstractDataBase.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.load" href="#backtrader.feed.AbstractDataBase.load">load</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.num2date" href="#backtrader.feed.AbstractDataBase.num2date">num2date</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.packages" href="#backtrader.feed.AbstractDataBase.packages">packages</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.params" href="#backtrader.feed.AbstractDataBase.params">params</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.plotinfo" href="#backtrader.feed.AbstractDataBase.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.plotlines" href="#backtrader.feed.AbstractDataBase.plotlines">plotlines</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.preload" href="#backtrader.feed.AbstractDataBase.preload">preload</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.put_notification" href="#backtrader.feed.AbstractDataBase.put_notification">put_notification</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.replay" href="#backtrader.feed.AbstractDataBase.replay">replay</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.replaying" href="#backtrader.feed.AbstractDataBase.replaying">replaying</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.resample" href="#backtrader.feed.AbstractDataBase.resample">resample</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.resampling" href="#backtrader.feed.AbstractDataBase.resampling">resampling</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.setenvironment" href="#backtrader.feed.AbstractDataBase.setenvironment">setenvironment</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.start" href="#backtrader.feed.AbstractDataBase.start">start</a></code></li>
+<li><code><a title="backtrader.feed.AbstractDataBase.stop" href="#backtrader.feed.AbstractDataBase.stop">stop</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.feed.CSVDataBase" href="#backtrader.feed.CSVDataBase">CSVDataBase</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.feed.CSVDataBase.alias" href="#backtrader.feed.CSVDataBase.alias">alias</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.aliased" href="#backtrader.feed.CSVDataBase.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.f" href="#backtrader.feed.CSVDataBase.f">f</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.frompackages" href="#backtrader.feed.CSVDataBase.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.linealias" href="#backtrader.feed.CSVDataBase.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.packages" href="#backtrader.feed.CSVDataBase.packages">packages</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.params" href="#backtrader.feed.CSVDataBase.params">params</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.plotinfo" href="#backtrader.feed.CSVDataBase.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.plotlines" href="#backtrader.feed.CSVDataBase.plotlines">plotlines</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.preload" href="#backtrader.feed.CSVDataBase.preload">preload</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.start" href="#backtrader.feed.CSVDataBase.start">start</a></code></li>
+<li><code><a title="backtrader.feed.CSVDataBase.stop" href="#backtrader.feed.CSVDataBase.stop">stop</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.feed.CSVFeedBase" href="#backtrader.feed.CSVFeedBase">CSVFeedBase</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.feed.CSVFeedBase.frompackages" href="#backtrader.feed.CSVFeedBase.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.feed.CSVFeedBase.packages" href="#backtrader.feed.CSVFeedBase.packages">packages</a></code></li>
+<li><code><a title="backtrader.feed.CSVFeedBase.params" href="#backtrader.feed.CSVFeedBase.params">params</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.feed.DataBase" href="#backtrader.feed.DataBase">DataBase</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.feed.DataBase.alias" href="#backtrader.feed.DataBase.alias">alias</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.aliased" href="#backtrader.feed.DataBase.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.frompackages" href="#backtrader.feed.DataBase.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.linealias" href="#backtrader.feed.DataBase.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.packages" href="#backtrader.feed.DataBase.packages">packages</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.params" href="#backtrader.feed.DataBase.params">params</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.plotinfo" href="#backtrader.feed.DataBase.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.feed.DataBase.plotlines" href="#backtrader.feed.DataBase.plotlines">plotlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.feed.DataClone" href="#backtrader.feed.DataClone">DataClone</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.feed.DataClone.advance" href="#backtrader.feed.DataClone.advance">advance</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.alias" href="#backtrader.feed.DataClone.alias">alias</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.aliased" href="#backtrader.feed.DataClone.aliased">aliased</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.frompackages" href="#backtrader.feed.DataClone.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.linealias" href="#backtrader.feed.DataClone.linealias">linealias</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.packages" href="#backtrader.feed.DataClone.packages">packages</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.params" href="#backtrader.feed.DataClone.params">params</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.plotinfo" href="#backtrader.feed.DataClone.plotinfo">plotinfo</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.plotlines" href="#backtrader.feed.DataClone.plotlines">plotlines</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.preload" href="#backtrader.feed.DataClone.preload">preload</a></code></li>
+<li><code><a title="backtrader.feed.DataClone.start" href="#backtrader.feed.DataClone.start">start</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.feed.FeedBase" href="#backtrader.feed.FeedBase">FeedBase</a></code></h4>
+<ul class="two-column">
+<li><code><a title="backtrader.feed.FeedBase.frompackages" href="#backtrader.feed.FeedBase.frompackages">frompackages</a></code></li>
+<li><code><a title="backtrader.feed.FeedBase.getdata" href="#backtrader.feed.FeedBase.getdata">getdata</a></code></li>
+<li><code><a title="backtrader.feed.FeedBase.packages" href="#backtrader.feed.FeedBase.packages">packages</a></code></li>
+<li><code><a title="backtrader.feed.FeedBase.params" href="#backtrader.feed.FeedBase.params">params</a></code></li>
+<li><code><a title="backtrader.feed.FeedBase.start" href="#backtrader.feed.FeedBase.start">start</a></code></li>
+<li><code><a title="backtrader.feed.FeedBase.stop" href="#backtrader.feed.FeedBase.stop">stop</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.feed.MetaAbstractDataBase" href="#backtrader.feed.MetaAbstractDataBase">MetaAbstractDataBase</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.feed.MetaAbstractDataBase.dopostinit" href="#backtrader.feed.MetaAbstractDataBase.dopostinit">dopostinit</a></code></li>
+<li><code><a title="backtrader.feed.MetaAbstractDataBase.dopreinit" href="#backtrader.feed.MetaAbstractDataBase.dopreinit">dopreinit</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="backtrader.feed.MetaCSVDataBase" href="#backtrader.feed.MetaCSVDataBase">MetaCSVDataBase</a></code></h4>
+<ul class="">
+<li><code><a title="backtrader.feed.MetaCSVDataBase.dopostinit" href="#backtrader.feed.MetaCSVDataBase.dopostinit">dopostinit</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
