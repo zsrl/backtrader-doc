@@ -207,47 +207,49 @@ class PyFolio(bt.Analyzer):
 <div class="desc"><p>This analyzer uses 4 children analyzers to collect data and transforms it
 in to a data set compatible with <code>pyfolio</code></p>
 <p>Children Analyzer</p>
-<ul>
-<li>
-<p><code>TimeReturn</code></p>
-<p>Used to calculate the returns of the global portfolio value</p>
-</li>
-<li>
-<p><code>PositionsValue</code></p>
-<p>Used to calculate the value of the positions per data. It sets the
-<code>headers</code> and <code>cash</code> parameters to <code>True</code></p>
-</li>
-<li>
-<p><code>Transactions</code></p>
-<p>Used to record each transaction on a data (size, price, value). Sets
-the <code>headers</code> parameter to <code>True</code></p>
-</li>
-<li>
-<p><code>GrossLeverage</code></p>
-<p>Keeps track of the gross leverage (how much the strategy is invested)</p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;TimeReturn&lt;/code&gt;
+
+  Used to calculate the returns of the global portfolio value
+
+- &lt;code&gt;PositionsValue&lt;/code&gt;
+
+  Used to calculate the value of the positions per data. It sets the
+  &lt;code&gt;headers&lt;/code&gt; and &lt;code&gt;cash&lt;/code&gt; parameters to &lt;code&gt;True&lt;/code&gt;
+
+- &lt;code&gt;Transactions&lt;/code&gt;
+
+  Used to record each transaction on a data (size, price, value). Sets
+  the &lt;code&gt;headers&lt;/code&gt; parameter to &lt;code&gt;True&lt;/code&gt;
+
+- &lt;code&gt;GrossLeverage&lt;/code&gt;
+
+  Keeps track of the gross leverage (how much the strategy is invested)
+</code></pre>
 <h2 id="params">Params</h2>
 <p>These are passed transparently to the children</p>
 <ul>
-<li>timeframe (default: <code>bt.TimeFrame.Days</code>)</li>
-</ul>
+<li>
+<p>timeframe (default: <code>bt.TimeFrame.Days</code>)</p>
 <p>If <code>None</code> then the timeframe of the 1st data of the system will be
 used</p>
-<ul>
-<li>compression (default: `1``)</li>
-</ul>
+</li>
+<li>
+<p>compression (default: `1``)</p>
 <p>If <code>None</code> then the compression of the 1st data of the system will be
 used</p>
+</li>
+</ul>
 <p>Both <code>timeframe</code> and <code>compression</code> are set following the default
 behavior of <code>pyfolio</code> which is working with <em>daily</em> data and upsample it
 to obtaine values like yearly returns.</p>
 <h2 id="methods">Methods</h2>
 <ul>
-<li>get_analysis</li>
-</ul>
+<li>
+<p>get_analysis</p>
 <p>Returns a dictionary with returns as values and the datetime points for
-each return as keys</p></div>
+each return as keys</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -411,7 +413,8 @@ each return as keys</p></div>
 <dd>
 <div class="desc"><p>Returns a tuple of 4 elements which can be used for further processing with
 <code>pyfolio</code></p>
-<p>returns, positions, transactions, gross_leverage</p>
+<pre><code>returns, positions, transactions, gross_leverage
+</code></pre>
 <p>Because the objects are meant to be used as direct input to <code>pyfolio</code>
 this method makes a local import of <code>pandas</code> to convert the internal
 <em>backtrader</em> results to <em>pandas DataFrames</em> which is the expected input

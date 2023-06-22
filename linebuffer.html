@@ -2523,8 +2523,8 @@ two operands and storing the result in self.</p>
 next/once is chosen using the operation direction (normal or reversed)
 and the nature of the operands (LineBuffer vs non-LineBuffer)</p>
 <p>In the "once" operations "map" could be used as in:</p>
-<pre><code>operated = map(self.operation, srca[start:end], srcb[start:end])
-self.array[start:end] = array.array(str(self.typecode), operated)
+<pre><code>  operated = map(self.operation, srca[start:end], srcb[start:end])
+  self.array[start:end] = array.array(str(self.typecode), operated)
 </code></pre>
 <p>No real execution time benefits were appreciated and therefore the loops
 have been kept in place for clarity (although the maps are not really

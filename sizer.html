@@ -129,19 +129,18 @@ SizerBase = Sizer  # alias for old naming</code></pre>
 <div class="desc"><p>This is the base class for <em>Sizers</em>. Any <em>sizer</em> should subclass this
 and override the <code>_getsizing</code> method</p>
 <p>Member Attribs:</p>
-<ul>
-<li>
-<p><code>strategy</code>: will be set by the strategy in which the sizer is working</p>
-<p>Gives access to the entire api of the strategy, for example if the
-actual data position would be needed in <code>_getsizing</code>::</p>
-<p>position = self.strategy.getposition(data)</p>
-</li>
-<li>
-<p><code>broker</code>: will be set by the strategy in which the sizer is working</p>
-<p>Gives access to information some complex sizers may need like portfolio
-value, ..</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;strategy&lt;/code&gt;: will be set by the strategy in which the sizer is working
+
+  Gives access to the entire api of the strategy, for example if the
+  actual data position would be needed in &lt;code&gt;\_getsizing&lt;/code&gt;::
+
+     position = self.strategy.getposition(data)
+
+- &lt;code&gt;broker&lt;/code&gt;: will be set by the strategy in which the sizer is working
+
+  Gives access to information some complex sizers may need like portfolio
+  value, ..
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -270,19 +269,18 @@ value, ..</p>
 <div class="desc"><p>This is the base class for <em>Sizers</em>. Any <em>sizer</em> should subclass this
 and override the <code>_getsizing</code> method</p>
 <p>Member Attribs:</p>
-<ul>
-<li>
-<p><code>strategy</code>: will be set by the strategy in which the sizer is working</p>
-<p>Gives access to the entire api of the strategy, for example if the
-actual data position would be needed in <code>_getsizing</code>::</p>
-<p>position = self.strategy.getposition(data)</p>
-</li>
-<li>
-<p><code>broker</code>: will be set by the strategy in which the sizer is working</p>
-<p>Gives access to information some complex sizers may need like portfolio
-value, ..</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;strategy&lt;/code&gt;: will be set by the strategy in which the sizer is working
+
+  Gives access to the entire api of the strategy, for example if the
+  actual data position would be needed in &lt;code&gt;\_getsizing&lt;/code&gt;::
+
+     position = self.strategy.getposition(data)
+
+- &lt;code&gt;broker&lt;/code&gt;: will be set by the strategy in which the sizer is working
+
+  Gives access to information some complex sizers may need like portfolio
+  value, ..
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

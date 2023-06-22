@@ -265,9 +265,8 @@ class SharpeRatio_A(SharpeRatio):
 <div class="desc"><p>This analyzer calculates the SharpeRatio of a strategy using a risk free
 asset which is simply an interest rate</p>
 <p>See also:</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Sharpe_ratio">https://en.wikipedia.org/wiki/Sharpe_ratio</a></li>
-</ul>
+<pre><code>- &lt;https://en.wikipedia.org/wiki/Sharpe_ratio&gt;
+</code></pre>
 <h2 id="params">Params</h2>
 <ul>
 <li>
@@ -275,67 +274,69 @@ asset which is simply an interest rate</p>
 </li>
 <li>
 <p><code>compression</code> (default: <code>1</code>)</p>
-</li>
-</ul>
 <p>Only used for sub-day timeframes to for example work on an hourly
 timeframe by specifying "TimeFrame.Minutes" and 60 as compression</p>
-<ul>
-<li><code>riskfreerate</code> (default: 0.01 -&gt; 1%)</li>
-</ul>
+</li>
+<li>
+<p><code>riskfreerate</code> (default: 0.01 -&gt; 1%)</p>
 <p>Expressed in annual terms (see <code>convertrate</code> below)</p>
-<ul>
-<li><code>convertrate</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>convertrate</code> (default: <code>True</code>)</p>
 <p>Convert the <code>riskfreerate</code> from annual to monthly, weekly or daily
 rate. Sub-day conversions are not supported</p>
-<ul>
-<li><code>factor</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>factor</code> (default: <code>None</code>)</p>
 <p>If <code>None</code>, the conversion factor for the riskfree rate from <em>annual</em>
 to the chosen timeframe will be chosen from a predefined table</p>
 <pre><code>Days: 252, Weeks: 52, Months: 12, Years: 1
 </code></pre>
 <p>Else the specified value will be used</p>
-<ul>
-<li><code>annualize</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>annualize</code> (default: <code>False</code>)</p>
 <p>If <code>convertrate</code> is <code>True</code>, the <em>SharpeRatio</em> will be delivered in
 the <code>timeframe</code> of choice.</p>
 <p>In most occasions the SharpeRatio is delivered in annualized form.
 Convert the <code>riskfreerate</code> from annual to monthly, weekly or daily
 rate. Sub-day conversions are not supported</p>
-<ul>
-<li><code>stddev_sample</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>stddev_sample</code> (default: <code>False</code>)</p>
 <p>If this is set to <code>True</code> the <em>standard deviation</em> will be calculated
 decreasing the denominator in the mean by <code>1</code>. This is used when
 calculating the <em>standard deviation</em> if it's considered that not all
 samples are used for the calculation. This is known as the <em>Bessels'
 correction</em></p>
-<ul>
-<li><code>daysfactor</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>daysfactor</code> (default: <code>None</code>)</p>
 <p>Old naming for <code>factor</code>. If set to anything else than <code>None</code> and
 the <code>timeframe</code> is <code>TimeFrame.Days</code> it will be assumed this is old
 code and the value will be used</p>
-<ul>
-<li><code>legacyannual</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>legacyannual</code> (default: <code>False</code>)</p>
 <p>Use the <code>AnnualReturn</code> return analyzer, which as the name implies
 only works on years</p>
-<ul>
-<li><code>fund</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fund</code> (default: <code>None</code>)</p>
 <p>If <code>None</code> the actual mode of the broker (fundmode - True/False) will
 be autodetected to decide if the returns are based on the total net
 asset value or on the fund value. See <code>set_fundmode</code> in the broker
 documentation</p>
 <p>Set it to <code>True</code> or <code>False</code> for a specific behavior</p>
+</li>
+</ul>
 <h2 id="methods">Methods</h2>
 <ul>
-<li>get_analysis</li>
-</ul>
-<p>Returns a dictionary with key "sharperatio" holding the ratio</p></div>
+<li>
+<p>get_analysis</p>
+<p>Returns a dictionary with key "sharperatio" holding the ratio</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -570,9 +571,8 @@ documentation</p>
 <div class="desc"><p>Extension of the SharpeRatio which returns the Sharpe Ratio directly in
 annualized form</p>
 <p>The following param has been changed from <code><a title="backtrader.analyzers.sharpe.SharpeRatio" href="#backtrader.analyzers.sharpe.SharpeRatio">SharpeRatio</a></code></p>
-<ul>
-<li><code>annualize</code> (default: <code>True</code>)</li>
-</ul></div>
+<pre><code>- &lt;code&gt;annualize&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

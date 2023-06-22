@@ -325,8 +325,8 @@ class PandasMarketCalendar(TradingCalendarBase):
 <code>pandas_market_calendar</code> must be installed</p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>calendar</code> (default <code>None</code>)</li>
-</ul>
+<li>
+<p><code>calendar</code> (default <code>None</code>)</p>
 <p>The param <code>calendar</code> accepts the following:</p>
 <ul>
 <li>
@@ -336,20 +336,18 @@ class PandasMarketCalendar(TradingCalendarBase):
 <li>
 <p>calendar instance: as returned by <code>get_calendar('NYSE')</code></p>
 </li>
+</ul>
+</li>
 <li>
 <p><code>cachesize</code> (default <code>365</code>)</p>
+<p>Number of days to cache in advance for lookup</p>
 </li>
 </ul>
-<p>Number of days to cache in advance for lookup</p>
 <p>See also:</p>
-<ul>
-<li>
-<p><a href="https://github.com/rsheftel/pandas_market_calendars">https://github.com/rsheftel/pandas_market_calendars</a></p>
-</li>
-<li>
-<p><a href="http://pandas-market-calendars.readthedocs.io/">http://pandas-market-calendars.readthedocs.io/</a></p>
-</li>
-</ul></div>
+<pre><code>- &lt;https://github.com/rsheftel/pandas_market_calendars&gt;
+
+- &lt;http://pandas-market-calendars.readthedocs.io/&gt;
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -518,29 +516,31 @@ day</p>
 <code>pandas_market_calendar</code> must be installed</p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>open</code> (default <code>time.min</code>)</li>
-</ul>
+<li>
+<p><code>open</code> (default <code>time.min</code>)</p>
 <p>Regular start of the session</p>
-<ul>
-<li><code>close</code> (default <code>time.max</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>close</code> (default <code>time.max</code>)</p>
 <p>Regular end of the session</p>
-<ul>
-<li><code>holidays</code> (default <code>[]</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>holidays</code> (default <code>[]</code>)</p>
 <p>List of non-trading days (<code>datetime.datetime</code> instances)</p>
-<ul>
-<li><code>earlydays</code> (default <code>[]</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>earlydays</code> (default <code>[]</code>)</p>
 <p>List of tuples determining the date and opening/closing times of days
 which do not conform to the regular trading hours where each tuple has
 (<code>datetime.datetime</code>, <code>datetime.time</code>, <code>datetime.time</code> )</p>
-<ul>
-<li><code>offdays</code> (default <code>ISOWEEKEND</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>offdays</code> (default <code>ISOWEEKEND</code>)</p>
 <p>A list of weekdays in ISO format (Monday: 1 -&gt; Sunday: 7) in which the
 market doesn't trade. This is usually Saturday and Sunday and hence the
-default</p></div>
+default</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

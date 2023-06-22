@@ -171,39 +171,41 @@ will be reported</p>
 </li>
 <li>
 <p><code>compression</code> (default: <code>None</code>)</p>
-</li>
-</ul>
 <p>Only used for sub-day timeframes to for example work on an hourly
 timeframe by specifying "TimeFrame.Minutes" and 60 as compression</p>
-<ul>
-<li><code>data</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>data</code> (default: <code>None</code>)</p>
 <p>Reference asset to track to allow for comparison.</p>
-<p>!!! note "Note:&ensp;this data must have been added to a <code>cerebro</code> instance with"
-<code>addata</code>, <code>resampledata</code> or <code>replaydata</code>.</p>
-<ul>
-<li><code>_doprenext</code> (default: <code>False</code>)</li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;this data must have been added to a <code>cerebro</code> instance with<p><code>addata</code>, <code>resampledata</code> or <code>replaydata</code>.</p>
+</p>
+</div>
+</li>
+<li>
+<p><code>_doprenext</code> (default: <code>False</code>)</p>
 <p>Benchmarking will take place from the point at which the strategy kicks
 in (i.e.: when the minimum period of the strategy has been met).</p>
 <p>Setting this to <code>True</code> will record benchmarking values from the
 starting point of the data feeds</p>
-<ul>
-<li><code>firstopen</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>firstopen</code> (default: <code>False</code>)</p>
 <p>Keepint it as <code>False</code> ensures that the 1st comparison point between
 the value and the benchmark starts at 0%, because the benchmark will
 not use its opening price.</p>
 <p>See the <code>TimeReturn</code> analyzer reference for a full explanation of the
 meaning of the parameter</p>
-<ul>
-<li><code>fund</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fund</code> (default: <code>None</code>)</p>
 <p>If <code>None</code> the actual mode of the broker (fundmode - True/False) will
 be autodetected to decide if the returns are based on the total net
 asset value or on the fund value. See <code>set_fundmode</code> in the broker
 documentation</p>
 <p>Set it to <code>True</code> or <code>False</code> for a specific behavior</p>
+</li>
+</ul>
 <p>Remember that at any moment of a <code>run</code> the current values can be checked
 by looking at the <em>lines</em> by name at index <code>0</code>.</p></div>
 <details class="source">

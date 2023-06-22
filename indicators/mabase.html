@@ -134,24 +134,22 @@ class MovingAverageBase(with_metaclass(MetaMovAvBase, Indicator)):
 </code></dt>
 <dd>
 <div class="desc"><p>Dirty job manager for a LineSeries</p>
-<ul>
-<li>
-<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
-"plotlines" class variable definitions and turns them into
-Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
-</li>
-<li>
-<p>During "new" (instance creation) the lines/plotinfo/plotlines
-classes are substituted in the instance with instances of the
-aforementioned classes and aliases are added for the "lines" held
-in the "lines" instance</p>
-<p>Additionally and for remaining kwargs, these are matched against
-args in plotinfo and if existent are set there and removed from kwargs</p>
-<p>Remember that this Metaclass has a MetaParams (from metabase)
-as root class and therefore "params" defined for the class have been
-removed from kwargs at an earlier state</p>
-</li>
-</ul>
+<pre><code>- During __new__ (class creation), it reads "lines", "plotinfo",
+  "plotlines" class variable definitions and turns them into
+  Classes of type Lines or AutoClassInfo (plotinfo/plotlines)
+
+- During "new" (instance creation) the lines/plotinfo/plotlines
+  classes are substituted in the instance with instances of the
+  aforementioned classes and aliases are added for the "lines" held
+  in the "lines" instance
+
+  Additionally and for remaining kwargs, these are matched against
+  args in plotinfo and if existent are set there and removed from kwargs
+
+  Remember that this Metaclass has a MetaParams (from metabase)
+  as root class and therefore "params" defined for the class have been
+  removed from kwargs at an earlier state
+</code></pre>
 <p>Class has already been created &hellip; register subclasses</p></div>
 <details class="source">
 <summary>
@@ -196,12 +194,16 @@ removed from kwargs at an earlier state</p>
 <div class="desc"><p>MovingAverage (alias MovAv)</p>
 <p>A placeholder to gather all Moving Average Types in a single place.</p>
 <p>Instantiating a SimpleMovingAverage can be achieved as follows::</p>
-<p>sma = MovingAverage.Simple(self.data, period)</p>
+<pre><code>sma = MovingAverage.Simple(self.data, period)
+</code></pre>
 <p>Or using the shorter aliases::</p>
-<p>sma = MovAv.SMA(self.data, period)</p>
+<pre><code>sma = MovAv.SMA(self.data, period)
+</code></pre>
 <p>or with the full (forwards and backwards) names:</p>
-<p>sma = MovAv.SimpleMovingAverage(self.data, period)</p>
-<p>sma = MovAv.MovingAverageSimple(self.data, period)</p></div>
+<pre><code>sma = MovAv.SimpleMovingAverage(self.data, period)
+
+sma = MovAv.MovingAverageSimple(self.data, period)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -280,12 +282,16 @@ removed from kwargs at an earlier state</p>
 <div class="desc"><p>MovingAverage (alias MovAv)</p>
 <p>A placeholder to gather all Moving Average Types in a single place.</p>
 <p>Instantiating a SimpleMovingAverage can be achieved as follows::</p>
-<p>sma = MovingAverage.Simple(self.data, period)</p>
+<pre><code>sma = MovingAverage.Simple(self.data, period)
+</code></pre>
 <p>Or using the shorter aliases::</p>
-<p>sma = MovAv.SMA(self.data, period)</p>
+<pre><code>sma = MovAv.SMA(self.data, period)
+</code></pre>
 <p>or with the full (forwards and backwards) names:</p>
-<p>sma = MovAv.SimpleMovingAverage(self.data, period)</p>
-<p>sma = MovAv.MovingAverageSimple(self.data, period)</p></div>
+<pre><code>sma = MovAv.SimpleMovingAverage(self.data, period)
+
+sma = MovAv.MovingAverageSimple(self.data, period)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -446,14 +452,16 @@ try to deliver a result close to that of the <em>Jurik</em> Moving Averages</p>
 <li>
 <p>The default moving average for the <em>ZeroLagIndicator</em> is EMA, but can
 be changed with the parameter <code>_movav</code></p>
-</li>
-</ul>
-<p>!!! note "Note:&ensp;the passed moving average must calculate alpha (and 1 -"
-alpha) and make them available as attributes <code>alpha</code> and
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the passed moving average must calculate alpha (and 1 -<p>alpha) and make them available as attributes <code>alpha</code> and
 <code>alpha1</code></p>
-<ul>
-<li>The 2nd moving averag can be changed from <em>Hull</em> to anything else with
-the param <em>_hma</em></li>
+</p>
+</div>
+</li>
+<li>
+<p>The 2nd moving averag can be changed from <em>Hull</em> to anything else with
+the param <em>_hma</em></p>
+</li>
 </ul>
 <p>See also:
 - <a href="https://www.reddit.com/r/algotrading/comments/4xj3vh/dickson_moving_average">https://www.reddit.com/r/algotrading/comments/4xj3vh/dickson_moving_average</a></p></div>
@@ -476,14 +484,16 @@ try to deliver a result close to that of the <em>Jurik</em> Moving Averages</p>
 <li>
 <p>The default moving average for the <em>ZeroLagIndicator</em> is EMA, but can
 be changed with the parameter <code>_movav</code></p>
-</li>
-</ul>
-<p>!!! note "Note:&ensp;the passed moving average must calculate alpha (and 1 -"
-alpha) and make them available as attributes <code>alpha</code> and
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the passed moving average must calculate alpha (and 1 -<p>alpha) and make them available as attributes <code>alpha</code> and
 <code>alpha1</code></p>
-<ul>
-<li>The 2nd moving averag can be changed from <em>Hull</em> to anything else with
-the param <em>_hma</em></li>
+</p>
+</div>
+</li>
+<li>
+<p>The 2nd moving averag can be changed from <em>Hull</em> to anything else with
+the param <em>_hma</em></p>
+</li>
 </ul>
 <p>See also:
 - <a href="https://www.reddit.com/r/algotrading/comments/4xj3vh/dickson_moving_average">https://www.reddit.com/r/algotrading/comments/4xj3vh/dickson_moving_average</a></p></div>
@@ -506,14 +516,16 @@ try to deliver a result close to that of the <em>Jurik</em> Moving Averages</p>
 <li>
 <p>The default moving average for the <em>ZeroLagIndicator</em> is EMA, but can
 be changed with the parameter <code>_movav</code></p>
-</li>
-</ul>
-<p>!!! note "Note:&ensp;the passed moving average must calculate alpha (and 1 -"
-alpha) and make them available as attributes <code>alpha</code> and
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the passed moving average must calculate alpha (and 1 -<p>alpha) and make them available as attributes <code>alpha</code> and
 <code>alpha1</code></p>
-<ul>
-<li>The 2nd moving averag can be changed from <em>Hull</em> to anything else with
-the param <em>_hma</em></li>
+</p>
+</div>
+</li>
+<li>
+<p>The 2nd moving averag can be changed from <em>Hull</em> to anything else with
+the param <em>_hma</em></p>
+</li>
 </ul>
 <p>See also:
 - <a href="https://www.reddit.com/r/algotrading/comments/4xj3vh/dickson_moving_average">https://www.reddit.com/r/algotrading/comments/4xj3vh/dickson_moving_average</a></p></div>
@@ -536,14 +548,16 @@ try to deliver a result close to that of the <em>Jurik</em> Moving Averages</p>
 <li>
 <p>The default moving average for the <em>ZeroLagIndicator</em> is EMA, but can
 be changed with the parameter <code>_movav</code></p>
-</li>
-</ul>
-<p>!!! note "Note:&ensp;the passed moving average must calculate alpha (and 1 -"
-alpha) and make them available as attributes <code>alpha</code> and
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the passed moving average must calculate alpha (and 1 -<p>alpha) and make them available as attributes <code>alpha</code> and
 <code>alpha1</code></p>
-<ul>
-<li>The 2nd moving averag can be changed from <em>Hull</em> to anything else with
-the param <em>_hma</em></li>
+</p>
+</div>
+</li>
+<li>
+<p>The 2nd moving averag can be changed from <em>Hull</em> to anything else with
+the param <em>_hma</em></p>
+</li>
 </ul>
 <p>See also:
 - <a href="https://www.reddit.com/r/algotrading/comments/4xj3vh/dickson_moving_average">https://www.reddit.com/r/algotrading/comments/4xj3vh/dickson_moving_average</a></p></div>
@@ -593,11 +607,13 @@ the paper and/or the code) iterating over <code>-bestgain</code> -&gt;
 <li>
 <p>The default moving average is EMA, but can be changed with the
 parameter <code>_movav</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the passed moving average must calculate alpha (and 1 -<p>alpha) and make them available as attributes <code>alpha</code> and
+<code>alpha1</code> in the instance</p>
+</p>
+</div>
 </li>
 </ul>
-<p>!!! note "Note:&ensp;the passed moving average must calculate alpha (and 1 -"
-alpha) and make them available as attributes <code>alpha</code> and
-<code>alpha1</code> in the instance</p>
 <p>See also:
 - <a href="http://www.mesasoftware.com/papers/ZeroLag.pdf">http://www.mesasoftware.com/papers/ZeroLag.pdf</a></p></div>
 </dd>
@@ -605,10 +621,9 @@ alpha) and make them available as attributes <code>alpha</code> and
 <dd>
 <div class="desc"><p>A Moving Average that smoothes data exponentially over time.</p>
 <p>It is a subclass of SmoothingMovingAverage.</p>
-<ul>
-<li>self.smfactor -&gt; 2 / (1 + period)</li>
-<li>self.smfactor1 -&gt; <code>1 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 2 / (1 + period)
+- self.smfactor1 -&gt; `1 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -635,11 +650,13 @@ the paper and/or the code) iterating over <code>-bestgain</code> -&gt;
 <li>
 <p>The default moving average is EMA, but can be changed with the
 parameter <code>_movav</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the passed moving average must calculate alpha (and 1 -<p>alpha) and make them available as attributes <code>alpha</code> and
+<code>alpha1</code> in the instance</p>
+</p>
+</div>
 </li>
 </ul>
-<p>!!! note "Note:&ensp;the passed moving average must calculate alpha (and 1 -"
-alpha) and make them available as attributes <code>alpha</code> and
-<code>alpha1</code> in the instance</p>
 <p>See also:
 - <a href="http://www.mesasoftware.com/papers/ZeroLag.pdf">http://www.mesasoftware.com/papers/ZeroLag.pdf</a></p></div>
 </dd>
@@ -647,10 +664,9 @@ alpha) and make them available as attributes <code>alpha</code> and
 <dd>
 <div class="desc"><p>A Moving Average that smoothes data exponentially over time.</p>
 <p>It is a subclass of SmoothingMovingAverage.</p>
-<ul>
-<li>self.smfactor -&gt; 2 / (1 + period)</li>
-<li>self.smfactor1 -&gt; <code>1 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 2 / (1 + period)
+- self.smfactor1 -&gt; `1 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -662,10 +678,9 @@ alpha) and make them available as attributes <code>alpha</code> and
 <dd>
 <div class="desc"><p>A Moving Average that smoothes data exponentially over time.</p>
 <p>It is a subclass of SmoothingMovingAverage.</p>
-<ul>
-<li>self.smfactor -&gt; 2 / (1 + period)</li>
-<li>self.smfactor1 -&gt; <code>1 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 2 / (1 + period)
+- self.smfactor1 -&gt; `1 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -688,12 +703,14 @@ improve smoothing at the same time.</p>
 - <a href="http://alanhull.com/hull-moving-average">http://alanhull.com/hull-moving-average</a></p>
 <h2 id="note">Note</h2>
 <ul>
-<li>Please note that the final minimum period is not the period passed with
+<li>
+<p>Please note that the final minimum period is not the period passed with
 the parameter <code>period</code>. A final moving average on moving average is
-done in which the period is the <em>square root</em> of the original.</li>
-</ul>
+done in which the period is the <em>square root</em> of the original.</p>
 <p>In the default case of <code>30</code> the final minimum period before the
-moving average produces a non-NAN value is <code>34</code></p></div>
+moving average produces a non-NAN value is <code>34</code></p>
+</li>
+</ul></div>
 </dd>
 <dt id="backtrader.indicators.mabase.MovingAverage.Hull"><code class="name">var <span class="ident">Hull</span></code></dt>
 <dd>
@@ -710,12 +727,14 @@ improve smoothing at the same time.</p>
 - <a href="http://alanhull.com/hull-moving-average">http://alanhull.com/hull-moving-average</a></p>
 <h2 id="note">Note</h2>
 <ul>
-<li>Please note that the final minimum period is not the period passed with
+<li>
+<p>Please note that the final minimum period is not the period passed with
 the parameter <code>period</code>. A final moving average on moving average is
-done in which the period is the <em>square root</em> of the original.</li>
-</ul>
+done in which the period is the <em>square root</em> of the original.</p>
 <p>In the default case of <code>30</code> the final minimum period before the
-moving average produces a non-NAN value is <code>34</code></p></div>
+moving average produces a non-NAN value is <code>34</code></p>
+</li>
+</ul></div>
 </dd>
 <dt id="backtrader.indicators.mabase.MovingAverage.HullMA"><code class="name">var <span class="ident">HullMA</span></code></dt>
 <dd>
@@ -732,12 +751,14 @@ improve smoothing at the same time.</p>
 - <a href="http://alanhull.com/hull-moving-average">http://alanhull.com/hull-moving-average</a></p>
 <h2 id="note">Note</h2>
 <ul>
-<li>Please note that the final minimum period is not the period passed with
+<li>
+<p>Please note that the final minimum period is not the period passed with
 the parameter <code>period</code>. A final moving average on moving average is
-done in which the period is the <em>square root</em> of the original.</li>
-</ul>
+done in which the period is the <em>square root</em> of the original.</p>
 <p>In the default case of <code>30</code> the final minimum period before the
-moving average produces a non-NAN value is <code>34</code></p></div>
+moving average produces a non-NAN value is <code>34</code></p>
+</li>
+</ul></div>
 </dd>
 <dt id="backtrader.indicators.mabase.MovingAverage.HullMovingAverage"><code class="name">var <span class="ident">HullMovingAverage</span></code></dt>
 <dd>
@@ -754,12 +775,14 @@ improve smoothing at the same time.</p>
 - <a href="http://alanhull.com/hull-moving-average">http://alanhull.com/hull-moving-average</a></p>
 <h2 id="note">Note</h2>
 <ul>
-<li>Please note that the final minimum period is not the period passed with
+<li>
+<p>Please note that the final minimum period is not the period passed with
 the parameter <code>period</code>. A final moving average on moving average is
-done in which the period is the <em>square root</em> of the original.</li>
-</ul>
+done in which the period is the <em>square root</em> of the original.</p>
 <p>In the default case of <code>30</code> the final minimum period before the
-moving average produces a non-NAN value is <code>34</code></p></div>
+moving average produces a non-NAN value is <code>34</code></p>
+</li>
+</ul></div>
 </dd>
 <dt id="backtrader.indicators.mabase.MovingAverage.KAMA"><code class="name">var <span class="ident">KAMA</span></code></dt>
 <dd>
@@ -803,14 +826,12 @@ the live nature of the smoothing factor</p>
 <div class="desc"><p>Smoothing Moving Average used by Wilder in his 1978 book <code>New Concepts in
 Technical Trading</code></p>
 <p>Defined in his book originally as:</p>
-<ul>
-<li>new_value = (old_value * (period - 1) + new_data) / period</li>
-</ul>
+<pre><code>- new_value = (old_value * (period - 1) + new_data) / period
+</code></pre>
 <p>Can be expressed as a SmoothingMovingAverage with the following factors:</p>
-<ul>
-<li>self.smfactor -&gt; 1.0 / period</li>
-<li>self.smfactor1 -&gt; <code>1.0 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 1.0 / period
+- self.smfactor1 -&gt; `1.0 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -823,14 +844,12 @@ Technical Trading</code></p>
 <div class="desc"><p>Smoothing Moving Average used by Wilder in his 1978 book <code>New Concepts in
 Technical Trading</code></p>
 <p>Defined in his book originally as:</p>
-<ul>
-<li>new_value = (old_value * (period - 1) + new_data) / period</li>
-</ul>
+<pre><code>- new_value = (old_value * (period - 1) + new_data) / period
+</code></pre>
 <p>Can be expressed as a SmoothingMovingAverage with the following factors:</p>
-<ul>
-<li>self.smfactor -&gt; 1.0 / period</li>
-<li>self.smfactor1 -&gt; <code>1.0 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 1.0 / period
+- self.smfactor1 -&gt; `1.0 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -896,10 +915,9 @@ Stocks &amp; Commodities" magazine.</p>
 <dd>
 <div class="desc"><p>A Moving Average that smoothes data exponentially over time.</p>
 <p>It is a subclass of SmoothingMovingAverage.</p>
-<ul>
-<li>self.smfactor -&gt; 2 / (1 + period)</li>
-<li>self.smfactor1 -&gt; <code>1 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 2 / (1 + period)
+- self.smfactor1 -&gt; `1 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -922,14 +940,12 @@ Stocks &amp; Commodities" magazine.</p>
 <div class="desc"><p>Smoothing Moving Average used by Wilder in his 1978 book <code>New Concepts in
 Technical Trading</code></p>
 <p>Defined in his book originally as:</p>
-<ul>
-<li>new_value = (old_value * (period - 1) + new_data) / period</li>
-</ul>
+<pre><code>- new_value = (old_value * (period - 1) + new_data) / period
+</code></pre>
 <p>Can be expressed as a SmoothingMovingAverage with the following factors:</p>
-<ul>
-<li>self.smfactor -&gt; 1.0 / period</li>
-<li>self.smfactor1 -&gt; <code>1.0 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 1.0 / period
+- self.smfactor1 -&gt; `1.0 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -971,14 +987,12 @@ newest having the more weight</p>
 <div class="desc"><p>Smoothing Moving Average used by Wilder in his 1978 book <code>New Concepts in
 Technical Trading</code></p>
 <p>Defined in his book originally as:</p>
-<ul>
-<li>new_value = (old_value * (period - 1) + new_data) / period</li>
-</ul>
+<pre><code>- new_value = (old_value * (period - 1) + new_data) / period
+</code></pre>
 <p>Can be expressed as a SmoothingMovingAverage with the following factors:</p>
-<ul>
-<li>self.smfactor -&gt; 1.0 / period</li>
-<li>self.smfactor1 -&gt; <code>1.0 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 1.0 / period
+- self.smfactor1 -&gt; `1.0 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -1001,14 +1015,12 @@ Technical Trading</code></p>
 <div class="desc"><p>Smoothing Moving Average used by Wilder in his 1978 book <code>New Concepts in
 Technical Trading</code></p>
 <p>Defined in his book originally as:</p>
-<ul>
-<li>new_value = (old_value * (period - 1) + new_data) / period</li>
-</ul>
+<pre><code>- new_value = (old_value * (period - 1) + new_data) / period
+</code></pre>
 <p>Can be expressed as a SmoothingMovingAverage with the following factors:</p>
-<ul>
-<li>self.smfactor -&gt; 1.0 / period</li>
-<li>self.smfactor1 -&gt; <code>1.0 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 1.0 / period
+- self.smfactor1 -&gt; `1.0 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -1041,14 +1053,12 @@ Technical Trading</code></p>
 <div class="desc"><p>Smoothing Moving Average used by Wilder in his 1978 book <code>New Concepts in
 Technical Trading</code></p>
 <p>Defined in his book originally as:</p>
-<ul>
-<li>new_value = (old_value * (period - 1) + new_data) / period</li>
-</ul>
+<pre><code>- new_value = (old_value * (period - 1) + new_data) / period
+</code></pre>
 <p>Can be expressed as a SmoothingMovingAverage with the following factors:</p>
-<ul>
-<li>self.smfactor -&gt; 1.0 / period</li>
-<li>self.smfactor1 -&gt; <code>1.0 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 1.0 / period
+- self.smfactor1 -&gt; `1.0 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -1061,14 +1071,12 @@ Technical Trading</code></p>
 <div class="desc"><p>Smoothing Moving Average used by Wilder in his 1978 book <code>New Concepts in
 Technical Trading</code></p>
 <p>Defined in his book originally as:</p>
-<ul>
-<li>new_value = (old_value * (period - 1) + new_data) / period</li>
-</ul>
+<pre><code>- new_value = (old_value * (period - 1) + new_data) / period
+</code></pre>
 <p>Can be expressed as a SmoothingMovingAverage with the following factors:</p>
-<ul>
-<li>self.smfactor -&gt; 1.0 / period</li>
-<li>self.smfactor1 -&gt; <code>1.0 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 1.0 / period
+- self.smfactor1 -&gt; `1.0 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -1168,14 +1176,12 @@ newest having the more weight</p>
 <div class="desc"><p>Smoothing Moving Average used by Wilder in his 1978 book <code>New Concepts in
 Technical Trading</code></p>
 <p>Defined in his book originally as:</p>
-<ul>
-<li>new_value = (old_value * (period - 1) + new_data) / period</li>
-</ul>
+<pre><code>- new_value = (old_value * (period - 1) + new_data) / period
+</code></pre>
 <p>Can be expressed as a SmoothingMovingAverage with the following factors:</p>
-<ul>
-<li>self.smfactor -&gt; 1.0 / period</li>
-<li>self.smfactor1 -&gt; <code>1.0 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 1.0 / period
+- self.smfactor1 -&gt; `1.0 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -1188,14 +1194,12 @@ Technical Trading</code></p>
 <div class="desc"><p>Smoothing Moving Average used by Wilder in his 1978 book <code>New Concepts in
 Technical Trading</code></p>
 <p>Defined in his book originally as:</p>
-<ul>
-<li>new_value = (old_value * (period - 1) + new_data) / period</li>
-</ul>
+<pre><code>- new_value = (old_value * (period - 1) + new_data) / period
+</code></pre>
 <p>Can be expressed as a SmoothingMovingAverage with the following factors:</p>
-<ul>
-<li>self.smfactor -&gt; 1.0 / period</li>
-<li>self.smfactor1 -&gt; <code>1.0 - self.smfactor</code></li>
-</ul>
+<pre><code>- self.smfactor -&gt; 1.0 / period
+- self.smfactor1 -&gt; `1.0 - self.smfactor`
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>movav = prev * (1.0 - smoothfactor) + newdata * smoothfactor</li>
@@ -1235,11 +1239,13 @@ the paper and/or the code) iterating over <code>-bestgain</code> -&gt;
 <li>
 <p>The default moving average is EMA, but can be changed with the
 parameter <code>_movav</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the passed moving average must calculate alpha (and 1 -<p>alpha) and make them available as attributes <code>alpha</code> and
+<code>alpha1</code> in the instance</p>
+</p>
+</div>
 </li>
 </ul>
-<p>!!! note "Note:&ensp;the passed moving average must calculate alpha (and 1 -"
-alpha) and make them available as attributes <code>alpha</code> and
-<code>alpha1</code> in the instance</p>
 <p>See also:
 - <a href="http://www.mesasoftware.com/papers/ZeroLag.pdf">http://www.mesasoftware.com/papers/ZeroLag.pdf</a></p></div>
 </dd>
@@ -1262,11 +1268,13 @@ the paper and/or the code) iterating over <code>-bestgain</code> -&gt;
 <li>
 <p>The default moving average is EMA, but can be changed with the
 parameter <code>_movav</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the passed moving average must calculate alpha (and 1 -<p>alpha) and make them available as attributes <code>alpha</code> and
+<code>alpha1</code> in the instance</p>
+</p>
+</div>
 </li>
 </ul>
-<p>!!! note "Note:&ensp;the passed moving average must calculate alpha (and 1 -"
-alpha) and make them available as attributes <code>alpha</code> and
-<code>alpha1</code> in the instance</p>
 <p>See also:
 - <a href="http://www.mesasoftware.com/papers/ZeroLag.pdf">http://www.mesasoftware.com/papers/ZeroLag.pdf</a></p></div>
 </dd>
@@ -1328,11 +1336,13 @@ the paper and/or the code) iterating over <code>-bestgain</code> -&gt;
 <li>
 <p>The default moving average is EMA, but can be changed with the
 parameter <code>_movav</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the passed moving average must calculate alpha (and 1 -<p>alpha) and make them available as attributes <code>alpha</code> and
+<code>alpha1</code> in the instance</p>
+</p>
+</div>
 </li>
 </ul>
-<p>!!! note "Note:&ensp;the passed moving average must calculate alpha (and 1 -"
-alpha) and make them available as attributes <code>alpha</code> and
-<code>alpha1</code> in the instance</p>
 <p>See also:
 - <a href="http://www.mesasoftware.com/papers/ZeroLag.pdf">http://www.mesasoftware.com/papers/ZeroLag.pdf</a></p></div>
 </dd>

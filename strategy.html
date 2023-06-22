@@ -1761,24 +1761,22 @@ class SignalStrategy(with_metaclass(MetaSigStrategy, Strategy)):
 </code></dt>
 <dd>
 <div class="desc"><p>Dirty job manager for a LineSeries</p>
-<ul>
-<li>
-<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
-"plotlines" class variable definitions and turns them into
-Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
-</li>
-<li>
-<p>During "new" (instance creation) the lines/plotinfo/plotlines
-classes are substituted in the instance with instances of the
-aforementioned classes and aliases are added for the "lines" held
-in the "lines" instance</p>
-<p>Additionally and for remaining kwargs, these are matched against
-args in plotinfo and if existent are set there and removed from kwargs</p>
-<p>Remember that this Metaclass has a MetaParams (from metabase)
-as root class and therefore "params" defined for the class have been
-removed from kwargs at an earlier state</p>
-</li>
-</ul>
+<pre><code>- During __new__ (class creation), it reads "lines", "plotinfo",
+  "plotlines" class variable definitions and turns them into
+  Classes of type Lines or AutoClassInfo (plotinfo/plotlines)
+
+- During "new" (instance creation) the lines/plotinfo/plotlines
+  classes are substituted in the instance with instances of the
+  aforementioned classes and aliases are added for the "lines" held
+  in the "lines" instance
+
+  Additionally and for remaining kwargs, these are matched against
+  args in plotinfo and if existent are set there and removed from kwargs
+
+  Remember that this Metaclass has a MetaParams (from metabase)
+  as root class and therefore "params" defined for the class have been
+  removed from kwargs at an earlier state
+</code></pre>
 <p>Class has already been created &hellip; register subclasses</p></div>
 <details class="source">
 <summary>
@@ -1921,24 +1919,22 @@ removed from kwargs at an earlier state</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Dirty job manager for a LineSeries</p>
-<ul>
-<li>
-<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
-"plotlines" class variable definitions and turns them into
-Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
-</li>
-<li>
-<p>During "new" (instance creation) the lines/plotinfo/plotlines
-classes are substituted in the instance with instances of the
-aforementioned classes and aliases are added for the "lines" held
-in the "lines" instance</p>
-<p>Additionally and for remaining kwargs, these are matched against
-args in plotinfo and if existent are set there and removed from kwargs</p>
-<p>Remember that this Metaclass has a MetaParams (from metabase)
-as root class and therefore "params" defined for the class have been
-removed from kwargs at an earlier state</p>
-</li>
-</ul>
+<pre><code>- During __new__ (class creation), it reads "lines", "plotinfo",
+  "plotlines" class variable definitions and turns them into
+  Classes of type Lines or AutoClassInfo (plotinfo/plotlines)
+
+- During "new" (instance creation) the lines/plotinfo/plotlines
+  classes are substituted in the instance with instances of the
+  aforementioned classes and aliases are added for the "lines" held
+  in the "lines" instance
+
+  Additionally and for remaining kwargs, these are matched against
+  args in plotinfo and if existent are set there and removed from kwargs
+
+  Remember that this Metaclass has a MetaParams (from metabase)
+  as root class and therefore "params" defined for the class have been
+  removed from kwargs at an earlier state
+</code></pre>
 <p>Class has already been created &hellip; register subclasses</p></div>
 <details class="source">
 <summary>
@@ -2089,79 +2085,56 @@ removed from kwargs at an earlier state</p>
 <div class="desc"><p>This subclass of <code><a title="backtrader.strategy.Strategy" href="#backtrader.strategy.Strategy">Strategy</a></code> is meant to to auto-operate using
 <strong>signals</strong>.</p>
 <p><em>Signals</em> are usually indicators and the expected output values:</p>
-<ul>
-<li>
-<p><code>&gt; 0</code> is a <code>long</code> indication</p>
-</li>
-<li>
-<p><code>&lt; 0</code> is a <code>short</code> indication</p>
-</li>
-</ul>
+<pre><code>- ``&gt; 0`` is a &lt;code&gt;long&lt;/code&gt; indication
+
+- ``&lt; 0`` is a &lt;code&gt;short&lt;/code&gt; indication
+</code></pre>
 <p>There are 5 types of <em>Signals</em>, broken in 2 groups.</p>
 <p><strong>Main Group</strong>:</p>
-<ul>
-<li>
-<p><code>LONGSHORT</code>: both <code>long</code> and <code>short</code> indications from this signal
-are taken</p>
-</li>
-<li>
-<p><code>LONG</code>:</p>
-<ul>
-<li><code>long</code> indications are taken to go long</li>
-<li>
-<p><code>short</code> indications are taken to <em>close</em> the long position. But:</p>
-</li>
-<li>
-<p>If a <code>LONGEXIT</code> (see below) signal is in the system it will be
-used to exit the long</p>
-</li>
-<li>
-<p>If a <code>SHORT</code> signal is available and no <code>LONGEXIT</code> is available
-, it will be used to close a <code>long</code> before opening a <code>short</code></p>
-</li>
-</ul>
-</li>
-<li>
-<p><code>SHORT</code>:</p>
-<ul>
-<li><code>short</code> indications are taken to go short</li>
-<li>
-<p><code>long</code> indications are taken to <em>close</em> the short position. But:</p>
-</li>
-<li>
-<p>If a <code>SHORTEXIT</code> (see below) signal is in the system it will be
-used to exit the short</p>
-</li>
-<li>
-<p>If a <code>LONG</code> signal is available and no <code>SHORTEXIT</code> is available
-, it will be used to close a <code>short</code> before opening a <code>long</code></p>
-</li>
-</ul>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;LONGSHORT&lt;/code&gt;: both &lt;code&gt;long&lt;/code&gt; and &lt;code&gt;short&lt;/code&gt; indications from this signal
+  are taken
+
+- &lt;code&gt;LONG&lt;/code&gt;:
+  - &lt;code&gt;long&lt;/code&gt; indications are taken to go long
+  - &lt;code&gt;short&lt;/code&gt; indications are taken to *close* the long position. But:
+
+    - If a &lt;code&gt;LONGEXIT&lt;/code&gt; (see below) signal is in the system it will be
+      used to exit the long
+
+    - If a &lt;code&gt;SHORT&lt;/code&gt; signal is available and no &lt;code&gt;LONGEXIT&lt;/code&gt; is available
+      , it will be used to close a &lt;code&gt;long&lt;/code&gt; before opening a &lt;code&gt;short&lt;/code&gt;
+
+- &lt;code&gt;SHORT&lt;/code&gt;:
+  - &lt;code&gt;short&lt;/code&gt; indications are taken to go short
+  - &lt;code&gt;long&lt;/code&gt; indications are taken to *close* the short position. But:
+
+    - If a &lt;code&gt;SHORTEXIT&lt;/code&gt; (see below) signal is in the system it will be
+      used to exit the short
+
+    - If a &lt;code&gt;LONG&lt;/code&gt; signal is available and no &lt;code&gt;SHORTEXIT&lt;/code&gt; is available
+      , it will be used to close a &lt;code&gt;short&lt;/code&gt; before opening a &lt;code&gt;long&lt;/code&gt;
+</code></pre>
 <p><strong>Exit Group</strong>:</p>
-<p>This 2 signals are meant to override others and provide criteria for
-exitins a <code>long</code>/<code>short</code> position</p>
-<ul>
-<li>
-<p><code>LONGEXIT</code>: <code>short</code> indications are taken to exit <code>long</code>
-positions</p>
-</li>
-<li>
-<p><code>SHORTEXIT</code>: <code>long</code> indications are taken to exit <code>short</code>
-positions</p>
-</li>
-</ul>
+<pre><code>This 2 signals are meant to override others and provide criteria for
+exitins a &lt;code&gt;long&lt;/code&gt;/&lt;code&gt;short&lt;/code&gt; position
+
+- &lt;code&gt;LONGEXIT&lt;/code&gt;: &lt;code&gt;short&lt;/code&gt; indications are taken to exit &lt;code&gt;long&lt;/code&gt;
+  positions
+
+- &lt;code&gt;SHORTEXIT&lt;/code&gt;: &lt;code&gt;long&lt;/code&gt; indications are taken to exit &lt;code&gt;short&lt;/code&gt;
+  positions
+</code></pre>
 <p><strong>Order Issuing</strong></p>
-<p>Orders execution type is <code>Market</code> and validity is <code>None</code> (<em>Good until
-Canceled</em>)</p>
+<pre><code>Orders execution type is &lt;code&gt;Market&lt;/code&gt; and validity is &lt;code&gt;None&lt;/code&gt; (*Good until
+Canceled*)
+</code></pre>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>signals</code> (default: <code>[]</code>): a list/tuple of lists/tuples that allows
-the instantiation of the signals and allocation to the right type</li>
-</ul>
+<li>
+<p><code>signals</code> (default: <code>[]</code>): a list/tuple of lists/tuples that allows
+the instantiation of the signals and allocation to the right type</p>
 <p>This parameter is expected to be managed through <code>cerebro.add_signal</code></p>
-<ul>
+</li>
 <li>
 <p><code>_accumulate</code> (default: <code>False</code>): allow to enter the market
 (long/short) even if already in the market</p>
@@ -2173,7 +2146,7 @@ orders are already pending execution</p>
 <li>
 <p><code>_data</code> (default: <code>None</code>): if multiple datas are present in the
 system which is the target for orders. This can be</p>
-</li>
+<ul>
 <li>
 <p><code>None</code>: The first data in the system will be used</p>
 </li>
@@ -2187,6 +2160,8 @@ name=)</code></p>
 </li>
 <li>
 <p>A <code>data</code> instance</p>
+</li>
+</ul>
 </li>
 </ul></div>
 <details class="source">
@@ -4058,18 +4033,14 @@ used</p>
 <ul>
 <li>
 <p><code>when</code>: can be</p>
-</li>
-<li>
-<p><code>datetime.time</code> instance (see below <code>tzdata</code>)</p>
-</li>
+<ul>
+<li><code>datetime.time</code> instance (see below <code>tzdata</code>)</li>
 <li><code>bt.timer.SESSION_START</code> to reference a session start</li>
-<li>
-<p><code>bt.timer.SESSION_END</code> to reference a session end</p>
+<li><code>bt.timer.SESSION_END</code> to reference a session end</li>
+</ul>
 </li>
 <li>
 <p><code>offset</code> which must be a <code>datetime.timedelta</code> instance</p>
-</li>
-</ul>
 <p>Used to offset the value <code>when</code>. It has a meaningful use in
 combination with <code>SESSION_START</code> and <code>SESSION_END</code>, to indicated
 things like a timer being called <code>15 minutes</code> after the session
@@ -4137,10 +4108,11 @@ before the session starts</p>
 <p><code>**kwargs</code>: any extra kwargs will be passed to <code>notify_timer</code></p>
 </li>
 </ul>
+</li>
+</ul>
 <p>Return Value:</p>
-<ul>
-<li>The created timer</li>
-</ul></div>
+<pre><code>- The created timer
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -4251,158 +4223,146 @@ before the session starts</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Create a buy (long) order and send it to the broker</p>
-<ul>
-<li>
-<p><code>data</code> (default: <code>None</code>)</p>
-<p>For which data the order has to be created. If <code>None</code> then the
-first data in the system, <code>self.datas[0] or self.data0</code> (aka
-<code>self.data</code>) will be used</p>
-</li>
-<li>
-<p><code>size</code> (default: <code>None</code>)</p>
-<p>Size to use (positive) of units of data to use for the order.</p>
-<p>If <code>None</code> the <code>sizer</code> instance retrieved via <code>getsizer</code> will
-be used to determine the size.</p>
-</li>
-<li>
-<p><code>price</code> (default: <code>None</code>)</p>
-<p>Price to use (live brokers may place restrictions on the actual
-format if it does not comply to minimum tick size requirements)</p>
-<p><code>None</code> is valid for <code>Market</code> and <code>Close</code> orders (the market
-determines the price)</p>
-<p>For <code>Limit</code>, <code>Stop</code> and <code>StopLimit</code> orders this value
-determines the trigger point (in the case of <code>Limit</code> the trigger
-is obviously at which price the order should be matched)</p>
-</li>
-<li>
-<p><code>plimit</code> (default: <code>None</code>)</p>
-<p>Only applicable to <code>StopLimit</code> orders. This is the price at which
-to set the implicit <em>Limit</em> order, once the <em>Stop</em> has been
-triggered (for which <code>price</code> has been used)</p>
-</li>
-<li>
-<p><code>trailamount</code> (default: <code>None</code>)</p>
-<p>If the order type is StopTrail or StopTrailLimit, this is an
-absolute amount which determines the distance to the price (below
-for a Sell order and above for a buy order) to keep the trailing
-stop</p>
-</li>
-<li>
-<p><code>trailpercent</code> (default: <code>None</code>)</p>
-<p>If the order type is StopTrail or StopTrailLimit, this is a
-percentage amount which determines the distance to the price (below
-for a Sell order and above for a buy order) to keep the trailing
-stop (if <code>trailamount</code> is also specified it will be used)</p>
-</li>
-<li>
-<p><code>exectype</code> (default: <code>None</code>)</p>
-<p>Possible values:</p>
-<ul>
-<li>
-<p><code>Order.Market</code> or <code>None</code>. A market order will be executed
-with the next available price. In backtesting it will be the
-opening price of the next bar</p>
-</li>
-<li>
-<p><code>Order.Limit</code>. An order which can only be executed at the given
-<code>price</code> or better</p>
-</li>
-<li>
-<p><code>Order.Stop</code>. An order which is triggered at <code>price</code> and
-executed like an <code>Order.Market</code> order</p>
-</li>
-<li>
-<p><code>Order.StopLimit</code>. An order which is triggered at <code>price</code> and
-executed as an implicit <em>Limit</em> order with price given by
-<code>pricelimit</code></p>
-</li>
-<li>
-<p><code>Order.Close</code>. An order which can only be executed with the
-closing price of the session (usually during a closing auction)</p>
-</li>
-<li>
-<p><code>Order.StopTrail</code>. An order which is triggered at <code>price</code>
-minus <code>trailamount</code> (or <code>trailpercent</code>) and which is updated
-if the price moves away from the stop</p>
-</li>
-<li>
-<p><code>Order.StopTrailLimit</code>. An order which is triggered at
-<code>price</code> minus <code>trailamount</code> (or <code>trailpercent</code>) and which
-is updated if the price moves away from the stop</p>
-</li>
-</ul>
-</li>
-<li>
-<p><code>valid</code> (default: <code>None</code>)</p>
-<p>Possible values:</p>
-<ul>
-<li>
-<p><code>None</code>: this generates an order that will not expire (aka
-<em>Good till cancel</em>) and remain in the market until matched or
-canceled. In reality brokers tend to impose a temporal limit,
-but this is usually so far away in time to consider it as not
-expiring</p>
-</li>
-<li>
-<p><code>datetime.datetime</code> or <code>datetime.date</code> instance: the date
-will be used to generate an order valid until the given
-datetime (aka <em>good till date</em>)</p>
-</li>
-<li>
-<p><code>Order.DAY</code> or <code>0</code> or <code>timedelta()</code>: a day valid until
-the <em>End of the Session</em> (aka <em>day</em> order) will be generated</p>
-</li>
-<li>
-<p><code>numeric value</code>: This is assumed to be a value corresponding
-to a datetime in <code>matplotlib</code> coding (the one used by
-<code><a title="backtrader" href="index.html">backtrader</a></code>) and will used to generate an order valid until
-that time (<em>good till date</em>)</p>
-</li>
-</ul>
-</li>
-<li>
-<p><code>tradeid</code> (default: <code>0</code>)</p>
-<p>This is an internal value applied by <code><a title="backtrader" href="index.html">backtrader</a></code> to keep track
-of overlapping trades on the same asset. This <code>tradeid</code> is sent
-back to the <em>strategy</em> when notifying changes to the status of the
-orders.</p>
-</li>
-<li>
-<p><code>oco</code> (default: <code>None</code>)</p>
-<p>Another <code>order</code> instance. This order will become part of an OCO
-(Order Cancel Others) group. The execution of one of the orders,
-immediately cancels all others in the same group</p>
-</li>
-<li>
-<p><code>parent</code> (default: <code>None</code>)</p>
-<p>Controls the relationship of a group of orders, for example a buy
-which is bracketed by a high-side limit sell and a low side stop
-sell. The high/low side orders remain inactive until the parent
-order has been either executed (they become active) or is
-canceled/expires (the children are also canceled) bracket orders
-have the same size</p>
-</li>
-<li>
-<p><code>transmit</code> (default: <code>True</code>)</p>
-<p>Indicates if the order has to be <strong>transmitted</strong>, ie: not only
-placed in the broker but also issued. This is meant for example to
-control bracket orders, in which one disables the transmission for
-the parent and 1st set of children and activates it for the last
-children, which triggers the full placement of all bracket orders.</p>
-</li>
-<li>
-<p><code>**kwargs</code>: additional broker implementations may support extra
-parameters. <code><a title="backtrader" href="index.html">backtrader</a></code> will pass the <em>kwargs</em> down to the
-created order objects</p>
-<p>Example: if the 4 order execution types directly supported by
-<code><a title="backtrader" href="index.html">backtrader</a></code> are not enough, in the case of for example
-<em>Interactive Brokers</em> the following could be passed as <em>kwargs</em>::</p>
-<p>orderType='LIT', lmtPrice=10.0, auxPrice=9.8</p>
-<p>This would override the settings created by <code><a title="backtrader" href="index.html">backtrader</a></code> and
-generate a <code>LIMIT IF TOUCHED</code> order with a <em>touched</em> price of 9.8
-and a <em>limit</em> price of 10.0.</p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;data&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  For which data the order has to be created. If &lt;code&gt;None&lt;/code&gt; then the
+  first data in the system, &lt;code&gt;self.datas\[0] or self.data0&lt;/code&gt; (aka
+  &lt;code&gt;self.data&lt;/code&gt;) will be used
+
+- &lt;code&gt;size&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Size to use (positive) of units of data to use for the order.
+
+  If &lt;code&gt;None&lt;/code&gt; the &lt;code&gt;sizer&lt;/code&gt; instance retrieved via &lt;code&gt;getsizer&lt;/code&gt; will
+  be used to determine the size.
+
+- &lt;code&gt;price&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Price to use (live brokers may place restrictions on the actual
+  format if it does not comply to minimum tick size requirements)
+
+  &lt;code&gt;None&lt;/code&gt; is valid for &lt;code&gt;Market&lt;/code&gt; and &lt;code&gt;Close&lt;/code&gt; orders (the market
+  determines the price)
+
+  For &lt;code&gt;Limit&lt;/code&gt;, &lt;code&gt;Stop&lt;/code&gt; and &lt;code&gt;StopLimit&lt;/code&gt; orders this value
+  determines the trigger point (in the case of &lt;code&gt;Limit&lt;/code&gt; the trigger
+  is obviously at which price the order should be matched)
+
+- &lt;code&gt;plimit&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Only applicable to &lt;code&gt;StopLimit&lt;/code&gt; orders. This is the price at which
+  to set the implicit *Limit* order, once the *Stop* has been
+  triggered (for which &lt;code&gt;price&lt;/code&gt; has been used)
+
+- &lt;code&gt;trailamount&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  If the order type is StopTrail or StopTrailLimit, this is an
+  absolute amount which determines the distance to the price (below
+  for a Sell order and above for a buy order) to keep the trailing
+  stop
+
+- &lt;code&gt;trailpercent&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  If the order type is StopTrail or StopTrailLimit, this is a
+  percentage amount which determines the distance to the price (below
+  for a Sell order and above for a buy order) to keep the trailing
+  stop (if &lt;code&gt;trailamount&lt;/code&gt; is also specified it will be used)
+
+- &lt;code&gt;exectype&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Possible values:
+
+  - &lt;code&gt;Order.Market&lt;/code&gt; or &lt;code&gt;None&lt;/code&gt;. A market order will be executed
+    with the next available price. In backtesting it will be the
+    opening price of the next bar
+
+  - &lt;code&gt;Order.Limit&lt;/code&gt;. An order which can only be executed at the given
+    &lt;code&gt;price&lt;/code&gt; or better
+
+  - &lt;code&gt;Order.Stop&lt;/code&gt;. An order which is triggered at &lt;code&gt;price&lt;/code&gt; and
+    executed like an &lt;code&gt;Order.Market&lt;/code&gt; order
+
+  - &lt;code&gt;Order.StopLimit&lt;/code&gt;. An order which is triggered at &lt;code&gt;price&lt;/code&gt; and
+    executed as an implicit *Limit* order with price given by
+    &lt;code&gt;pricelimit&lt;/code&gt;
+
+  - &lt;code&gt;Order.Close&lt;/code&gt;. An order which can only be executed with the
+    closing price of the session (usually during a closing auction)
+
+  - &lt;code&gt;Order.StopTrail&lt;/code&gt;. An order which is triggered at &lt;code&gt;price&lt;/code&gt;
+    minus &lt;code&gt;trailamount&lt;/code&gt; (or &lt;code&gt;trailpercent&lt;/code&gt;) and which is updated
+    if the price moves away from the stop
+
+  - &lt;code&gt;Order.StopTrailLimit&lt;/code&gt;. An order which is triggered at
+    &lt;code&gt;price&lt;/code&gt; minus &lt;code&gt;trailamount&lt;/code&gt; (or &lt;code&gt;trailpercent&lt;/code&gt;) and which
+    is updated if the price moves away from the stop
+
+- &lt;code&gt;valid&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Possible values:
+
+    - &lt;code&gt;None&lt;/code&gt;: this generates an order that will not expire (aka
+      *Good till cancel*) and remain in the market until matched or
+      canceled. In reality brokers tend to impose a temporal limit,
+      but this is usually so far away in time to consider it as not
+      expiring
+
+    - &lt;code&gt;datetime.datetime&lt;/code&gt; or &lt;code&gt;datetime.date&lt;/code&gt; instance: the date
+      will be used to generate an order valid until the given
+      datetime (aka *good till date*)
+
+    - &lt;code&gt;Order.DAY&lt;/code&gt; or &lt;code&gt;0&lt;/code&gt; or &lt;code&gt;timedelta()&lt;/code&gt;: a day valid until
+      the *End of the Session* (aka *day* order) will be generated
+
+    - &lt;code&gt;numeric value&lt;/code&gt;: This is assumed to be a value corresponding
+      to a datetime in &lt;code&gt;matplotlib&lt;/code&gt; coding (the one used by
+      &lt;code&gt;&lt;a title="backtrader" href="index.html"&gt;backtrader&lt;/a&gt;&lt;/code&gt;) and will used to generate an order valid until
+      that time (*good till date*)
+
+- &lt;code&gt;tradeid&lt;/code&gt; (default: &lt;code&gt;0&lt;/code&gt;)
+
+  This is an internal value applied by &lt;code&gt;&lt;a title="backtrader" href="index.html"&gt;backtrader&lt;/a&gt;&lt;/code&gt; to keep track
+  of overlapping trades on the same asset. This &lt;code&gt;tradeid&lt;/code&gt; is sent
+  back to the *strategy* when notifying changes to the status of the
+  orders.
+
+- &lt;code&gt;oco&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Another &lt;code&gt;order&lt;/code&gt; instance. This order will become part of an OCO
+  (Order Cancel Others) group. The execution of one of the orders,
+  immediately cancels all others in the same group
+
+- &lt;code&gt;parent&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Controls the relationship of a group of orders, for example a buy
+  which is bracketed by a high-side limit sell and a low side stop
+  sell. The high/low side orders remain inactive until the parent
+  order has been either executed (they become active) or is
+  canceled/expires (the children are also canceled) bracket orders
+  have the same size
+
+- &lt;code&gt;transmit&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;)
+
+  Indicates if the order has to be **transmitted**, ie: not only
+  placed in the broker but also issued. This is meant for example to
+  control bracket orders, in which one disables the transmission for
+  the parent and 1st set of children and activates it for the last
+  children, which triggers the full placement of all bracket orders.
+
+- ``**kwargs``: additional broker implementations may support extra
+  parameters. &lt;code&gt;&lt;a title="backtrader" href="index.html"&gt;backtrader&lt;/a&gt;&lt;/code&gt; will pass the *kwargs* down to the
+  created order objects
+
+  Example: if the 4 order execution types directly supported by
+  &lt;code&gt;&lt;a title="backtrader" href="index.html"&gt;backtrader&lt;/a&gt;&lt;/code&gt; are not enough, in the case of for example
+  *Interactive Brokers* the following could be passed as *kwargs*::
+
+    orderType='LIT', lmtPrice=10.0, auxPrice=9.8
+
+  This would override the settings created by &lt;code&gt;&lt;a title="backtrader" href="index.html"&gt;backtrader&lt;/a&gt;&lt;/code&gt; and
+  generate a &lt;code&gt;LIMIT IF TOUCHED&lt;/code&gt; order with a *touched* price of 9.8
+  and a *limit* price of 10.0.
+</code></pre>
 <h2 id="returns">Returns</h2>
 <ul>
 <li>the submitted order</li>
@@ -4587,128 +4547,122 @@ and a <em>limit</em> price of 10.0.</p>
 <dd>
 <div class="desc"><p>Create a bracket order group (low side - buy order - high side). The
 default behavior is as follows:</p>
-<ul>
-<li>
-<p>Issue a <strong>buy</strong> order with execution <code>Limit</code></p>
-</li>
-<li>
-<p>Issue a <em>low side</em> bracket <strong>sell</strong> order with execution <code>Stop</code></p>
-</li>
-<li>
-<p>Issue a <em>high side</em> bracket <strong>sell</strong> order with execution
-<code>Limit</code>.</p>
-</li>
-</ul>
+<pre><code>- Issue a **buy** order with execution &lt;code&gt;Limit&lt;/code&gt;
+
+- Issue a *low side* bracket **sell** order with execution &lt;code&gt;Stop&lt;/code&gt;
+
+- Issue a *high side* bracket **sell** order with execution
+  &lt;code&gt;Limit&lt;/code&gt;.
+</code></pre>
 <p>See below for the different parameters</p>
-<ul>
-<li>
-<p><code>data</code> (default: <code>None</code>)</p>
-<p>For which data the order has to be created. If <code>None</code> then the
-first data in the system, <code>self.datas[0] or self.data0</code> (aka
-<code>self.data</code>) will be used</p>
-</li>
-<li>
-<p><code>size</code> (default: <code>None</code>)</p>
-<p>Size to use (positive) of units of data to use for the order.</p>
-<p>If <code>None</code> the <code>sizer</code> instance retrieved via <code>getsizer</code> will
-be used to determine the size.</p>
-<p><strong>Note</strong>: The same size is applied to all 3 orders of the bracket</p>
-</li>
-<li>
-<p><code>price</code> (default: <code>None</code>)</p>
-<p>Price to use (live brokers may place restrictions on the actual
-format if it does not comply to minimum tick size requirements)</p>
-<p><code>None</code> is valid for <code>Market</code> and <code>Close</code> orders (the market
-determines the price)</p>
-<p>For <code>Limit</code>, <code>Stop</code> and <code>StopLimit</code> orders this value
-determines the trigger point (in the case of <code>Limit</code> the trigger
-is obviously at which price the order should be matched)</p>
-</li>
-<li>
-<p><code>plimit</code> (default: <code>None</code>)</p>
-<p>Only applicable to <code>StopLimit</code> orders. This is the price at which
-to set the implicit <em>Limit</em> order, once the <em>Stop</em> has been
-triggered (for which <code>price</code> has been used)</p>
-</li>
-<li>
-<p><code>trailamount</code> (default: <code>None</code>)</p>
-<p>If the order type is StopTrail or StopTrailLimit, this is an
-absolute amount which determines the distance to the price (below
-for a Sell order and above for a buy order) to keep the trailing
-stop</p>
-</li>
-<li>
-<p><code>trailpercent</code> (default: <code>None</code>)</p>
-<p>If the order type is StopTrail or StopTrailLimit, this is a
-percentage amount which determines the distance to the price (below
-for a Sell order and above for a buy order) to keep the trailing
-stop (if <code>trailamount</code> is also specified it will be used)</p>
-</li>
-<li>
-<p><code>exectype</code> (default: <code>bt.Order.Limit</code>)</p>
-<p>Possible values: (see the documentation for the method <code>buy</code></p>
-</li>
-<li>
-<p><code>valid</code> (default: <code>None</code>)</p>
-<p>Possible values: (see the documentation for the method <code>buy</code></p>
-</li>
-<li>
-<p><code>tradeid</code> (default: <code>0</code>)</p>
-<p>Possible values: (see the documentation for the method <code>buy</code></p>
-</li>
-<li>
-<p><code>oargs</code> (default: <code>{}</code>)</p>
-<p>Specific keyword arguments (in a <code>dict</code>) to pass to the main side
-order. Arguments from the default <code>**kwargs</code> will be applied on
-top of this.</p>
-</li>
-<li>
-<p><code>**kwargs</code>: additional broker implementations may support extra
-parameters. <code><a title="backtrader" href="index.html">backtrader</a></code> will pass the <em>kwargs</em> down to the
-created order objects</p>
-<p>Possible values: (see the documentation for the method <code>buy</code></p>
-<p><strong>Note</strong>: this <code>kwargs</code> will be applied to the 3 orders of a
-bracket. See below for specific keyword arguments for the low and
-high side orders</p>
-</li>
-<li>
-<p><code>stopprice</code> (default: <code>None</code>)</p>
-<p>Specific price for the <em>low side</em> stop order</p>
-</li>
-<li>
-<p><code>stopexec</code> (default: <code>bt.Order.Stop</code>)</p>
-<p>Specific execution type for the <em>low side</em> order</p>
-</li>
-<li>
-<p><code>stopargs</code> (default: <code>{}</code>)</p>
-<p>Specific keyword arguments (in a <code>dict</code>) to pass to the low side
-order. Arguments from the default <code>**kwargs</code> will be applied on
-top of this.</p>
-</li>
-<li>
-<p><code>limitprice</code> (default: <code>None</code>)</p>
-<p>Specific price for the <em>high side</em> stop order</p>
-</li>
-<li>
-<p><code>stopexec</code> (default: <code>bt.Order.Limit</code>)</p>
-<p>Specific execution type for the <em>high side</em> order</p>
-</li>
-<li>
-<p><code>limitargs</code> (default: <code>{}</code>)</p>
-<p>Specific keyword arguments (in a <code>dict</code>) to pass to the high side
-order. Arguments from the default <code>**kwargs</code> will be applied on
-top of this.</p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;data&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  For which data the order has to be created. If &lt;code&gt;None&lt;/code&gt; then the
+  first data in the system, &lt;code&gt;self.datas\[0] or self.data0&lt;/code&gt; (aka
+  &lt;code&gt;self.data&lt;/code&gt;) will be used
+
+- &lt;code&gt;size&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Size to use (positive) of units of data to use for the order.
+
+  If &lt;code&gt;None&lt;/code&gt; the &lt;code&gt;sizer&lt;/code&gt; instance retrieved via &lt;code&gt;getsizer&lt;/code&gt; will
+  be used to determine the size.
+
+  **Note**: The same size is applied to all 3 orders of the bracket
+
+- &lt;code&gt;price&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Price to use (live brokers may place restrictions on the actual
+  format if it does not comply to minimum tick size requirements)
+
+  &lt;code&gt;None&lt;/code&gt; is valid for &lt;code&gt;Market&lt;/code&gt; and &lt;code&gt;Close&lt;/code&gt; orders (the market
+  determines the price)
+
+  For &lt;code&gt;Limit&lt;/code&gt;, &lt;code&gt;Stop&lt;/code&gt; and &lt;code&gt;StopLimit&lt;/code&gt; orders this value
+  determines the trigger point (in the case of &lt;code&gt;Limit&lt;/code&gt; the trigger
+  is obviously at which price the order should be matched)
+
+- &lt;code&gt;plimit&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Only applicable to &lt;code&gt;StopLimit&lt;/code&gt; orders. This is the price at which
+  to set the implicit *Limit* order, once the *Stop* has been
+  triggered (for which &lt;code&gt;price&lt;/code&gt; has been used)
+
+- &lt;code&gt;trailamount&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  If the order type is StopTrail or StopTrailLimit, this is an
+  absolute amount which determines the distance to the price (below
+  for a Sell order and above for a buy order) to keep the trailing
+  stop
+
+- &lt;code&gt;trailpercent&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  If the order type is StopTrail or StopTrailLimit, this is a
+  percentage amount which determines the distance to the price (below
+  for a Sell order and above for a buy order) to keep the trailing
+  stop (if &lt;code&gt;trailamount&lt;/code&gt; is also specified it will be used)
+
+- &lt;code&gt;exectype&lt;/code&gt; (default: &lt;code&gt;bt.Order.Limit&lt;/code&gt;)
+
+  Possible values: (see the documentation for the method &lt;code&gt;buy&lt;/code&gt;
+
+- &lt;code&gt;valid&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Possible values: (see the documentation for the method &lt;code&gt;buy&lt;/code&gt;
+
+- &lt;code&gt;tradeid&lt;/code&gt; (default: &lt;code&gt;0&lt;/code&gt;)
+
+  Possible values: (see the documentation for the method &lt;code&gt;buy&lt;/code&gt;
+
+- &lt;code&gt;oargs&lt;/code&gt; (default: ``{}``)
+
+  Specific keyword arguments (in a &lt;code&gt;dict&lt;/code&gt;) to pass to the main side
+  order. Arguments from the default ``**kwargs`` will be applied on
+  top of this.
+
+- ``**kwargs``: additional broker implementations may support extra
+  parameters. &lt;code&gt;&lt;a title="backtrader" href="index.html"&gt;backtrader&lt;/a&gt;&lt;/code&gt; will pass the *kwargs* down to the
+  created order objects
+
+  Possible values: (see the documentation for the method &lt;code&gt;buy&lt;/code&gt;
+
+  **Note**: this &lt;code&gt;kwargs&lt;/code&gt; will be applied to the 3 orders of a
+  bracket. See below for specific keyword arguments for the low and
+  high side orders
+
+- &lt;code&gt;stopprice&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Specific price for the *low side* stop order
+
+- &lt;code&gt;stopexec&lt;/code&gt; (default: &lt;code&gt;bt.Order.Stop&lt;/code&gt;)
+
+  Specific execution type for the *low side* order
+
+- &lt;code&gt;stopargs&lt;/code&gt; (default: ``{}``)
+
+  Specific keyword arguments (in a &lt;code&gt;dict&lt;/code&gt;) to pass to the low side
+  order. Arguments from the default ``**kwargs`` will be applied on
+  top of this.
+
+- &lt;code&gt;limitprice&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Specific price for the *high side* stop order
+
+- &lt;code&gt;stopexec&lt;/code&gt; (default: &lt;code&gt;bt.Order.Limit&lt;/code&gt;)
+
+  Specific execution type for the *high side* order
+
+- &lt;code&gt;limitargs&lt;/code&gt; (default: ``{}``)
+
+  Specific keyword arguments (in a &lt;code&gt;dict&lt;/code&gt;) to pass to the high side
+  order. Arguments from the default ``**kwargs`` will be applied on
+  top of this.
+</code></pre>
 <p>High/Low Side orders can be suppressed by using:</p>
-<ul>
-<li>
-<p><code>limitexec=None</code> to suppress the <em>high side</em></p>
-</li>
-<li>
-<p><code>stopexec=None</code> to suppress the <em>low side</em></p>
-</li>
-</ul>
+<pre><code>- ``limitexec=None`` to suppress the *high side*
+
+- ``stopexec=None`` to suppress the *low side*
+</code></pre>
 <h2 id="returns">Returns</h2>
 <ul>
 <li>
@@ -5406,30 +5360,21 @@ system time.</p></div>
 achieve <code>target</code></p>
 <p>The <code>position.size</code> is used to determine if a position is <code>long</code> /
 <code>short</code></p>
-<ul>
-<li>
-<p>If <code>target</code> &gt; <code>value</code></p>
-<ul>
-<li>buy if <code>pos.size &gt;= 0</code> (Increase a long position)</li>
-<li>sell if <code>pos.size &lt; 0</code> (Increase a short position)</li>
-</ul>
-</li>
-<li>
-<p>If <code>target</code> &lt; <code>value</code></p>
-<ul>
-<li>sell if <code>pos.size &gt;= 0</code> (Decrease a long position)</li>
-<li>buy if <code>pos.size &lt; 0</code> (Decrease a short position)</li>
-</ul>
-</li>
-</ul>
+<pre><code>- If &lt;code&gt;target&lt;/code&gt; &gt; &lt;code&gt;value&lt;/code&gt;
+  - buy if ``pos.size &gt;= 0`` (Increase a long position)
+  - sell if ``pos.size &lt; 0`` (Increase a short position)
+
+- If &lt;code&gt;target&lt;/code&gt; &lt; &lt;code&gt;value&lt;/code&gt;
+  - sell if ``pos.size &gt;= 0`` (Decrease a long position)
+  - buy if ``pos.size &lt; 0`` (Decrease a short position)
+</code></pre>
 <p>It returns either:</p>
-<ul>
-<li>The generated order</li>
-</ul>
-<p>or</p>
-<ul>
-<li><code>None</code> if no order has been issued (<code>target == position.size</code>)</li>
-</ul></div>
+<pre><code>- The generated order
+
+or
+
+- &lt;code&gt;None&lt;/code&gt; if no order has been issued (``target == position.size``)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -5490,22 +5435,17 @@ achieve <code>target</code></p>
 <div class="desc"><p>Place an order to rebalance a position to have final size of <code>target</code></p>
 <p>The current <code>position</code> size is taken into account as the start point
 to achieve <code>target</code></p>
-<ul>
-<li>
-<p>If <code>target</code> &gt; <code>pos.size</code> -&gt; buy <code>target - pos.size</code></p>
-</li>
-<li>
-<p>If <code>target</code> &lt; <code>pos.size</code> -&gt; sell <code>pos.size - target</code></p>
-</li>
-</ul>
+<pre><code>- If &lt;code&gt;target&lt;/code&gt; &gt; &lt;code&gt;pos.size&lt;/code&gt; -&gt; buy ``target - pos.size``
+
+- If &lt;code&gt;target&lt;/code&gt; &lt; &lt;code&gt;pos.size&lt;/code&gt; -&gt; sell ``pos.size - target``
+</code></pre>
 <p>It returns either:</p>
-<ul>
-<li>The generated order</li>
-</ul>
-<p>or</p>
-<ul>
-<li><code>None</code> if no order has been issued (<code>target == position.size</code>)</li>
-</ul></div>
+<pre><code>- The generated order
+
+or
+
+- &lt;code&gt;None&lt;/code&gt; if no order has been issued (``target == position.size``)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -5555,19 +5495,17 @@ to achieve <code>target</code></p>
 <code>target</code></p>
 <p>The current <code>value</code> is taken into account as the start point to
 achieve <code>target</code></p>
-<ul>
-<li>If no <code>target</code> then close postion on data</li>
-<li>If <code>target</code> &gt; <code>value</code> then buy on data</li>
-<li>If <code>target</code> &lt; <code>value</code> then sell on data</li>
-</ul>
+<pre><code>- If no &lt;code&gt;target&lt;/code&gt; then close postion on data
+- If &lt;code&gt;target&lt;/code&gt; &gt; &lt;code&gt;value&lt;/code&gt; then buy on data
+- If &lt;code&gt;target&lt;/code&gt; &lt; &lt;code&gt;value&lt;/code&gt; then sell on data
+</code></pre>
 <p>It returns either:</p>
-<ul>
-<li>The generated order</li>
-</ul>
-<p>or</p>
-<ul>
-<li><code>None</code> if no order has been issued</li>
-</ul></div>
+<pre><code>- The generated order
+
+or
+
+- &lt;code&gt;None&lt;/code&gt; if no order has been issued
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -5638,13 +5576,17 @@ achieve <code>target</code></p>
 </code></dt>
 <dd>
 <div class="desc"><p>Enable the memory saving schemes. Possible values for <code>savemem</code>:</p>
-<p>0: No savings. Each lines object keeps in memory all values</p>
-<p>1: All lines objects save memory, using the strictly minimum needed</p>
+<pre><code>0: No savings. Each lines object keeps in memory all values
+
+1: All lines objects save memory, using the strictly minimum needed
+</code></pre>
 <p>Negative values are meant to be used when plotting is required:</p>
-<p>-1: Indicators at Strategy Level and Observers do not enable memory
-savings (but anything declared below it does)</p>
-<p>-2: Same as -1 plus activation of memory saving for any indicators
-which has declared <em>plotinfo.plot</em> as False (will not be plotted)</p></div>
+<pre><code>-1: Indicators at Strategy Level and Observers do not enable memory
+    savings (but anything declared below it does)
+
+-2: Same as -1 plus activation of memory saving for any indicators
+    which has declared *plotinfo.plot* as False (will not be plotted)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -5733,27 +5675,18 @@ which has declared <em>plotinfo.plot</em> as False (will not be plotted)</p></di
 <dd>
 <div class="desc"><p>Create a bracket order group (low side - buy order - high side). The
 default behavior is as follows:</p>
-<ul>
-<li>
-<p>Issue a <strong>sell</strong> order with execution <code>Limit</code></p>
-</li>
-<li>
-<p>Issue a <em>high side</em> bracket <strong>buy</strong> order with execution <code>Stop</code></p>
-</li>
-<li>
-<p>Issue a <em>low side</em> bracket <strong>buy</strong> order with execution <code>Limit</code>.</p>
-</li>
-</ul>
+<pre><code>- Issue a **sell** order with execution &lt;code&gt;Limit&lt;/code&gt;
+
+- Issue a *high side* bracket **buy** order with execution &lt;code&gt;Stop&lt;/code&gt;
+
+- Issue a *low side* bracket **buy** order with execution &lt;code&gt;Limit&lt;/code&gt;.
+</code></pre>
 <p>See <code>bracket_buy</code> for the meaning of the parameters</p>
 <p>High/Low Side orders can be suppressed by using:</p>
-<ul>
-<li>
-<p><code>stopexec=None</code> to suppress the <em>high side</em></p>
-</li>
-<li>
-<p><code>limitexec=None</code> to suppress the <em>low side</em></p>
-</li>
-</ul>
+<pre><code>- ``stopexec=None`` to suppress the *high side*
+
+- ``limitexec=None`` to suppress the *low side*
+</code></pre>
 <h2 id="returns">Returns</h2>
 <ul>
 <li>

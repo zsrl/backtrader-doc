@@ -248,24 +248,22 @@ class RollOver(bt.with_metaclass(MetaRollOver, bt.DataBase)):
 </code></dt>
 <dd>
 <div class="desc"><p>Dirty job manager for a LineSeries</p>
-<ul>
-<li>
-<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
-"plotlines" class variable definitions and turns them into
-Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
-</li>
-<li>
-<p>During "new" (instance creation) the lines/plotinfo/plotlines
-classes are substituted in the instance with instances of the
-aforementioned classes and aliases are added for the "lines" held
-in the "lines" instance</p>
-<p>Additionally and for remaining kwargs, these are matched against
-args in plotinfo and if existent are set there and removed from kwargs</p>
-<p>Remember that this Metaclass has a MetaParams (from metabase)
-as root class and therefore "params" defined for the class have been
-removed from kwargs at an earlier state</p>
-</li>
-</ul>
+<pre><code>- During __new__ (class creation), it reads "lines", "plotinfo",
+  "plotlines" class variable definitions and turns them into
+  Classes of type Lines or AutoClassInfo (plotinfo/plotlines)
+
+- During "new" (instance creation) the lines/plotinfo/plotlines
+  classes are substituted in the instance with instances of the
+  aforementioned classes and aliases are added for the "lines" held
+  in the "lines" instance
+
+  Additionally and for remaining kwargs, these are matched against
+  args in plotinfo and if existent are set there and removed from kwargs
+
+  Remember that this Metaclass has a MetaParams (from metabase)
+  as root class and therefore "params" defined for the class have been
+  removed from kwargs at an earlier state
+</code></pre>
 <p>Class has already been created &hellip; register</p></div>
 <details class="source">
 <summary>
@@ -330,8 +328,8 @@ removed from kwargs at an earlier state</p>
 <div class="desc"><p>Class that rolls over to the next future when a condition is met</p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>checkdate</code> (default: <code>None</code>)</li>
-</ul>
+<li>
+<p><code>checkdate</code> (default: <code>None</code>)</p>
 <p>This must be a <em>callable</em> with the following signature::</p>
 <pre><code>checkdate(dt, d):
 </code></pre>
@@ -343,14 +341,16 @@ removed from kwargs at an earlier state</p>
 <pre><code>- &lt;code&gt;True&lt;/code&gt;: as long as the callable returns this, a switchover can
   happen to the next future
 </code></pre>
+</li>
+</ul>
 <p>If a commodity expires on the 3rd Friday of March, <code>checkdate</code> could
 return <code>True</code> for the entire week in which the expiration takes
 place.</p>
-<pre><code>- &lt;code&gt;False&lt;/code&gt;: the expiration cannot take place
+<pre><code>  - &lt;code&gt;False&lt;/code&gt;: the expiration cannot take place
 </code></pre>
 <ul>
-<li><code>checkcondition</code> (default: <code>None</code>)</li>
-</ul>
+<li>
+<p><code>checkcondition</code> (default: <code>None</code>)</p>
 <p><strong>Note</strong>: This will only be called if <code>checkdate</code> has returned
 <code>True</code></p>
 <p>If <code>None</code> this will evaluate to <code>True</code> (execute roll over)
@@ -365,10 +365,12 @@ internally</p>
 <p>Expected Return Values:</p>
 <pre><code>- &lt;code&gt;True&lt;/code&gt;: roll-over to the next future
 </code></pre>
+</li>
+</ul>
 <p>Following with the example from <code>checkdate</code>, this could say that the
 roll-over can only happend if the <em>volume</em> from <code>d0</code> is already less
 than the volume from <code>d1</code></p>
-<pre><code>- &lt;code&gt;False&lt;/code&gt;: the expiration cannot take place
+<pre><code>  - &lt;code&gt;False&lt;/code&gt;: the expiration cannot take place
 </code></pre></div>
 <details class="source">
 <summary>

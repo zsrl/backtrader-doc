@@ -205,22 +205,22 @@ logarithmic approach</p>
 </ul>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>timeframe</code> (default: <code>None</code>)</li>
-</ul>
+<li>
+<p><code>timeframe</code> (default: <code>None</code>)</p>
 <p>If <code>None</code> the <code>timeframe</code> of the 1st data in the system will be
 used</p>
 <p>Pass <code>TimeFrame.NoTimeFrame</code> to consider the entire dataset with no
 time constraints</p>
-<ul>
-<li><code>compression</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>compression</code> (default: <code>None</code>)</p>
 <p>Only used for sub-day timeframes to for example work on an hourly
 timeframe by specifying "TimeFrame.Minutes" and 60 as compression</p>
 <p>If <code>None</code> then the compression of the 1st data of the system will be
 used</p>
-<ul>
-<li><code>tann</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>tann</code> (default: <code>None</code>)</p>
 <p>Number of periods to use for the annualization (normalization) of the</p>
 <p>namely:</p>
 <pre><code>- ``days: 252``
@@ -228,18 +228,20 @@ used</p>
 - ``months: 12``
 - ``years: 1``
 </code></pre>
-<ul>
-<li><code>fund</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fund</code> (default: <code>None</code>)</p>
 <p>If <code>None</code> the actual mode of the broker (fundmode - True/False) will
 be autodetected to decide if the returns are based on the total net
 asset value or on the fund value. See <code>set_fundmode</code> in the broker
 documentation</p>
 <p>Set it to <code>True</code> or <code>False</code> for a specific behavior</p>
+</li>
+</ul>
 <h2 id="methods">Methods</h2>
 <ul>
-<li>get_analysis</li>
-</ul>
+<li>
+<p>get_analysis</p>
 <p>Returns a dictionary with returns as values and the datetime points for
 each return as keys</p>
 <p>The returned dict the following keys:</p>
@@ -247,7 +249,9 @@ each return as keys</p>
 - &lt;code&gt;ravg&lt;/code&gt;: Average return for the entire period (timeframe specific)
 - &lt;code&gt;rnorm&lt;/code&gt;: Annualized/Normalized return
 - &lt;code&gt;rnorm100&lt;/code&gt;: Annualized/Normalized return expressed in 100%
-</code></pre></div>
+</code></pre>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

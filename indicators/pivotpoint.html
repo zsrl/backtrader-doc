@@ -312,17 +312,17 @@ bar components of the past period of a larger timeframe. For example when
 operating with days, the values are taking from the already "past" month
 fixed prices.</p>
 <p>Example of using this indicator:</p>
-<p>data = btfeeds.ADataFeed(dataname=x, timeframe=bt.TimeFrame.Days)
+<pre><code>data = btfeeds.ADataFeed(dataname=x, timeframe=bt.TimeFrame.Days)
 cerebro.adddata(data)
-cerebro.resampledata(data, timeframe=bt.TimeFrame.Months)</p>
+cerebro.resampledata(data, timeframe=bt.TimeFrame.Months)
+</code></pre>
 <p>In the <code>__init__</code> method of the strategy:</p>
-<p>pivotindicator = btind.DemarkPivotPoiont(self.data1)
-# the resampled data</p>
+<pre><code>pivotindicator = btind.DemarkPivotPoiont(self.data1)  # the resampled data
+</code></pre>
 <p>The indicator will try to automatically plo to the non-resampled data. To
 disable this behavior use the following during construction:</p>
-<ul>
-<li>_autoplot=False</li>
-</ul>
+<pre><code>- _autoplot=False
+</code></pre>
 <h2 id="note">Note</h2>
 <p>The example shows <em>days</em> and <em>months</em>, but any combination of timeframes
 can be used. See the literature for recommended combinations</p>
@@ -505,17 +505,17 @@ operating with days, the values are taking from the already "past" month
 fixed prices.</p>
 <p>Fibonacci levels (configurable) are used to define the support/resistance levels</p>
 <p>Example of using this indicator:</p>
-<p>data = btfeeds.ADataFeed(dataname=x, timeframe=bt.TimeFrame.Days)
+<pre><code>data = btfeeds.ADataFeed(dataname=x, timeframe=bt.TimeFrame.Days)
 cerebro.adddata(data)
-cerebro.resampledata(data, timeframe=bt.TimeFrame.Months)</p>
+cerebro.resampledata(data, timeframe=bt.TimeFrame.Months)
+</code></pre>
 <p>In the <code>__init__</code> method of the strategy:</p>
-<p>pivotindicator = btind.FibonacciPivotPoiont(self.data1)
-# the resampled data</p>
+<pre><code>pivotindicator = btind.FibonacciPivotPoiont(self.data1)  # the resampled data
+</code></pre>
 <p>The indicator will try to automatically plo to the non-resampled data. To
 disable this behavior use the following during construction:</p>
-<ul>
-<li>_autoplot=False</li>
-</ul>
+<pre><code>- _autoplot=False
+</code></pre>
 <h2 id="note">Note</h2>
 <p>The example shows <em>days</em> and <em>months</em>, but any combination of timeframes
 can be used. See the literature for recommended combinations</p>
@@ -704,17 +704,17 @@ bar components of the past period of a larger timeframe. For example when
 operating with days, the values are taking from the already "past" month
 fixed prices.</p>
 <p>Example of using this indicator:</p>
-<p>data = btfeeds.ADataFeed(dataname=x, timeframe=bt.TimeFrame.Days)
+<pre><code>data = btfeeds.ADataFeed(dataname=x, timeframe=bt.TimeFrame.Days)
 cerebro.adddata(data)
-cerebro.resampledata(data, timeframe=bt.TimeFrame.Months)</p>
+cerebro.resampledata(data, timeframe=bt.TimeFrame.Months)
+</code></pre>
 <p>In the <code>__init__</code> method of the strategy:</p>
-<p>pivotindicator = btind.PivotPoiont(self.data1)
-# the resampled data</p>
+<pre><code>pivotindicator = btind.PivotPoiont(self.data1)  # the resampled data
+</code></pre>
 <p>The indicator will try to automatically plo to the non-resampled data. To
 disable this behavior use the following during construction:</p>
-<ul>
-<li>_autoplot=False</li>
-</ul>
+<pre><code>- _autoplot=False
+</code></pre>
 <h2 id="note">Note</h2>
 <p>The example shows <em>days</em> and <em>months</em>, but any combination of timeframes
 can be used. See the literature for recommended combinations</p>

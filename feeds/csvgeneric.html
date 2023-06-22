@@ -223,47 +223,38 @@ class GenericCSV(feed.CSVFeedBase):
 <div class="desc"><p>Parses a CSV file according to the order and field presence defined by the
 parameters</p>
 <p>Specific parameters (or specific meaning):</p>
-<ul>
-<li>
-<p><code>dataname</code>: The filename to parse or a file-like object</p>
-</li>
-<li>
-<p>The lines parameters (datetime, open, high &hellip;) take numeric values</p>
-<p>A value of -1 indicates absence of that field in the CSV source</p>
-</li>
-<li>
-<p>If <code>time</code> is present (parameter time &gt;=0) the source contains
-separated fields for date and time, which will be combined</p>
-</li>
-<li>
-<p><code>nullvalue</code></p>
-<p>Value that will be used if a value which should be there is missing
-(the CSV field is empty)</p>
-</li>
-<li>
-<p><code>dtformat</code>: Format used to parse the datetime CSV field. See the
-python strptime/strftime documentation for the format.</p>
-<p>If a numeric value is specified, it will be interpreted as follows</p>
-<ul>
-<li>
-<p><code>1</code>: The value is a Unix timestamp of type <code>int</code> representing
-the number of seconds since Jan 1st, 1970</p>
-</li>
-<li>
-<p><code>2</code>: The value is a Unix timestamp of type <code>float</code></p>
-</li>
-</ul>
-<p>If a <strong>callable</strong> is passed</p>
-<ul>
-<li>it will accept a string and return a <code>datetime.datetime</code> python
-instance</li>
-</ul>
-</li>
-<li>
-<p><code>tmformat</code>: Format used to parse the time CSV field if "present"
-(the default for the "time" CSV field is not to be present)</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;dataname&lt;/code&gt;: The filename to parse or a file-like object
+
+- The lines parameters (datetime, open, high ...) take numeric values
+
+  A value of -1 indicates absence of that field in the CSV source
+
+- If &lt;code&gt;time&lt;/code&gt; is present (parameter time &gt;=0) the source contains
+  separated fields for date and time, which will be combined
+
+- &lt;code&gt;nullvalue&lt;/code&gt;
+
+  Value that will be used if a value which should be there is missing
+  (the CSV field is empty)
+
+- &lt;code&gt;dtformat&lt;/code&gt;: Format used to parse the datetime CSV field. See the
+  python strptime/strftime documentation for the format.
+
+  If a numeric value is specified, it will be interpreted as follows
+
+    - &lt;code&gt;1&lt;/code&gt;: The value is a Unix timestamp of type &lt;code&gt;int&lt;/code&gt; representing
+      the number of seconds since Jan 1st, 1970
+
+    - &lt;code&gt;2&lt;/code&gt;: The value is a Unix timestamp of type &lt;code&gt;float&lt;/code&gt;
+
+  If a **callable** is passed
+
+    - it will accept a string and return a &lt;code&gt;datetime.datetime&lt;/code&gt; python
+      instance
+
+- &lt;code&gt;tmformat&lt;/code&gt;: Format used to parse the time CSV field if "present"
+  (the default for the "time" CSV field is not to be present)
+</code></pre></div>
 </dd>
 <dt id="backtrader.feeds.csvgeneric.GenericCSV.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
 <dd>
@@ -287,47 +278,38 @@ instance</li>
 <div class="desc"><p>Parses a CSV file according to the order and field presence defined by the
 parameters</p>
 <p>Specific parameters (or specific meaning):</p>
-<ul>
-<li>
-<p><code>dataname</code>: The filename to parse or a file-like object</p>
-</li>
-<li>
-<p>The lines parameters (datetime, open, high &hellip;) take numeric values</p>
-<p>A value of -1 indicates absence of that field in the CSV source</p>
-</li>
-<li>
-<p>If <code>time</code> is present (parameter time &gt;=0) the source contains
-separated fields for date and time, which will be combined</p>
-</li>
-<li>
-<p><code>nullvalue</code></p>
-<p>Value that will be used if a value which should be there is missing
-(the CSV field is empty)</p>
-</li>
-<li>
-<p><code>dtformat</code>: Format used to parse the datetime CSV field. See the
-python strptime/strftime documentation for the format.</p>
-<p>If a numeric value is specified, it will be interpreted as follows</p>
-<ul>
-<li>
-<p><code>1</code>: The value is a Unix timestamp of type <code>int</code> representing
-the number of seconds since Jan 1st, 1970</p>
-</li>
-<li>
-<p><code>2</code>: The value is a Unix timestamp of type <code>float</code></p>
-</li>
-</ul>
-<p>If a <strong>callable</strong> is passed</p>
-<ul>
-<li>it will accept a string and return a <code>datetime.datetime</code> python
-instance</li>
-</ul>
-</li>
-<li>
-<p><code>tmformat</code>: Format used to parse the time CSV field if "present"
-(the default for the "time" CSV field is not to be present)</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;dataname&lt;/code&gt;: The filename to parse or a file-like object
+
+- The lines parameters (datetime, open, high ...) take numeric values
+
+  A value of -1 indicates absence of that field in the CSV source
+
+- If &lt;code&gt;time&lt;/code&gt; is present (parameter time &gt;=0) the source contains
+  separated fields for date and time, which will be combined
+
+- &lt;code&gt;nullvalue&lt;/code&gt;
+
+  Value that will be used if a value which should be there is missing
+  (the CSV field is empty)
+
+- &lt;code&gt;dtformat&lt;/code&gt;: Format used to parse the datetime CSV field. See the
+  python strptime/strftime documentation for the format.
+
+  If a numeric value is specified, it will be interpreted as follows
+
+    - &lt;code&gt;1&lt;/code&gt;: The value is a Unix timestamp of type &lt;code&gt;int&lt;/code&gt; representing
+      the number of seconds since Jan 1st, 1970
+
+    - &lt;code&gt;2&lt;/code&gt;: The value is a Unix timestamp of type &lt;code&gt;float&lt;/code&gt;
+
+  If a **callable** is passed
+
+    - it will accept a string and return a &lt;code&gt;datetime.datetime&lt;/code&gt; python
+      instance
+
+- &lt;code&gt;tmformat&lt;/code&gt;: Format used to parse the time CSV field if "present"
+  (the default for the "time" CSV field is not to be present)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

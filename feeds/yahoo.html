@@ -425,47 +425,45 @@ class YahooFinance(feed.CSVFeedBase):
 <div class="desc"><p>Executes a direct download of data from Yahoo servers for the given time
 range.</p>
 <p>Specific parameters (or specific meaning):</p>
-<ul>
-<li>
-<p><code>dataname</code></p>
-<p>The ticker to download ('YHOO' for Yahoo own stock quotes)</p>
-</li>
-<li>
-<p><code>proxies</code></p>
-<p>A dict indicating which proxy to go through for the download as in
-{'http': 'http://myproxy.com'} or {'http': 'http://127.0.0.1:8080'}</p>
-</li>
-<li>
-<p><code>period</code></p>
-<p>The timeframe to download data in. Pass 'w' for weekly and 'm' for
-monthly.</p>
-</li>
-<li>
-<p><code>reverse</code></p>
-<p>[2018-11-16] The latest incarnation of Yahoo online downloads returns
-the data in the proper order. The default value of <code>reverse</code> for the
-online download is therefore set to <code>False</code></p>
-</li>
-<li>
-<p><code>adjclose</code></p>
-<p>Whether to use the dividend/split adjusted close and adjust all values
-according to it.</p>
-</li>
-<li>
-<p><code>urlhist</code></p>
-<p>The url of the historical quotes in Yahoo Finance used to gather a
-<code>crumb</code> authorization cookie for the download</p>
-</li>
-<li>
-<p><code>urldown</code></p>
-<p>The url of the actual download server</p>
-</li>
-<li>
-<p><code>retries</code></p>
-<p>Number of times (each) to try to get a <code>crumb</code> cookie and download
-the data</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;dataname&lt;/code&gt;
+
+  The ticker to download ('YHOO' for Yahoo own stock quotes)
+
+- &lt;code&gt;proxies&lt;/code&gt;
+
+  A dict indicating which proxy to go through for the download as in
+  {'http': 'http://myproxy.com'} or {'http': 'http://127.0.0.1:8080'}
+
+- &lt;code&gt;period&lt;/code&gt;
+
+  The timeframe to download data in. Pass 'w' for weekly and 'm' for
+  monthly.
+
+- &lt;code&gt;reverse&lt;/code&gt;
+
+  [2018-11-16] The latest incarnation of Yahoo online downloads returns
+  the data in the proper order. The default value of &lt;code&gt;reverse&lt;/code&gt; for the
+  online download is therefore set to &lt;code&gt;False&lt;/code&gt;
+
+- &lt;code&gt;adjclose&lt;/code&gt;
+
+  Whether to use the dividend/split adjusted close and adjust all values
+  according to it.
+
+- &lt;code&gt;urlhist&lt;/code&gt;
+
+  The url of the historical quotes in Yahoo Finance used to gather a
+  &lt;code&gt;crumb&lt;/code&gt; authorization cookie for the download
+
+- &lt;code&gt;urldown&lt;/code&gt;
+
+  The url of the actual download server
+
+- &lt;code&gt;retries&lt;/code&gt;
+
+  Number of times (each) to try to get a &lt;code&gt;crumb&lt;/code&gt; cookie and download
+  the data
+</code></pre></div>
 </dd>
 <dt id="backtrader.feeds.yahoo.YahooFinance.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
 <dd>
@@ -505,45 +503,42 @@ the data</p>
 <div class="desc"><p>Parses pre-downloaded Yahoo CSV Data Feeds (or locally generated if they
 comply to the Yahoo format)</p>
 <p>Specific parameters:</p>
-<ul>
-<li>
-<p><code>dataname</code>: The filename to parse or a file-like object</p>
-</li>
-<li>
-<p><code>reverse</code> (default: <code>False</code>)</p>
-<p>It is assumed that locally stored files have already been reversed
-during the download process</p>
-</li>
-<li>
-<p><code>adjclose</code> (default: <code>True</code>)</p>
-<p>Whether to use the dividend/split adjusted close and adjust all
-values according to it.</p>
-</li>
-<li>
-<p><code>adjvolume</code> (default: <code>True</code>)</p>
-<p>Do also adjust <code>volume</code> if <code>adjclose</code> is also <code>True</code></p>
-</li>
-<li>
-<p><code>round</code> (default: <code>True</code>)</p>
-<p>Whether to round the values to a specific number of decimals after
-having adjusted the close</p>
-</li>
-<li>
-<p><code>roundvolume</code> (default: <code>0</code>)</p>
-<p>Round the resulting volume to the given number of decimals after having
-adjusted it</p>
-</li>
-<li>
-<p><code>decimals</code> (default: <code>2</code>)</p>
-<p>Number of decimals to round to</p>
-</li>
-<li>
-<p><code>swapcloses</code> (default: <code>False</code>)</p>
-<p>[2018-11-16] It would seem that the order of <em>close</em> and <em>adjusted
-close</em> is now fixed. The parameter is retained, in case the need to
-swap the columns again arose.</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;dataname&lt;/code&gt;: The filename to parse or a file-like object
+
+- &lt;code&gt;reverse&lt;/code&gt; (default: &lt;code&gt;False&lt;/code&gt;)
+
+  It is assumed that locally stored files have already been reversed
+  during the download process
+
+- &lt;code&gt;adjclose&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;)
+
+  Whether to use the dividend/split adjusted close and adjust all
+  values according to it.
+
+- &lt;code&gt;adjvolume&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;)
+
+  Do also adjust &lt;code&gt;volume&lt;/code&gt; if &lt;code&gt;adjclose&lt;/code&gt; is also &lt;code&gt;True&lt;/code&gt;
+
+- &lt;code&gt;round&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;)
+
+  Whether to round the values to a specific number of decimals after
+  having adjusted the close
+
+- &lt;code&gt;roundvolume&lt;/code&gt; (default: &lt;code&gt;0&lt;/code&gt;)
+
+  Round the resulting volume to the given number of decimals after having
+  adjusted it
+
+- &lt;code&gt;decimals&lt;/code&gt; (default: &lt;code&gt;2&lt;/code&gt;)
+
+  Number of decimals to round to
+
+- &lt;code&gt;swapcloses&lt;/code&gt; (default: &lt;code&gt;False&lt;/code&gt;)
+
+  [2018-11-16] It would seem that the order of *close* and *adjusted
+  close* is now fixed. The parameter is retained, in case the need to
+  swap the columns again arose.
+</code></pre></div>
 </dd>
 <dt id="backtrader.feeds.yahoo.YahooFinanceCSV.frompackages"><code class="name">var <span class="ident">frompackages</span></code></dt>
 <dd>
@@ -567,45 +562,42 @@ swap the columns again arose.</p>
 <div class="desc"><p>Parses pre-downloaded Yahoo CSV Data Feeds (or locally generated if they
 comply to the Yahoo format)</p>
 <p>Specific parameters:</p>
-<ul>
-<li>
-<p><code>dataname</code>: The filename to parse or a file-like object</p>
-</li>
-<li>
-<p><code>reverse</code> (default: <code>False</code>)</p>
-<p>It is assumed that locally stored files have already been reversed
-during the download process</p>
-</li>
-<li>
-<p><code>adjclose</code> (default: <code>True</code>)</p>
-<p>Whether to use the dividend/split adjusted close and adjust all
-values according to it.</p>
-</li>
-<li>
-<p><code>adjvolume</code> (default: <code>True</code>)</p>
-<p>Do also adjust <code>volume</code> if <code>adjclose</code> is also <code>True</code></p>
-</li>
-<li>
-<p><code>round</code> (default: <code>True</code>)</p>
-<p>Whether to round the values to a specific number of decimals after
-having adjusted the close</p>
-</li>
-<li>
-<p><code>roundvolume</code> (default: <code>0</code>)</p>
-<p>Round the resulting volume to the given number of decimals after having
-adjusted it</p>
-</li>
-<li>
-<p><code>decimals</code> (default: <code>2</code>)</p>
-<p>Number of decimals to round to</p>
-</li>
-<li>
-<p><code>swapcloses</code> (default: <code>False</code>)</p>
-<p>[2018-11-16] It would seem that the order of <em>close</em> and <em>adjusted
-close</em> is now fixed. The parameter is retained, in case the need to
-swap the columns again arose.</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;dataname&lt;/code&gt;: The filename to parse or a file-like object
+
+- &lt;code&gt;reverse&lt;/code&gt; (default: &lt;code&gt;False&lt;/code&gt;)
+
+  It is assumed that locally stored files have already been reversed
+  during the download process
+
+- &lt;code&gt;adjclose&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;)
+
+  Whether to use the dividend/split adjusted close and adjust all
+  values according to it.
+
+- &lt;code&gt;adjvolume&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;)
+
+  Do also adjust &lt;code&gt;volume&lt;/code&gt; if &lt;code&gt;adjclose&lt;/code&gt; is also &lt;code&gt;True&lt;/code&gt;
+
+- &lt;code&gt;round&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;)
+
+  Whether to round the values to a specific number of decimals after
+  having adjusted the close
+
+- &lt;code&gt;roundvolume&lt;/code&gt; (default: &lt;code&gt;0&lt;/code&gt;)
+
+  Round the resulting volume to the given number of decimals after having
+  adjusted it
+
+- &lt;code&gt;decimals&lt;/code&gt; (default: &lt;code&gt;2&lt;/code&gt;)
+
+  Number of decimals to round to
+
+- &lt;code&gt;swapcloses&lt;/code&gt; (default: &lt;code&gt;False&lt;/code&gt;)
+
+  [2018-11-16] It would seem that the order of *close* and *adjusted
+  close* is now fixed. The parameter is retained, in case the need to
+  swap the columns again arose.
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -869,47 +861,45 @@ swap the columns again arose.</p>
 <div class="desc"><p>Executes a direct download of data from Yahoo servers for the given time
 range.</p>
 <p>Specific parameters (or specific meaning):</p>
-<ul>
-<li>
-<p><code>dataname</code></p>
-<p>The ticker to download ('YHOO' for Yahoo own stock quotes)</p>
-</li>
-<li>
-<p><code>proxies</code></p>
-<p>A dict indicating which proxy to go through for the download as in
-{'http': 'http://myproxy.com'} or {'http': 'http://127.0.0.1:8080'}</p>
-</li>
-<li>
-<p><code>period</code></p>
-<p>The timeframe to download data in. Pass 'w' for weekly and 'm' for
-monthly.</p>
-</li>
-<li>
-<p><code>reverse</code></p>
-<p>[2018-11-16] The latest incarnation of Yahoo online downloads returns
-the data in the proper order. The default value of <code>reverse</code> for the
-online download is therefore set to <code>False</code></p>
-</li>
-<li>
-<p><code>adjclose</code></p>
-<p>Whether to use the dividend/split adjusted close and adjust all values
-according to it.</p>
-</li>
-<li>
-<p><code>urlhist</code></p>
-<p>The url of the historical quotes in Yahoo Finance used to gather a
-<code>crumb</code> authorization cookie for the download</p>
-</li>
-<li>
-<p><code>urldown</code></p>
-<p>The url of the actual download server</p>
-</li>
-<li>
-<p><code>retries</code></p>
-<p>Number of times (each) to try to get a <code>crumb</code> cookie and download
-the data</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;dataname&lt;/code&gt;
+
+  The ticker to download ('YHOO' for Yahoo own stock quotes)
+
+- &lt;code&gt;proxies&lt;/code&gt;
+
+  A dict indicating which proxy to go through for the download as in
+  {'http': 'http://myproxy.com'} or {'http': 'http://127.0.0.1:8080'}
+
+- &lt;code&gt;period&lt;/code&gt;
+
+  The timeframe to download data in. Pass 'w' for weekly and 'm' for
+  monthly.
+
+- &lt;code&gt;reverse&lt;/code&gt;
+
+  [2018-11-16] The latest incarnation of Yahoo online downloads returns
+  the data in the proper order. The default value of &lt;code&gt;reverse&lt;/code&gt; for the
+  online download is therefore set to &lt;code&gt;False&lt;/code&gt;
+
+- &lt;code&gt;adjclose&lt;/code&gt;
+
+  Whether to use the dividend/split adjusted close and adjust all values
+  according to it.
+
+- &lt;code&gt;urlhist&lt;/code&gt;
+
+  The url of the historical quotes in Yahoo Finance used to gather a
+  &lt;code&gt;crumb&lt;/code&gt; authorization cookie for the download
+
+- &lt;code&gt;urldown&lt;/code&gt;
+
+  The url of the actual download server
+
+- &lt;code&gt;retries&lt;/code&gt;
+
+  Number of times (each) to try to get a &lt;code&gt;crumb&lt;/code&gt; cookie and download
+  the data
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

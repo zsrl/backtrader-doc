@@ -310,54 +310,50 @@ class WriterStringIO(WriterFile):
 <dd>
 <div class="desc"><p>The system wide writer class.</p>
 <p>It can be parametrized with:</p>
-<ul>
-<li>
-<p><code>out</code> (default: <code>sys.stdout</code>): output stream to write to</p>
-<p>If a string is passed a filename with the content of the parameter will
-be used.</p>
-<p>If you wish to run with <code>sys.stdout</code> while doing multiprocess optimization, leave it as <code>None</code>, which will
-automatically initiate <code>sys.stdout</code> on the child processes.</p>
-</li>
-<li>
-<p><code>close_out</code>
-(default: <code>False</code>)</p>
-<p>If <code>out</code> is a stream whether it has to be explicitly closed by the
-writer</p>
-</li>
-<li>
-<p><code>csv</code> (default: <code>False</code>)</p>
-<p>If a csv stream of the data feeds, strategies, observers and indicators
-has to be written to the stream during execution</p>
-<p>Which objects actually go into the csv stream can be controlled with
-the <code>csv</code> attribute of each object (defaults to <code>True</code> for <code>data
-feeds&lt;code&gt; and &lt;/code&gt;observers</code> / False for <code>indicators</code>)</p>
-</li>
-<li>
-<p><code>csv_filternan</code> (default: <code>True</code>) whether <code>nan</code> values have to be
-purged out of the csv stream (replaced by an empty field)</p>
-</li>
-<li>
-<p><code>csv_counter</code> (default: <code>True</code>) if the writer shall keep and print
-out a counter of the lines actually output</p>
-</li>
-<li>
-<p><code>indent</code> (default: <code>2</code>) indentation spaces for each level</p>
-</li>
-<li>
-<p><code>separators</code> (default: <code>['=', '-', '+', '*', '.', '~', '"', '^',
-'#']</code>)</p>
-<p>Characters used for line separators across section/sub(sub)sections</p>
-</li>
-<li>
-<p><code>seplen</code> (default: <code>79</code>)</p>
-<p>total length of a line separator including indentation</p>
-</li>
-<li>
-<p><code>rounding</code> (default: <code>None</code>)</p>
-<p>Number of decimal places to round floats down to. With <code>None</code> no
-rounding is performed</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;out&lt;/code&gt; (default: &lt;code&gt;sys.stdout&lt;/code&gt;): output stream to write to
+
+  If a string is passed a filename with the content of the parameter will
+  be used.
+
+  If you wish to run with &lt;code&gt;sys.stdout&lt;/code&gt; while doing multiprocess optimization, leave it as &lt;code&gt;None&lt;/code&gt;, which will
+  automatically initiate &lt;code&gt;sys.stdout&lt;/code&gt; on the child processes.
+
+- &lt;code&gt;close\_out&lt;/code&gt;  (default: &lt;code&gt;False&lt;/code&gt;)
+
+  If &lt;code&gt;out&lt;/code&gt; is a stream whether it has to be explicitly closed by the
+  writer
+
+- &lt;code&gt;csv&lt;/code&gt; (default: &lt;code&gt;False&lt;/code&gt;)
+
+  If a csv stream of the data feeds, strategies, observers and indicators
+  has to be written to the stream during execution
+
+  Which objects actually go into the csv stream can be controlled with
+  the &lt;code&gt;csv&lt;/code&gt; attribute of each object (defaults to &lt;code&gt;True&lt;/code&gt; for ``data
+  feeds&lt;code&gt; and &lt;/code&gt;observers`` / False for ``indicators``)
+
+- &lt;code&gt;csv\_filternan&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;) whether &lt;code&gt;nan&lt;/code&gt; values have to be
+  purged out of the csv stream (replaced by an empty field)
+
+- &lt;code&gt;csv\_counter&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;) if the writer shall keep and print
+  out a counter of the lines actually output
+
+- &lt;code&gt;indent&lt;/code&gt; (default: &lt;code&gt;2&lt;/code&gt;) indentation spaces for each level
+
+- &lt;code&gt;separators&lt;/code&gt; (default: ``['=', '-', '+', '*', '.', '~', '"', '^',
+  '#']``)
+
+  Characters used for line separators across section/sub(sub)sections
+
+- &lt;code&gt;seplen&lt;/code&gt; (default: &lt;code&gt;79&lt;/code&gt;)
+
+  total length of a line separator including indentation
+
+- &lt;code&gt;rounding&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Number of decimal places to round floats down to. With &lt;code&gt;None&lt;/code&gt; no
+  rounding is performed
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -766,54 +762,50 @@ rounding is performed</p>
 <dd>
 <div class="desc"><p>The system wide writer class.</p>
 <p>It can be parametrized with:</p>
-<ul>
-<li>
-<p><code>out</code> (default: <code>sys.stdout</code>): output stream to write to</p>
-<p>If a string is passed a filename with the content of the parameter will
-be used.</p>
-<p>If you wish to run with <code>sys.stdout</code> while doing multiprocess optimization, leave it as <code>None</code>, which will
-automatically initiate <code>sys.stdout</code> on the child processes.</p>
-</li>
-<li>
-<p><code>close_out</code>
-(default: <code>False</code>)</p>
-<p>If <code>out</code> is a stream whether it has to be explicitly closed by the
-writer</p>
-</li>
-<li>
-<p><code>csv</code> (default: <code>False</code>)</p>
-<p>If a csv stream of the data feeds, strategies, observers and indicators
-has to be written to the stream during execution</p>
-<p>Which objects actually go into the csv stream can be controlled with
-the <code>csv</code> attribute of each object (defaults to <code>True</code> for <code>data
-feeds&lt;code&gt; and &lt;/code&gt;observers</code> / False for <code>indicators</code>)</p>
-</li>
-<li>
-<p><code>csv_filternan</code> (default: <code>True</code>) whether <code>nan</code> values have to be
-purged out of the csv stream (replaced by an empty field)</p>
-</li>
-<li>
-<p><code>csv_counter</code> (default: <code>True</code>) if the writer shall keep and print
-out a counter of the lines actually output</p>
-</li>
-<li>
-<p><code>indent</code> (default: <code>2</code>) indentation spaces for each level</p>
-</li>
-<li>
-<p><code>separators</code> (default: <code>['=', '-', '+', '*', '.', '~', '"', '^',
-'#']</code>)</p>
-<p>Characters used for line separators across section/sub(sub)sections</p>
-</li>
-<li>
-<p><code>seplen</code> (default: <code>79</code>)</p>
-<p>total length of a line separator including indentation</p>
-</li>
-<li>
-<p><code>rounding</code> (default: <code>None</code>)</p>
-<p>Number of decimal places to round floats down to. With <code>None</code> no
-rounding is performed</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;out&lt;/code&gt; (default: &lt;code&gt;sys.stdout&lt;/code&gt;): output stream to write to
+
+  If a string is passed a filename with the content of the parameter will
+  be used.
+
+  If you wish to run with &lt;code&gt;sys.stdout&lt;/code&gt; while doing multiprocess optimization, leave it as &lt;code&gt;None&lt;/code&gt;, which will
+  automatically initiate &lt;code&gt;sys.stdout&lt;/code&gt; on the child processes.
+
+- &lt;code&gt;close\_out&lt;/code&gt;  (default: &lt;code&gt;False&lt;/code&gt;)
+
+  If &lt;code&gt;out&lt;/code&gt; is a stream whether it has to be explicitly closed by the
+  writer
+
+- &lt;code&gt;csv&lt;/code&gt; (default: &lt;code&gt;False&lt;/code&gt;)
+
+  If a csv stream of the data feeds, strategies, observers and indicators
+  has to be written to the stream during execution
+
+  Which objects actually go into the csv stream can be controlled with
+  the &lt;code&gt;csv&lt;/code&gt; attribute of each object (defaults to &lt;code&gt;True&lt;/code&gt; for ``data
+  feeds&lt;code&gt; and &lt;/code&gt;observers`` / False for ``indicators``)
+
+- &lt;code&gt;csv\_filternan&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;) whether &lt;code&gt;nan&lt;/code&gt; values have to be
+  purged out of the csv stream (replaced by an empty field)
+
+- &lt;code&gt;csv\_counter&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;) if the writer shall keep and print
+  out a counter of the lines actually output
+
+- &lt;code&gt;indent&lt;/code&gt; (default: &lt;code&gt;2&lt;/code&gt;) indentation spaces for each level
+
+- &lt;code&gt;separators&lt;/code&gt; (default: ``['=', '-', '+', '*', '.', '~', '"', '^',
+  '#']``)
+
+  Characters used for line separators across section/sub(sub)sections
+
+- &lt;code&gt;seplen&lt;/code&gt; (default: &lt;code&gt;79&lt;/code&gt;)
+
+  total length of a line separator including indentation
+
+- &lt;code&gt;rounding&lt;/code&gt; (default: &lt;code&gt;None&lt;/code&gt;)
+
+  Number of decimal places to round floats down to. With &lt;code&gt;None&lt;/code&gt; no
+  rounding is performed
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

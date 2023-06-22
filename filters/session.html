@@ -291,24 +291,26 @@ class SessionFilter(with_metaclass(metabase.MetaParams, object)):
 and <code>compression</code> (used to calculate the intervening missing times)</p>
 <h2 id="params">Params</h2>
 <ul>
-<li>fill_price (def: None):</li>
-</ul>
+<li>
+<p>fill_price (def: None):</p>
 <p>If None is passed, the closing price of the previous bar will be
 used. To end up with a bar which for example takes time but it is not
 displayed in a plot &hellip; use float('Nan')</p>
-<ul>
-<li>fill_vol (def: float('NaN')):</li>
-</ul>
+</li>
+<li>
+<p>fill_vol (def: float('NaN')):</p>
 <p>Value to use to fill the missing volume</p>
-<ul>
-<li>fill_oi (def: float('NaN')):</li>
-</ul>
+</li>
+<li>
+<p>fill_oi (def: float('NaN')):</p>
 <p>Value to use to fill the missing Open Interest</p>
-<ul>
-<li>skip_first_fill (def: True):</li>
-</ul>
+</li>
+<li>
+<p>skip_first_fill (def: True):</p>
 <p>Upon seeing the 1st valid bar do not fill from the sessionstart up to
-that bar</p></div>
+that bar</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

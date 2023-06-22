@@ -684,42 +684,35 @@ class StopLimitSellOrder(SellOrder):
 <dd>
 <div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
 <p>The order may have the following status:</p>
-<ul>
-<li>Submitted: sent to the broker and awaiting confirmation</li>
-<li>Accepted: accepted by the broker</li>
-<li>Partial: partially executed</li>
-<li>Completed: fully exexcuted</li>
-<li>Canceled/Cancelled: canceled by the user</li>
-<li>Expired: expired</li>
-<li>Margin: not enough cash to execute the order.</li>
-<li>
-<p>Rejected: Rejected by the broker</p>
-<p>This can happen during order submission (and therefore the order will
-not reach the Accepted status) or before execution with each new bar
-price because cash has been drawn by other sources (future-like
-instruments may have reduced the cash or orders orders may have been
-executed)</p>
-</li>
-</ul>
+<pre><code>- Submitted: sent to the broker and awaiting confirmation
+- Accepted: accepted by the broker
+- Partial: partially executed
+- Completed: fully exexcuted
+- Canceled/Cancelled: canceled by the user
+- Expired: expired
+- Margin: not enough cash to execute the order.
+- Rejected: Rejected by the broker
+
+  This can happen during order submission (and therefore the order will
+  not reach the Accepted status) or before execution with each new bar
+  price because cash has been drawn by other sources (future-like
+  instruments may have reduced the cash or orders orders may have been
+  executed)
+</code></pre>
 <p>Member Attributes:</p>
-<ul>
-<li>ref: unique order identifier</li>
-<li>created: OrderData holding creation data</li>
-<li>
-<p>executed: OrderData holding execution data</p>
-</li>
-<li>
-<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
-in the form of an OrderedDict which has been subclassed, so that keys
-can also be specified using '.' notation</p>
-</li>
-</ul>
+<pre><code>- ref: unique order identifier
+- created: OrderData holding creation data
+- executed: OrderData holding execution data
+
+- info: custom information passed over method :func:&lt;code&gt;addinfo&lt;/code&gt;. It is kept
+  in the form of an OrderedDict which has been subclassed, so that keys
+  can also be specified using '.' notation
+</code></pre>
 <p>User Methods:</p>
-<ul>
-<li>isbuy(): returns bool indicating if the order buys</li>
-<li>issell(): returns bool indicating if the order sells</li>
-<li>alive(): returns bool if order is in status Partial or Accepted</li>
-</ul></div>
+<pre><code>- isbuy(): returns bool indicating if the order buys
+- issell(): returns bool indicating if the order sells
+- alive(): returns bool if order is in status Partial or Accepted
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -789,42 +782,35 @@ can also be specified using '.' notation</p>
 <dd>
 <div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
 <p>The order may have the following status:</p>
-<ul>
-<li>Submitted: sent to the broker and awaiting confirmation</li>
-<li>Accepted: accepted by the broker</li>
-<li>Partial: partially executed</li>
-<li>Completed: fully exexcuted</li>
-<li>Canceled/Cancelled: canceled by the user</li>
-<li>Expired: expired</li>
-<li>Margin: not enough cash to execute the order.</li>
-<li>
-<p>Rejected: Rejected by the broker</p>
-<p>This can happen during order submission (and therefore the order will
-not reach the Accepted status) or before execution with each new bar
-price because cash has been drawn by other sources (future-like
-instruments may have reduced the cash or orders orders may have been
-executed)</p>
-</li>
-</ul>
+<pre><code>- Submitted: sent to the broker and awaiting confirmation
+- Accepted: accepted by the broker
+- Partial: partially executed
+- Completed: fully exexcuted
+- Canceled/Cancelled: canceled by the user
+- Expired: expired
+- Margin: not enough cash to execute the order.
+- Rejected: Rejected by the broker
+
+  This can happen during order submission (and therefore the order will
+  not reach the Accepted status) or before execution with each new bar
+  price because cash has been drawn by other sources (future-like
+  instruments may have reduced the cash or orders orders may have been
+  executed)
+</code></pre>
 <p>Member Attributes:</p>
-<ul>
-<li>ref: unique order identifier</li>
-<li>created: OrderData holding creation data</li>
-<li>
-<p>executed: OrderData holding execution data</p>
-</li>
-<li>
-<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
-in the form of an OrderedDict which has been subclassed, so that keys
-can also be specified using '.' notation</p>
-</li>
-</ul>
+<pre><code>- ref: unique order identifier
+- created: OrderData holding creation data
+- executed: OrderData holding execution data
+
+- info: custom information passed over method :func:&lt;code&gt;addinfo&lt;/code&gt;. It is kept
+  in the form of an OrderedDict which has been subclassed, so that keys
+  can also be specified using '.' notation
+</code></pre>
 <p>User Methods:</p>
-<ul>
-<li>isbuy(): returns bool indicating if the order buys</li>
-<li>issell(): returns bool indicating if the order sells</li>
-<li>alive(): returns bool if order is in status Partial or Accepted</li>
-</ul></div>
+<pre><code>- isbuy(): returns bool indicating if the order buys
+- issell(): returns bool indicating if the order sells
+- alive(): returns bool if order is in status Partial or Accepted
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1872,35 +1858,25 @@ submitted</p></div>
 <p>In the case of Creation the request made and in the case of Execution the
 actual outcome.</p>
 <p>Member Attributes:</p>
-<ul>
-<li>
-<p>exbits : iterable of OrderExecutionBits for this OrderData</p>
-</li>
-<li>
-<p>dt: datetime (float) creation/execution time</p>
-</li>
-<li>size: requested/executed size</li>
-<li>price: execution price
-Note: if no price is given and no pricelimite is given, the closing
-price at the time or order creation will be used as reference</li>
-<li>pricelimit: holds pricelimit for StopLimit (which has trigger first)</li>
-<li>trailamount: absolute price distance in trailing stops</li>
-<li>
-<p>trailpercent: percentage price distance in trailing stops</p>
-</li>
-<li>
-<p>value: market value for the entire bit size</p>
-</li>
-<li>comm: commission for the entire bit execution</li>
-<li>pnl: pnl generated by this bit (if something was closed)</li>
-<li>
-<p>margin: margin incurred by the Order (if any)</p>
-</li>
-<li>
-<p>psize: current open position size</p>
-</li>
-<li>pprice: current open position price</li>
-</ul></div>
+<pre><code>- exbits : iterable of OrderExecutionBits for this OrderData
+
+- dt: datetime (float) creation/execution time
+- size: requested/executed size
+- price: execution price
+  Note: if no price is given and no pricelimite is given, the closing
+  price at the time or order creation will be used as reference
+- pricelimit: holds pricelimit for StopLimit (which has trigger first)
+- trailamount: absolute price distance in trailing stops
+- trailpercent: percentage price distance in trailing stops
+
+- value: market value for the entire bit size
+- comm: commission for the entire bit execution
+- pnl: pnl generated by this bit (if something was closed)
+- margin: margin incurred by the Order (if any)
+
+- psize: current open position size
+- pprice: current open position price
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2169,30 +2145,23 @@ price at the time or order creation will be used as reference</li>
 determine if the order has been fully/partially executed, it just holds
 information.</p>
 <p>Member Attributes:</p>
-<ul>
-<li>dt: datetime (float) execution time</li>
-<li>size: how much was executed</li>
-<li>price: execution price</li>
-<li>closed: how much of the execution closed an existing postion</li>
-<li>opened: how much of the execution opened a new position</li>
-<li>openedvalue: market value of the "opened" part</li>
-<li>closedvalue: market value of the "closed" part</li>
-<li>closedcomm: commission for the "closed" part</li>
-<li>
-<p>openedcomm: commission for the "opened" part</p>
-</li>
-<li>
-<p>value: market value for the entire bit size</p>
-</li>
-<li>comm: commission for the entire bit execution</li>
-<li>
-<p>pnl: pnl generated by this bit (if something was closed)</p>
-</li>
-<li>
-<p>psize: current open position size</p>
-</li>
-<li>pprice: current open position price</li>
-</ul></div>
+<pre><code>- dt: datetime (float) execution time
+- size: how much was executed
+- price: execution price
+- closed: how much of the execution closed an existing postion
+- opened: how much of the execution opened a new position
+- openedvalue: market value of the "opened" part
+- closedvalue: market value of the "closed" part
+- closedcomm: commission for the "closed" part
+- openedcomm: commission for the "opened" part
+
+- value: market value for the entire bit size
+- comm: commission for the entire bit execution
+- pnl: pnl generated by this bit (if something was closed)
+
+- psize: current open position size
+- pprice: current open position price
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2256,42 +2225,35 @@ information.</p>
 <dd>
 <div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
 <p>The order may have the following status:</p>
-<ul>
-<li>Submitted: sent to the broker and awaiting confirmation</li>
-<li>Accepted: accepted by the broker</li>
-<li>Partial: partially executed</li>
-<li>Completed: fully exexcuted</li>
-<li>Canceled/Cancelled: canceled by the user</li>
-<li>Expired: expired</li>
-<li>Margin: not enough cash to execute the order.</li>
-<li>
-<p>Rejected: Rejected by the broker</p>
-<p>This can happen during order submission (and therefore the order will
-not reach the Accepted status) or before execution with each new bar
-price because cash has been drawn by other sources (future-like
-instruments may have reduced the cash or orders orders may have been
-executed)</p>
-</li>
-</ul>
+<pre><code>- Submitted: sent to the broker and awaiting confirmation
+- Accepted: accepted by the broker
+- Partial: partially executed
+- Completed: fully exexcuted
+- Canceled/Cancelled: canceled by the user
+- Expired: expired
+- Margin: not enough cash to execute the order.
+- Rejected: Rejected by the broker
+
+  This can happen during order submission (and therefore the order will
+  not reach the Accepted status) or before execution with each new bar
+  price because cash has been drawn by other sources (future-like
+  instruments may have reduced the cash or orders orders may have been
+  executed)
+</code></pre>
 <p>Member Attributes:</p>
-<ul>
-<li>ref: unique order identifier</li>
-<li>created: OrderData holding creation data</li>
-<li>
-<p>executed: OrderData holding execution data</p>
-</li>
-<li>
-<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
-in the form of an OrderedDict which has been subclassed, so that keys
-can also be specified using '.' notation</p>
-</li>
-</ul>
+<pre><code>- ref: unique order identifier
+- created: OrderData holding creation data
+- executed: OrderData holding execution data
+
+- info: custom information passed over method :func:&lt;code&gt;addinfo&lt;/code&gt;. It is kept
+  in the form of an OrderedDict which has been subclassed, so that keys
+  can also be specified using '.' notation
+</code></pre>
 <p>User Methods:</p>
-<ul>
-<li>isbuy(): returns bool indicating if the order buys</li>
-<li>issell(): returns bool indicating if the order sells</li>
-<li>alive(): returns bool if order is in status Partial or Accepted</li>
-</ul></div>
+<pre><code>- isbuy(): returns bool indicating if the order buys
+- issell(): returns bool indicating if the order sells
+- alive(): returns bool if order is in status Partial or Accepted
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2361,42 +2323,35 @@ can also be specified using '.' notation</p>
 <dd>
 <div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
 <p>The order may have the following status:</p>
-<ul>
-<li>Submitted: sent to the broker and awaiting confirmation</li>
-<li>Accepted: accepted by the broker</li>
-<li>Partial: partially executed</li>
-<li>Completed: fully exexcuted</li>
-<li>Canceled/Cancelled: canceled by the user</li>
-<li>Expired: expired</li>
-<li>Margin: not enough cash to execute the order.</li>
-<li>
-<p>Rejected: Rejected by the broker</p>
-<p>This can happen during order submission (and therefore the order will
-not reach the Accepted status) or before execution with each new bar
-price because cash has been drawn by other sources (future-like
-instruments may have reduced the cash or orders orders may have been
-executed)</p>
-</li>
-</ul>
+<pre><code>- Submitted: sent to the broker and awaiting confirmation
+- Accepted: accepted by the broker
+- Partial: partially executed
+- Completed: fully exexcuted
+- Canceled/Cancelled: canceled by the user
+- Expired: expired
+- Margin: not enough cash to execute the order.
+- Rejected: Rejected by the broker
+
+  This can happen during order submission (and therefore the order will
+  not reach the Accepted status) or before execution with each new bar
+  price because cash has been drawn by other sources (future-like
+  instruments may have reduced the cash or orders orders may have been
+  executed)
+</code></pre>
 <p>Member Attributes:</p>
-<ul>
-<li>ref: unique order identifier</li>
-<li>created: OrderData holding creation data</li>
-<li>
-<p>executed: OrderData holding execution data</p>
-</li>
-<li>
-<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
-in the form of an OrderedDict which has been subclassed, so that keys
-can also be specified using '.' notation</p>
-</li>
-</ul>
+<pre><code>- ref: unique order identifier
+- created: OrderData holding creation data
+- executed: OrderData holding execution data
+
+- info: custom information passed over method :func:&lt;code&gt;addinfo&lt;/code&gt;. It is kept
+  in the form of an OrderedDict which has been subclassed, so that keys
+  can also be specified using '.' notation
+</code></pre>
 <p>User Methods:</p>
-<ul>
-<li>isbuy(): returns bool indicating if the order buys</li>
-<li>issell(): returns bool indicating if the order sells</li>
-<li>alive(): returns bool if order is in status Partial or Accepted</li>
-</ul></div>
+<pre><code>- isbuy(): returns bool indicating if the order buys
+- issell(): returns bool indicating if the order sells
+- alive(): returns bool if order is in status Partial or Accepted
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2458,42 +2413,35 @@ can also be specified using '.' notation</p>
 <dd>
 <div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
 <p>The order may have the following status:</p>
-<ul>
-<li>Submitted: sent to the broker and awaiting confirmation</li>
-<li>Accepted: accepted by the broker</li>
-<li>Partial: partially executed</li>
-<li>Completed: fully exexcuted</li>
-<li>Canceled/Cancelled: canceled by the user</li>
-<li>Expired: expired</li>
-<li>Margin: not enough cash to execute the order.</li>
-<li>
-<p>Rejected: Rejected by the broker</p>
-<p>This can happen during order submission (and therefore the order will
-not reach the Accepted status) or before execution with each new bar
-price because cash has been drawn by other sources (future-like
-instruments may have reduced the cash or orders orders may have been
-executed)</p>
-</li>
-</ul>
+<pre><code>- Submitted: sent to the broker and awaiting confirmation
+- Accepted: accepted by the broker
+- Partial: partially executed
+- Completed: fully exexcuted
+- Canceled/Cancelled: canceled by the user
+- Expired: expired
+- Margin: not enough cash to execute the order.
+- Rejected: Rejected by the broker
+
+  This can happen during order submission (and therefore the order will
+  not reach the Accepted status) or before execution with each new bar
+  price because cash has been drawn by other sources (future-like
+  instruments may have reduced the cash or orders orders may have been
+  executed)
+</code></pre>
 <p>Member Attributes:</p>
-<ul>
-<li>ref: unique order identifier</li>
-<li>created: OrderData holding creation data</li>
-<li>
-<p>executed: OrderData holding execution data</p>
-</li>
-<li>
-<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
-in the form of an OrderedDict which has been subclassed, so that keys
-can also be specified using '.' notation</p>
-</li>
-</ul>
+<pre><code>- ref: unique order identifier
+- created: OrderData holding creation data
+- executed: OrderData holding execution data
+
+- info: custom information passed over method :func:&lt;code&gt;addinfo&lt;/code&gt;. It is kept
+  in the form of an OrderedDict which has been subclassed, so that keys
+  can also be specified using '.' notation
+</code></pre>
 <p>User Methods:</p>
-<ul>
-<li>isbuy(): returns bool indicating if the order buys</li>
-<li>issell(): returns bool indicating if the order sells</li>
-<li>alive(): returns bool if order is in status Partial or Accepted</li>
-</ul></div>
+<pre><code>- isbuy(): returns bool indicating if the order buys
+- issell(): returns bool indicating if the order sells
+- alive(): returns bool if order is in status Partial or Accepted
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2555,42 +2503,35 @@ can also be specified using '.' notation</p>
 <dd>
 <div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
 <p>The order may have the following status:</p>
-<ul>
-<li>Submitted: sent to the broker and awaiting confirmation</li>
-<li>Accepted: accepted by the broker</li>
-<li>Partial: partially executed</li>
-<li>Completed: fully exexcuted</li>
-<li>Canceled/Cancelled: canceled by the user</li>
-<li>Expired: expired</li>
-<li>Margin: not enough cash to execute the order.</li>
-<li>
-<p>Rejected: Rejected by the broker</p>
-<p>This can happen during order submission (and therefore the order will
-not reach the Accepted status) or before execution with each new bar
-price because cash has been drawn by other sources (future-like
-instruments may have reduced the cash or orders orders may have been
-executed)</p>
-</li>
-</ul>
+<pre><code>- Submitted: sent to the broker and awaiting confirmation
+- Accepted: accepted by the broker
+- Partial: partially executed
+- Completed: fully exexcuted
+- Canceled/Cancelled: canceled by the user
+- Expired: expired
+- Margin: not enough cash to execute the order.
+- Rejected: Rejected by the broker
+
+  This can happen during order submission (and therefore the order will
+  not reach the Accepted status) or before execution with each new bar
+  price because cash has been drawn by other sources (future-like
+  instruments may have reduced the cash or orders orders may have been
+  executed)
+</code></pre>
 <p>Member Attributes:</p>
-<ul>
-<li>ref: unique order identifier</li>
-<li>created: OrderData holding creation data</li>
-<li>
-<p>executed: OrderData holding execution data</p>
-</li>
-<li>
-<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
-in the form of an OrderedDict which has been subclassed, so that keys
-can also be specified using '.' notation</p>
-</li>
-</ul>
+<pre><code>- ref: unique order identifier
+- created: OrderData holding creation data
+- executed: OrderData holding execution data
+
+- info: custom information passed over method :func:&lt;code&gt;addinfo&lt;/code&gt;. It is kept
+  in the form of an OrderedDict which has been subclassed, so that keys
+  can also be specified using '.' notation
+</code></pre>
 <p>User Methods:</p>
-<ul>
-<li>isbuy(): returns bool indicating if the order buys</li>
-<li>issell(): returns bool indicating if the order sells</li>
-<li>alive(): returns bool if order is in status Partial or Accepted</li>
-</ul></div>
+<pre><code>- isbuy(): returns bool indicating if the order buys
+- issell(): returns bool indicating if the order sells
+- alive(): returns bool if order is in status Partial or Accepted
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2652,42 +2593,35 @@ can also be specified using '.' notation</p>
 <dd>
 <div class="desc"><p>Class which holds creation/execution data and type of oder.</p>
 <p>The order may have the following status:</p>
-<ul>
-<li>Submitted: sent to the broker and awaiting confirmation</li>
-<li>Accepted: accepted by the broker</li>
-<li>Partial: partially executed</li>
-<li>Completed: fully exexcuted</li>
-<li>Canceled/Cancelled: canceled by the user</li>
-<li>Expired: expired</li>
-<li>Margin: not enough cash to execute the order.</li>
-<li>
-<p>Rejected: Rejected by the broker</p>
-<p>This can happen during order submission (and therefore the order will
-not reach the Accepted status) or before execution with each new bar
-price because cash has been drawn by other sources (future-like
-instruments may have reduced the cash or orders orders may have been
-executed)</p>
-</li>
-</ul>
+<pre><code>- Submitted: sent to the broker and awaiting confirmation
+- Accepted: accepted by the broker
+- Partial: partially executed
+- Completed: fully exexcuted
+- Canceled/Cancelled: canceled by the user
+- Expired: expired
+- Margin: not enough cash to execute the order.
+- Rejected: Rejected by the broker
+
+  This can happen during order submission (and therefore the order will
+  not reach the Accepted status) or before execution with each new bar
+  price because cash has been drawn by other sources (future-like
+  instruments may have reduced the cash or orders orders may have been
+  executed)
+</code></pre>
 <p>Member Attributes:</p>
-<ul>
-<li>ref: unique order identifier</li>
-<li>created: OrderData holding creation data</li>
-<li>
-<p>executed: OrderData holding execution data</p>
-</li>
-<li>
-<p>info: custom information passed over method :func:<code>addinfo</code>. It is kept
-in the form of an OrderedDict which has been subclassed, so that keys
-can also be specified using '.' notation</p>
-</li>
-</ul>
+<pre><code>- ref: unique order identifier
+- created: OrderData holding creation data
+- executed: OrderData holding execution data
+
+- info: custom information passed over method :func:&lt;code&gt;addinfo&lt;/code&gt;. It is kept
+  in the form of an OrderedDict which has been subclassed, so that keys
+  can also be specified using '.' notation
+</code></pre>
 <p>User Methods:</p>
-<ul>
-<li>isbuy(): returns bool indicating if the order buys</li>
-<li>issell(): returns bool indicating if the order sells</li>
-<li>alive(): returns bool if order is in status Partial or Accepted</li>
-</ul></div>
+<pre><code>- isbuy(): returns bool indicating if the order buys
+- issell(): returns bool indicating if the order sells
+- alive(): returns bool if order is in status Partial or Accepted
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

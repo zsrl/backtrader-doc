@@ -492,53 +492,37 @@ class TimeFrameAnalyzerBase(with_metaclass(MetaTimeFrameAnalyzerBase,
 <p>An Analyzer instance operates in the frame of a strategy and provides an
 analysis for that strategy.</p>
 <p>Automagically set member attributes:</p>
-<ul>
-<li>
-<p><code>self.strategy</code> (giving access to the <em>strategy</em> and anything
-accessible from it)</p>
-</li>
-<li>
-<p><code>self.datas[x]</code> giving access to the array of data feeds present in
-the the system, which could also be accessed via the strategy reference</p>
-</li>
-<li>
-<p><code>self.data</code>, giving access to <code>self.datas[0]</code></p>
-</li>
-<li>
-<p><code>self.dataX</code> -&gt; <code>self.datas[X]</code></p>
-</li>
-<li>
-<p><code>self.dataX_Y</code> -&gt; <code>self.datas[X].lines[Y]</code></p>
-</li>
-<li>
-<p><code>self.dataX_name</code> -&gt; <code>self.datas[X].name</code></p>
-</li>
-<li>
-<p><code>self.data_name</code> -&gt; <code>self.datas[0].name</code></p>
-</li>
-<li>
-<p><code>self.data_Y</code> -&gt; <code>self.datas[0].lines[Y]</code></p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;self.strategy&lt;/code&gt; (giving access to the *strategy* and anything
+  accessible from it)
+
+- &lt;code&gt;self.datas\[x]&lt;/code&gt; giving access to the array of data feeds present in
+  the the system, which could also be accessed via the strategy reference
+
+- &lt;code&gt;self.data&lt;/code&gt;, giving access to &lt;code&gt;self.datas\[0]&lt;/code&gt;
+
+- &lt;code&gt;self.dataX&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[X]&lt;/code&gt;
+
+- &lt;code&gt;self.dataX\_Y&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[X].lines\[Y]&lt;/code&gt;
+
+- &lt;code&gt;self.dataX\_name&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[X].name&lt;/code&gt;
+
+- &lt;code&gt;self.data\_name&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[0].name&lt;/code&gt;
+
+- &lt;code&gt;self.data\_Y&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[0].lines\[Y]&lt;/code&gt;
+</code></pre>
 <p>This is not a <em>Lines</em> object, but the methods and operation follow the same
 design</p>
-<ul>
-<li>
-<p><code>__init__</code> during instantiation and initial setup</p>
-</li>
-<li>
-<p><code>start</code> / <code>stop</code> to signal the begin and end of operations</p>
-</li>
-<li>
-<p><code>prenext</code> / <code>nextstart</code> / <code>next</code> family of methods that follow
-the calls made to the same methods in the strategy</p>
-</li>
-<li>
-<p><code>notify_trade</code> / <code>notify_order</code> / <code>notify_cashvalue</code> /
-<code>notify_fund</code> which receive the same notifications as the equivalent
-methods of the strategy</p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;\_\_init\_\_&lt;/code&gt; during instantiation and initial setup
+
+- &lt;code&gt;start&lt;/code&gt; / &lt;code&gt;stop&lt;/code&gt; to signal the begin and end of operations
+
+- &lt;code&gt;prenext&lt;/code&gt; / &lt;code&gt;nextstart&lt;/code&gt; / &lt;code&gt;next&lt;/code&gt; family of methods that follow
+  the calls made to the same methods in the strategy
+
+- &lt;code&gt;notify\_trade&lt;/code&gt; / &lt;code&gt;notify\_order&lt;/code&gt; / &lt;code&gt;notify\_cashvalue&lt;/code&gt; /
+  &lt;code&gt;notify\_fund&lt;/code&gt; which receive the same notifications as the equivalent
+  methods of the strategy
+</code></pre>
 <p>The mode of operation is open and no pattern is preferred. As such the
 analysis can be generated with the <code>next</code> calls, at the end of operations
 during <code>stop</code> and even with a single method like <code>notify_trade</code></p>
@@ -1215,53 +1199,37 @@ type(name, bases, dict, **kwds) -&gt; a new type</p></div>
 <p>An Analyzer instance operates in the frame of a strategy and provides an
 analysis for that strategy.</p>
 <p>Automagically set member attributes:</p>
-<ul>
-<li>
-<p><code>self.strategy</code> (giving access to the <em>strategy</em> and anything
-accessible from it)</p>
-</li>
-<li>
-<p><code>self.datas[x]</code> giving access to the array of data feeds present in
-the the system, which could also be accessed via the strategy reference</p>
-</li>
-<li>
-<p><code>self.data</code>, giving access to <code>self.datas[0]</code></p>
-</li>
-<li>
-<p><code>self.dataX</code> -&gt; <code>self.datas[X]</code></p>
-</li>
-<li>
-<p><code>self.dataX_Y</code> -&gt; <code>self.datas[X].lines[Y]</code></p>
-</li>
-<li>
-<p><code>self.dataX_name</code> -&gt; <code>self.datas[X].name</code></p>
-</li>
-<li>
-<p><code>self.data_name</code> -&gt; <code>self.datas[0].name</code></p>
-</li>
-<li>
-<p><code>self.data_Y</code> -&gt; <code>self.datas[0].lines[Y]</code></p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;self.strategy&lt;/code&gt; (giving access to the *strategy* and anything
+  accessible from it)
+
+- &lt;code&gt;self.datas\[x]&lt;/code&gt; giving access to the array of data feeds present in
+  the the system, which could also be accessed via the strategy reference
+
+- &lt;code&gt;self.data&lt;/code&gt;, giving access to &lt;code&gt;self.datas\[0]&lt;/code&gt;
+
+- &lt;code&gt;self.dataX&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[X]&lt;/code&gt;
+
+- &lt;code&gt;self.dataX\_Y&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[X].lines\[Y]&lt;/code&gt;
+
+- &lt;code&gt;self.dataX\_name&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[X].name&lt;/code&gt;
+
+- &lt;code&gt;self.data\_name&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[0].name&lt;/code&gt;
+
+- &lt;code&gt;self.data\_Y&lt;/code&gt; -&gt; &lt;code&gt;self.datas\[0].lines\[Y]&lt;/code&gt;
+</code></pre>
 <p>This is not a <em>Lines</em> object, but the methods and operation follow the same
 design</p>
-<ul>
-<li>
-<p><code>__init__</code> during instantiation and initial setup</p>
-</li>
-<li>
-<p><code>start</code> / <code>stop</code> to signal the begin and end of operations</p>
-</li>
-<li>
-<p><code>prenext</code> / <code>nextstart</code> / <code>next</code> family of methods that follow
-the calls made to the same methods in the strategy</p>
-</li>
-<li>
-<p><code>notify_trade</code> / <code>notify_order</code> / <code>notify_cashvalue</code> /
-<code>notify_fund</code> which receive the same notifications as the equivalent
-methods of the strategy</p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;\_\_init\_\_&lt;/code&gt; during instantiation and initial setup
+
+- &lt;code&gt;start&lt;/code&gt; / &lt;code&gt;stop&lt;/code&gt; to signal the begin and end of operations
+
+- &lt;code&gt;prenext&lt;/code&gt; / &lt;code&gt;nextstart&lt;/code&gt; / &lt;code&gt;next&lt;/code&gt; family of methods that follow
+  the calls made to the same methods in the strategy
+
+- &lt;code&gt;notify\_trade&lt;/code&gt; / &lt;code&gt;notify\_order&lt;/code&gt; / &lt;code&gt;notify\_cashvalue&lt;/code&gt; /
+  &lt;code&gt;notify\_fund&lt;/code&gt; which receive the same notifications as the equivalent
+  methods of the strategy
+</code></pre>
 <p>The mode of operation is open and no pattern is preferred. As such the
 analysis can be generated with the <code>next</code> calls, at the end of operations
 during <code>stop</code> and even with a single method like <code>notify_trade</code></p>

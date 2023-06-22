@@ -156,37 +156,38 @@ class PeriodStats(bt.Analyzer):
 <div class="desc"><p>Calculates basic statistics for given timeframe</p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>timeframe</code> (default: <code>Years</code>)
+<li>
+<p><code>timeframe</code> (default: <code>Years</code>)
 If <code>None</code> the <code>timeframe</code> of the 1st data in the system will be
-used</li>
-</ul>
+used</p>
 <p>Pass <code>TimeFrame.NoTimeFrame</code> to consider the entire dataset with no
 time constraints</p>
-<ul>
-<li><code>compression</code> (default: <code>1</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>compression</code> (default: <code>1</code>)</p>
 <p>Only used for sub-day timeframes to for example work on an hourly
 timeframe by specifying "TimeFrame.Minutes" and 60 as compression</p>
 <p>If <code>None</code> then the compression of the 1st data of the system will be
 used</p>
-<ul>
-<li><code>fund</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fund</code> (default: <code>None</code>)</p>
 <p>If <code>None</code> the actual mode of the broker (fundmode - True/False) will
 be autodetected to decide if the returns are based on the total net
 asset value or on the fund value. See <code>set_fundmode</code> in the broker
 documentation</p>
 <p>Set it to <code>True</code> or <code>False</code> for a specific behavior</p>
-<p><code>get_analysis</code> returns a dictionary containing the keys:</p>
-<ul>
-<li><code>average</code></li>
-<li><code>stddev</code></li>
-<li><code>positive</code></li>
-<li><code>negative</code></li>
-<li><code>nochange</code></li>
-<li><code>best</code></li>
-<li><code>worst</code></li>
+</li>
 </ul>
+<p><code>get_analysis</code> returns a dictionary containing the keys:</p>
+<pre><code>- &lt;code&gt;average&lt;/code&gt;
+- &lt;code&gt;stddev&lt;/code&gt;
+- &lt;code&gt;positive&lt;/code&gt;
+- &lt;code&gt;negative&lt;/code&gt;
+- &lt;code&gt;nochange&lt;/code&gt;
+- &lt;code&gt;best&lt;/code&gt;
+- &lt;code&gt;worst&lt;/code&gt;
+</code></pre>
 <p>If the parameter <code>zeroispos</code> is set to <code>True</code>, periods with no change
 will be counted as positive</p></div>
 <details class="source">

@@ -284,46 +284,44 @@ class Quandl(QuandlCSV):
 <div class="desc"><p>Executes a direct download of data from Quandl servers for the given time
 range.</p>
 <p>Specific parameters (or specific meaning):</p>
-<ul>
-<li>
-<p><code>dataname</code></p>
-<p>The ticker to download ('YHOO' for example)</p>
-</li>
-<li>
-<p><code>baseurl</code></p>
-<p>The server url. Someone might decide to open a Quandl compatible
-service in the future.</p>
-</li>
-<li>
-<p><code>proxies</code></p>
-<p>A dict indicating which proxy to go through for the download as in
-{'http': 'http://myproxy.com'} or {'http': 'http://127.0.0.1:8080'}</p>
-</li>
-<li>
-<p><code>buffered</code></p>
-<p>If True the entire socket connection wil be buffered locally before
-parsing starts.</p>
-</li>
-<li>
-<p><code>reverse</code></p>
-<p>Quandl returns the value in descending order (newest first). If this is
-<code>True</code> (the default), the request will tell Quandl to return in
-ascending (oldest to newest) format</p>
-</li>
-<li>
-<p><code>adjclose</code></p>
-<p>Whether to use the dividend/split adjusted close and adjust all values
-according to it.</p>
-</li>
-<li>
-<p><code>apikey</code></p>
-<p>apikey identification in case it may be needed</p>
-</li>
-<li>
-<p><code>dataset</code></p>
-<p>string identifying the dataset to query. Defaults to <code>WIKI</code></p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;dataname&lt;/code&gt;
+
+  The ticker to download ('YHOO' for example)
+
+- &lt;code&gt;baseurl&lt;/code&gt;
+
+  The server url. Someone might decide to open a Quandl compatible
+  service in the future.
+
+- &lt;code&gt;proxies&lt;/code&gt;
+
+  A dict indicating which proxy to go through for the download as in
+  {'http': 'http://myproxy.com'} or {'http': 'http://127.0.0.1:8080'}
+
+- &lt;code&gt;buffered&lt;/code&gt;
+
+  If True the entire socket connection wil be buffered locally before
+  parsing starts.
+
+- &lt;code&gt;reverse&lt;/code&gt;
+
+  Quandl returns the value in descending order (newest first). If this is
+  &lt;code&gt;True&lt;/code&gt; (the default), the request will tell Quandl to return in
+  ascending (oldest to newest) format
+
+- &lt;code&gt;adjclose&lt;/code&gt;
+
+  Whether to use the dividend/split adjusted close and adjust all values
+  according to it.
+
+- &lt;code&gt;apikey&lt;/code&gt;
+
+  apikey identification in case it may be needed
+
+- &lt;code&gt;dataset&lt;/code&gt;
+
+  string identifying the dataset to query. Defaults to &lt;code&gt;WIKI&lt;/code&gt;
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -585,30 +583,27 @@ according to it.</p>
 <div class="desc"><p>Parses pre-downloaded Quandl CSV Data Feeds (or locally generated if they
 comply to the Quandl format)</p>
 <p>Specific parameters:</p>
-<ul>
-<li>
-<p><code>dataname</code>: The filename to parse or a file-like object</p>
-</li>
-<li>
-<p><code>reverse</code> (default: <code>False</code>)</p>
-<p>It is assumed that locally stored files have already been reversed
-during the download process</p>
-</li>
-<li>
-<p><code>adjclose</code> (default: <code>True</code>)</p>
-<p>Whether to use the dividend/split adjusted close and adjust all
-values according to it.</p>
-</li>
-<li>
-<p><code>round</code> (default: <code>False</code>)</p>
-<p>Whether to round the values to a specific number of decimals after
-having adjusted the close</p>
-</li>
-<li>
-<p><code>decimals</code> (default: <code>2</code>)</p>
-<p>Number of decimals to round to</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;dataname&lt;/code&gt;: The filename to parse or a file-like object
+
+- &lt;code&gt;reverse&lt;/code&gt; (default: &lt;code&gt;False&lt;/code&gt;)
+
+  It is assumed that locally stored files have already been reversed
+  during the download process
+
+- &lt;code&gt;adjclose&lt;/code&gt; (default: &lt;code&gt;True&lt;/code&gt;)
+
+  Whether to use the dividend/split adjusted close and adjust all
+  values according to it.
+
+- &lt;code&gt;round&lt;/code&gt; (default: &lt;code&gt;False&lt;/code&gt;)
+
+  Whether to round the values to a specific number of decimals after
+  having adjusted the close
+
+- &lt;code&gt;decimals&lt;/code&gt; (default: &lt;code&gt;2&lt;/code&gt;)
+
+  Number of decimals to round to
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

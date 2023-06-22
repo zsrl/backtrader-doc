@@ -1287,46 +1287,36 @@ different datas.</p>
 which a price change implies in real brokers the addition/substracion of
 cash.</p>
 <p>Supported order types:</p>
-<ul>
-<li>
-<p><code>Market</code>: to be executed with the 1st tick of the next bar (namely
-the <code>open</code> price)</p>
-</li>
-<li>
-<p><code>Close</code>: meant for intraday in which the order is executed with the
-closing price of the last bar of the session</p>
-</li>
-<li>
-<p><code>Limit</code>: executes if the given limit price is seen during the
-session</p>
-</li>
-<li>
-<p><code>Stop</code>: executes a <code>Market</code> order if the given stop price is seen</p>
-</li>
-<li>
-<p><code>StopLimit</code>: sets a <code>Limit</code> order in motion if the given stop
-price is seen</p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;Market&lt;/code&gt;: to be executed with the 1st tick of the next bar (namely
+  the &lt;code&gt;open&lt;/code&gt; price)
+
+- &lt;code&gt;Close&lt;/code&gt;: meant for intraday in which the order is executed with the
+  closing price of the last bar of the session
+
+- &lt;code&gt;Limit&lt;/code&gt;: executes if the given limit price is seen during the
+  session
+
+- &lt;code&gt;Stop&lt;/code&gt;: executes a &lt;code&gt;Market&lt;/code&gt; order if the given stop price is seen
+
+- &lt;code&gt;StopLimit&lt;/code&gt;: sets a &lt;code&gt;Limit&lt;/code&gt; order in motion if the given stop
+  price is seen
+</code></pre>
 <p>Because the broker is instantiated by <code>Cerebro</code> and there should be
 (mostly) no reason to replace the broker, the params are not controlled
 by the user for the instance.
 To change this there are two options:</p>
-<ol>
-<li>
-<p>Manually create an instance of this class with the desired params
-and use <code>cerebro.broker = instance</code> to set the instance as the
-broker for the <code>run</code> execution</p>
-</li>
-<li>
-<p>Use the <code>set_xxx</code> to set the value using
-<code>cerebro.broker.set_xxx</code> where <code>`xxx</code> stands for the name of the
-parameter to set</p>
-</li>
-</ol>
-<p>!!! note "Note"
-<code>cerebro.broker</code> is a <em>property</em> supported by the <code>getbroker</code>
-and <code>setbroker</code> methods of <code>Cerebro</code></p>
+<pre><code>1. Manually create an instance of this class with the desired params
+   and use ``cerebro.broker = instance`` to set the instance as the
+   broker for the &lt;code&gt;run&lt;/code&gt; execution
+
+2. Use the &lt;code&gt;set\_xxx&lt;/code&gt; to set the value using
+   &lt;code&gt;cerebro.broker.set\_xxx&lt;/code&gt; where &lt;code&gt;`xxx&lt;/code&gt; stands for the name of the
+   parameter to set
+
+!!! note "Note"
+    &lt;code&gt;cerebro.broker&lt;/code&gt; is a *property* supported by the &lt;code&gt;getbroker&lt;/code&gt;
+    and &lt;code&gt;setbroker&lt;/code&gt; methods of &lt;code&gt;Cerebro&lt;/code&gt;
+</code></pre>
 <h2 id="params">Params</h2>
 <ul>
 <li>
@@ -1350,8 +1340,6 @@ the session</p>
 </li>
 <li>
 <p><code>filler</code> (default: <code>None</code>)</p>
-</li>
-</ul>
 <p>A callable with signature: <code>callable(order, price, ago)</code></p>
 <pre><code>- &lt;code&gt;order&lt;/code&gt;: obviously the order in execution. This provides access
   to the *data* (and with it the *ohlc* and *volume* values), the
@@ -1377,40 +1365,40 @@ the session</p>
 the aforementioned signature</p>
 <p>With the default <code>None</code> orders will be completely executed in a
 single shot</p>
-<ul>
-<li><code>slip_perc</code> (default: <code>0.0</code>) Percentage in absolute termns (and
+</li>
+<li>
+<p><code>slip_perc</code> (default: <code>0.0</code>) Percentage in absolute termns (and
 positive) that should be used to slip prices up/down for buy/sell
-orders</li>
-</ul>
+orders</p>
 <p>Note:</p>
 <pre><code>- &lt;code&gt;0.01&lt;/code&gt; is ``1%``
 
 - &lt;code&gt;0.001&lt;/code&gt; is ``0.1%``
 </code></pre>
-<ul>
-<li><code>slip_fixed</code> (default: <code>0.0</code>) Percentage in units (and positive)
-that should be used to slip prices up/down for buy/sell orders</li>
-</ul>
+</li>
+<li>
+<p><code>slip_fixed</code> (default: <code>0.0</code>) Percentage in units (and positive)
+that should be used to slip prices up/down for buy/sell orders</p>
 <p>Note: if <code>slip_perc</code> is non zero, it takes precendence over this.</p>
-<ul>
-<li><code>slip_open</code> (default: <code>False</code>) whether to slip prices for order
+</li>
+<li>
+<p><code>slip_open</code> (default: <code>False</code>) whether to slip prices for order
 execution which would specifically used the <em>opening</em> price of the
 next bar. An example would be <code>Market</code> order which is executed with
-the next available tick, i.e: the opening price of the bar.</li>
-</ul>
+the next available tick, i.e: the opening price of the bar.</p>
 <p>This also applies to some of the other executions, because the logic
 tries to detect if the <em>opening</em> price would match the requested
 price/execution type when moving to a new bar.</p>
-<ul>
-<li><code>slip_match</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>slip_match</code> (default: <code>True</code>)</p>
 <p>If <code>True</code> the broker will offer a match by capping slippage at
 <code>high/low</code> prices in case they would be exceeded.</p>
 <p>If <code>False</code> the broker will not match the order with the current
 prices and will try execution during the next iteration</p>
-<ul>
-<li><code>slip_limit</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>slip_limit</code> (default: <code>True</code>)</p>
 <p><code>Limit</code> orders, given the exact match price requested, will be
 matched even if <code>slip_match</code> is <code>False</code>.</p>
 <p>This option controls that behavior.</p>
@@ -1418,54 +1406,56 @@ matched even if <code>slip_match</code> is <code>False</code>.</p>
 to the <code>limit</code> / <code>high/low</code> prices</p>
 <p>If <code>False</code> and slippage exceeds the cap, then there will be no
 match</p>
-<ul>
-<li><code>slip_out</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>slip_out</code> (default: <code>False</code>)</p>
 <p>Provide <em>slippage</em> even if the price falls outside the <code>high</code> -
 <code>low</code> range.</p>
-<ul>
-<li><code>coc</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>coc</code> (default: <code>False</code>)</p>
 <p><em>Cheat-On-Close</em> Setting this to <code>True</code> with <code>set_coc</code> enables
 matching a <code>Market</code> order to the closing price of the bar in which
 the order was issued. This is actually <em>cheating</em>, because the bar
 is <em>closed</em> and any order should first be matched against the prices
 in the next bar</p>
-<ul>
-<li><code>coo</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>coo</code> (default: <code>False</code>)</p>
 <p><em>Cheat-On-Open</em> Setting this to <code>True</code> with <code>set_coo</code> enables
 matching a <code>Market</code> order to the opening price, by for example
 using a timer with <code>cheat</code> set to <code>True</code>, because such a timer
 gets executed before the broker has evaluated</p>
-<ul>
-<li><code>int2pnl</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>int2pnl</code> (default: <code>True</code>)</p>
 <p>Assign generated interest (if any) to the profit and loss of
 operation that reduces a position (be it long or short). There may be
 cases in which this is undesired, because different strategies are
 competing and the interest would be assigned on a non-deterministic
 basis to any of them.</p>
-<ul>
-<li><code>shortcash</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>shortcash</code> (default: <code>True</code>)</p>
 <p>If True then cash will be increased when a stocklike asset is shorted
 and the calculated value for the asset will be negative.</p>
 <p>If <code>False</code> then the cash will be deducted as operation cost and the
 calculated value will be positive to end up with the same amount</p>
-<ul>
-<li><code>fundstartval</code> (default: <code>100.0</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fundstartval</code> (default: <code>100.0</code>)</p>
 <p>This parameter controls the start value for measuring the performance
 in a fund-like way, i.e.: cash can be added and deducted increasing
 the amount of shares. Performance is not measured using the net
 asset value of the porftoflio but using the value of the fund</p>
-<ul>
-<li><code>fundmode</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fundmode</code> (default: <code>False</code>)</p>
 <p>If this is set to <code>True</code> analyzers like <code>TimeReturn</code> can
 automatically calculate returns based on the fund value and not on
-the total net asset value</p></div>
+the total net asset value</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -3541,46 +3531,36 @@ different datas.</p>
 which a price change implies in real brokers the addition/substracion of
 cash.</p>
 <p>Supported order types:</p>
-<ul>
-<li>
-<p><code>Market</code>: to be executed with the 1st tick of the next bar (namely
-the <code>open</code> price)</p>
-</li>
-<li>
-<p><code>Close</code>: meant for intraday in which the order is executed with the
-closing price of the last bar of the session</p>
-</li>
-<li>
-<p><code>Limit</code>: executes if the given limit price is seen during the
-session</p>
-</li>
-<li>
-<p><code>Stop</code>: executes a <code>Market</code> order if the given stop price is seen</p>
-</li>
-<li>
-<p><code>StopLimit</code>: sets a <code>Limit</code> order in motion if the given stop
-price is seen</p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;Market&lt;/code&gt;: to be executed with the 1st tick of the next bar (namely
+  the &lt;code&gt;open&lt;/code&gt; price)
+
+- &lt;code&gt;Close&lt;/code&gt;: meant for intraday in which the order is executed with the
+  closing price of the last bar of the session
+
+- &lt;code&gt;Limit&lt;/code&gt;: executes if the given limit price is seen during the
+  session
+
+- &lt;code&gt;Stop&lt;/code&gt;: executes a &lt;code&gt;Market&lt;/code&gt; order if the given stop price is seen
+
+- &lt;code&gt;StopLimit&lt;/code&gt;: sets a &lt;code&gt;Limit&lt;/code&gt; order in motion if the given stop
+  price is seen
+</code></pre>
 <p>Because the broker is instantiated by <code>Cerebro</code> and there should be
 (mostly) no reason to replace the broker, the params are not controlled
 by the user for the instance.
 To change this there are two options:</p>
-<ol>
-<li>
-<p>Manually create an instance of this class with the desired params
-and use <code>cerebro.broker = instance</code> to set the instance as the
-broker for the <code>run</code> execution</p>
-</li>
-<li>
-<p>Use the <code>set_xxx</code> to set the value using
-<code>cerebro.broker.set_xxx</code> where <code>`xxx</code> stands for the name of the
-parameter to set</p>
-</li>
-</ol>
-<p>!!! note "Note"
-<code>cerebro.broker</code> is a <em>property</em> supported by the <code>getbroker</code>
-and <code>setbroker</code> methods of <code>Cerebro</code></p>
+<pre><code>1. Manually create an instance of this class with the desired params
+   and use ``cerebro.broker = instance`` to set the instance as the
+   broker for the &lt;code&gt;run&lt;/code&gt; execution
+
+2. Use the &lt;code&gt;set\_xxx&lt;/code&gt; to set the value using
+   &lt;code&gt;cerebro.broker.set\_xxx&lt;/code&gt; where &lt;code&gt;`xxx&lt;/code&gt; stands for the name of the
+   parameter to set
+
+!!! note "Note"
+    &lt;code&gt;cerebro.broker&lt;/code&gt; is a *property* supported by the &lt;code&gt;getbroker&lt;/code&gt;
+    and &lt;code&gt;setbroker&lt;/code&gt; methods of &lt;code&gt;Cerebro&lt;/code&gt;
+</code></pre>
 <h2 id="params">Params</h2>
 <ul>
 <li>
@@ -3604,8 +3584,6 @@ the session</p>
 </li>
 <li>
 <p><code>filler</code> (default: <code>None</code>)</p>
-</li>
-</ul>
 <p>A callable with signature: <code>callable(order, price, ago)</code></p>
 <pre><code>- &lt;code&gt;order&lt;/code&gt;: obviously the order in execution. This provides access
   to the *data* (and with it the *ohlc* and *volume* values), the
@@ -3631,40 +3609,40 @@ the session</p>
 the aforementioned signature</p>
 <p>With the default <code>None</code> orders will be completely executed in a
 single shot</p>
-<ul>
-<li><code>slip_perc</code> (default: <code>0.0</code>) Percentage in absolute termns (and
+</li>
+<li>
+<p><code>slip_perc</code> (default: <code>0.0</code>) Percentage in absolute termns (and
 positive) that should be used to slip prices up/down for buy/sell
-orders</li>
-</ul>
+orders</p>
 <p>Note:</p>
 <pre><code>- &lt;code&gt;0.01&lt;/code&gt; is ``1%``
 
 - &lt;code&gt;0.001&lt;/code&gt; is ``0.1%``
 </code></pre>
-<ul>
-<li><code>slip_fixed</code> (default: <code>0.0</code>) Percentage in units (and positive)
-that should be used to slip prices up/down for buy/sell orders</li>
-</ul>
+</li>
+<li>
+<p><code>slip_fixed</code> (default: <code>0.0</code>) Percentage in units (and positive)
+that should be used to slip prices up/down for buy/sell orders</p>
 <p>Note: if <code>slip_perc</code> is non zero, it takes precendence over this.</p>
-<ul>
-<li><code>slip_open</code> (default: <code>False</code>) whether to slip prices for order
+</li>
+<li>
+<p><code>slip_open</code> (default: <code>False</code>) whether to slip prices for order
 execution which would specifically used the <em>opening</em> price of the
 next bar. An example would be <code>Market</code> order which is executed with
-the next available tick, i.e: the opening price of the bar.</li>
-</ul>
+the next available tick, i.e: the opening price of the bar.</p>
 <p>This also applies to some of the other executions, because the logic
 tries to detect if the <em>opening</em> price would match the requested
 price/execution type when moving to a new bar.</p>
-<ul>
-<li><code>slip_match</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>slip_match</code> (default: <code>True</code>)</p>
 <p>If <code>True</code> the broker will offer a match by capping slippage at
 <code>high/low</code> prices in case they would be exceeded.</p>
 <p>If <code>False</code> the broker will not match the order with the current
 prices and will try execution during the next iteration</p>
-<ul>
-<li><code>slip_limit</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>slip_limit</code> (default: <code>True</code>)</p>
 <p><code>Limit</code> orders, given the exact match price requested, will be
 matched even if <code>slip_match</code> is <code>False</code>.</p>
 <p>This option controls that behavior.</p>
@@ -3672,54 +3650,56 @@ matched even if <code>slip_match</code> is <code>False</code>.</p>
 to the <code>limit</code> / <code>high/low</code> prices</p>
 <p>If <code>False</code> and slippage exceeds the cap, then there will be no
 match</p>
-<ul>
-<li><code>slip_out</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>slip_out</code> (default: <code>False</code>)</p>
 <p>Provide <em>slippage</em> even if the price falls outside the <code>high</code> -
 <code>low</code> range.</p>
-<ul>
-<li><code>coc</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>coc</code> (default: <code>False</code>)</p>
 <p><em>Cheat-On-Close</em> Setting this to <code>True</code> with <code>set_coc</code> enables
 matching a <code>Market</code> order to the closing price of the bar in which
 the order was issued. This is actually <em>cheating</em>, because the bar
 is <em>closed</em> and any order should first be matched against the prices
 in the next bar</p>
-<ul>
-<li><code>coo</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>coo</code> (default: <code>False</code>)</p>
 <p><em>Cheat-On-Open</em> Setting this to <code>True</code> with <code>set_coo</code> enables
 matching a <code>Market</code> order to the opening price, by for example
 using a timer with <code>cheat</code> set to <code>True</code>, because such a timer
 gets executed before the broker has evaluated</p>
-<ul>
-<li><code>int2pnl</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>int2pnl</code> (default: <code>True</code>)</p>
 <p>Assign generated interest (if any) to the profit and loss of
 operation that reduces a position (be it long or short). There may be
 cases in which this is undesired, because different strategies are
 competing and the interest would be assigned on a non-deterministic
 basis to any of them.</p>
-<ul>
-<li><code>shortcash</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>shortcash</code> (default: <code>True</code>)</p>
 <p>If True then cash will be increased when a stocklike asset is shorted
 and the calculated value for the asset will be negative.</p>
 <p>If <code>False</code> then the cash will be deducted as operation cost and the
 calculated value will be positive to end up with the same amount</p>
-<ul>
-<li><code>fundstartval</code> (default: <code>100.0</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fundstartval</code> (default: <code>100.0</code>)</p>
 <p>This parameter controls the start value for measuring the performance
 in a fund-like way, i.e.: cash can be added and deducted increasing
 the amount of shares. Performance is not measured using the net
 asset value of the porftoflio but using the value of the fund</p>
-<ul>
-<li><code>fundmode</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fundmode</code> (default: <code>False</code>)</p>
 <p>If this is set to <code>True</code> analyzers like <code>TimeReturn</code> can
 automatically calculate returns based on the fund value and not on
-the total net asset value</p></div>
+the total net asset value</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

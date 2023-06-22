@@ -186,28 +186,30 @@ class LogReturnsRolling(bt.TimeFrameAnalyzerBase):
 compression</p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>timeframe</code> (default: <code>None</code>)
+<li>
+<p><code>timeframe</code> (default: <code>None</code>)
 If <code>None</code> the <code>timeframe</code> of the 1st data in the system will be
-used</li>
-</ul>
+used</p>
 <p>Pass <code>TimeFrame.NoTimeFrame</code> to consider the entire dataset with no
 time constraints</p>
-<ul>
-<li><code>compression</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>compression</code> (default: <code>None</code>)</p>
 <p>Only used for sub-day timeframes to for example work on an hourly
 timeframe by specifying "TimeFrame.Minutes" and 60 as compression</p>
 <p>If <code>None</code> then the compression of the 1st data of the system will be
 used</p>
-<ul>
-<li><code>data</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>data</code> (default: <code>None</code>)</p>
 <p>Reference asset to track instead of the portfolio value.</p>
-<p>!!! note "Note:&ensp;this data must have been added to a <code>cerebro</code> instance with"
-<code>addata</code>, <code>resampledata</code> or <code>replaydata</code></p>
-<ul>
-<li><code>firstopen</code> (default: <code>True</code>)</li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;this data must have been added to a <code>cerebro</code> instance with<p><code>addata</code>, <code>resampledata</code> or <code>replaydata</code></p>
+</p>
+</div>
+</li>
+<li>
+<p><code>firstopen</code> (default: <code>True</code>)</p>
 <p>When tracking the returns of a <code>data</code> the following is done when
 crossing a timeframe boundary, for example <code>Years</code>:</p>
 <pre><code>- Last &lt;code&gt;close&lt;/code&gt; of previous year is used as the reference price to
@@ -220,20 +222,24 @@ the <em>opening</em> price will be used for the 1st calculation.</p>
 the standard [0] notation will be used without reference to a field
 price)</p>
 <p>Else the initial close will be used.</p>
-<ul>
-<li><code>fund</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fund</code> (default: <code>None</code>)</p>
 <p>If <code>None</code> the actual mode of the broker (fundmode - True/False) will
 be autodetected to decide if the returns are based on the total net
 asset value or on the fund value. See <code>set_fundmode</code> in the broker
 documentation</p>
 <p>Set it to <code>True</code> or <code>False</code> for a specific behavior</p>
+</li>
+</ul>
 <h2 id="methods">Methods</h2>
 <ul>
-<li>get_analysis</li>
-</ul>
+<li>
+<p>get_analysis</p>
 <p>Returns a dictionary with returns as values and the datetime points for
-each return as keys</p></div>
+each return as keys</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

@@ -3737,14 +3737,16 @@ in the defined order.</p></div>
 <h2 id="datas">Datas</h2>
 <p>This indicator can accept 1 or 2 datas for the calculation.</p>
 <ul>
-<li>If 1 data is provided, it must be a complex "Lines" object (indicator)
-which also has "datas". Example: A moving average</li>
-</ul>
+<li>
+<p>If 1 data is provided, it must be a complex "Lines" object (indicator)
+which also has "datas". Example: A moving average</p>
 <p>The calculated oscillation will be that of the Moving Average (in the
 example) around the data that was used for the average calculation</p>
-<ul>
-<li>If 2 datas are provided the calculated oscillation will be that of the
-2nd data around the 1st data</li>
+</li>
+<li>
+<p>If 2 datas are provided the calculated oscillation will be that of the
+2nd data around the 1st data</p>
+</li>
 </ul>
 <h2 id="formula">Formula</h2>
 <ul>
@@ -3873,9 +3875,8 @@ example) around the data that was used for the average calculation</p>
 that indicator will be substracted from the other base class main line
 creating an oscillator</p>
 <p>The usage is:</p>
-<ul>
-<li>Class XXXOscillator(XXX, OscillatorMixIn)</li>
-</ul>
+<pre><code>- Class XXXOscillator(XXX, OscillatorMixIn)
+</code></pre>
 <h2 id="formula">Formula</h2>
 <ul>
 <li>XXX calculates lines[0]</li>

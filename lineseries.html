@@ -1128,18 +1128,16 @@ def array(self):
 <div class="desc"><p>Simulates a LineMultiple object based on LineSeries from a single line</p>
 <p>The index management operations are overriden to take into account if the
 line is a slave, ie:</p>
-<ul>
-<li>The line reference is a line from many in a LineMultiple object</li>
-<li>Both the LineMultiple object and the Line are managed by the same
-object</li>
-</ul>
+<pre><code>- The line reference is a line from many in a LineMultiple object
+- Both the LineMultiple object and the Line are managed by the same
+  object
+</code></pre>
 <p>Were slave not to be taken into account, the individual line would for
 example be advanced twice:</p>
-<ul>
-<li>Once under when the LineMultiple object is advanced (because it
-advances all lines it is holding</li>
-<li>Again as part of the regular management of the object holding it</li>
-</ul></div>
+<pre><code>- Once under when the LineMultiple object is advanced (because it
+  advances all lines it is holding
+- Again as part of the regular management of the object holding it
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -22271,24 +22269,22 @@ provided "initlines"</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Dirty job manager for a LineSeries</p>
-<ul>
-<li>
-<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
-"plotlines" class variable definitions and turns them into
-Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
-</li>
-<li>
-<p>During "new" (instance creation) the lines/plotinfo/plotlines
-classes are substituted in the instance with instances of the
-aforementioned classes and aliases are added for the "lines" held
-in the "lines" instance</p>
-<p>Additionally and for remaining kwargs, these are matched against
-args in plotinfo and if existent are set there and removed from kwargs</p>
-<p>Remember that this Metaclass has a MetaParams (from metabase)
-as root class and therefore "params" defined for the class have been
-removed from kwargs at an earlier state</p>
-</li>
-</ul></div>
+<pre><code>- During __new__ (class creation), it reads "lines", "plotinfo",
+  "plotlines" class variable definitions and turns them into
+  Classes of type Lines or AutoClassInfo (plotinfo/plotlines)
+
+- During "new" (instance creation) the lines/plotinfo/plotlines
+  classes are substituted in the instance with instances of the
+  aforementioned classes and aliases are added for the "lines" held
+  in the "lines" instance
+
+  Additionally and for remaining kwargs, these are matched against
+  args in plotinfo and if existent are set there and removed from kwargs
+
+  Remember that this Metaclass has a MetaParams (from metabase)
+  as root class and therefore "params" defined for the class have been
+  removed from kwargs at an earlier state
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

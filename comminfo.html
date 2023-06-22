@@ -389,25 +389,18 @@ attribute in the class is set to <code>False</code></p>
 <p><code>automargin</code> (def: <code>False</code>): Used by the method <code>get_margin</code>
 to automatically calculate the margin/guarantees needed with the
 following policy</p>
-<ul>
-<li>
-<p>Use param <code>margin</code> if param <code>automargin</code> evaluates to <code>False</code></p>
-</li>
-<li>
-<p>Use param <code>mult</code> * <code>price</code> if <code>automargin &lt; 0</code></p>
-</li>
-<li>
-<p>Use param <code>automargin</code> * <code>price</code> if <code>automargin &gt; 0</code></p>
-</li>
-</ul>
+<pre><code>- Use param &lt;code&gt;margin&lt;/code&gt; if param &lt;code&gt;automargin&lt;/code&gt; evaluates to &lt;code&gt;False&lt;/code&gt;
+
+- Use param &lt;code&gt;mult&lt;/code&gt; * &lt;code&gt;price&lt;/code&gt; if ``automargin &lt; 0``
+
+- Use param &lt;code&gt;automargin&lt;/code&gt; * &lt;code&gt;price&lt;/code&gt; if ``automargin &gt; 0``
+</code></pre>
 </li>
 <li>
 <p><code>commtype</code> (def: <code>None</code>): Supported values are
 <code><a title="backtrader.comminfo.CommInfoBase.COMM_PERC" href="#backtrader.comminfo.CommInfoBase.COMM_PERC">CommInfoBase.COMM_PERC</a></code> (commission to be understood as %) and
 <code><a title="backtrader.comminfo.CommInfoBase.COMM_FIXED" href="#backtrader.comminfo.CommInfoBase.COMM_FIXED">CommInfoBase.COMM_FIXED</a></code> (commission to be understood as monetary
 units)</p>
-</li>
-</ul>
 <p>The default value of <code>None</code> is a supported value to retain
 compatibility with the legacy <code><a title="backtrader.comminfo.CommissionInfo" href="#backtrader.comminfo.CommissionInfo">CommissionInfo</a></code> object. If
 <code>commtype</code> is set to None, then the following applies:</p>
@@ -423,7 +416,7 @@ compatibility with the legacy <code><a title="backtrader.comminfo.CommissionInfo
 passed to the internal <code>_commtype</code> attribute and the same will be
 done with the param <code>stocklike</code> and the internal attribute
 <code>_stocklike</code></p>
-<ul>
+</li>
 <li>
 <p><code>stocklike</code> (def: <code>False</code>): Indicates if the instrument is
 Stock-like or Futures-like (see the <code>commtype</code> discussion above)</p>
@@ -432,29 +425,31 @@ Stock-like or Futures-like (see the <code>commtype</code> discussion above)</p>
 <p><code>percabs</code> (def: <code>False</code>): when <code>commtype</code> is set to COMM_PERC,
 whether the parameter <code>commission</code> has to be understood as XX% or
 0.XX</p>
-</li>
-</ul>
 <p>If this param is <code>True</code>: 0.XX
 If this param is <code>False</code>: XX%</p>
-<ul>
-<li><code>interest</code> (def: <code>0.0</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>interest</code> (def: <code>0.0</code>)</p>
 <p>If this is non-zero, this is the yearly interest charged for holding a
 short selling position. This is mostly meant for stock short-selling</p>
 <p>The formula: <code>days * price * abs(size) * (interest / 365)</code></p>
 <p>It must be specified in absolute terms: 0.05 -&gt; 5%</p>
-<p>!!! note "Note:&ensp;the behavior can be changed by overriding the method:"
-<code>_get_credit_interest</code></p>
-<ul>
-<li><code>interest_long</code> (def: <code>False</code>)</li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;the behavior can be changed by overriding the method:<p><code>_get_credit_interest</code></p>
+</p>
+</div>
+</li>
+<li>
+<p><code>interest_long</code> (def: <code>False</code>)</p>
 <p>Some products like ETFs get charged on interest for short and long
 positions. If ths is <code>True</code> and <code>interest</code> is non-zero the interest
 will be charged on both directions</p>
-<ul>
-<li><code>leverage</code> (def: <code>1.0</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>leverage</code> (def: <code>1.0</code>)</p>
 <p>Amount of leverage for the asset with regards to the needed cash</p>
+</li>
+</ul>
 <h2 id="attributes">Attributes</h2>
 <ul>
 <li><code>_stocklike</code>: Final value to use for Stock-like/Futures-like behavior</li>
@@ -881,17 +876,12 @@ def stocklike(self):
 <dd>
 <div class="desc"><p>Returns the actual margin/guarantees needed for a single item of the
 asset at the given price. The default implementation has this policy:</p>
-<ul>
-<li>
-<p>Use param <code>margin</code> if param <code>automargin</code> evaluates to <code>False</code></p>
-</li>
-<li>
-<p>Use param <code>mult</code> * <code>price</code> if <code>automargin &lt; 0</code></p>
-</li>
-<li>
-<p>Use param <code>automargin</code> * <code>price</code> if <code>automargin &gt; 0</code></p>
-</li>
-</ul></div>
+<pre><code>- Use param &lt;code&gt;margin&lt;/code&gt; if param &lt;code&gt;automargin&lt;/code&gt; evaluates to &lt;code&gt;False&lt;/code&gt;
+
+- Use param &lt;code&gt;mult&lt;/code&gt; * &lt;code&gt;price&lt;/code&gt; if ``automargin &lt; 0``
+
+- Use param &lt;code&gt;automargin&lt;/code&gt; * &lt;code&gt;price&lt;/code&gt; if ``automargin &gt; 0``
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1036,11 +1026,13 @@ class which subclasses <code><a title="backtrader.comminfo.CommInfoBase" href="#
 <p>The default value of <code>percabs</code> is also changed to <code>True</code></p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>percabs</code> (def: True): when <code>commtype</code> is set to COMM_PERC, whether
-the parameter <code>commission</code> has to be understood as XX% or 0.XX</li>
-</ul>
+<li>
+<p><code>percabs</code> (def: True): when <code>commtype</code> is set to COMM_PERC, whether
+the parameter <code>commission</code> has to be understood as XX% or 0.XX</p>
 <p>If this param is True: 0.XX
-If this param is False: XX%</p></div>
+If this param is False: XX%</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

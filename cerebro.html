@@ -152,41 +152,42 @@ class Cerebro(with_metaclass(MetaParams, object)):
         memory
 
         Possible values:
-          - ``True`` or ``1``: all &#34;lines&#34; objects reduce memory usage to the
-            automatically calculated minimum period.
 
-            If a Simple Moving Average has a period of 30, the underlying data
-            will have always a running buffer of 30 bars to allow the
-            calculation of the Simple Moving Average
+        - ``True`` or ``1``: all &#34;lines&#34; objects reduce memory usage to the
+        automatically calculated minimum period.
 
-            - This setting will deactivate ``preload`` and ``runonce``
-            - Using this setting also deactivates **plotting**
+        If a Simple Moving Average has a period of 30, the underlying data
+        will have always a running buffer of 30 bars to allow the
+        calculation of the Simple Moving Average
 
-          - ``-1``: datafreeds and indicators/operations at strategy level will
-            keep all data in memory.
+        - This setting will deactivate ``preload`` and ``runonce``
+        - Using this setting also deactivates **plotting**
 
-            For example: a ``RSI`` internally uses the indicator ``UpDay`` to
-            make calculations. This subindicator will not keep all data in
-            memory
+        - ``-1``: datafreeds and indicators/operations at strategy level will
+        keep all data in memory.
 
-            - This allows to keep ``plotting`` and ``preloading`` active.
+        For example: a ``RSI`` internally uses the indicator ``UpDay`` to
+        make calculations. This subindicator will not keep all data in
+        memory
 
-            - ``runonce`` will be deactivated
+        - This allows to keep ``plotting`` and ``preloading`` active.
 
-          - ``-2``: data feeds and indicators kept as attributes of the
-            strategy will keep all points in memory.
+        - ``runonce`` will be deactivated
 
-            For example: a ``RSI`` internally uses the indicator ``UpDay`` to
-            make calculations. This subindicator will not keep all data in
-            memory
+        - ``-2``: data feeds and indicators kept as attributes of the
+        strategy will keep all points in memory.
 
-            If in the ``__init__`` something like
-            ``a = self.data.close - self.data.high`` is defined, then ``a``
-            will not keep all data in memory
+        For example: a ``RSI`` internally uses the indicator ``UpDay`` to
+        make calculations. This subindicator will not keep all data in
+        memory
 
-            - This allows to keep ``plotting`` and ``preloading`` active.
+        If in the ``__init__`` something like
+        ``a = self.data.close - self.data.high`` is defined, then ``a``
+        will not keep all data in memory
 
-            - ``runonce`` will be deactivated
+        - This allows to keep ``plotting`` and ``preloading`` active.
+
+        - ``runonce`` will be deactivated
 
       - ``objcache`` (default: ``False``)
 
@@ -1759,18 +1760,18 @@ class Cerebro(with_metaclass(MetaParams, object)):
 <dd>
 <div class="desc"><p>Params:</p>
 <ul>
-<li><code>preload</code> (default: <code>True</code>)</li>
-</ul>
+<li>
+<p><code>preload</code> (default: <code>True</code>)</p>
 <p>Whether to preload the different <code>data feeds</code> passed to cerebro for
 the Strategies</p>
-<ul>
-<li><code>runonce</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>runonce</code> (default: <code>True</code>)</p>
 <p>Run <code>Indicators</code> in vectorized mode to speed up the entire system.
 Strategies and Observers will always be run on an event based basis</p>
-<ul>
-<li><code>live</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>live</code> (default: <code>False</code>)</p>
 <p>If no data has reported itself as <em>live</em> (via the data's <code>islive</code>
 method but the end user still want to run in <code>live</code> mode, this
 parameter can be set to true</p>
@@ -1778,18 +1779,18 @@ parameter can be set to true</p>
 will have no effect on memory saving schemes.</p>
 <p>Run <code>Indicators</code> in vectorized mode to speed up the entire system.
 Strategies and Observers will always be run on an event based basis</p>
-<ul>
-<li><code>maxcpus</code> (default: None -&gt; all available cores)</li>
-</ul>
+</li>
+<li>
+<p><code>maxcpus</code> (default: None -&gt; all available cores)</p>
 <p>How many cores to use simultaneously for optimization</p>
-<ul>
-<li><code>stdstats</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>stdstats</code> (default: <code>True</code>)</p>
 <p>If True default Observers will be added: Broker (Cash and Value),
 Trades and BuySell</p>
-<ul>
-<li><code>oldbuysell</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>oldbuysell</code> (default: <code>False</code>)</p>
 <p>If <code>stdstats</code> is <code>True</code> and observers are getting automatically
 added, this switch controls the main behavior of the <code>BuySell</code>
 observer</p>
@@ -1805,10 +1806,10 @@ are plotted where the average price of the order executions for the
 given moment in time is. This will of course be on top of an OHLC bar
 or on a Line on Cloe bar, difficulting the recognition of the plot.</p>
 </li>
+</ul>
+</li>
 <li>
 <p><code>oldtrades</code> (default: <code>False</code>)</p>
-</li>
-</ul>
 <p>If <code>stdstats</code> is <code>True</code> and observers are getting automatically
 added, this switch controls the main behavior of the <code>Trades</code>
 observer</p>
@@ -1821,51 +1822,62 @@ plotted with different markers</p>
 <p><code>True</code>: use the old Trades observer which plots the trades with the
 same markers, differentiating only if they are positive or negative</p>
 </li>
+</ul>
+</li>
 <li>
 <p><code>exactbars</code> (default: <code>False</code>)</p>
-</li>
-</ul>
 <p>With the default value each and every value stored in a line is kept in
 memory</p>
-<p>Possible values:
-- <code>True</code> or <code>1</code>: all "lines" objects reduce memory usage to the
-automatically calculated minimum period.</p>
-<pre><code>  If a Simple Moving Average has a period of 30, the underlying data
-  will have always a running buffer of 30 bars to allow the
-  calculation of the Simple Moving Average
-
-  - This setting will deactivate &lt;code&gt;preload&lt;/code&gt; and &lt;code&gt;runonce&lt;/code&gt;
-  - Using this setting also deactivates **plotting**
-
-- ``-1``: datafreeds and indicators/operations at strategy level will
-  keep all data in memory.
-
-  For example: a &lt;code&gt;RSI&lt;/code&gt; internally uses the indicator &lt;code&gt;UpDay&lt;/code&gt; to
-  make calculations. This subindicator will not keep all data in
-  memory
-
-  - This allows to keep &lt;code&gt;plotting&lt;/code&gt; and &lt;code&gt;preloading&lt;/code&gt; active.
-
-  - &lt;code&gt;runonce&lt;/code&gt; will be deactivated
-
-- ``-2``: data feeds and indicators kept as attributes of the
-  strategy will keep all points in memory.
-
-  For example: a &lt;code&gt;RSI&lt;/code&gt; internally uses the indicator &lt;code&gt;UpDay&lt;/code&gt; to
-  make calculations. This subindicator will not keep all data in
-  memory
-
-  If in the &lt;code&gt;\_\_init\_\_&lt;/code&gt; something like
-  ``a = self.data.close - self.data.high`` is defined, then &lt;code&gt;a&lt;/code&gt;
-  will not keep all data in memory
-
-  - This allows to keep &lt;code&gt;plotting&lt;/code&gt; and &lt;code&gt;preloading&lt;/code&gt; active.
-
-  - &lt;code&gt;runonce&lt;/code&gt; will be deactivated
-</code></pre>
+<p>Possible values:</p>
 <ul>
-<li><code>objcache</code> (default: <code>False</code>)</li>
+<li><code>True</code> or <code>1</code>: all "lines" objects reduce memory usage to the
+automatically calculated minimum period.</li>
 </ul>
+<p>If a Simple Moving Average has a period of 30, the underlying data
+will have always a running buffer of 30 bars to allow the
+calculation of the Simple Moving Average</p>
+<ul>
+<li>This setting will deactivate <code>preload</code> and <code>runonce</code></li>
+<li>
+<p>Using this setting also deactivates <strong>plotting</strong></p>
+</li>
+<li>
+<p><code>-1</code>: datafreeds and indicators/operations at strategy level will
+keep all data in memory.</p>
+</li>
+</ul>
+<p>For example: a <code>RSI</code> internally uses the indicator <code>UpDay</code> to
+make calculations. This subindicator will not keep all data in
+memory</p>
+<ul>
+<li>
+<p>This allows to keep <code>plotting</code> and <code>preloading</code> active.</p>
+</li>
+<li>
+<p><code>runonce</code> will be deactivated</p>
+</li>
+<li>
+<p><code>-2</code>: data feeds and indicators kept as attributes of the
+strategy will keep all points in memory.</p>
+</li>
+</ul>
+<p>For example: a <code>RSI</code> internally uses the indicator <code>UpDay</code> to
+make calculations. This subindicator will not keep all data in
+memory</p>
+<p>If in the <code>__init__</code> something like
+<code>a = self.data.close - self.data.high</code> is defined, then <code>a</code>
+will not keep all data in memory</p>
+<ul>
+<li>
+<p>This allows to keep <code>plotting</code> and <code>preloading</code> active.</p>
+</li>
+<li>
+<p><code>runonce</code> will be deactivated</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>objcache</code> (default: <code>False</code>)</p>
 <p>Experimental option to implement a cache of lines objects and reduce
 the amount of them. Example from UltimateOscillator::</p>
 <pre><code>bp = self.data.close - TrueLow(self.data)
@@ -1876,29 +1888,29 @@ matches the signature of the one in the <code>bp</code> calculation. It will be
 reused.</p>
 <p>Corner cases may happen in which this drives a line object off its
 minimum period and breaks things and it is therefore disabled.</p>
-<ul>
-<li><code>writer</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>writer</code> (default: <code>False</code>)</p>
 <p>If set to <code>True</code> a default WriterFile will be created which will
 print to stdout. It will be added to the strategy (in addition to any
 other writers added by the user code)</p>
-<ul>
-<li><code>tradehistory</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>tradehistory</code> (default: <code>False</code>)</p>
 <p>If set to <code>True</code>, it will activate update event logging in each trade
 for all strategies. This can also be accomplished on a per strategy
 basis with the strategy method <code>set_tradehistory</code></p>
-<ul>
-<li><code>optdatas</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>optdatas</code> (default: <code>True</code>)</p>
 <p>If <code>True</code> and optimizing (and the system can <code>preload</code> and use
 <code>runonce</code>, data preloading will be done only once in the main process
 to save time and resources.</p>
 <p>The tests show an approximate <code>20%</code> speed-up moving from a sample
 execution in <code>83</code> seconds to <code>66</code></p>
-<ul>
-<li><code>optreturn</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>optreturn</code> (default: <code>True</code>)</p>
 <p>If <code>True</code> the optimization results will not be full <code>Strategy</code>
 objects (and all <em>datas</em>, <em>indicators</em>, <em>observers</em> &hellip;) but and object
 with the following attributes (same as in <code>Strategy</code>):</p>
@@ -1912,17 +1924,17 @@ detailed analysis of the generated values for (for example)
 <p>The tests show a <code>13% - 15%</code> improvement in execution time. Combined
 with <code>optdatas</code> the total gain increases to a total speed-up of
 <code>32%</code> in an optimization run.</p>
-<ul>
-<li><code>oldsync</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>oldsync</code> (default: <code>False</code>)</p>
 <p>Starting with release 1.9.0.99 the synchronization of multiple datas
 (same or different timeframes) has been changed to allow datas of
 different lengths.</p>
 <p>If the old behavior with data0 as the master of the system is wished,
 set this parameter to true</p>
-<ul>
-<li><code>tz</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>tz</code> (default: <code>None</code>)</p>
 <p>Adds a global timezone for strategies. The argument <code>tz</code> can be</p>
 <pre><code>- &lt;code&gt;None&lt;/code&gt;: in this case the datetime displayed by strategies will be
   in UTC, which has been always the standard behavior
@@ -1936,9 +1948,9 @@ set this parameter to true</p>
   corresponding &lt;code&gt;data&lt;/code&gt; in the &lt;code&gt;self.datas&lt;/code&gt; iterable (&lt;code&gt;0&lt;/code&gt; would
   use the timezone from &lt;code&gt;data0&lt;/code&gt;)
 </code></pre>
-<ul>
-<li><code>cheat_on_open</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>cheat_on_open</code> (default: <code>False</code>)</p>
 <p>The <code>next_open</code> method of strategies will be called. This happens
 before <code>next</code> and before the broker has had a chance to evaluate
 orders. The indicators have not yet been recalculated. This allows
@@ -1949,21 +1961,23 @@ call <code>cerebro.broker.set_coo(True)</code> or instantite a broker with
 <code>BackBroker(coo=True)</code> (where <em>coo</em> stands for cheat-on-open) or set
 the <code>broker_coo</code> parameter to <code>True</code>. Cerebro will do it
 automatically unless disabled below.</p>
-<ul>
-<li><code>broker_coo</code> (default: <code>True</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>broker_coo</code> (default: <code>True</code>)</p>
 <p>This will automatically invoke the <code>set_coo</code> method of the broker
 with <code>True</code> to activate <code>cheat_on_open</code> execution. Will only do it
 if <code>cheat_on_open</code> is also <code>True</code></p>
-<ul>
-<li><code>quicknotify</code> (default: <code>False</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>quicknotify</code> (default: <code>False</code>)</p>
 <p>Broker notifications are delivered right before the delivery of the
 <em>next</em> prices. For backtesting this has no implications, but with live
 brokers a notification can take place long before the bar is
 delivered. When set to <code>True</code> notifications will be delivered as soon
 as possible (see <code>qcheck</code> in live feeds)</p>
-<p>Set to <code>False</code> for compatibility. May be changed to <code>True</code></p></div>
+<p>Set to <code>False</code> for compatibility. May be changed to <code>True</code></p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2035,41 +2049,42 @@ as possible (see <code>qcheck</code> in live feeds)</p>
         memory
 
         Possible values:
-          - ``True`` or ``1``: all &#34;lines&#34; objects reduce memory usage to the
-            automatically calculated minimum period.
 
-            If a Simple Moving Average has a period of 30, the underlying data
-            will have always a running buffer of 30 bars to allow the
-            calculation of the Simple Moving Average
+        - ``True`` or ``1``: all &#34;lines&#34; objects reduce memory usage to the
+        automatically calculated minimum period.
 
-            - This setting will deactivate ``preload`` and ``runonce``
-            - Using this setting also deactivates **plotting**
+        If a Simple Moving Average has a period of 30, the underlying data
+        will have always a running buffer of 30 bars to allow the
+        calculation of the Simple Moving Average
 
-          - ``-1``: datafreeds and indicators/operations at strategy level will
-            keep all data in memory.
+        - This setting will deactivate ``preload`` and ``runonce``
+        - Using this setting also deactivates **plotting**
 
-            For example: a ``RSI`` internally uses the indicator ``UpDay`` to
-            make calculations. This subindicator will not keep all data in
-            memory
+        - ``-1``: datafreeds and indicators/operations at strategy level will
+        keep all data in memory.
 
-            - This allows to keep ``plotting`` and ``preloading`` active.
+        For example: a ``RSI`` internally uses the indicator ``UpDay`` to
+        make calculations. This subindicator will not keep all data in
+        memory
 
-            - ``runonce`` will be deactivated
+        - This allows to keep ``plotting`` and ``preloading`` active.
 
-          - ``-2``: data feeds and indicators kept as attributes of the
-            strategy will keep all points in memory.
+        - ``runonce`` will be deactivated
 
-            For example: a ``RSI`` internally uses the indicator ``UpDay`` to
-            make calculations. This subindicator will not keep all data in
-            memory
+        - ``-2``: data feeds and indicators kept as attributes of the
+        strategy will keep all points in memory.
 
-            If in the ``__init__`` something like
-            ``a = self.data.close - self.data.high`` is defined, then ``a``
-            will not keep all data in memory
+        For example: a ``RSI`` internally uses the indicator ``UpDay`` to
+        make calculations. This subindicator will not keep all data in
+        memory
 
-            - This allows to keep ``plotting`` and ``preloading`` active.
+        If in the ``__init__`` something like
+        ``a = self.data.close - self.data.high`` is defined, then ``a``
+        will not keep all data in memory
 
-            - ``runonce`` will be deactivated
+        - This allows to keep ``plotting`` and ``preloading`` active.
+
+        - ``runonce`` will be deactivated
 
       - ``objcache`` (default: ``False``)
 
@@ -3699,40 +3714,36 @@ def iterize(iterable):
 <dd>
 <div class="desc"><p>Add a history of orders to be directly executed in the broker for
 performance evaluation</p>
-<ul>
-<li>
-<p><code>orders</code>: is an iterable (ex: list, tuple, iterator, generator)
-in which each element will be also an iterable (with length) with
-the following sub-elements (2 formats are possible)</p>
-<p><code>[datetime, size, price]</code> or <code>[datetime, size, price, data]</code></p>
-<p><strong>Note</strong>: it must be sorted (or produce sorted elements) by
-datetime ascending</p>
-<p>where:</p>
-<ul>
-<li><code>datetime</code> is a python <code>date/datetime</code> instance or a string
-with format YYYY-MM-DD[THH:MM:SS[.us]] where the elements in
-brackets are optional</li>
-<li><code>size</code> is an integer (positive to <em>buy</em>, negative to <em>sell</em>)</li>
-<li><code>price</code> is a float/integer</li>
-<li>
-<p><code>data</code> if present can take any of the following values</p>
-<ul>
-<li><em>None</em> - The 1st data feed will be used as target</li>
-<li><em>integer</em> - The data with that index (insertion order in
-<strong>Cerebro</strong>) will be used</li>
-<li><em>string</em> - a data with that name, assigned for example with
-<code>cerebro.addata(data, name=value)</code>, will be the target</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><code>notify</code> (default: <em>True</em>)</p>
-<p>If <code>True</code> the 1st strategy inserted in the system will be
-notified of the artificial orders created following the information
-from each order in <code>orders</code></p>
-</li>
-</ul>
+<pre><code>- &lt;code&gt;orders&lt;/code&gt;: is an iterable (ex: list, tuple, iterator, generator)
+  in which each element will be also an iterable (with length) with
+  the following sub-elements (2 formats are possible)
+
+  &lt;code&gt;\[datetime, size, price]&lt;/code&gt; or &lt;code&gt;\[datetime, size, price, data]&lt;/code&gt;
+
+  **Note**: it must be sorted (or produce sorted elements) by
+    datetime ascending
+
+  where:
+
+    - &lt;code&gt;datetime&lt;/code&gt; is a python ``date/datetime`` instance or a string
+      with format YYYY-MM-DD[THH:MM:SS[.us]] where the elements in
+      brackets are optional
+    - &lt;code&gt;size&lt;/code&gt; is an integer (positive to *buy*, negative to *sell*)
+    - &lt;code&gt;price&lt;/code&gt; is a float/integer
+    - &lt;code&gt;data&lt;/code&gt; if present can take any of the following values
+
+      - *None* - The 1st data feed will be used as target
+      - *integer* - The data with that index (insertion order in
+        **Cerebro**) will be used
+      - *string* - a data with that name, assigned for example with
+        ``cerebro.addata(data, name=value)``, will be the target
+
+- &lt;code&gt;notify&lt;/code&gt; (default: *True*)
+
+  If &lt;code&gt;True&lt;/code&gt; the 1st strategy inserted in the system will be
+  notified of the artificial orders created following the information
+  from each order in &lt;code&gt;orders&lt;/code&gt;
+</code></pre>
 <p><strong>Note</strong>: Implicit in the description is the need to add a data feed
 which is the target of the orders. This is for example needed by
 analyzers which track for example the returns</p></div>
@@ -3807,18 +3818,14 @@ analyzers which track for example the returns</p></div>
 <ul>
 <li>
 <p><code>when</code>: can be</p>
-</li>
-<li>
-<p><code>datetime.time</code> instance (see below <code>tzdata</code>)</p>
-</li>
+<ul>
+<li><code>datetime.time</code> instance (see below <code>tzdata</code>)</li>
 <li><code>bt.timer.SESSION_START</code> to reference a session start</li>
-<li>
-<p><code>bt.timer.SESSION_END</code> to reference a session end</p>
+<li><code>bt.timer.SESSION_END</code> to reference a session end</li>
+</ul>
 </li>
 <li>
 <p><code>offset</code> which must be a <code>datetime.timedelta</code> instance</p>
-</li>
-</ul>
 <p>Used to offset the value <code>when</code>. It has a meaningful use in
 combination with <code>SESSION_START</code> and <code>SESSION_END</code>, to indicated
 things like a timer being called <code>15 minutes</code> after the session
@@ -3890,10 +3897,11 @@ before the session starts</p>
 <p><code>**kwargs</code>: any extra kwargs will be passed to <code>notify_timer</code></p>
 </li>
 </ul>
+</li>
+</ul>
 <p>Return Value:</p>
-<ul>
-<li>The created timer</li>
-</ul></div>
+<pre><code>- The created timer
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -4102,9 +4110,8 @@ meant for decoration/plotting purposes.</p></div>
 <div class="desc"><p>Adds a callback to get messages which would be handled by the
 notify_data method</p>
 <p>The signature of the callback must support the following:</p>
-<ul>
-<li>callback(data, status, *args, **kwargs)</li>
-</ul>
+<pre><code>- callback(data, status, \*args, \*\*kwargs)
+</code></pre>
 <p>The actual <code>*args</code> and <code>**kwargs</code> received are implementation
 defined (depend entirely on the <em>data/broker/store</em>) but in general one
 should expect them to be <em>printable</em> to allow for reception and
@@ -4249,9 +4256,8 @@ the one returned by <code>addstrategy</code>. Only the strategy referenced by
 <div class="desc"><p>Adds a callback to get messages which would be handled by the
 notify_store method</p>
 <p>The signature of the callback must support the following:</p>
-<ul>
-<li>callback(msg, *args, **kwargs)</li>
-</ul>
+<pre><code>- callback(msg, \*args, \*\*kwargs)
+</code></pre>
 <p>The actual <code>msg</code>, <code>*args</code> and <code>**kwargs</code> received are
 implementation defined (depend entirely on the <em>data/broker/store</em>) but
 in general one should expect them to be <em>printable</em> to allow for
@@ -4311,24 +4317,18 @@ can be referenced</p></div>
 <dd>
 <div class="desc"><p>This can also be done with the parameter <code>tz</code></p>
 <p>Adds a global timezone for strategies. The argument <code>tz</code> can be</p>
-<ul>
-<li>
-<p><code>None</code>: in this case the datetime displayed by strategies will be
-in UTC, which has been always the standard behavior</p>
-</li>
-<li>
-<p><code>pytz</code> instance. It will be used as such to convert UTC times to
-the chosen timezone</p>
-</li>
-<li>
-<p><code>string</code>. Instantiating a <code>pytz</code> instance will be attempted.</p>
-</li>
-<li>
-<p><code>integer</code>. Use, for the strategy, the same timezone as the
-corresponding <code>data</code> in the <code>self.datas</code> iterable (<code>0</code> would
-use the timezone from <code>data0</code>)</p>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;None&lt;/code&gt;: in this case the datetime displayed by strategies will be
+  in UTC, which has been always the standard behavior
+
+- &lt;code&gt;pytz&lt;/code&gt; instance. It will be used as such to convert UTC times to
+  the chosen timezone
+
+- &lt;code&gt;string&lt;/code&gt;. Instantiating a &lt;code&gt;pytz&lt;/code&gt; instance will be attempted.
+
+- &lt;code&gt;integer&lt;/code&gt;. Use, for the strategy, the same timezone as the
+  corresponding &lt;code&gt;data&lt;/code&gt; in the &lt;code&gt;self.datas&lt;/code&gt; iterable (&lt;code&gt;0&lt;/code&gt; would
+  use the timezone from &lt;code&gt;data0&lt;/code&gt;)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -4531,26 +4531,22 @@ will happen during <code>run</code> time.</p>
 <p>args and kwargs MUST BE iterables which hold the values to check.</p>
 <p>Example: if a Strategy accepts a parameter <code>period</code>, for optimization
 purposes the call to <code>optstrategy</code> looks like:</p>
-<ul>
-<li>cerebro.optstrategy(MyStrategy, period=(15, 25))</li>
-</ul>
+<pre><code>- cerebro.optstrategy(MyStrategy, period=(15, 25))
+</code></pre>
 <p>This will execute an optimization for values 15 and 25. Whereas</p>
-<ul>
-<li>cerebro.optstrategy(MyStrategy, period=range(15, 25))</li>
-</ul>
+<pre><code>- cerebro.optstrategy(MyStrategy, period=range(15, 25))
+</code></pre>
 <p>will execute MyStrategy with <code>period</code> values 15 -&gt; 25 (25 not
 included, because ranges are semi-open in Python)</p>
 <p>If a parameter is passed but shall not be optimized the call looks
 like:</p>
-<ul>
-<li>cerebro.optstrategy(MyStrategy, period=(15,))</li>
-</ul>
+<pre><code>- cerebro.optstrategy(MyStrategy, period=(15,))
+</code></pre>
 <p>Notice that <code>period</code> is still passed as an iterable &hellip; of just 1
 element</p>
 <p><code><a title="backtrader" href="index.html">backtrader</a></code> will anyhow try to identify situations like:</p>
-<ul>
-<li>cerebro.optstrategy(MyStrategy, period=15)</li>
-</ul>
+<pre><code>- cerebro.optstrategy(MyStrategy, period=15)
+</code></pre>
 <p>and will create an internal pseudo-iterable if possible</p></div>
 <details class="source">
 <summary>
@@ -4806,16 +4802,12 @@ will affect the value of the standard parameters <code><a title="backtrader.cere
 instantiated with.</p>
 <p>If <code>cerebro</code> has not datas the method will immediately bail out.</p>
 <p>It has different return values:</p>
-<ul>
-<li>
-<p>For No Optimization: a list contanining instances of the Strategy
-classes added with <code>addstrategy</code></p>
-</li>
-<li>
-<p>For Optimization: a list of lists which contain instances of the
-Strategy classes added with <code>addstrategy</code></p>
-</li>
-</ul></div>
+<pre><code>- For No Optimization: a list contanining instances of the Strategy
+  classes added with &lt;code&gt;addstrategy&lt;/code&gt;
+
+- For Optimization: a list of lists which contain instances of the
+  Strategy classes added with &lt;code&gt;addstrategy&lt;/code&gt;
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -5157,24 +5149,23 @@ threads the execution will stop as soon as possible.</p></div>
 <dd>
 <div class="desc"><p>Add a history of orders to be directly executed in the broker for
 performance evaluation</p>
-<ul>
-<li>
-<p><code>fund</code>: is an iterable (ex: list, tuple, iterator, generator)
-in which each element will be also an iterable (with length) with
-the following sub-elements (2 formats are possible)</p>
-<p><code>[datetime, share_value, net asset value]</code></p>
-<p><strong>Note</strong>: it must be sorted (or produce sorted elements) by
-datetime ascending</p>
-<p>where:</p>
-<ul>
-<li><code>datetime</code> is a python <code>date/datetime</code> instance or a string
-with format YYYY-MM-DD[THH:MM:SS[.us]] where the elements in
-brackets are optional</li>
-<li><code>share_value</code> is an float/integer</li>
-<li><code>net_asset_value</code> is a float/integer</li>
-</ul>
-</li>
-</ul></div>
+<pre><code>- &lt;code&gt;fund&lt;/code&gt;: is an iterable (ex: list, tuple, iterator, generator)
+  in which each element will be also an iterable (with length) with
+  the following sub-elements (2 formats are possible)
+
+  &lt;code&gt;\[datetime, share\_value, net asset value]&lt;/code&gt;
+
+  **Note**: it must be sorted (or produce sorted elements) by
+    datetime ascending
+
+  where:
+
+    - &lt;code&gt;datetime&lt;/code&gt; is a python ``date/datetime`` instance or a string
+      with format YYYY-MM-DD[THH:MM:SS[.us]] where the elements in
+      brackets are optional
+    - &lt;code&gt;share\_value&lt;/code&gt; is an float/integer
+    - &lt;code&gt;net\_asset\_value&lt;/code&gt; is a float/integer
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

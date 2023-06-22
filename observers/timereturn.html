@@ -133,25 +133,27 @@ class TimeReturn(Observer):
 <div class="desc"><p>This observer stores the <em>returns</em> of the strategy.</p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>timeframe</code> (default: <code>None</code>)
+<li>
+<p><code>timeframe</code> (default: <code>None</code>)
 If <code>None</code> then the complete return over the entire backtested period
-will be reported</li>
-</ul>
+will be reported</p>
 <p>Pass <code>TimeFrame.NoTimeFrame</code> to consider the entire dataset with no
 time constraints</p>
-<ul>
-<li><code>compression</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>compression</code> (default: <code>None</code>)</p>
 <p>Only used for sub-day timeframes to for example work on an hourly
 timeframe by specifying "TimeFrame.Minutes" and 60 as compression</p>
-<ul>
-<li><code>fund</code> (default: <code>None</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>fund</code> (default: <code>None</code>)</p>
 <p>If <code>None</code> the actual mode of the broker (fundmode - True/False) will
 be autodetected to decide if the returns are based on the total net
 asset value or on the fund value. See <code>set_fundmode</code> in the broker
 documentation</p>
 <p>Set it to <code>True</code> or <code>False</code> for a specific behavior</p>
+</li>
+</ul>
 <p>Remember that at any moment of a <code>run</code> the current values can be checked
 by looking at the <em>lines</em> by name at index <code>0</code>.</p></div>
 <details class="source">

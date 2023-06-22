@@ -165,21 +165,23 @@ class CalendarDays(with_metaclass(metabase.MetaParams, object)):
 <div class="desc"><p>Bar Filler to add missing calendar days to trading days</p>
 <h2 id="params">Params</h2>
 <ul>
-<li>fill_price (def: None):</li>
-</ul>
+<li>
+<p>fill_price (def: None):</p>
 <blockquote>
 <p>0: The given value to fill
 0 or None: Use the last known closing price
 -1: Use the midpoint of the last bar (High-Low average)</p>
 </blockquote>
-<ul>
-<li>fill_vol (def: float('NaN')):</li>
-</ul>
+</li>
+<li>
+<p>fill_vol (def: float('NaN')):</p>
 <p>Value to use to fill the missing volume</p>
-<ul>
-<li>fill_oi (def: float('NaN')):</li>
-</ul>
-<p>Value to use to fill the missing Open Interest</p></div>
+</li>
+<li>
+<p>fill_oi (def: float('NaN')):</p>
+<p>Value to use to fill the missing Open Interest</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

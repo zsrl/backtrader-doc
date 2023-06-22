@@ -160,15 +160,17 @@ partition.</p>
 be used</p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>minmov</code> (default: <code>0.01</code>)</li>
-</ul>
+<li>
+<p><code>minmov</code> (default: <code>0.01</code>)</p>
 <p>Minimum price movement. Used to partition the range <em>high</em>-<em>low</em> to
 proportionally distribute the volume amongst possible prices</p>
-<ul>
-<li><code>perc</code> (default: <code>100.0</code>) (valied values: <code>0.0 - 100.0</code>)</li>
-</ul>
+</li>
+<li>
+<p><code>perc</code> (default: <code>100.0</code>) (valied values: <code>0.0 - 100.0</code>)</p>
 <p>Percentage of the volume allocated to the order execution price to use
-for matching</p></div>
+for matching</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -239,9 +241,11 @@ volume in a bar.</p>
 <p>This percentage is set with the parameter <code>perc</code></p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>perc</code> (default: <code>100.0</code>) (valied values: <code>0.0 - 100.0</code>)</li>
-</ul>
-<p>Percentage of the volume bar to use to execute an order</p></div>
+<li>
+<p><code>perc</code> (default: <code>100.0</code>) (valied values: <code>0.0 - 100.0</code>)</p>
+<p>Percentage of the volume bar to use to execute an order</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -292,13 +296,15 @@ volume in a bar.</p>
 <p>This percentage is set with the parameter <code>perc</code></p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>size</code> (default: <code>None</code>)
+<li>
+<p><code>size</code> (default: <code>None</code>)
 maximum size to be executed. The actual
 volume of the bar at execution time is also a limit if smaller than the
-size</li>
-</ul>
+size</p>
 <p>If the value of this parameter evaluates to False, the entire volume
-of the bar will be used to match the order</p></div>
+of the bar will be used to match the order</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

@@ -205,11 +205,10 @@ will of course eliminate the perfect alignment of Renko bricks.</p>
 <p><code>align</code> (default: <em>1.0</em>) Factor use to align the price boundaries of
 the bricks. If the price is for example <em>3563.25</em> and <em>align</em> is
 <em>10.0</em>, the resulting aligned price will be <em>3560</em>. The calculation:</p>
-<ul>
-<li>3563.25 / 10.0 = 356.325</li>
-<li>round it and remove the decimals -&gt; 356</li>
-<li>356 * 10.0 -&gt; 3560</li>
-</ul>
+<pre><code>- 3563.25 / 10.0 = 356.325
+- round it and remove the decimals -&gt; 356
+- 356 * 10.0 -&gt; 3560
+</code></pre>
 </li>
 <li>
 <p><code>roundstart</code> (default: <em>True</em>)

@@ -639,11 +639,10 @@ class _Bar(AutoOrderedDict):
 <div class="desc"><p>Wrapper for filters added via .addfilter to turn them
 into processors.</p>
 <p>Filters are callables which</p>
-<ul>
-<li>Take a <code>data</code> as an argument</li>
-<li>Return False if the current bar has not triggered the filter</li>
-<li>Return True if the current bar must be filtered</li>
-</ul>
+<pre><code>- Take a &lt;code&gt;data&lt;/code&gt; as an argument
+- Return False if the current bar has not triggered the filter
+- Return True if the current bar must be filtered
+</code></pre>
 <p>The wrapper takes the return value and executes the bar removal
 if needed be</p></div>
 <details class="source">

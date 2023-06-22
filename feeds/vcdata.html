@@ -638,24 +638,22 @@ class VCData(with_metaclass(MetaVCData, DataBase)):
 </code></dt>
 <dd>
 <div class="desc"><p>Dirty job manager for a LineSeries</p>
-<ul>
-<li>
-<p>During <strong>new</strong> (class creation), it reads "lines", "plotinfo",
-"plotlines" class variable definitions and turns them into
-Classes of type Lines or AutoClassInfo (plotinfo/plotlines)</p>
-</li>
-<li>
-<p>During "new" (instance creation) the lines/plotinfo/plotlines
-classes are substituted in the instance with instances of the
-aforementioned classes and aliases are added for the "lines" held
-in the "lines" instance</p>
-<p>Additionally and for remaining kwargs, these are matched against
-args in plotinfo and if existent are set there and removed from kwargs</p>
-<p>Remember that this Metaclass has a MetaParams (from metabase)
-as root class and therefore "params" defined for the class have been
-removed from kwargs at an earlier state</p>
-</li>
-</ul>
+<pre><code>- During __new__ (class creation), it reads "lines", "plotinfo",
+  "plotlines" class variable definitions and turns them into
+  Classes of type Lines or AutoClassInfo (plotinfo/plotlines)
+
+- During "new" (instance creation) the lines/plotinfo/plotlines
+  classes are substituted in the instance with instances of the
+  aforementioned classes and aliases are added for the "lines" held
+  in the "lines" instance
+
+  Additionally and for remaining kwargs, these are matched against
+  args in plotinfo and if existent are set there and removed from kwargs
+
+  Remember that this Metaclass has a MetaParams (from metabase)
+  as root class and therefore "params" defined for the class have been
+  removed from kwargs at an earlier state
+</code></pre>
 <p>Class has already been created &hellip; register</p></div>
 <details class="source">
 <summary>
@@ -696,32 +694,32 @@ removed from kwargs at an earlier state</p>
 <div class="desc"><p>VisualChart Data Feed.</p>
 <h2 id="params">Params</h2>
 <ul>
-<li><code>qcheck</code> (default: <code>0.5</code>)
+<li>
+<p><code>qcheck</code> (default: <code>0.5</code>)
 Default timeout for waking up to let a resampler/replayer that the
-current bar can be check for due delivery</li>
-</ul>
+current bar can be check for due delivery</p>
 <p>The value is only used if a resampling/replaying filter has been
 inserted in the data</p>
-<ul>
-<li><code>historical</code> (default: <code>False</code>)
+</li>
+<li>
+<p><code>historical</code> (default: <code>False</code>)
 If no <code>todate</code> parameter is supplied (defined in the base class),
-this will force a historical only download if set to <code>True</code></li>
-</ul>
+this will force a historical only download if set to <code>True</code></p>
 <p>If <code>todate</code> is supplied the same effect is achieved</p>
-<ul>
-<li><code>milliseconds</code> (default: <code>True</code>)
+</li>
+<li>
+<p><code>milliseconds</code> (default: <code>True</code>)
 The bars constructed by <em>Visual Chart</em> have this aspect:
-HH:MM:59.999000</li>
-</ul>
+HH:MM:59.999000</p>
 <p>If this parameter is <code>True</code> a millisecond will be added to this time
 to make it look like: HH::MM + 1:00.000000</p>
-<ul>
+</li>
 <li>
 <p><code>tradename</code> (default: <code>None</code>)
 Continous futures cannot be traded but are ideal for data tracking. If
 this parameter is supplied it will be the name of the current future
 which will be the trading asset. Example:</p>
-</li>
+<ul>
 <li>
 <p>001ES -&gt; ES-Mini continuous supplied as <code>dataname</code></p>
 </li>
@@ -729,19 +727,21 @@ which will be the trading asset. Example:</p>
 <p>ESU16 -&gt; ES-Mini 2016-09. If this is supplied in <code>tradename</code> it
 will be the trading asset.</p>
 </li>
+</ul>
+</li>
 <li>
 <p><code>usetimezones</code> (default: <code>True</code>)
 For most markets the time offset information provided by <em>Visual Chart</em>
 allows for datetime to be converted to market time (<em>backtrader</em> choice
 for representation)</p>
-</li>
-</ul>
 <p>Some markets are special (<code>096</code>) and need special internal coverage
 and timezone support to display in the user expected market time.</p>
 <p>If this parameter is set to <code>True</code> importing <code>pytz</code> will be
 attempted to use timezones (default)</p>
 <p>Disabling it will remove timezone usage (may help if the load is
-excesive)</p></div>
+excesive)</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

@@ -143,25 +143,21 @@ class HurstExponent(PeriodN):
 <li><a href="https://www.quantopian.com/posts/some-code-from-ernie-chans-new-book-implemented-in-python">https://www.quantopian.com/posts/some-code-from-ernie-chans-new-book-implemented-in-python</a></li>
 </ul>
 <p>Interpretation of the results</p>
-<ol>
-<li>Geometric random walk (H=0.5)</li>
-<li>Mean-reverting series (H&lt;0.5)</li>
-<li>Trending Series (H&gt;0.5)</li>
-</ol>
+<pre><code> 1. Geometric random walk (H=0.5)
+ 2. Mean-reverting series (H&lt;0.5)
+ 3. Trending Series (H&gt;0.5)
+</code></pre>
 <p>Important notes:</p>
-<ul>
-<li>
-<p>The default period is <code>40</code>, but experimentation by users has shown
-that it would be advisable to have at least 2000 samples (i.e.: a
-period of at least 2000) to have stable values.</p>
-</li>
-<li>
-<p>The <code>lag_start</code> and <code>lag_end</code> values will default to be <code>2</code> and
-<code>self.p.period / 2</code> unless the parameters are specified.</p>
-<p>Experimentation by users has also shown that values of around <code>10</code>
-and <code>500</code> produce good results</p>
-</li>
-</ul>
+<pre><code> - The default period is &lt;code&gt;40&lt;/code&gt;, but experimentation by users has shown
+   that it would be advisable to have at least 2000 samples (i.e.: a
+   period of at least 2000) to have stable values.
+
+ - The &lt;code&gt;lag\_start&lt;/code&gt; and &lt;code&gt;lag\_end&lt;/code&gt; values will default to be &lt;code&gt;2&lt;/code&gt; and
+   ``self.p.period / 2`` unless the parameters are specified.
+
+   Experimentation by users has also shown that values of around &lt;code&gt;10&lt;/code&gt;
+   and &lt;code&gt;500&lt;/code&gt; produce good results
+</code></pre>
 <p>The original values (40, 2, self.p.period / 2) are kept for backwards
 compatibility</p></div>
 <h3>Ancestors</h3>
@@ -250,25 +246,21 @@ compatibility</p></div>
 <li><a href="https://www.quantopian.com/posts/some-code-from-ernie-chans-new-book-implemented-in-python">https://www.quantopian.com/posts/some-code-from-ernie-chans-new-book-implemented-in-python</a></li>
 </ul>
 <p>Interpretation of the results</p>
-<ol>
-<li>Geometric random walk (H=0.5)</li>
-<li>Mean-reverting series (H&lt;0.5)</li>
-<li>Trending Series (H&gt;0.5)</li>
-</ol>
+<pre><code> 1. Geometric random walk (H=0.5)
+ 2. Mean-reverting series (H&lt;0.5)
+ 3. Trending Series (H&gt;0.5)
+</code></pre>
 <p>Important notes:</p>
-<ul>
-<li>
-<p>The default period is <code>40</code>, but experimentation by users has shown
-that it would be advisable to have at least 2000 samples (i.e.: a
-period of at least 2000) to have stable values.</p>
-</li>
-<li>
-<p>The <code>lag_start</code> and <code>lag_end</code> values will default to be <code>2</code> and
-<code>self.p.period / 2</code> unless the parameters are specified.</p>
-<p>Experimentation by users has also shown that values of around <code>10</code>
-and <code>500</code> produce good results</p>
-</li>
-</ul>
+<pre><code> - The default period is &lt;code&gt;40&lt;/code&gt;, but experimentation by users has shown
+   that it would be advisable to have at least 2000 samples (i.e.: a
+   period of at least 2000) to have stable values.
+
+ - The &lt;code&gt;lag\_start&lt;/code&gt; and &lt;code&gt;lag\_end&lt;/code&gt; values will default to be &lt;code&gt;2&lt;/code&gt; and
+   ``self.p.period / 2`` unless the parameters are specified.
+
+   Experimentation by users has also shown that values of around &lt;code&gt;10&lt;/code&gt;
+   and &lt;code&gt;500&lt;/code&gt; produce good results
+</code></pre>
 <p>The original values (40, 2, self.p.period / 2) are kept for backwards
 compatibility</p></div>
 <details class="source">

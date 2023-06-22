@@ -129,26 +129,25 @@ class SQN(Analyzer):
 <dd>
 <div class="desc"><p>SQN or SystemQualityNumber. Defined by Van K. Tharp to categorize trading
 systems.</p>
-<ul>
-<li>1.6 - 1.9 Below average</li>
-<li>2.0 - 2.4 Average</li>
-<li>2.5 - 2.9 Good</li>
-<li>3.0 - 5.0 Excellent</li>
-<li>5.1 - 6.9 Superb</li>
-<li>7.0 -
-Holy Grail?</li>
-</ul>
+<pre><code>- 1.6 - 1.9 Below average
+- 2.0 - 2.4 Average
+- 2.5 - 2.9 Good
+- 3.0 - 5.0 Excellent
+- 5.1 - 6.9 Superb
+- 7.0 -     Holy Grail?
+</code></pre>
 <p>The formula:</p>
-<ul>
-<li>SquareRoot(NumberTrades) * Average(TradesProfit) / StdDev(TradesProfit)</li>
-</ul>
+<pre><code>- SquareRoot(NumberTrades) * Average(TradesProfit) / StdDev(TradesProfit)
+</code></pre>
 <p>The sqn value should be deemed reliable when the number of trades &gt;= 30</p>
 <h2 id="methods">Methods</h2>
 <ul>
-<li>get_analysis</li>
-</ul>
+<li>
+<p>get_analysis</p>
 <p>Returns a dictionary with keys "sqn" and "trades" (number of
-considered trades)</p></div>
+considered trades)</p>
+</li>
+</ul></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>

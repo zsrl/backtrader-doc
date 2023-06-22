@@ -941,40 +941,38 @@ daily bar from tick/seconds/minutes data</p>
 <p>Only when the bar is complete will the "length" of the data be changed
 effectively delivering a closed bar</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>replays using time boundaries as the target of the closed bar. For
-example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
-be aligned to xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: False)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note:&ensp;if this parameter is True an extra tick with the <em>adjusted</em></p>
-<p>time will be introduced at the end of the <em>replayed</em> bar</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  replays using time boundaries as the target of the closed bar. For
+  example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
+  be aligned to xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: False)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+  !!! note "Note:&amp;ensp;if this parameter is True an extra tick with the *adjusted*"
+      time will be introduced at the end of the *replayed* bar
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1162,40 +1160,38 @@ daily bar from tick/seconds/minutes data</p>
 <p>Only when the bar is complete will the "length" of the data be changed
 effectively delivering a closed bar</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>replays using time boundaries as the target of the closed bar. For
-example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
-be aligned to xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: False)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note:&ensp;if this parameter is True an extra tick with the <em>adjusted</em></p>
-<p>time will be introduced at the end of the <em>replayed</em> bar</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  replays using time boundaries as the target of the closed bar. For
+  example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
+  be aligned to xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: False)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+  !!! note "Note:&amp;ensp;if this parameter is True an extra tick with the *adjusted*"
+      time will be introduced at the end of the *replayed* bar
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1235,40 +1231,38 @@ daily bar from tick/seconds/minutes data</p>
 <p>Only when the bar is complete will the "length" of the data be changed
 effectively delivering a closed bar</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>replays using time boundaries as the target of the closed bar. For
-example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
-be aligned to xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: False)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note:&ensp;if this parameter is True an extra tick with the <em>adjusted</em></p>
-<p>time will be introduced at the end of the <em>replayed</em> bar</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  replays using time boundaries as the target of the closed bar. For
+  example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
+  be aligned to xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: False)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+  !!! note "Note:&amp;ensp;if this parameter is True an extra tick with the *adjusted*"
+      time will be introduced at the end of the *replayed* bar
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1308,40 +1302,38 @@ daily bar from tick/seconds/minutes data</p>
 <p>Only when the bar is complete will the "length" of the data be changed
 effectively delivering a closed bar</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>replays using time boundaries as the target of the closed bar. For
-example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
-be aligned to xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: False)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note:&ensp;if this parameter is True an extra tick with the <em>adjusted</em></p>
-<p>time will be introduced at the end of the <em>replayed</em> bar</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  replays using time boundaries as the target of the closed bar. For
+  example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
+  be aligned to xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: False)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+  !!! note "Note:&amp;ensp;if this parameter is True an extra tick with the *adjusted*"
+      time will be introduced at the end of the *replayed* bar
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1381,40 +1373,38 @@ daily bar from tick/seconds/minutes data</p>
 <p>Only when the bar is complete will the "length" of the data be changed
 effectively delivering a closed bar</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>replays using time boundaries as the target of the closed bar. For
-example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
-be aligned to xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: False)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note:&ensp;if this parameter is True an extra tick with the <em>adjusted</em></p>
-<p>time will be introduced at the end of the <em>replayed</em> bar</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  replays using time boundaries as the target of the closed bar. For
+  example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
+  be aligned to xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: False)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+  !!! note "Note:&amp;ensp;if this parameter is True an extra tick with the *adjusted*"
+      time will be introduced at the end of the *replayed* bar
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1454,40 +1444,38 @@ daily bar from tick/seconds/minutes data</p>
 <p>Only when the bar is complete will the "length" of the data be changed
 effectively delivering a closed bar</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>replays using time boundaries as the target of the closed bar. For
-example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
-be aligned to xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: False)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note:&ensp;if this parameter is True an extra tick with the <em>adjusted</em></p>
-<p>time will be introduced at the end of the <em>replayed</em> bar</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  replays using time boundaries as the target of the closed bar. For
+  example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
+  be aligned to xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: False)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+  !!! note "Note:&amp;ensp;if this parameter is True an extra tick with the *adjusted*"
+      time will be introduced at the end of the *replayed* bar
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1527,40 +1515,38 @@ daily bar from tick/seconds/minutes data</p>
 <p>Only when the bar is complete will the "length" of the data be changed
 effectively delivering a closed bar</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>replays using time boundaries as the target of the closed bar. For
-example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
-be aligned to xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: False)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note:&ensp;if this parameter is True an extra tick with the <em>adjusted</em></p>
-<p>time will be introduced at the end of the <em>replayed</em> bar</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  replays using time boundaries as the target of the closed bar. For
+  example with a "ticks -&gt; 5 seconds" the resulting 5 seconds bars will
+  be aligned to xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: False)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+  !!! note "Note:&amp;ensp;if this parameter is True an extra tick with the *adjusted*"
+      time will be introduced at the end of the *replayed* bar
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1596,36 +1582,35 @@ boundary)</p>
 <dd>
 <div class="desc"><p>This class resamples data of a given timeframe to a larger timeframe.</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>resamples using time boundaries as the target. For example with a
-"ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
-xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: True)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  resamples using time boundaries as the target. For example with a
+  "ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
+  xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: True)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1831,36 +1816,35 @@ delivered</p></div>
 <dd>
 <div class="desc"><p>This class resamples data of a given timeframe to a larger timeframe.</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>resamples using time boundaries as the target. For example with a
-"ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
-xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: True)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  resamples using time boundaries as the target. For example with a
+  "ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
+  xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: True)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1904,36 +1888,35 @@ boundary)</p>
 <dd>
 <div class="desc"><p>This class resamples data of a given timeframe to a larger timeframe.</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>resamples using time boundaries as the target. For example with a
-"ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
-xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: True)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  resamples using time boundaries as the target. For example with a
+  "ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
+  xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: True)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1977,36 +1960,35 @@ boundary)</p>
 <dd>
 <div class="desc"><p>This class resamples data of a given timeframe to a larger timeframe.</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>resamples using time boundaries as the target. For example with a
-"ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
-xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: True)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  resamples using time boundaries as the target. For example with a
+  "ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
+  xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: True)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2050,36 +2032,35 @@ boundary)</p>
 <dd>
 <div class="desc"><p>This class resamples data of a given timeframe to a larger timeframe.</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>resamples using time boundaries as the target. For example with a
-"ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
-xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: True)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  resamples using time boundaries as the target. For example with a
+  "ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
+  xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: True)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2123,36 +2104,35 @@ boundary)</p>
 <dd>
 <div class="desc"><p>This class resamples data of a given timeframe to a larger timeframe.</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>resamples using time boundaries as the target. For example with a
-"ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
-xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: True)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  resamples using time boundaries as the target. For example with a
+  "ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
+  xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: True)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2196,36 +2176,35 @@ boundary)</p>
 <dd>
 <div class="desc"><p>This class resamples data of a given timeframe to a larger timeframe.</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>resamples using time boundaries as the target. For example with a
-"ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
-xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: True)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  resamples using time boundaries as the target. For example with a
+  "ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
+  xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: True)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2269,36 +2248,35 @@ boundary)</p>
 <dd>
 <div class="desc"><p>This class resamples data of a given timeframe to a larger timeframe.</p>
 <p>Params</p>
-<ul>
-<li>
-<p>bar2edge (default: True)</p>
-<p>resamples using time boundaries as the target. For example with a
-"ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
-xx:00, xx:05, xx:10 &hellip;</p>
-</li>
-<li>
-<p>adjbartime (default: True)</p>
-<p>Use the time at the boundary to adjust the time of the delivered
-resampled bar instead of the last seen timestamp. If resampling to "5
-seconds" the time of the bar will be adjusted for example to hh:mm:05
-even if the last seen timestamp was hh:mm:04.33</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Time will only be adjusted if "bar2edge" is True. It wouldn't make
-sense to adjust the time if the bar has not been aligned to a
-boundary</p>
-</div>
-</li>
-<li>
-<p>rightedge (default: True)</p>
-<p>Use the right edge of the time boundaries to set the time.</p>
-<p>If False and compressing to 5 seconds the time of a resampled bar for
-seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
-boundary</p>
-<p>If True the used boundary for the time will be hh:mm:05 (the ending
-boundary)</p>
-</li>
-</ul></div>
+<pre><code>- bar2edge (default: True)
+
+  resamples using time boundaries as the target. For example with a
+  "ticks -&gt; 5 seconds" the resulting 5 seconds bars will be aligned to
+  xx:00, xx:05, xx:10 ...
+
+- adjbartime (default: True)
+
+  Use the time at the boundary to adjust the time of the delivered
+  resampled bar instead of the last seen timestamp. If resampling to "5
+  seconds" the time of the bar will be adjusted for example to hh:mm:05
+  even if the last seen timestamp was hh:mm:04.33
+
+  !!! note "Note"
+      Time will only be adjusted if "bar2edge" is True. It wouldn't make
+      sense to adjust the time if the bar has not been aligned to a
+      boundary
+
+- rightedge (default: True)
+
+  Use the right edge of the time boundaries to set the time.
+
+  If False and compressing to 5 seconds the time of a resampled bar for
+  seconds between hh:mm:00 and hh:mm:04 will be hh:mm:00 (the starting
+  boundary
+
+  If True the used boundary for the time will be hh:mm:05 (the ending
+  boundary)
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
